@@ -9,10 +9,10 @@ Components of this program may be licensed under more restrictive licenses which
 [INFO ODB-0225]     Created 212 library cells
 [INFO ODB-0226] Finished LEF file:  /__w/halutmatmul/halutmatmul/hardware/flow/OpenROAD/flow/platforms/asap7/lef/asap7sc7p5t_27_R_1x_201211.lef
 [WARNING STA-0337] port 'clk' not found.
-number instances in verilog is 1030
+number instances in verilog is 709
 [WARNING IFP-0028] Core area lower left (2.000, 2.000) snapped to (2.052, 2.160).
 [INFO IFP-0001] Added 95 rows of 480 sites.
-[INFO RSZ-0026] Removed 80 buffers.
+[INFO RSZ-0026] Removed 40 buffers.
 Default units for flow
  time 1ps
  capacitance 1fF
@@ -35,7 +35,7 @@ wns 0.00
 ==========================================================================
 floorplan final report_worst_slack
 --------------------------------------------------------------------------
-worst slack 608.95
+worst slack 582.96
 
 ==========================================================================
 floorplan final report_clock_skew
@@ -47,24 +47,24 @@ No launch/capture paths found.
 ==========================================================================
 floorplan final report_checks -path_delay min
 --------------------------------------------------------------------------
-Startpoint: _1630_ (positive level-sensitive latch)
-Endpoint: rdata_b_o[2] (output port clocked by clk)
+Startpoint: _0815_ (positive level-sensitive latch)
+Endpoint: rdata_a_o[5] (output port clocked by clk)
 Path Group: clk
 Path Type: min
 
 Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
-                 54.32    0.00    0.00 ^ _1630_/CLK (DHLx1_ASAP7_75t_R)
-                 12.77   48.38   48.38 ^ _1630_/Q (DHLx1_ASAP7_75t_R)
-     2    0.78                           mem[5][2] (net)
-                 12.77    0.00   48.38 ^ _0799_/A1 (AO21x1_ASAP7_75t_R)
-                  7.13   17.12   65.49 ^ _0799_/Y (AO21x1_ASAP7_75t_R)
-     1    0.42                           _0226_ (net)
-                  7.13    0.00   65.49 ^ _0803_/C (OR4x1_ASAP7_75t_R)
-                  3.64   12.12   77.61 ^ _0803_/Y (OR4x1_ASAP7_75t_R)
-     1    0.00                           rdata_b_o[2] (net)
-                  3.64    0.00   77.61 ^ rdata_b_o[2] (out)
-                                 77.61   data arrival time
+                 54.32    0.00    0.00 ^ _0815_/CLK (DHLx1_ASAP7_75t_R)
+                  8.34   45.76   45.76 ^ _0815_/Q (DHLx1_ASAP7_75t_R)
+     1    0.26                           mem[13][5] (net)
+                  8.34    0.00   45.76 ^ _0536_/B2 (AO22x1_ASAP7_75t_R)
+                  9.01   18.86   64.63 ^ _0536_/Y (AO22x1_ASAP7_75t_R)
+     1    0.37                           _0194_ (net)
+                  9.01    0.00   64.63 ^ _0553_/B (OR4x1_ASAP7_75t_R)
+                  3.64   12.33   76.96 ^ _0553_/Y (OR4x1_ASAP7_75t_R)
+     1    0.00                           rdata_a_o[5] (net)
+                  3.64    0.00   76.96 ^ rdata_a_o[5] (out)
+                                 76.96   data arrival time
 
                   0.00    0.00    0.00   clock clk (rise edge)
                           0.00    0.00   clock network delay (ideal)
@@ -73,17 +73,17 @@ Fanout     Cap    Slew   Delay    Time   Description
                                -100.00   data required time
 -----------------------------------------------------------------------------
                                -100.00   data required time
-                                -77.61   data arrival time
+                                -76.96   data arrival time
 -----------------------------------------------------------------------------
-                                177.61   slack (MET)
+                                176.96   slack (MET)
 
 
 
 ==========================================================================
 floorplan final report_checks -path_delay max
 --------------------------------------------------------------------------
-Startpoint: raddr_b_i[3] (input port clocked by clk)
-Endpoint: rdata_b_o[2] (output port clocked by clk)
+Startpoint: raddr_a_i[3] (input port clocked by clk)
+Endpoint: rdata_a_o[5] (output port clocked by clk)
 Path Group: clk
 Path Type: max
 
@@ -92,25 +92,25 @@ Fanout     Cap    Slew   Delay    Time   Description
                   0.00    0.00    0.00   clock clk (rise edge)
                           0.00    0.00   clock network delay (ideal)
                         100.00  100.00 ^ input external delay
-                  0.00    0.00  100.00 ^ raddr_b_i[3] (in)
-    43   23.38                           raddr_b_i[3] (net)
-                  0.00    0.00  100.00 ^ _0713_/A (INVx2_ASAP7_75t_R)
-                 73.78   36.93  136.93 v _0713_/Y (INVx2_ASAP7_75t_R)
-    40   21.64                           _0142_ (net)
-                 73.78    0.00  136.93 v _0787_/B (AND3x2_ASAP7_75t_R)
-                 28.50   46.30  183.23 v _0787_/Y (AND3x2_ASAP7_75t_R)
-    13    7.05                           _0214_ (net)
-                 28.50    0.00  183.23 v _0792_/A2 (AO222x2_ASAP7_75t_R)
-                 12.31   45.90  229.13 v _0792_/Y (AO222x2_ASAP7_75t_R)
-     1    0.48                           _0219_ (net)
-                 12.31    0.00  229.13 v _0793_/C (AO221x1_ASAP7_75t_R)
-                 11.56   30.30  259.44 v _0793_/Y (AO221x1_ASAP7_75t_R)
-     1    0.55                           _0220_ (net)
-                 11.56    0.00  259.44 v _0803_/B (OR4x1_ASAP7_75t_R)
-                  8.91   31.62  291.05 v _0803_/Y (OR4x1_ASAP7_75t_R)
-     1    0.00                           rdata_b_o[2] (net)
-                  8.91    0.00  291.05 v rdata_b_o[2] (out)
-                                291.05   data arrival time
+                  0.00    0.00  100.00 ^ raddr_a_i[3] (in)
+    42   21.55                           raddr_a_i[3] (net)
+                  0.00    0.00  100.00 ^ _0398_/A (INVx1_ASAP7_75t_R)
+                115.80   57.73  157.73 v _0398_/Y (INVx1_ASAP7_75t_R)
+    32   17.16                           _0061_ (net)
+                115.80    0.00  157.73 v _0467_/A (AND2x2_ASAP7_75t_R)
+                 43.85   67.09  224.82 v _0467_/Y (AND2x2_ASAP7_75t_R)
+    23   11.24                           _0129_ (net)
+                 43.85    0.00  224.82 v _0539_/B (OA21x2_ASAP7_75t_R)
+                  8.52   27.36  252.18 v _0539_/Y (OA21x2_ASAP7_75t_R)
+     1    0.59                           _0197_ (net)
+                  8.52    0.00  252.18 v _0549_/A (OR4x1_ASAP7_75t_R)
+                 12.82   31.34  283.52 v _0549_/Y (OR4x1_ASAP7_75t_R)
+     1    0.55                           _0207_ (net)
+                 12.82    0.00  283.52 v _0553_/C (OR4x1_ASAP7_75t_R)
+                  8.91   33.52  317.04 v _0553_/Y (OR4x1_ASAP7_75t_R)
+     1    0.00                           rdata_a_o[5] (net)
+                  8.91    0.00  317.04 v rdata_a_o[5] (out)
+                                317.04   data arrival time
 
                   0.00 1000.00 1000.00   clock clk (rise edge)
                           0.00 1000.00   clock network delay (ideal)
@@ -119,17 +119,17 @@ Fanout     Cap    Slew   Delay    Time   Description
                                 900.00   data required time
 -----------------------------------------------------------------------------
                                 900.00   data required time
-                               -291.05   data arrival time
+                               -317.04   data arrival time
 -----------------------------------------------------------------------------
-                                608.95   slack (MET)
+                                582.96   slack (MET)
 
 
 
 ==========================================================================
 floorplan final report_checks -unconstrained
 --------------------------------------------------------------------------
-Startpoint: raddr_b_i[3] (input port clocked by clk)
-Endpoint: rdata_b_o[2] (output port clocked by clk)
+Startpoint: raddr_a_i[3] (input port clocked by clk)
+Endpoint: rdata_a_o[5] (output port clocked by clk)
 Path Group: clk
 Path Type: max
 
@@ -138,25 +138,25 @@ Fanout     Cap    Slew   Delay    Time   Description
                   0.00    0.00    0.00   clock clk (rise edge)
                           0.00    0.00   clock network delay (ideal)
                         100.00  100.00 ^ input external delay
-                  0.00    0.00  100.00 ^ raddr_b_i[3] (in)
-    43   23.38                           raddr_b_i[3] (net)
-                  0.00    0.00  100.00 ^ _0713_/A (INVx2_ASAP7_75t_R)
-                 73.78   36.93  136.93 v _0713_/Y (INVx2_ASAP7_75t_R)
-    40   21.64                           _0142_ (net)
-                 73.78    0.00  136.93 v _0787_/B (AND3x2_ASAP7_75t_R)
-                 28.50   46.30  183.23 v _0787_/Y (AND3x2_ASAP7_75t_R)
-    13    7.05                           _0214_ (net)
-                 28.50    0.00  183.23 v _0792_/A2 (AO222x2_ASAP7_75t_R)
-                 12.31   45.90  229.13 v _0792_/Y (AO222x2_ASAP7_75t_R)
-     1    0.48                           _0219_ (net)
-                 12.31    0.00  229.13 v _0793_/C (AO221x1_ASAP7_75t_R)
-                 11.56   30.30  259.44 v _0793_/Y (AO221x1_ASAP7_75t_R)
-     1    0.55                           _0220_ (net)
-                 11.56    0.00  259.44 v _0803_/B (OR4x1_ASAP7_75t_R)
-                  8.91   31.62  291.05 v _0803_/Y (OR4x1_ASAP7_75t_R)
-     1    0.00                           rdata_b_o[2] (net)
-                  8.91    0.00  291.05 v rdata_b_o[2] (out)
-                                291.05   data arrival time
+                  0.00    0.00  100.00 ^ raddr_a_i[3] (in)
+    42   21.55                           raddr_a_i[3] (net)
+                  0.00    0.00  100.00 ^ _0398_/A (INVx1_ASAP7_75t_R)
+                115.80   57.73  157.73 v _0398_/Y (INVx1_ASAP7_75t_R)
+    32   17.16                           _0061_ (net)
+                115.80    0.00  157.73 v _0467_/A (AND2x2_ASAP7_75t_R)
+                 43.85   67.09  224.82 v _0467_/Y (AND2x2_ASAP7_75t_R)
+    23   11.24                           _0129_ (net)
+                 43.85    0.00  224.82 v _0539_/B (OA21x2_ASAP7_75t_R)
+                  8.52   27.36  252.18 v _0539_/Y (OA21x2_ASAP7_75t_R)
+     1    0.59                           _0197_ (net)
+                  8.52    0.00  252.18 v _0549_/A (OR4x1_ASAP7_75t_R)
+                 12.82   31.34  283.52 v _0549_/Y (OR4x1_ASAP7_75t_R)
+     1    0.55                           _0207_ (net)
+                 12.82    0.00  283.52 v _0553_/C (OR4x1_ASAP7_75t_R)
+                  8.91   33.52  317.04 v _0553_/Y (OR4x1_ASAP7_75t_R)
+     1    0.00                           rdata_a_o[5] (net)
+                  8.91    0.00  317.04 v rdata_a_o[5] (out)
+                                317.04   data arrival time
 
                   0.00 1000.00 1000.00   clock clk (rise edge)
                           0.00 1000.00   clock network delay (ideal)
@@ -165,9 +165,9 @@ Fanout     Cap    Slew   Delay    Time   Description
                                 900.00   data required time
 -----------------------------------------------------------------------------
                                 900.00   data required time
-                               -291.05   data arrival time
+                               -317.04   data arrival time
 -----------------------------------------------------------------------------
-                                608.95   slack (MET)
+                                582.96   slack (MET)
 
 
 
@@ -177,18 +177,18 @@ floorplan final report_power
 Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
-Sequential             3.03e-05   1.09e-05   3.94e-08   4.12e-05  42.0%
-Combinational          3.50e-05   2.18e-05   9.90e-08   5.68e-05  58.0%
+Sequential             3.19e-05   5.92e-06   4.19e-08   3.79e-05  53.9%
+Combinational          1.96e-05   1.28e-05   5.31e-08   3.24e-05  46.1%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  6.53e-05   3.27e-05   1.38e-07   9.81e-05 100.0%
-                          66.6%      33.3%       0.1%
+Total                  5.16e-05   1.87e-05   9.49e-08   7.04e-05 100.0%
+                          73.3%      26.5%       0.1%
 
 ==========================================================================
 floorplan final report_design_area
 --------------------------------------------------------------------------
-Design area 147 u^2 22% utilization.
+Design area 110 u^2 17% utilization.
 Core area = 664848000
 
-Elapsed time: 0:01.84[h:]min:sec. CPU time: user 1.61 sys 0.08 (91%). Peak memory: 187184KB.
+Elapsed time: 0:02.41[h:]min:sec. CPU time: user 2.07 sys 0.14 (92%). Peak memory: 186412KB.
