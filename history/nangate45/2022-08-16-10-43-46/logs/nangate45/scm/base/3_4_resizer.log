@@ -1,0 +1,815 @@
+OpenROAD b57893514040c5aa453ab5c104f35d1173a8add9 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.00
+
+==========================================================================
+resizer pre report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+Latency      CRPR       Skew
+_46378_/CK ^
+   0.13
+_46378_/CK ^
+   0.08      0.00       0.05
+
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _46380_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+    16   36.54                           rst_ni (net)
+                  0.00    0.00  100.00 ^ _46380_/RN (DFFR_X1)
+                                100.00   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _46380_/CK (DFFR_X1)
+                          0.18    0.18   library removal time
+                                  0.18   data required time
+-----------------------------------------------------------------------------
+                                  0.18   data required time
+                               -100.00   data arrival time
+-----------------------------------------------------------------------------
+                                 99.82   slack (MET)
+
+
+Startpoint: _38754_ (negative level-sensitive latch clocked by clk)
+Endpoint: _37747_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _38754_/GN (DLL_X1)
+                  0.01    0.04  500.04 ^ _38754_/Q (DLL_X1)
+     1    0.98                           gen_sub_units_scm[12].sub_unit_i.gen_cg_word_iter[24].cg_i.en_latch (net)
+                  0.01    0.00  500.04 ^ _37747_/A2 (AND2_X1)
+                                500.04   data arrival time
+
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                          0.00  500.00   clock reconvergence pessimism
+                                500.00 v _37747_/A1 (AND2_X1)
+                          0.00  500.00   clock gating hold time
+                                500.00   data required time
+-----------------------------------------------------------------------------
+                                500.00   data required time
+                               -500.04   data arrival time
+-----------------------------------------------------------------------------
+                                  0.04   slack (MET)
+
+
+Startpoint: _46385_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _46385_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _46385_/CK (DFFR_X1)
+                  0.82    0.90    0.90 v _46385_/Q (DFFR_X1)
+   513  858.75                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[7] (net)
+                  0.82    0.00    0.90 v _38340_/A (MUX2_X1)
+                  0.01    0.28    1.19 v _38340_/Z (MUX2_X1)
+     1    1.29                           _00007_ (net)
+                  0.01    0.00    1.19 v _46385_/D (DFFR_X1)
+                                  1.19   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _46385_/CK (DFFR_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -1.19   data arrival time
+-----------------------------------------------------------------------------
+                                  1.18   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _46378_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+    16   36.54                           rst_ni (net)
+                  0.00    0.00  100.00 ^ _46378_/RN (DFFR_X1)
+                                100.00   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _46378_/CK (DFFR_X1)
+                          0.05 1000.05   library recovery time
+                               1000.05   data required time
+-----------------------------------------------------------------------------
+                               1000.05   data required time
+                               -100.00   data arrival time
+-----------------------------------------------------------------------------
+                                900.05   slack (MET)
+
+
+Startpoint: _42562_ (negative level-sensitive latch clocked by clk)
+Endpoint: _37999_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _42562_/GN (DLL_X1)
+                  0.01    0.07  500.07 v _42562_/Q (DLL_X1)
+     1    3.14                           gen_sub_units_scm[3].sub_unit_i.gen_cg_word_iter[31].cg_i.en_latch (net)
+                  0.01    0.00  500.07 v _37999_/A2 (AND2_X1)
+                                500.07   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _37999_/A1 (AND2_X1)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -500.07   data arrival time
+-----------------------------------------------------------------------------
+                                499.93   slack (MET)
+
+
+Startpoint: _46387_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _38436_ (positive level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _46387_/CK (DFFR_X1)
+                  1.96    2.12    2.12 ^ _46387_/Q (DFFR_X1)
+   513  916.46                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[9] (net)
+                  2.01    0.36    2.48 ^ _38436_/D (DLH_X1)
+                                  2.48   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _38436_/G (DLH_X1)
+                          2.48    2.48   time borrowed from endpoint
+                                  2.48   data required time
+-----------------------------------------------------------------------------
+                                  2.48   data required time
+                                 -2.48   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk pulse width                       500.00
+library setup time                     -0.22
+--------------------------------------------
+max time borrow                       499.78
+actual time borrow                      2.48
+--------------------------------------------
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _46378_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+    16   36.54                           rst_ni (net)
+                  0.00    0.00  100.00 ^ _46378_/RN (DFFR_X1)
+                                100.00   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _46378_/CK (DFFR_X1)
+                          0.05 1000.05   library recovery time
+                               1000.05   data required time
+-----------------------------------------------------------------------------
+                               1000.05   data required time
+                               -100.00   data arrival time
+-----------------------------------------------------------------------------
+                                900.05   slack (MET)
+
+
+Startpoint: _42562_ (negative level-sensitive latch clocked by clk)
+Endpoint: _37999_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _42562_/GN (DLL_X1)
+                  0.01    0.07  500.07 v _42562_/Q (DLL_X1)
+     1    3.14                           gen_sub_units_scm[3].sub_unit_i.gen_cg_word_iter[31].cg_i.en_latch (net)
+                  0.01    0.00  500.07 v _37999_/A2 (AND2_X1)
+                                500.07   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _37999_/A1 (AND2_X1)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -500.07   data arrival time
+-----------------------------------------------------------------------------
+                                499.93   slack (MET)
+
+
+Startpoint: _46387_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _38436_ (positive level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _46387_/CK (DFFR_X1)
+                  1.96    2.12    2.12 ^ _46387_/Q (DFFR_X1)
+   513  916.46                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[9] (net)
+                  2.01    0.36    2.48 ^ _38436_/D (DLH_X1)
+                                  2.48   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _38436_/G (DLH_X1)
+                          2.48    2.48   time borrowed from endpoint
+                                  2.48   data required time
+-----------------------------------------------------------------------------
+                                  2.48   data required time
+                                 -2.48   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk pulse width                       500.00
+library setup time                     -0.22
+--------------------------------------------
+max time borrow                       499.78
+actual time borrow                      2.48
+--------------------------------------------
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.08e-05   2.16e-06   2.68e-04   3.01e-04  45.0%
+Combinational          6.73e-06   2.03e-05   3.41e-04   3.68e-04  55.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.75e-05   2.25e-05   6.09e-04   6.69e-04 100.0%
+                           5.6%       3.4%      91.0%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 39130 u^2 27% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+27966
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+84033
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 36 input buffers.
+[INFO RSZ-0028] Inserted 16 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 661um.
+[INFO RSZ-0034] Found 8093 slew violations.
+[INFO RSZ-0036] Found 59 capacitance violations.
+[INFO RSZ-0037] Found 1 long wires.
+[INFO RSZ-0038] Inserted 458 buffers in 8094 nets.
+[INFO RSZ-0039] Resized 250 instances.
+Repair tie lo fanout...
+Repair tie hi fanout...
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.00
+
+==========================================================================
+resizer report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+Latency      CRPR       Skew
+_46378_/CK ^
+   0.13
+_46378_/CK ^
+   0.08      0.00       0.05
+
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _46390_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    4.36                           rst_ni (net)
+                  0.00    0.00  100.00 ^ input10/A (BUF_X4)
+                  0.03    0.04  100.04 ^ input10/Z (BUF_X4)
+    16   46.82                           net10 (net)
+                  0.03    0.00  100.04 ^ _46390_/RN (DFFR_X2)
+                                100.04   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _46390_/CK (DFFR_X2)
+                          0.20    0.20   library removal time
+                                  0.20   data required time
+-----------------------------------------------------------------------------
+                                  0.20   data required time
+                               -100.04   data arrival time
+-----------------------------------------------------------------------------
+                                 99.84   slack (MET)
+
+
+Startpoint: _38754_ (negative level-sensitive latch clocked by clk)
+Endpoint: _37747_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _38754_/GN (DLL_X1)
+                  0.01    0.04  500.04 ^ _38754_/Q (DLL_X1)
+     1    0.98                           gen_sub_units_scm[12].sub_unit_i.gen_cg_word_iter[24].cg_i.en_latch (net)
+                  0.01    0.00  500.04 ^ _37747_/A2 (AND2_X1)
+                                500.04   data arrival time
+
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                          0.00  500.00   clock reconvergence pessimism
+                                500.00 v _37747_/A1 (AND2_X1)
+                          0.00  500.00   clock gating hold time
+                                500.00   data required time
+-----------------------------------------------------------------------------
+                                500.00   data required time
+                               -500.04   data arrival time
+-----------------------------------------------------------------------------
+                                  0.04   slack (MET)
+
+
+Startpoint: _46385_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _46385_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _46385_/CK (DFFR_X2)
+                  0.03    0.12    0.12 v _46385_/Q (DFFR_X2)
+    26   53.34                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[7] (net)
+                  0.03    0.00    0.12 v _38340_/A (MUX2_X1)
+                  0.01    0.06    0.18 v _38340_/Z (MUX2_X1)
+     1    1.30                           _00007_ (net)
+                  0.01    0.00    0.18 v _46385_/D (DFFR_X2)
+                                  0.18   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _46385_/CK (DFFR_X2)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.18   data arrival time
+-----------------------------------------------------------------------------
+                                  0.18   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _46378_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    4.36                           rst_ni (net)
+                  0.00    0.00  100.00 ^ input10/A (BUF_X4)
+                  0.03    0.04  100.04 ^ input10/Z (BUF_X4)
+    16   46.82                           net10 (net)
+                  0.03    0.00  100.04 ^ _46378_/RN (DFFR_X2)
+                                100.04   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _46378_/CK (DFFR_X2)
+                          0.06 1000.06   library recovery time
+                               1000.06   data required time
+-----------------------------------------------------------------------------
+                               1000.06   data required time
+                               -100.04   data arrival time
+-----------------------------------------------------------------------------
+                                900.02   slack (MET)
+
+
+Startpoint: _42562_ (negative level-sensitive latch clocked by clk)
+Endpoint: _37999_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _42562_/GN (DLL_X1)
+                  0.01    0.07  500.07 v _42562_/Q (DLL_X1)
+     1    3.14                           gen_sub_units_scm[3].sub_unit_i.gen_cg_word_iter[31].cg_i.en_latch (net)
+                  0.01    0.00  500.07 v _37999_/A2 (AND2_X1)
+                                500.07   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _37999_/A1 (AND2_X1)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -500.07   data arrival time
+-----------------------------------------------------------------------------
+                                499.93   slack (MET)
+
+
+Startpoint: _46389_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _43888_ (positive level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _46389_/CK (DFFR_X2)
+                  0.11    0.22    0.22 ^ _46389_/Q (DFFR_X2)
+    38  101.81                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[11] (net)
+                  0.11    0.00    0.22 ^ max_length97/A (BUF_X16)
+                  0.01    0.03    0.26 ^ max_length97/Z (BUF_X16)
+    49   92.90                           net97 (net)
+                  0.02    0.01    0.27 ^ max_length91/A (BUF_X16)
+                  0.01    0.03    0.29 ^ max_length91/Z (BUF_X16)
+    62  110.07                           net91 (net)
+                  0.04    0.03    0.33 ^ max_length90/A (BUF_X16)
+                  0.01    0.03    0.36 ^ max_length90/Z (BUF_X16)
+    71  112.65                           net90 (net)
+                  0.07    0.05    0.41 ^ _43888_/D (DLH_X1)
+                                  0.41   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _43888_/G (DLH_X1)
+                          0.41    0.41   time borrowed from endpoint
+                                  0.41   data required time
+-----------------------------------------------------------------------------
+                                  0.41   data required time
+                                 -0.41   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk pulse width                       500.00
+library setup time                     -0.03
+--------------------------------------------
+max time borrow                       499.97
+actual time borrow                      0.41
+--------------------------------------------
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _46378_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    4.36                           rst_ni (net)
+                  0.00    0.00  100.00 ^ input10/A (BUF_X4)
+                  0.03    0.04  100.04 ^ input10/Z (BUF_X4)
+    16   46.82                           net10 (net)
+                  0.03    0.00  100.04 ^ _46378_/RN (DFFR_X2)
+                                100.04   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _46378_/CK (DFFR_X2)
+                          0.06 1000.06   library recovery time
+                               1000.06   data required time
+-----------------------------------------------------------------------------
+                               1000.06   data required time
+                               -100.04   data arrival time
+-----------------------------------------------------------------------------
+                                900.02   slack (MET)
+
+
+Startpoint: _42562_ (negative level-sensitive latch clocked by clk)
+Endpoint: _37999_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _42562_/GN (DLL_X1)
+                  0.01    0.07  500.07 v _42562_/Q (DLL_X1)
+     1    3.14                           gen_sub_units_scm[3].sub_unit_i.gen_cg_word_iter[31].cg_i.en_latch (net)
+                  0.01    0.00  500.07 v _37999_/A2 (AND2_X1)
+                                500.07   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _37999_/A1 (AND2_X1)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -500.07   data arrival time
+-----------------------------------------------------------------------------
+                                499.93   slack (MET)
+
+
+Startpoint: _46389_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _43888_ (positive level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _46389_/CK (DFFR_X2)
+                  0.11    0.22    0.22 ^ _46389_/Q (DFFR_X2)
+    38  101.81                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[11] (net)
+                  0.11    0.00    0.22 ^ max_length97/A (BUF_X16)
+                  0.01    0.03    0.26 ^ max_length97/Z (BUF_X16)
+    49   92.90                           net97 (net)
+                  0.02    0.01    0.27 ^ max_length91/A (BUF_X16)
+                  0.01    0.03    0.29 ^ max_length91/Z (BUF_X16)
+    62  110.07                           net91 (net)
+                  0.04    0.03    0.33 ^ max_length90/A (BUF_X16)
+                  0.01    0.03    0.36 ^ max_length90/Z (BUF_X16)
+    71  112.65                           net90 (net)
+                  0.07    0.05    0.41 ^ _43888_/D (DLH_X1)
+                                  0.41   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _43888_/G (DLH_X1)
+                          0.41    0.41   time borrowed from endpoint
+                                  0.41   data required time
+-----------------------------------------------------------------------------
+                                  0.41   data required time
+                                 -0.41   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk pulse width                       500.00
+library setup time                     -0.03
+--------------------------------------------
+max time borrow                       499.97
+actual time borrow                      0.41
+--------------------------------------------
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+0.07855183631181717
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.3957
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+4.806152820587158
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+106.81099700927734
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.0450
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+0.4096
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+0.000000
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.82e-05   9.66e-07   2.69e-04   2.98e-04  35.6%
+Combinational          6.08e-06   2.25e-05   5.11e-04   5.39e-04  64.4%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.43e-05   2.35e-05   7.80e-04   8.38e-04 100.0%
+                           4.1%       2.8%      93.1%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 42532 u^2 29% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+28476
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+85053
+
+Elapsed time: 0:19.68[h:]min:sec. CPU time: user 19.51 sys 0.16 (99%). Peak memory: 259344KB.
