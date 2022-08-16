@@ -1,0 +1,870 @@
+OpenROAD b57893514040c5aa453ab5c104f35d1173a8add9 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns -437492.03
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns -2562.35
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack -2562.35
+
+==========================================================================
+resizer pre report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+Latency      CRPR       Skew
+_22807_/CLK ^
+  60.77
+_22807_/CLK ^
+  28.01      0.00      32.75
+
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _22807_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    4.08                           rst_ni (net)
+                  0.62    0.19  100.19 ^ _14726_/A (CKINVDCx5p33_ASAP7_75t_R)
+                 23.17   11.34  111.53 v _14726_/Y (CKINVDCx5p33_ASAP7_75t_R)
+    16   15.27                           _00016_ (net)
+                 23.17    0.13  111.66 v _22807_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                111.66   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _22807_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         48.54   48.54   library removal time
+                                 48.54   data required time
+-----------------------------------------------------------------------------
+                                 48.54   data required time
+                               -111.66   data arrival time
+-----------------------------------------------------------------------------
+                                 63.12   slack (MET)
+
+
+Startpoint: _23386_ (negative level-sensitive latch clocked by clk)
+Endpoint: _14711_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _23386_/CLK (DLLx1_ASAP7_75t_R)
+                 10.78   25.66  525.66 ^ _23386_/Q (DLLx1_ASAP7_75t_R)
+     1    0.55                           gen_sub_units_scm[11].sub_unit_i.gen_cg_word_iter[13].cg_i.en_latch (net)
+                 10.78    0.00  525.66 ^ _14711_/C (AND3x1_ASAP7_75t_R)
+                                525.66   data arrival time
+
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                          0.00  500.00   clock reconvergence pessimism
+                                500.00 v _14711_/A (AND3x1_ASAP7_75t_R)
+                          0.00  500.00   clock gating hold time
+                                500.00   data required time
+-----------------------------------------------------------------------------
+                                500.00   data required time
+                               -525.66   data arrival time
+-----------------------------------------------------------------------------
+                                 25.66   slack (MET)
+
+
+Startpoint: we_a_i (input port clocked by clk)
+Endpoint: _22624_ (negative level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 v input external delay
+                  0.00    0.00  100.00 v we_a_i (in)
+    18   13.09                           we_a_i (net)
+                  2.22    0.70  100.70 v _22624_/D (DLLx1_ASAP7_75t_R)
+                                100.70   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _22624_/CLK (DLLx1_ASAP7_75t_R)
+                          1.42    1.42   library hold time
+                                  1.42   data required time
+-----------------------------------------------------------------------------
+                                  1.42   data required time
+                               -100.70   data arrival time
+-----------------------------------------------------------------------------
+                                 99.28   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _22816_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    4.08                           rst_ni (net)
+                  0.62    0.19  100.19 ^ _14726_/A (CKINVDCx5p33_ASAP7_75t_R)
+                 23.17   11.34  111.53 v _14726_/Y (CKINVDCx5p33_ASAP7_75t_R)
+    16   15.27                           _00016_ (net)
+                 23.33    1.10  112.63 v _22816_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                112.63   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _22816_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         31.66 1031.66   library recovery time
+                               1031.66   data required time
+-----------------------------------------------------------------------------
+                               1031.66   data required time
+                               -112.63   data arrival time
+-----------------------------------------------------------------------------
+                                919.03   slack (MET)
+
+
+Startpoint: _20113_ (negative level-sensitive latch clocked by clk)
+Endpoint: _14474_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _20113_/CLK (DLLx1_ASAP7_75t_R)
+                222.01  118.92  618.92 ^ _20113_/Q (DLLx1_ASAP7_75t_R)
+    33   23.73                           gen_sub_units_scm[5].sub_unit_i.cg_we_global.en_latch (net)
+                222.04    1.63  620.54 ^ _14474_/B (AND3x1_ASAP7_75t_R)
+                                620.54   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _14474_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -620.54   data arrival time
+-----------------------------------------------------------------------------
+                                379.46   slack (MET)
+
+
+Startpoint: raddr_a_i[4] (input port clocked by clk)
+Endpoint: rdata_a_o[14] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 v input external delay
+                  0.00    0.00  100.00 v raddr_a_i[4] (in)
+    13    9.51                           raddr_a_i[4] (net)
+                  3.92    1.24  101.24 v _06866_/A (NOR2x1_ASAP7_75t_R)
+               3722.40 1486.20 1587.44 ^ _06866_/Y (NOR2x1_ASAP7_75t_R)
+   484  403.25                           _06746_ (net)
+               3723.91   45.10 1632.54 ^ _06889_/B (AND3x1_ASAP7_75t_R)
+               2288.25 1303.15 2935.69 ^ _06889_/Y (AND3x1_ASAP7_75t_R)
+   256  242.51                           _06769_ (net)
+               2304.38  110.34 3046.03 ^ _08071_/A2 (AO22x1_ASAP7_75t_R)
+                 62.78  232.84 3278.87 ^ _08071_/Y (AO22x1_ASAP7_75t_R)
+     1    0.87                           _01131_ (net)
+                 62.78    0.04 3278.91 ^ _08077_/B (OR4x1_ASAP7_75t_R)
+                 11.65   26.44 3305.35 ^ _08077_/Y (OR4x1_ASAP7_75t_R)
+     1    0.76                           _01137_ (net)
+                 11.65    0.03 3305.38 ^ _08087_/C (OR4x1_ASAP7_75t_R)
+                 30.91   26.09 3331.47 ^ _08087_/Y (OR4x1_ASAP7_75t_R)
+     1    3.03                           _01147_ (net)
+                 30.98    0.84 3332.31 ^ _08116_/A2 (AO22x1_ASAP7_75t_R)
+                 65.33   52.20 3384.51 ^ _08116_/Y (AO22x1_ASAP7_75t_R)
+     1    6.33                           _01176_ (net)
+                 66.01    3.70 3388.21 ^ _08185_/C (OR5x1_ASAP7_75t_R)
+                 28.66   42.62 3430.83 ^ _08185_/Y (OR5x1_ASAP7_75t_R)
+     1    2.66                           _01245_ (net)
+                 28.70    0.63 3431.46 ^ _08463_/A (OR3x1_ASAP7_75t_R)
+                 33.34   29.86 3461.33 ^ _08463_/Y (OR3x1_ASAP7_75t_R)
+     1    3.31                           rdata_a_o[14] (net)
+                 33.44    1.02 3462.35 ^ rdata_a_o[14] (out)
+                               3462.35   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                       -100.00  900.00   output external delay
+                                900.00   data required time
+-----------------------------------------------------------------------------
+                                900.00   data required time
+                               -3462.35   data arrival time
+-----------------------------------------------------------------------------
+                               -2562.35   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _22816_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    4.08                           rst_ni (net)
+                  0.62    0.19  100.19 ^ _14726_/A (CKINVDCx5p33_ASAP7_75t_R)
+                 23.17   11.34  111.53 v _14726_/Y (CKINVDCx5p33_ASAP7_75t_R)
+    16   15.27                           _00016_ (net)
+                 23.33    1.10  112.63 v _22816_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                112.63   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _22816_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         31.66 1031.66   library recovery time
+                               1031.66   data required time
+-----------------------------------------------------------------------------
+                               1031.66   data required time
+                               -112.63   data arrival time
+-----------------------------------------------------------------------------
+                                919.03   slack (MET)
+
+
+Startpoint: _20113_ (negative level-sensitive latch clocked by clk)
+Endpoint: _14474_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _20113_/CLK (DLLx1_ASAP7_75t_R)
+                222.01  118.92  618.92 ^ _20113_/Q (DLLx1_ASAP7_75t_R)
+    33   23.73                           gen_sub_units_scm[5].sub_unit_i.cg_we_global.en_latch (net)
+                222.04    1.63  620.54 ^ _14474_/B (AND3x1_ASAP7_75t_R)
+                                620.54   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _14474_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -620.54   data arrival time
+-----------------------------------------------------------------------------
+                                379.46   slack (MET)
+
+
+Startpoint: raddr_a_i[4] (input port clocked by clk)
+Endpoint: rdata_a_o[14] (output port clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 v input external delay
+                  0.00    0.00  100.00 v raddr_a_i[4] (in)
+    13    9.51                           raddr_a_i[4] (net)
+                  3.92    1.24  101.24 v _06866_/A (NOR2x1_ASAP7_75t_R)
+               3722.40 1486.20 1587.44 ^ _06866_/Y (NOR2x1_ASAP7_75t_R)
+   484  403.25                           _06746_ (net)
+               3723.91   45.10 1632.54 ^ _06889_/B (AND3x1_ASAP7_75t_R)
+               2288.25 1303.15 2935.69 ^ _06889_/Y (AND3x1_ASAP7_75t_R)
+   256  242.51                           _06769_ (net)
+               2304.38  110.34 3046.03 ^ _08071_/A2 (AO22x1_ASAP7_75t_R)
+                 62.78  232.84 3278.87 ^ _08071_/Y (AO22x1_ASAP7_75t_R)
+     1    0.87                           _01131_ (net)
+                 62.78    0.04 3278.91 ^ _08077_/B (OR4x1_ASAP7_75t_R)
+                 11.65   26.44 3305.35 ^ _08077_/Y (OR4x1_ASAP7_75t_R)
+     1    0.76                           _01137_ (net)
+                 11.65    0.03 3305.38 ^ _08087_/C (OR4x1_ASAP7_75t_R)
+                 30.91   26.09 3331.47 ^ _08087_/Y (OR4x1_ASAP7_75t_R)
+     1    3.03                           _01147_ (net)
+                 30.98    0.84 3332.31 ^ _08116_/A2 (AO22x1_ASAP7_75t_R)
+                 65.33   52.20 3384.51 ^ _08116_/Y (AO22x1_ASAP7_75t_R)
+     1    6.33                           _01176_ (net)
+                 66.01    3.70 3388.21 ^ _08185_/C (OR5x1_ASAP7_75t_R)
+                 28.66   42.62 3430.83 ^ _08185_/Y (OR5x1_ASAP7_75t_R)
+     1    2.66                           _01245_ (net)
+                 28.70    0.63 3431.46 ^ _08463_/A (OR3x1_ASAP7_75t_R)
+                 33.34   29.86 3461.33 ^ _08463_/Y (OR3x1_ASAP7_75t_R)
+     1    3.31                           rdata_a_o[14] (net)
+                 33.44    1.02 3462.35 ^ rdata_a_o[14] (out)
+                               3462.35   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                       -100.00  900.00   output external delay
+                                900.00   data required time
+-----------------------------------------------------------------------------
+                                900.00   data required time
+                               -3462.35   data arrival time
+-----------------------------------------------------------------------------
+                               -2562.35   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.26e-03   1.01e-04   1.25e-06   5.37e-03  62.6%
+Combinational          7.21e-04   2.49e-03   7.64e-07   3.21e-03  37.4%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.98e-03   2.59e-03   2.01e-06   8.58e-03 100.0%
+                          69.8%      30.2%       0.0%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 2730 u^2 30% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+16630
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+59423
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 36 input buffers.
+[INFO RSZ-0028] Inserted 16 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 192um.
+[INFO RSZ-0034] Found 51 slew violations.
+[INFO RSZ-0036] Found 24 capacitance violations.
+[INFO RSZ-0038] Inserted 395 buffers in 51 nets.
+[INFO RSZ-0039] Resized 351 instances.
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 16 tie TIELOx1_ASAP7_75t_R instances.
+Repair tie hi fanout...
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns -0.94
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.00
+
+==========================================================================
+resizer report_clock_skew
+--------------------------------------------------------------------------
+Clock clk
+Latency      CRPR       Skew
+_22807_/CLK ^
+  60.77
+_22807_/CLK ^
+  28.01      0.00      32.75
+
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _22807_ (removal check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    0.82                           rst_ni (net)
+                  0.08    0.03  100.03 ^ input10/A (BUFx2_ASAP7_75t_R)
+                 25.70   22.71  122.74 ^ input10/Y (BUFx2_ASAP7_75t_R)
+     1    4.83                           net10 (net)
+                 25.70    0.19  122.93 ^ _14726_/A (INVx8_ASAP7_75t_R)
+                 20.42   16.06  138.99 v _14726_/Y (INVx8_ASAP7_75t_R)
+    16   15.27                           _00016_ (net)
+                 20.42    0.13  139.12 v _22807_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                139.12   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _22807_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         49.04   49.04   library removal time
+                                 49.04   data required time
+-----------------------------------------------------------------------------
+                                 49.04   data required time
+                               -139.12   data arrival time
+-----------------------------------------------------------------------------
+                                 90.08   slack (MET)
+
+
+Startpoint: _23386_ (negative level-sensitive latch clocked by clk)
+Endpoint: _14711_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _23386_/CLK (DLLx1_ASAP7_75t_R)
+                 10.78   25.66  525.66 ^ _23386_/Q (DLLx1_ASAP7_75t_R)
+     1    0.55                           gen_sub_units_scm[11].sub_unit_i.gen_cg_word_iter[13].cg_i.en_latch (net)
+                 10.78    0.00  525.66 ^ _14711_/C (AND3x1_ASAP7_75t_R)
+                                525.66   data arrival time
+
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                          0.00  500.00   clock reconvergence pessimism
+                                500.00 v _14711_/A (AND3x1_ASAP7_75t_R)
+                          0.00  500.00   clock gating hold time
+                                500.00   data required time
+-----------------------------------------------------------------------------
+                                500.00   data required time
+                               -525.66   data arrival time
+-----------------------------------------------------------------------------
+                                 25.66   slack (MET)
+
+
+Startpoint: we_a_i (input port clocked by clk)
+Endpoint: _22624_ (negative level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 v input external delay
+                  0.00    0.00  100.00 v we_a_i (in)
+     1    1.49                           we_a_i (net)
+                  0.16    0.05  100.05 v input36/A (BUFx6f_ASAP7_75t_R)
+                 19.58   20.59  120.64 v input36/Y (BUFx6f_ASAP7_75t_R)
+    18   12.67                           net36 (net)
+                 19.60    0.36  121.00 v _22624_/D (DLLx1_ASAP7_75t_R)
+                                121.00   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _22624_/CLK (DLLx1_ASAP7_75t_R)
+                         -1.88   -1.88   library hold time
+                                 -1.88   data required time
+-----------------------------------------------------------------------------
+                                 -1.88   data required time
+                               -121.00   data arrival time
+-----------------------------------------------------------------------------
+                                122.88   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _22816_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    0.82                           rst_ni (net)
+                  0.08    0.03  100.03 ^ input10/A (BUFx2_ASAP7_75t_R)
+                 25.70   22.71  122.74 ^ input10/Y (BUFx2_ASAP7_75t_R)
+     1    4.83                           net10 (net)
+                 25.70    0.19  122.93 ^ _14726_/A (INVx8_ASAP7_75t_R)
+                 20.42   16.06  138.99 v _14726_/Y (INVx8_ASAP7_75t_R)
+    16   15.27                           _00016_ (net)
+                 20.61    1.10  140.09 v _22816_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                140.09   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _22816_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         30.73 1030.73   library recovery time
+                               1030.73   data required time
+-----------------------------------------------------------------------------
+                               1030.73   data required time
+                               -140.09   data arrival time
+-----------------------------------------------------------------------------
+                                890.63   slack (MET)
+
+
+Startpoint: _22293_ (negative level-sensitive latch clocked by clk)
+Endpoint: _14620_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _22293_/CLK (DLLx3_ASAP7_75t_R)
+                 64.12   77.11  577.11 v _22293_/Q (DLLx3_ASAP7_75t_R)
+    33   23.08                           gen_sub_units_scm[9].sub_unit_i.cg_we_global.en_latch (net)
+                 64.37    2.28  579.39 v _14620_/B (AND3x1_ASAP7_75t_R)
+                                579.39   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _14620_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -579.39   data arrival time
+-----------------------------------------------------------------------------
+                                420.61   slack (MET)
+
+
+Startpoint: _22820_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _19886_ (positive level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _22820_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                119.10  105.50  105.50 ^ _22820_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     1   11.99                           _00002_ (net)
+                119.10    0.11  105.61 ^ _14729_/A (CKINVDCx20_ASAP7_75t_R)
+                 50.49   24.85  130.47 v _14729_/Y (CKINVDCx20_ASAP7_75t_R)
+    50   38.19                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[13] (net)
+                 50.56    1.40  131.86 v load_slew132/A (BUFx24_ASAP7_75t_R)
+                 29.32   41.90  173.76 v load_slew132/Y (BUFx24_ASAP7_75t_R)
+    67   53.68                           net132 (net)
+                 52.64   12.50  186.26 v load_slew131/A (BUFx24_ASAP7_75t_R)
+                 24.85   43.31  229.58 v load_slew131/Y (BUFx24_ASAP7_75t_R)
+    88   66.66                           net131 (net)
+                120.93   36.40  265.97 v load_slew130/A (BUFx24_ASAP7_75t_R)
+                 26.35   59.18  325.15 v load_slew130/Y (BUFx24_ASAP7_75t_R)
+    72   54.80                           net130 (net)
+                 68.09   17.67  342.82 v load_slew129/A (BUFx24_ASAP7_75t_R)
+                 27.79   47.93  390.75 v load_slew129/Y (BUFx24_ASAP7_75t_R)
+    84   58.98                           net129 (net)
+                124.82   38.84  429.59 v _19886_/D (DHLx1_ASAP7_75t_R)
+                                429.59   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _19886_/CLK (DHLx1_ASAP7_75t_R)
+                        429.59  429.59   time borrowed from endpoint
+                                429.59   data required time
+-----------------------------------------------------------------------------
+                                429.59   data required time
+                               -429.59   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk pulse width                       500.00
+library setup time                    -40.81
+--------------------------------------------
+max time borrow                       459.19
+actual time borrow                    429.59
+--------------------------------------------
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk)
+Endpoint: _22816_ (recovery check against rising-edge clock clk)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        100.00  100.00 ^ input external delay
+                  0.00    0.00  100.00 ^ rst_ni (in)
+     1    0.82                           rst_ni (net)
+                  0.08    0.03  100.03 ^ input10/A (BUFx2_ASAP7_75t_R)
+                 25.70   22.71  122.74 ^ input10/Y (BUFx2_ASAP7_75t_R)
+     1    4.83                           net10 (net)
+                 25.70    0.19  122.93 ^ _14726_/A (INVx8_ASAP7_75t_R)
+                 20.42   16.06  138.99 v _14726_/Y (INVx8_ASAP7_75t_R)
+    16   15.27                           _00016_ (net)
+                 20.61    1.10  140.09 v _22816_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                140.09   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _22816_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         30.73 1030.73   library recovery time
+                               1030.73   data required time
+-----------------------------------------------------------------------------
+                               1030.73   data required time
+                               -140.09   data arrival time
+-----------------------------------------------------------------------------
+                                890.63   slack (MET)
+
+
+Startpoint: _22293_ (negative level-sensitive latch clocked by clk)
+Endpoint: _14620_ (rising clock gating-check end-point clocked by clk)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  500.00  500.00   clock clk (fall edge)
+                          0.00  500.00   clock network delay (ideal)
+                  0.00    0.00  500.00 v _22293_/CLK (DLLx3_ASAP7_75t_R)
+                 64.12   77.11  577.11 v _22293_/Q (DLLx3_ASAP7_75t_R)
+    33   23.08                           gen_sub_units_scm[9].sub_unit_i.cg_we_global.en_latch (net)
+                 64.37    2.28  579.39 v _14620_/B (AND3x1_ASAP7_75t_R)
+                                579.39   data arrival time
+
+                  0.00 1000.00 1000.00   clock clk (rise edge)
+                          0.00 1000.00   clock network delay (ideal)
+                          0.00 1000.00   clock reconvergence pessimism
+                               1000.00 ^ _14620_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1000.00   clock gating setup time
+                               1000.00   data required time
+-----------------------------------------------------------------------------
+                               1000.00   data required time
+                               -579.39   data arrival time
+-----------------------------------------------------------------------------
+                                420.61   slack (MET)
+
+
+Startpoint: _22820_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: _19886_ (positive level-sensitive latch clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _22820_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                119.10  105.50  105.50 ^ _22820_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     1   11.99                           _00002_ (net)
+                119.10    0.11  105.61 ^ _14729_/A (CKINVDCx20_ASAP7_75t_R)
+                 50.49   24.85  130.47 v _14729_/Y (CKINVDCx20_ASAP7_75t_R)
+    50   38.19                           gen_sub_units_scm[0].sub_unit_i.wdata_a_i[13] (net)
+                 50.56    1.40  131.86 v load_slew132/A (BUFx24_ASAP7_75t_R)
+                 29.32   41.90  173.76 v load_slew132/Y (BUFx24_ASAP7_75t_R)
+    67   53.68                           net132 (net)
+                 52.64   12.50  186.26 v load_slew131/A (BUFx24_ASAP7_75t_R)
+                 24.85   43.31  229.58 v load_slew131/Y (BUFx24_ASAP7_75t_R)
+    88   66.66                           net131 (net)
+                120.93   36.40  265.97 v load_slew130/A (BUFx24_ASAP7_75t_R)
+                 26.35   59.18  325.15 v load_slew130/Y (BUFx24_ASAP7_75t_R)
+    72   54.80                           net130 (net)
+                 68.09   17.67  342.82 v load_slew129/A (BUFx24_ASAP7_75t_R)
+                 27.79   47.93  390.75 v load_slew129/Y (BUFx24_ASAP7_75t_R)
+    84   58.98                           net129 (net)
+                124.82   38.84  429.59 v _19886_/D (DHLx1_ASAP7_75t_R)
+                                429.59   data arrival time
+
+                  0.00    0.00    0.00   clock clk (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _19886_/CLK (DHLx1_ASAP7_75t_R)
+                        429.59  429.59   time borrowed from endpoint
+                                429.59   data required time
+-----------------------------------------------------------------------------
+                                429.59   data required time
+                               -429.59   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk pulse width                       500.00
+library setup time                    -40.81
+--------------------------------------------
+max time borrow                       459.19
+actual time borrow                    429.59
+--------------------------------------------
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+118.73926544189453
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.3711
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+34.01805114746094
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+46.08000183105469
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.7382
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+429.5938
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+0.000000
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.17e-03   1.05e-04   1.25e-06   5.28e-03  60.9%
+Combinational          8.21e-04   2.57e-03   1.28e-06   3.39e-03  39.1%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.99e-03   2.67e-03   2.53e-06   8.67e-03 100.0%
+                          69.1%      30.8%       0.0%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 2890 u^2 32% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+17092
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+60332
+
+Elapsed time: 0:25.79[h:]min:sec. CPU time: user 25.69 sys 0.10 (99%). Peak memory: 295808KB.
