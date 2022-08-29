@@ -1,0 +1,994 @@
+OpenROAD b57893514040c5aa453ab5c104f35d1173a8add9 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 10 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 98
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical        22275          4312          80.64%
+metal3     Horizontal      30375          8404          72.33%
+metal4     Vertical        14175          9818          30.74%
+metal5     Horizontal      14175          9988          29.54%
+metal6     Vertical        14175          9988          29.54%
+metal7     Horizontal       4050          1889          53.36%
+metal8     Vertical         4050          2024          50.02%
+metal9     Horizontal       2025            44          97.83%
+metal10    Vertical         2025            44          97.83%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 15491
+[INFO GRT-0198] Via related Steiner nodes: 353
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 17547
+[INFO GRT-0112] Final usage 3D: 64819
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2            4312          2363           54.80%             0 /  0 /  0
+metal3            8404          3659           43.54%             0 /  0 /  0
+metal4            9818          3704           37.73%             0 /  0 /  0
+metal5            9988          1433           14.35%             0 /  0 /  0
+metal6            9988           947            9.48%             0 /  0 /  0
+metal7            1889            50            2.65%             0 /  0 /  0
+metal8            2024            22            1.09%             0 /  0 /  0
+metal9              44             0            0.00%             0 /  0 /  0
+metal10             44             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            46511         12178           26.18%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 40107 um
+[INFO GRT-0014] Routed nets: 2847
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack 2.57
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+No launch/capture paths found.
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: adder/_111_ (removal check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.60    0.60 ^ input external delay
+                  0.00    0.00    0.60 ^ rst_ni (in)
+     1   12.99                           rst_ni (net)
+                  0.00    0.00    0.60 ^ input49/A (BUF_X16)
+                  0.01    0.02    0.62 ^ input49/Z (BUF_X16)
+    64  145.41                           net49 (net)
+                  0.04    0.02    0.65 ^ adder/_111_/RN (DFFR_X1)
+                                  0.65   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   30.68                           clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.02    0.03    0.03 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     8  220.95                           clknet_0_clk_i (net)
+                  0.02    0.01    0.04 ^ clkbuf_3_2__f_clk_i/A (BUF_X32)
+                  0.01    0.02    0.06 ^ clkbuf_3_2__f_clk_i/Z (BUF_X32)
+    13   15.81                           clknet_3_2__leaf_clk_i (net)
+                  0.01    0.00    0.06 ^ adder/_111_/CK (DFFR_X1)
+                          0.00    0.06   clock reconvergence pessimism
+                          0.23    0.29   library removal time
+                                  0.29   data required time
+-----------------------------------------------------------------------------
+                                  0.29   data required time
+                                 -0.65   data arrival time
+-----------------------------------------------------------------------------
+                                  0.36   slack (MET)
+
+
+Startpoint: operand_fp32_i[16] (input port clocked by clk_i)
+Endpoint: adder/_154_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.60    0.60 ^ input external delay
+                  0.00    0.00    0.60 ^ operand_fp32_i[16] (in)
+     1    1.80                           operand_fp32_i[16] (net)
+                  0.00    0.00    0.60 ^ input24/A (BUF_X1)
+                  0.01    0.02    0.62 ^ input24/Z (BUF_X1)
+     1    1.40                           net24 (net)
+                  0.01    0.00    0.62 ^ adder/_154_/D (DFFR_X1)
+                                  0.62   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   30.68                           clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.02    0.03    0.03 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     8  220.95                           clknet_0_clk_i (net)
+                  0.02    0.01    0.04 ^ clkbuf_3_1__f_clk_i/A (BUF_X32)
+                  0.00    0.02    0.06 ^ clkbuf_3_1__f_clk_i/Z (BUF_X32)
+     8   10.49                           clknet_3_1__leaf_clk_i (net)
+                  0.00    0.00    0.06 ^ adder/_154_/CK (DFFR_X1)
+                          0.00    0.06   clock reconvergence pessimism
+                          0.01    0.07   library hold time
+                                  0.07   data required time
+-----------------------------------------------------------------------------
+                                  0.07   data required time
+                                 -0.62   data arrival time
+-----------------------------------------------------------------------------
+                                  0.55   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: adder/_166_ (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.60    0.60 ^ input external delay
+                  0.00    0.00    0.60 ^ rst_ni (in)
+     1   12.99                           rst_ni (net)
+                  0.00    0.00    0.60 ^ input49/A (BUF_X16)
+                  0.01    0.02    0.62 ^ input49/Z (BUF_X16)
+    64  145.41                           net49 (net)
+                  0.04    0.03    0.65 ^ adder/_166_/RN (DFFR_X1)
+                                  0.65   data arrival time
+
+                          6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock source latency
+                  0.00    0.00    6.00 ^ clk_i (in)
+     1   30.68                           clk_i (net)
+                  0.00    0.00    6.00 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.02    0.03    6.03 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     8  220.95                           clknet_0_clk_i (net)
+                  0.02    0.01    6.04 ^ clkbuf_3_4__f_clk_i/A (BUF_X32)
+                  0.00    0.02    6.06 ^ clkbuf_3_4__f_clk_i/Z (BUF_X32)
+     7    9.02                           clknet_3_4__leaf_clk_i (net)
+                  0.00    0.00    6.06 ^ adder/_166_/CK (DFFR_X1)
+                          0.00    6.06   clock reconvergence pessimism
+                          0.05    6.11   library recovery time
+                                  6.11   data required time
+-----------------------------------------------------------------------------
+                                  6.11   data required time
+                                 -0.65   data arrival time
+-----------------------------------------------------------------------------
+                                  5.46   slack (MET)
+
+
+Startpoint: adder/_167_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: result_o[30] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   30.68                           clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.02    0.03    0.03 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     8  220.95                           clknet_0_clk_i (net)
+                  0.02    0.01    0.04 ^ clkbuf_3_5__f_clk_i/A (BUF_X32)
+                  0.00    0.02    0.06 ^ clkbuf_3_5__f_clk_i/Z (BUF_X32)
+     8   11.85                           clknet_3_5__leaf_clk_i (net)
+                  0.01    0.00    0.06 ^ adder/_167_/CK (DFFR_X2)
+                  0.02    0.14    0.20 ^ adder/_167_/Q (DFFR_X2)
+     4   10.20                           adder/exp_b_d[6] (net)
+                  0.02    0.00    0.20 ^ adder/adder/_1290_/A2 (NOR2_X1)
+                  0.01    0.02    0.22 v adder/adder/_1290_/ZN (NOR2_X1)
+     3    5.71                           adder/adder/_0403_ (net)
+                  0.01    0.00    0.22 v adder/adder/_1291_/A2 (NOR2_X1)
+                  0.04    0.06    0.28 ^ adder/adder/_1291_/ZN (NOR2_X1)
+     4    7.99                           adder/adder/_0404_ (net)
+                  0.04    0.00    0.28 ^ adder/adder/_1297_/A1 (NAND2_X1)
+                  0.02    0.02    0.30 v adder/adder/_1297_/ZN (NAND2_X1)
+     2    3.45                           adder/adder/_0410_ (net)
+                  0.02    0.00    0.30 v adder/adder/_1298_/A2 (NOR2_X1)
+                  0.02    0.04    0.34 ^ adder/adder/_1298_/ZN (NOR2_X1)
+     1    3.76                           adder/adder/_0411_ (net)
+                  0.02    0.00    0.34 ^ adder/adder/_1299_/A2 (NAND2_X2)
+                  0.02    0.03    0.38 v adder/adder/_1299_/ZN (NAND2_X2)
+     4   16.18                           adder/adder/_0412_ (net)
+                  0.02    0.00    0.38 v adder/adder/_1306_/A1 (NAND2_X4)
+                  0.02    0.03    0.41 ^ adder/adder/_1306_/ZN (NAND2_X4)
+     2   29.07                           adder/adder/_0419_ (net)
+                  0.02    0.00    0.41 ^ max_cap84/A (BUF_X32)
+                  0.01    0.03    0.44 ^ max_cap84/Z (BUF_X32)
+    97  238.12                           net84 (net)
+                  0.02    0.01    0.45 ^ adder/adder/_1307_/A (INV_X8)
+                  0.01    0.02    0.47 v adder/adder/_1307_/ZN (INV_X8)
+    28   65.33                           adder/adder/_0420_ (net)
+                  0.01    0.00    0.47 v adder/adder/_1321_/A2 (NAND2_X1)
+                  0.02    0.03    0.50 ^ adder/adder/_1321_/ZN (NAND2_X1)
+     1    6.26                           adder/adder/_0434_ (net)
+                  0.02    0.00    0.50 ^ adder/adder/_1326_/A1 (NAND2_X4)
+                  0.03    0.04    0.54 v adder/adder/_1326_/ZN (NAND2_X4)
+    27   60.59                           adder/adder/_0439_ (net)
+                  0.03    0.00    0.54 v adder/adder/_1425_/A (INV_X8)
+                  0.02    0.03    0.58 ^ adder/adder/_1425_/ZN (INV_X8)
+    24   53.56                           adder/adder/_0529_ (net)
+                  0.02    0.00    0.58 ^ adder/adder/_1426_/A2 (NAND3_X1)
+                  0.02    0.03    0.61 v adder/adder/_1426_/ZN (NAND3_X1)
+     2    3.56                           adder/adder/_0530_ (net)
+                  0.02    0.00    0.61 v adder/adder/_1428_/A1 (NAND2_X1)
+                  0.02    0.03    0.64 ^ adder/adder/_1428_/ZN (NAND2_X1)
+     2    5.77                           adder/adder/_0532_ (net)
+                  0.02    0.00    0.64 ^ adder/adder/_1429_/A (INV_X2)
+                  0.01    0.01    0.64 v adder/adder/_1429_/ZN (INV_X2)
+     1    1.87                           adder/adder/_0533_ (net)
+                  0.01    0.00    0.64 v adder/adder/_1430_/A1 (NAND2_X1)
+                  0.03    0.03    0.67 ^ adder/adder/_1430_/ZN (NAND2_X1)
+     2    8.69                           adder/adder/_0534_ (net)
+                  0.03    0.00    0.67 ^ adder/adder/_1446_/A1 (NAND2_X4)
+                  0.02    0.03    0.71 v adder/adder/_1446_/ZN (NAND2_X4)
+    21   37.50                           adder/adder/_0550_ (net)
+                  0.02    0.00    0.71 v adder/adder/_1504_/A1 (NAND2_X1)
+                  0.02    0.03    0.73 ^ adder/adder/_1504_/ZN (NAND2_X1)
+     2    3.77                           adder/adder/_0608_ (net)
+                  0.02    0.00    0.73 ^ adder/adder/_1507_/A1 (NAND2_X1)
+                  0.02    0.01    0.75 v adder/adder/_1507_/ZN (NAND2_X1)
+     1    1.69                           adder/adder/_0611_ (net)
+                  0.02    0.00    0.75 v adder/adder/_1509_/A1 (NAND2_X1)
+                  0.01    0.02    0.77 ^ adder/adder/_1509_/ZN (NAND2_X1)
+     1    1.80                           adder/adder/_0613_ (net)
+                  0.01    0.00    0.77 ^ adder/adder/_1510_/A2 (NAND2_X1)
+                  0.01    0.02    0.79 v adder/adder/_1510_/ZN (NAND2_X1)
+     2    3.65                           adder/adder/_0614_ (net)
+                  0.01    0.00    0.79 v adder/adder/_1511_/A1 (NAND2_X1)
+                  0.01    0.02    0.81 ^ adder/adder/_1511_/ZN (NAND2_X1)
+     2    3.81                           adder/adder/_0615_ (net)
+                  0.01    0.00    0.81 ^ adder/adder/_1567_/A1 (NAND2_X1)
+                  0.01    0.01    0.82 v adder/adder/_1567_/ZN (NAND2_X1)
+     1    1.88                           adder/adder/_0671_ (net)
+                  0.01    0.00    0.82 v adder/adder/_1568_/A2 (NOR2_X1)
+                  0.02    0.03    0.85 ^ adder/adder/_1568_/ZN (NOR2_X1)
+     1    1.92                           adder/adder/_0672_ (net)
+                  0.02    0.00    0.85 ^ adder/adder/_1569_/A2 (NAND2_X1)
+                  0.01    0.02    0.87 v adder/adder/_1569_/ZN (NAND2_X1)
+     1    2.18                           adder/adder/_0673_ (net)
+                  0.01    0.00    0.87 v adder/adder/_1570_/A (INV_X1)
+                  0.01    0.02    0.89 ^ adder/adder/_1570_/ZN (INV_X1)
+     2    5.41                           adder/adder/_0674_ (net)
+                  0.01    0.00    0.89 ^ adder/adder/_1571_/A1 (NOR2_X1)
+                  0.01    0.01    0.90 v adder/adder/_1571_/ZN (NOR2_X1)
+     1    1.68                           adder/adder/_0675_ (net)
+                  0.01    0.00    0.90 v adder/adder/_1593_/A1 (NOR2_X1)
+                  0.02    0.02    0.92 ^ adder/adder/_1593_/ZN (NOR2_X1)
+     1    1.65                           adder/adder/_0697_ (net)
+                  0.02    0.00    0.92 ^ adder/adder/_1657_/A1 (NAND2_X1)
+                  0.01    0.01    0.93 v adder/adder/_1657_/ZN (NAND2_X1)
+     1    1.71                           adder/adder/_0761_ (net)
+                  0.01    0.00    0.93 v adder/adder/_1658_/A2 (NAND2_X1)
+                  0.01    0.02    0.95 ^ adder/adder/_1658_/ZN (NAND2_X1)
+     1    3.20                           adder/adder/_0762_ (net)
+                  0.01    0.00    0.95 ^ adder/adder/_1672_/A1 (NAND2_X2)
+                  0.02    0.03    0.98 v adder/adder/_1672_/ZN (NAND2_X2)
+     6   15.80                           adder/mant_prenorm_d[20] (net)
+                  0.02    0.00    0.98 v adder/adder/_1746_/A1 (NAND3_X2)
+                  0.02    0.03    1.01 ^ adder/adder/_1746_/ZN (NAND3_X2)
+     4    7.60                           adder/adder/_0849_ (net)
+                  0.02    0.00    1.01 ^ adder/adder/_1842_/A1 (NAND3_X1)
+                  0.01    0.02    1.03 v adder/adder/_1842_/ZN (NAND3_X1)
+     1    3.21                           adder/adder/_0945_ (net)
+                  0.01    0.00    1.03 v adder/adder/_1843_/A1 (NAND2_X2)
+                  0.02    0.03    1.06 ^ adder/adder/_1843_/ZN (NAND2_X2)
+     4   15.60                           adder/adder/_0946_ (net)
+                  0.02    0.00    1.06 ^ adder/adder/_1926_/A1 (NAND2_X1)
+                  0.01    0.02    1.08 v adder/adder/_1926_/ZN (NAND2_X1)
+     1    3.09                           adder/adder/_1029_ (net)
+                  0.01    0.00    1.08 v adder/adder/_1934_/A1 (NAND2_X2)
+                  0.02    0.03    1.11 ^ adder/adder/_1934_/ZN (NAND2_X2)
+     5   13.22                           adder/adder/_1037_ (net)
+                  0.02    0.00    1.11 ^ adder/adder/_2035_/A1 (NAND2_X1)
+                  0.01    0.02    1.13 v adder/adder/_2035_/ZN (NAND2_X1)
+     1    3.30                           adder/adder/_0033_ (net)
+                  0.01    0.00    1.13 v adder/adder/_2052_/A1 (NAND2_X2)
+                  0.02    0.03    1.16 ^ adder/adder/_2052_/ZN (NAND2_X2)
+     4   15.68                           adder/adder/_0051_ (net)
+                  0.02    0.00    1.16 ^ adder/adder/_2227_/A1 (NAND2_X1)
+                  0.01    0.02    1.18 v adder/adder/_2227_/ZN (NAND2_X1)
+     1    1.79                           adder/adder/_0223_ (net)
+                  0.01    0.00    1.18 v adder/adder/_2228_/A1 (NAND2_X1)
+                  0.02    0.03    1.21 ^ adder/adder/_2228_/ZN (NAND2_X1)
+     3    8.26                           adder/adder/_0224_ (net)
+                  0.02    0.00    1.21 ^ adder/adder/_2233_/A1 (NAND2_X1)
+                  0.01    0.02    1.23 v adder/adder/_2233_/ZN (NAND2_X1)
+     1    1.82                           adder/adder/_0228_ (net)
+                  0.01    0.00    1.23 v adder/adder/_2234_/A1 (NAND2_X1)
+                  0.02    0.03    1.26 ^ adder/adder/_2234_/ZN (NAND2_X1)
+     2    6.29                           adder/adder/_0229_ (net)
+                  0.02    0.00    1.26 ^ adder/adder/_2237_/A1 (NAND2_X1)
+                  0.01    0.02    1.28 v adder/adder/_2237_/ZN (NAND2_X1)
+     2    3.84                           adder/adder/_0231_ (net)
+                  0.01    0.00    1.28 v adder/adder/_2241_/A1 (NAND3_X1)
+                  0.01    0.02    1.29 ^ adder/adder/_2241_/ZN (NAND3_X1)
+     1    1.79                           adder/adder/_0235_ (net)
+                  0.01    0.00    1.29 ^ adder/adder/_2242_/A2 (NAND2_X1)
+                  0.02    0.03    1.32 v adder/adder/_2242_/ZN (NAND2_X1)
+     4    7.73                           adder/mant_prenorm_d[43] (net)
+                  0.02    0.00    1.32 v adder/norm/LOD/_177_/A2 (NOR2_X1)
+                  0.02    0.04    1.36 ^ adder/norm/LOD/_177_/ZN (NOR2_X1)
+     2    3.73                           adder/norm/LOD/_133_ (net)
+                  0.02    0.00    1.36 ^ adder/norm/LOD/_178_/A2 (NAND2_X1)
+                  0.02    0.03    1.39 v adder/norm/LOD/_178_/ZN (NAND2_X1)
+     2    7.81                           adder/norm/LOD/_134_ (net)
+                  0.02    0.00    1.39 v adder/norm/LOD/_179_/A (INV_X4)
+                  0.01    0.01    1.41 ^ adder/norm/LOD/_179_/ZN (INV_X4)
+     1    3.28                           adder/norm/LOD/_135_ (net)
+                  0.01    0.00    1.41 ^ adder/norm/LOD/_187_/A1 (NAND2_X2)
+                  0.01    0.02    1.43 v adder/norm/LOD/_187_/ZN (NAND2_X2)
+     5    9.54                           adder/norm/LOD/_143_ (net)
+                  0.01    0.00    1.43 v adder/norm/LOD/_200_/A1 (NOR2_X2)
+                  0.03    0.04    1.47 ^ adder/norm/LOD/_200_/ZN (NOR2_X2)
+     5   10.15                           adder/norm/LOD/_008_ (net)
+                  0.03    0.00    1.47 ^ adder/norm/LOD/_207_/A1 (NAND2_X1)
+                  0.02    0.03    1.50 v adder/norm/LOD/_207_/ZN (NAND2_X1)
+     2    4.74                           adder/norm/LOD/_015_ (net)
+                  0.02    0.00    1.50 v adder/norm/LOD/_292_/A (INV_X2)
+                  0.01    0.02    1.51 ^ adder/norm/LOD/_292_/ZN (INV_X2)
+     3    6.18                           adder/norm/Mant_leadingOne_D[4] (net)
+                  0.01    0.00    1.51 ^ adder/norm/LOD/_295_/A1 (NAND2_X1)
+                  0.01    0.01    1.53 v adder/norm/LOD/_295_/ZN (NAND2_X1)
+     1    1.63                           adder/norm/LOD/_099_ (net)
+                  0.01    0.00    1.53 v adder/norm/LOD/_296_/A3 (NAND3_X1)
+                  0.02    0.02    1.55 ^ adder/norm/LOD/_296_/ZN (NAND3_X1)
+     2    3.89                           adder/norm/Mant_leadingOne_D[2] (net)
+                  0.02    0.00    1.55 ^ adder/norm/_1150_/A (INV_X1)
+                  0.01    0.02    1.57 v adder/norm/_1150_/ZN (INV_X1)
+     2    5.23                           adder/norm/_0101_ (net)
+                  0.01    0.00    1.57 v adder/norm/_1151_/A1 (NAND2_X1)
+                  0.02    0.03    1.60 ^ adder/norm/_1151_/ZN (NAND2_X1)
+     3    7.29                           adder/norm/_0112_ (net)
+                  0.02    0.00    1.60 ^ adder/norm/_1152_/A2 (NAND2_X1)
+                  0.02    0.03    1.62 v adder/norm/_1152_/ZN (NAND2_X1)
+     3    7.28                           adder/norm/_0123_ (net)
+                  0.02    0.00    1.62 v adder/norm/_1158_/A1 (NOR2_X1)
+                  0.02    0.04    1.66 ^ adder/norm/_1158_/ZN (NOR2_X1)
+     2    3.83                           adder/norm/_0189_ (net)
+                  0.02    0.00    1.66 ^ adder/norm/_1159_/A2 (NAND2_X1)
+                  0.01    0.02    1.68 v adder/norm/_1159_/ZN (NAND2_X1)
+     1    1.76                           adder/norm/_0200_ (net)
+                  0.01    0.00    1.68 v adder/norm/_1163_/A1 (NAND2_X1)
+                  0.01    0.02    1.69 ^ adder/norm/_1163_/ZN (NAND2_X1)
+     1    2.07                           adder/norm/_0239_ (net)
+                  0.01    0.00    1.69 ^ adder/norm/_1186_/A1 (NAND2_X1)
+                  0.01    0.01    1.71 v adder/norm/_1186_/ZN (NAND2_X1)
+     1    2.56                           adder/norm/_0282_ (net)
+                  0.01    0.00    1.71 v adder/norm/_1194_/A1 (NAND2_X1)
+                  0.01    0.02    1.73 ^ adder/norm/_1194_/ZN (NAND2_X1)
+     1    3.37                           adder/norm/_0290_ (net)
+                  0.01    0.00    1.73 ^ adder/norm/_1198_/A1 (NAND2_X2)
+                  0.01    0.02    1.75 v adder/norm/_1198_/ZN (NAND2_X2)
+     4   13.34                           adder/norm/_0294_ (net)
+                  0.01    0.00    1.75 v adder/norm/_1211_/A1 (NAND2_X4)
+                  0.03    0.04    1.80 ^ adder/norm/_1211_/ZN (NAND2_X4)
+    13   50.05                           adder/norm/_0307_ (net)
+                  0.03    0.00    1.80 ^ adder/norm/_1215_/A1 (NAND2_X1)
+                  0.02    0.03    1.83 v adder/norm/_1215_/ZN (NAND2_X1)
+     1    5.87                           adder/norm/_0311_ (net)
+                  0.02    0.00    1.83 v adder/norm/_1217_/A1 (NAND2_X4)
+                  0.08    0.09    1.92 ^ adder/norm/_1217_/ZN (NAND2_X4)
+    52  151.27                           adder/norm/_0313_ (net)
+                  0.08    0.01    1.93 ^ adder/norm/_1221_/A2 (NAND3_X2)
+                  0.03    0.05    1.97 v adder/norm/_1221_/ZN (NAND3_X2)
+     3    8.99                           adder/norm/_0317_ (net)
+                  0.03    0.00    1.97 v adder/norm/_1236_/A1 (NAND3_X1)
+                  0.02    0.03    2.01 ^ adder/norm/_1236_/ZN (NAND3_X1)
+     2    5.81                           adder/norm/_0332_ (net)
+                  0.02    0.00    2.01 ^ adder/norm/_1238_/A1 (NAND2_X1)
+                  0.01    0.03    2.03 v adder/norm/_1238_/ZN (NAND2_X1)
+     1    6.14                           adder/norm/_0334_ (net)
+                  0.01    0.00    2.03 v adder/norm/_1240_/A1 (NAND2_X4)
+                  0.10    0.11    2.14 ^ adder/norm/_1240_/ZN (NAND2_X4)
+    75  183.87                           adder/norm/_0336_ (net)
+                  0.10    0.02    2.16 ^ adder/norm/_1269_/A1 (AND2_X4)
+                  0.04    0.08    2.24 ^ adder/norm/_1269_/ZN (AND2_X4)
+    26   62.20                           adder/norm/_0365_ (net)
+                  0.04    0.00    2.25 ^ adder/norm/_1620_/A1 (NAND3_X1)
+                  0.03    0.03    2.28 v adder/norm/_1620_/ZN (NAND3_X1)
+     1    3.36                           adder/norm/_0716_ (net)
+                  0.03    0.00    2.28 v adder/norm/_1621_/A2 (NAND2_X2)
+                  0.03    0.05    2.32 ^ adder/norm/_1621_/ZN (NAND2_X2)
+     6   18.78                           adder/norm/_0717_ (net)
+                  0.03    0.00    2.32 ^ adder/norm/_1731_/A1 (NAND2_X1)
+                  0.01    0.02    2.35 v adder/norm/_1731_/ZN (NAND2_X1)
+     2    3.56                           adder/norm/_0827_ (net)
+                  0.01    0.00    2.35 v adder/norm/_1958_/A1 (NAND2_X1)
+                  0.02    0.02    2.37 ^ adder/norm/_1958_/ZN (NAND2_X1)
+     2    4.42                           adder/norm/_1054_ (net)
+                  0.02    0.00    2.37 ^ adder/norm/_1959_/A1 (NAND2_X1)
+                  0.01    0.02    2.38 v adder/norm/_1959_/ZN (NAND2_X1)
+     1    1.76                           adder/norm/_1055_ (net)
+                  0.01    0.00    2.38 v adder/norm/_1960_/B1 (AOI21_X1)
+                  0.03    0.04    2.42 ^ adder/norm/_1960_/ZN (AOI21_X1)
+     1    3.54                           adder/norm/_1056_ (net)
+                  0.03    0.00    2.42 ^ adder/norm/_1971_/A1 (NAND4_X2)
+                  0.03    0.04    2.46 v adder/norm/_1971_/ZN (NAND4_X2)
+     4    9.09                           adder/norm/_1067_ (net)
+                  0.03    0.00    2.46 v adder/norm/_1990_/A1 (NOR2_X1)
+                  0.03    0.04    2.51 ^ adder/norm/_1990_/ZN (NOR2_X1)
+     1    4.14                           adder/norm/_1086_ (net)
+                  0.03    0.00    2.51 ^ adder/norm/_1991_/A3 (NAND3_X2)
+                  0.02    0.04    2.54 v adder/norm/_1991_/ZN (NAND3_X2)
+     5   12.03                           adder/norm/_1087_ (net)
+                  0.02    0.00    2.54 v adder/norm/_1992_/A2 (NOR2_X2)
+                  0.04    0.06    2.60 ^ adder/norm/_1992_/ZN (NOR2_X2)
+     6   14.00                           adder/norm/_1088_ (net)
+                  0.04    0.00    2.61 ^ adder/norm/_2078_/A1 (NAND4_X1)
+                  0.02    0.04    2.64 v adder/norm/_2078_/ZN (NAND4_X1)
+     1    2.18                           adder/norm/_0039_ (net)
+                  0.02    0.00    2.64 v adder/norm/_2079_/A1 (NAND2_X1)
+                  0.02    0.03    2.67 ^ adder/norm/_2079_/ZN (NAND2_X1)
+     3    6.38                           adder/norm/_0040_ (net)
+                  0.02    0.00    2.67 ^ adder/norm/_2089_/A1 (NAND2_X1)
+                  0.01    0.02    2.69 v adder/norm/_2089_/ZN (NAND2_X1)
+     1    1.87                           adder/norm/_0049_ (net)
+                  0.01    0.00    2.69 v adder/norm/_2093_/A1 (NAND2_X1)
+                  0.02    0.03    2.71 ^ adder/norm/_2093_/ZN (NAND2_X1)
+     3    6.06                           adder/norm/_0054_ (net)
+                  0.02    0.00    2.71 ^ adder/norm/_2104_/A1 (NAND2_X1)
+                  0.01    0.02    2.73 v adder/norm/_2104_/ZN (NAND2_X1)
+     1    1.63                           adder/norm/_0064_ (net)
+                  0.01    0.00    2.73 v adder/norm/_2106_/A1 (NAND2_X1)
+                  0.01    0.02    2.75 ^ adder/norm/_2106_/ZN (NAND2_X1)
+     2    4.17                           adder/norm/_0066_ (net)
+                  0.01    0.00    2.75 ^ adder/norm/_2112_/A1 (NAND2_X1)
+                  0.01    0.02    2.77 v adder/norm/_2112_/ZN (NAND2_X1)
+     2    3.41                           adder/norm/_0072_ (net)
+                  0.01    0.00    2.77 v adder/norm/_2113_/A1 (NAND2_X1)
+                  0.01    0.02    2.78 ^ adder/norm/_2113_/ZN (NAND2_X1)
+     1    1.90                           adder/norm/_0073_ (net)
+                  0.01    0.00    2.78 ^ adder/norm/_2116_/A1 (NAND2_X1)
+                  0.01    0.01    2.80 v adder/norm/_2116_/ZN (NAND2_X1)
+     1    1.97                           adder/norm/_0076_ (net)
+                  0.01    0.00    2.80 v adder/norm/_2119_/A1 (NAND2_X1)
+                  0.01    0.01    2.81 ^ adder/norm/_2119_/ZN (NAND2_X1)
+     1    1.49                           net73 (net)
+                  0.01    0.00    2.81 ^ output73/A (BUF_X1)
+                  0.00    0.02    2.83 ^ output73/Z (BUF_X1)
+     1    0.55                           result_o[30] (net)
+                  0.00    0.00    2.83 ^ result_o[30] (out)
+                                  2.83   data arrival time
+
+                          6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock network delay (propagated)
+                          0.00    6.00   clock reconvergence pessimism
+                         -0.60    5.40   output external delay
+                                  5.40   data required time
+-----------------------------------------------------------------------------
+                                  5.40   data required time
+                                 -2.83   data arrival time
+-----------------------------------------------------------------------------
+                                  2.57   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: adder/_166_ (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.60    0.60 ^ input external delay
+                  0.00    0.00    0.60 ^ rst_ni (in)
+     1   12.99                           rst_ni (net)
+                  0.00    0.00    0.60 ^ input49/A (BUF_X16)
+                  0.01    0.02    0.62 ^ input49/Z (BUF_X16)
+    64  145.41                           net49 (net)
+                  0.04    0.03    0.65 ^ adder/_166_/RN (DFFR_X1)
+                                  0.65   data arrival time
+
+                          6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock source latency
+                  0.00    0.00    6.00 ^ clk_i (in)
+     1   30.68                           clk_i (net)
+                  0.00    0.00    6.00 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.02    0.03    6.03 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     8  220.95                           clknet_0_clk_i (net)
+                  0.02    0.01    6.04 ^ clkbuf_3_4__f_clk_i/A (BUF_X32)
+                  0.00    0.02    6.06 ^ clkbuf_3_4__f_clk_i/Z (BUF_X32)
+     7    9.02                           clknet_3_4__leaf_clk_i (net)
+                  0.00    0.00    6.06 ^ adder/_166_/CK (DFFR_X1)
+                          0.00    6.06   clock reconvergence pessimism
+                          0.05    6.11   library recovery time
+                                  6.11   data required time
+-----------------------------------------------------------------------------
+                                  6.11   data required time
+                                 -0.65   data arrival time
+-----------------------------------------------------------------------------
+                                  5.46   slack (MET)
+
+
+Startpoint: adder/_167_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: result_o[30] (output port clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   30.68                           clk_i (net)
+                  0.00    0.00    0.00 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.02    0.03    0.03 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     8  220.95                           clknet_0_clk_i (net)
+                  0.02    0.01    0.04 ^ clkbuf_3_5__f_clk_i/A (BUF_X32)
+                  0.00    0.02    0.06 ^ clkbuf_3_5__f_clk_i/Z (BUF_X32)
+     8   11.85                           clknet_3_5__leaf_clk_i (net)
+                  0.01    0.00    0.06 ^ adder/_167_/CK (DFFR_X2)
+                  0.02    0.14    0.20 ^ adder/_167_/Q (DFFR_X2)
+     4   10.20                           adder/exp_b_d[6] (net)
+                  0.02    0.00    0.20 ^ adder/adder/_1290_/A2 (NOR2_X1)
+                  0.01    0.02    0.22 v adder/adder/_1290_/ZN (NOR2_X1)
+     3    5.71                           adder/adder/_0403_ (net)
+                  0.01    0.00    0.22 v adder/adder/_1291_/A2 (NOR2_X1)
+                  0.04    0.06    0.28 ^ adder/adder/_1291_/ZN (NOR2_X1)
+     4    7.99                           adder/adder/_0404_ (net)
+                  0.04    0.00    0.28 ^ adder/adder/_1297_/A1 (NAND2_X1)
+                  0.02    0.02    0.30 v adder/adder/_1297_/ZN (NAND2_X1)
+     2    3.45                           adder/adder/_0410_ (net)
+                  0.02    0.00    0.30 v adder/adder/_1298_/A2 (NOR2_X1)
+                  0.02    0.04    0.34 ^ adder/adder/_1298_/ZN (NOR2_X1)
+     1    3.76                           adder/adder/_0411_ (net)
+                  0.02    0.00    0.34 ^ adder/adder/_1299_/A2 (NAND2_X2)
+                  0.02    0.03    0.38 v adder/adder/_1299_/ZN (NAND2_X2)
+     4   16.18                           adder/adder/_0412_ (net)
+                  0.02    0.00    0.38 v adder/adder/_1306_/A1 (NAND2_X4)
+                  0.02    0.03    0.41 ^ adder/adder/_1306_/ZN (NAND2_X4)
+     2   29.07                           adder/adder/_0419_ (net)
+                  0.02    0.00    0.41 ^ max_cap84/A (BUF_X32)
+                  0.01    0.03    0.44 ^ max_cap84/Z (BUF_X32)
+    97  238.12                           net84 (net)
+                  0.02    0.01    0.45 ^ adder/adder/_1307_/A (INV_X8)
+                  0.01    0.02    0.47 v adder/adder/_1307_/ZN (INV_X8)
+    28   65.33                           adder/adder/_0420_ (net)
+                  0.01    0.00    0.47 v adder/adder/_1321_/A2 (NAND2_X1)
+                  0.02    0.03    0.50 ^ adder/adder/_1321_/ZN (NAND2_X1)
+     1    6.26                           adder/adder/_0434_ (net)
+                  0.02    0.00    0.50 ^ adder/adder/_1326_/A1 (NAND2_X4)
+                  0.03    0.04    0.54 v adder/adder/_1326_/ZN (NAND2_X4)
+    27   60.59                           adder/adder/_0439_ (net)
+                  0.03    0.00    0.54 v adder/adder/_1425_/A (INV_X8)
+                  0.02    0.03    0.58 ^ adder/adder/_1425_/ZN (INV_X8)
+    24   53.56                           adder/adder/_0529_ (net)
+                  0.02    0.00    0.58 ^ adder/adder/_1426_/A2 (NAND3_X1)
+                  0.02    0.03    0.61 v adder/adder/_1426_/ZN (NAND3_X1)
+     2    3.56                           adder/adder/_0530_ (net)
+                  0.02    0.00    0.61 v adder/adder/_1428_/A1 (NAND2_X1)
+                  0.02    0.03    0.64 ^ adder/adder/_1428_/ZN (NAND2_X1)
+     2    5.77                           adder/adder/_0532_ (net)
+                  0.02    0.00    0.64 ^ adder/adder/_1429_/A (INV_X2)
+                  0.01    0.01    0.64 v adder/adder/_1429_/ZN (INV_X2)
+     1    1.87                           adder/adder/_0533_ (net)
+                  0.01    0.00    0.64 v adder/adder/_1430_/A1 (NAND2_X1)
+                  0.03    0.03    0.67 ^ adder/adder/_1430_/ZN (NAND2_X1)
+     2    8.69                           adder/adder/_0534_ (net)
+                  0.03    0.00    0.67 ^ adder/adder/_1446_/A1 (NAND2_X4)
+                  0.02    0.03    0.71 v adder/adder/_1446_/ZN (NAND2_X4)
+    21   37.50                           adder/adder/_0550_ (net)
+                  0.02    0.00    0.71 v adder/adder/_1504_/A1 (NAND2_X1)
+                  0.02    0.03    0.73 ^ adder/adder/_1504_/ZN (NAND2_X1)
+     2    3.77                           adder/adder/_0608_ (net)
+                  0.02    0.00    0.73 ^ adder/adder/_1507_/A1 (NAND2_X1)
+                  0.02    0.01    0.75 v adder/adder/_1507_/ZN (NAND2_X1)
+     1    1.69                           adder/adder/_0611_ (net)
+                  0.02    0.00    0.75 v adder/adder/_1509_/A1 (NAND2_X1)
+                  0.01    0.02    0.77 ^ adder/adder/_1509_/ZN (NAND2_X1)
+     1    1.80                           adder/adder/_0613_ (net)
+                  0.01    0.00    0.77 ^ adder/adder/_1510_/A2 (NAND2_X1)
+                  0.01    0.02    0.79 v adder/adder/_1510_/ZN (NAND2_X1)
+     2    3.65                           adder/adder/_0614_ (net)
+                  0.01    0.00    0.79 v adder/adder/_1511_/A1 (NAND2_X1)
+                  0.01    0.02    0.81 ^ adder/adder/_1511_/ZN (NAND2_X1)
+     2    3.81                           adder/adder/_0615_ (net)
+                  0.01    0.00    0.81 ^ adder/adder/_1567_/A1 (NAND2_X1)
+                  0.01    0.01    0.82 v adder/adder/_1567_/ZN (NAND2_X1)
+     1    1.88                           adder/adder/_0671_ (net)
+                  0.01    0.00    0.82 v adder/adder/_1568_/A2 (NOR2_X1)
+                  0.02    0.03    0.85 ^ adder/adder/_1568_/ZN (NOR2_X1)
+     1    1.92                           adder/adder/_0672_ (net)
+                  0.02    0.00    0.85 ^ adder/adder/_1569_/A2 (NAND2_X1)
+                  0.01    0.02    0.87 v adder/adder/_1569_/ZN (NAND2_X1)
+     1    2.18                           adder/adder/_0673_ (net)
+                  0.01    0.00    0.87 v adder/adder/_1570_/A (INV_X1)
+                  0.01    0.02    0.89 ^ adder/adder/_1570_/ZN (INV_X1)
+     2    5.41                           adder/adder/_0674_ (net)
+                  0.01    0.00    0.89 ^ adder/adder/_1571_/A1 (NOR2_X1)
+                  0.01    0.01    0.90 v adder/adder/_1571_/ZN (NOR2_X1)
+     1    1.68                           adder/adder/_0675_ (net)
+                  0.01    0.00    0.90 v adder/adder/_1593_/A1 (NOR2_X1)
+                  0.02    0.02    0.92 ^ adder/adder/_1593_/ZN (NOR2_X1)
+     1    1.65                           adder/adder/_0697_ (net)
+                  0.02    0.00    0.92 ^ adder/adder/_1657_/A1 (NAND2_X1)
+                  0.01    0.01    0.93 v adder/adder/_1657_/ZN (NAND2_X1)
+     1    1.71                           adder/adder/_0761_ (net)
+                  0.01    0.00    0.93 v adder/adder/_1658_/A2 (NAND2_X1)
+                  0.01    0.02    0.95 ^ adder/adder/_1658_/ZN (NAND2_X1)
+     1    3.20                           adder/adder/_0762_ (net)
+                  0.01    0.00    0.95 ^ adder/adder/_1672_/A1 (NAND2_X2)
+                  0.02    0.03    0.98 v adder/adder/_1672_/ZN (NAND2_X2)
+     6   15.80                           adder/mant_prenorm_d[20] (net)
+                  0.02    0.00    0.98 v adder/adder/_1746_/A1 (NAND3_X2)
+                  0.02    0.03    1.01 ^ adder/adder/_1746_/ZN (NAND3_X2)
+     4    7.60                           adder/adder/_0849_ (net)
+                  0.02    0.00    1.01 ^ adder/adder/_1842_/A1 (NAND3_X1)
+                  0.01    0.02    1.03 v adder/adder/_1842_/ZN (NAND3_X1)
+     1    3.21                           adder/adder/_0945_ (net)
+                  0.01    0.00    1.03 v adder/adder/_1843_/A1 (NAND2_X2)
+                  0.02    0.03    1.06 ^ adder/adder/_1843_/ZN (NAND2_X2)
+     4   15.60                           adder/adder/_0946_ (net)
+                  0.02    0.00    1.06 ^ adder/adder/_1926_/A1 (NAND2_X1)
+                  0.01    0.02    1.08 v adder/adder/_1926_/ZN (NAND2_X1)
+     1    3.09                           adder/adder/_1029_ (net)
+                  0.01    0.00    1.08 v adder/adder/_1934_/A1 (NAND2_X2)
+                  0.02    0.03    1.11 ^ adder/adder/_1934_/ZN (NAND2_X2)
+     5   13.22                           adder/adder/_1037_ (net)
+                  0.02    0.00    1.11 ^ adder/adder/_2035_/A1 (NAND2_X1)
+                  0.01    0.02    1.13 v adder/adder/_2035_/ZN (NAND2_X1)
+     1    3.30                           adder/adder/_0033_ (net)
+                  0.01    0.00    1.13 v adder/adder/_2052_/A1 (NAND2_X2)
+                  0.02    0.03    1.16 ^ adder/adder/_2052_/ZN (NAND2_X2)
+     4   15.68                           adder/adder/_0051_ (net)
+                  0.02    0.00    1.16 ^ adder/adder/_2227_/A1 (NAND2_X1)
+                  0.01    0.02    1.18 v adder/adder/_2227_/ZN (NAND2_X1)
+     1    1.79                           adder/adder/_0223_ (net)
+                  0.01    0.00    1.18 v adder/adder/_2228_/A1 (NAND2_X1)
+                  0.02    0.03    1.21 ^ adder/adder/_2228_/ZN (NAND2_X1)
+     3    8.26                           adder/adder/_0224_ (net)
+                  0.02    0.00    1.21 ^ adder/adder/_2233_/A1 (NAND2_X1)
+                  0.01    0.02    1.23 v adder/adder/_2233_/ZN (NAND2_X1)
+     1    1.82                           adder/adder/_0228_ (net)
+                  0.01    0.00    1.23 v adder/adder/_2234_/A1 (NAND2_X1)
+                  0.02    0.03    1.26 ^ adder/adder/_2234_/ZN (NAND2_X1)
+     2    6.29                           adder/adder/_0229_ (net)
+                  0.02    0.00    1.26 ^ adder/adder/_2237_/A1 (NAND2_X1)
+                  0.01    0.02    1.28 v adder/adder/_2237_/ZN (NAND2_X1)
+     2    3.84                           adder/adder/_0231_ (net)
+                  0.01    0.00    1.28 v adder/adder/_2241_/A1 (NAND3_X1)
+                  0.01    0.02    1.29 ^ adder/adder/_2241_/ZN (NAND3_X1)
+     1    1.79                           adder/adder/_0235_ (net)
+                  0.01    0.00    1.29 ^ adder/adder/_2242_/A2 (NAND2_X1)
+                  0.02    0.03    1.32 v adder/adder/_2242_/ZN (NAND2_X1)
+     4    7.73                           adder/mant_prenorm_d[43] (net)
+                  0.02    0.00    1.32 v adder/norm/LOD/_177_/A2 (NOR2_X1)
+                  0.02    0.04    1.36 ^ adder/norm/LOD/_177_/ZN (NOR2_X1)
+     2    3.73                           adder/norm/LOD/_133_ (net)
+                  0.02    0.00    1.36 ^ adder/norm/LOD/_178_/A2 (NAND2_X1)
+                  0.02    0.03    1.39 v adder/norm/LOD/_178_/ZN (NAND2_X1)
+     2    7.81                           adder/norm/LOD/_134_ (net)
+                  0.02    0.00    1.39 v adder/norm/LOD/_179_/A (INV_X4)
+                  0.01    0.01    1.41 ^ adder/norm/LOD/_179_/ZN (INV_X4)
+     1    3.28                           adder/norm/LOD/_135_ (net)
+                  0.01    0.00    1.41 ^ adder/norm/LOD/_187_/A1 (NAND2_X2)
+                  0.01    0.02    1.43 v adder/norm/LOD/_187_/ZN (NAND2_X2)
+     5    9.54                           adder/norm/LOD/_143_ (net)
+                  0.01    0.00    1.43 v adder/norm/LOD/_200_/A1 (NOR2_X2)
+                  0.03    0.04    1.47 ^ adder/norm/LOD/_200_/ZN (NOR2_X2)
+     5   10.15                           adder/norm/LOD/_008_ (net)
+                  0.03    0.00    1.47 ^ adder/norm/LOD/_207_/A1 (NAND2_X1)
+                  0.02    0.03    1.50 v adder/norm/LOD/_207_/ZN (NAND2_X1)
+     2    4.74                           adder/norm/LOD/_015_ (net)
+                  0.02    0.00    1.50 v adder/norm/LOD/_292_/A (INV_X2)
+                  0.01    0.02    1.51 ^ adder/norm/LOD/_292_/ZN (INV_X2)
+     3    6.18                           adder/norm/Mant_leadingOne_D[4] (net)
+                  0.01    0.00    1.51 ^ adder/norm/LOD/_295_/A1 (NAND2_X1)
+                  0.01    0.01    1.53 v adder/norm/LOD/_295_/ZN (NAND2_X1)
+     1    1.63                           adder/norm/LOD/_099_ (net)
+                  0.01    0.00    1.53 v adder/norm/LOD/_296_/A3 (NAND3_X1)
+                  0.02    0.02    1.55 ^ adder/norm/LOD/_296_/ZN (NAND3_X1)
+     2    3.89                           adder/norm/Mant_leadingOne_D[2] (net)
+                  0.02    0.00    1.55 ^ adder/norm/_1150_/A (INV_X1)
+                  0.01    0.02    1.57 v adder/norm/_1150_/ZN (INV_X1)
+     2    5.23                           adder/norm/_0101_ (net)
+                  0.01    0.00    1.57 v adder/norm/_1151_/A1 (NAND2_X1)
+                  0.02    0.03    1.60 ^ adder/norm/_1151_/ZN (NAND2_X1)
+     3    7.29                           adder/norm/_0112_ (net)
+                  0.02    0.00    1.60 ^ adder/norm/_1152_/A2 (NAND2_X1)
+                  0.02    0.03    1.62 v adder/norm/_1152_/ZN (NAND2_X1)
+     3    7.28                           adder/norm/_0123_ (net)
+                  0.02    0.00    1.62 v adder/norm/_1158_/A1 (NOR2_X1)
+                  0.02    0.04    1.66 ^ adder/norm/_1158_/ZN (NOR2_X1)
+     2    3.83                           adder/norm/_0189_ (net)
+                  0.02    0.00    1.66 ^ adder/norm/_1159_/A2 (NAND2_X1)
+                  0.01    0.02    1.68 v adder/norm/_1159_/ZN (NAND2_X1)
+     1    1.76                           adder/norm/_0200_ (net)
+                  0.01    0.00    1.68 v adder/norm/_1163_/A1 (NAND2_X1)
+                  0.01    0.02    1.69 ^ adder/norm/_1163_/ZN (NAND2_X1)
+     1    2.07                           adder/norm/_0239_ (net)
+                  0.01    0.00    1.69 ^ adder/norm/_1186_/A1 (NAND2_X1)
+                  0.01    0.01    1.71 v adder/norm/_1186_/ZN (NAND2_X1)
+     1    2.56                           adder/norm/_0282_ (net)
+                  0.01    0.00    1.71 v adder/norm/_1194_/A1 (NAND2_X1)
+                  0.01    0.02    1.73 ^ adder/norm/_1194_/ZN (NAND2_X1)
+     1    3.37                           adder/norm/_0290_ (net)
+                  0.01    0.00    1.73 ^ adder/norm/_1198_/A1 (NAND2_X2)
+                  0.01    0.02    1.75 v adder/norm/_1198_/ZN (NAND2_X2)
+     4   13.34                           adder/norm/_0294_ (net)
+                  0.01    0.00    1.75 v adder/norm/_1211_/A1 (NAND2_X4)
+                  0.03    0.04    1.80 ^ adder/norm/_1211_/ZN (NAND2_X4)
+    13   50.05                           adder/norm/_0307_ (net)
+                  0.03    0.00    1.80 ^ adder/norm/_1215_/A1 (NAND2_X1)
+                  0.02    0.03    1.83 v adder/norm/_1215_/ZN (NAND2_X1)
+     1    5.87                           adder/norm/_0311_ (net)
+                  0.02    0.00    1.83 v adder/norm/_1217_/A1 (NAND2_X4)
+                  0.08    0.09    1.92 ^ adder/norm/_1217_/ZN (NAND2_X4)
+    52  151.27                           adder/norm/_0313_ (net)
+                  0.08    0.01    1.93 ^ adder/norm/_1221_/A2 (NAND3_X2)
+                  0.03    0.05    1.97 v adder/norm/_1221_/ZN (NAND3_X2)
+     3    8.99                           adder/norm/_0317_ (net)
+                  0.03    0.00    1.97 v adder/norm/_1236_/A1 (NAND3_X1)
+                  0.02    0.03    2.01 ^ adder/norm/_1236_/ZN (NAND3_X1)
+     2    5.81                           adder/norm/_0332_ (net)
+                  0.02    0.00    2.01 ^ adder/norm/_1238_/A1 (NAND2_X1)
+                  0.01    0.03    2.03 v adder/norm/_1238_/ZN (NAND2_X1)
+     1    6.14                           adder/norm/_0334_ (net)
+                  0.01    0.00    2.03 v adder/norm/_1240_/A1 (NAND2_X4)
+                  0.10    0.11    2.14 ^ adder/norm/_1240_/ZN (NAND2_X4)
+    75  183.87                           adder/norm/_0336_ (net)
+                  0.10    0.02    2.16 ^ adder/norm/_1269_/A1 (AND2_X4)
+                  0.04    0.08    2.24 ^ adder/norm/_1269_/ZN (AND2_X4)
+    26   62.20                           adder/norm/_0365_ (net)
+                  0.04    0.00    2.25 ^ adder/norm/_1620_/A1 (NAND3_X1)
+                  0.03    0.03    2.28 v adder/norm/_1620_/ZN (NAND3_X1)
+     1    3.36                           adder/norm/_0716_ (net)
+                  0.03    0.00    2.28 v adder/norm/_1621_/A2 (NAND2_X2)
+                  0.03    0.05    2.32 ^ adder/norm/_1621_/ZN (NAND2_X2)
+     6   18.78                           adder/norm/_0717_ (net)
+                  0.03    0.00    2.32 ^ adder/norm/_1731_/A1 (NAND2_X1)
+                  0.01    0.02    2.35 v adder/norm/_1731_/ZN (NAND2_X1)
+     2    3.56                           adder/norm/_0827_ (net)
+                  0.01    0.00    2.35 v adder/norm/_1958_/A1 (NAND2_X1)
+                  0.02    0.02    2.37 ^ adder/norm/_1958_/ZN (NAND2_X1)
+     2    4.42                           adder/norm/_1054_ (net)
+                  0.02    0.00    2.37 ^ adder/norm/_1959_/A1 (NAND2_X1)
+                  0.01    0.02    2.38 v adder/norm/_1959_/ZN (NAND2_X1)
+     1    1.76                           adder/norm/_1055_ (net)
+                  0.01    0.00    2.38 v adder/norm/_1960_/B1 (AOI21_X1)
+                  0.03    0.04    2.42 ^ adder/norm/_1960_/ZN (AOI21_X1)
+     1    3.54                           adder/norm/_1056_ (net)
+                  0.03    0.00    2.42 ^ adder/norm/_1971_/A1 (NAND4_X2)
+                  0.03    0.04    2.46 v adder/norm/_1971_/ZN (NAND4_X2)
+     4    9.09                           adder/norm/_1067_ (net)
+                  0.03    0.00    2.46 v adder/norm/_1990_/A1 (NOR2_X1)
+                  0.03    0.04    2.51 ^ adder/norm/_1990_/ZN (NOR2_X1)
+     1    4.14                           adder/norm/_1086_ (net)
+                  0.03    0.00    2.51 ^ adder/norm/_1991_/A3 (NAND3_X2)
+                  0.02    0.04    2.54 v adder/norm/_1991_/ZN (NAND3_X2)
+     5   12.03                           adder/norm/_1087_ (net)
+                  0.02    0.00    2.54 v adder/norm/_1992_/A2 (NOR2_X2)
+                  0.04    0.06    2.60 ^ adder/norm/_1992_/ZN (NOR2_X2)
+     6   14.00                           adder/norm/_1088_ (net)
+                  0.04    0.00    2.61 ^ adder/norm/_2078_/A1 (NAND4_X1)
+                  0.02    0.04    2.64 v adder/norm/_2078_/ZN (NAND4_X1)
+     1    2.18                           adder/norm/_0039_ (net)
+                  0.02    0.00    2.64 v adder/norm/_2079_/A1 (NAND2_X1)
+                  0.02    0.03    2.67 ^ adder/norm/_2079_/ZN (NAND2_X1)
+     3    6.38                           adder/norm/_0040_ (net)
+                  0.02    0.00    2.67 ^ adder/norm/_2089_/A1 (NAND2_X1)
+                  0.01    0.02    2.69 v adder/norm/_2089_/ZN (NAND2_X1)
+     1    1.87                           adder/norm/_0049_ (net)
+                  0.01    0.00    2.69 v adder/norm/_2093_/A1 (NAND2_X1)
+                  0.02    0.03    2.71 ^ adder/norm/_2093_/ZN (NAND2_X1)
+     3    6.06                           adder/norm/_0054_ (net)
+                  0.02    0.00    2.71 ^ adder/norm/_2104_/A1 (NAND2_X1)
+                  0.01    0.02    2.73 v adder/norm/_2104_/ZN (NAND2_X1)
+     1    1.63                           adder/norm/_0064_ (net)
+                  0.01    0.00    2.73 v adder/norm/_2106_/A1 (NAND2_X1)
+                  0.01    0.02    2.75 ^ adder/norm/_2106_/ZN (NAND2_X1)
+     2    4.17                           adder/norm/_0066_ (net)
+                  0.01    0.00    2.75 ^ adder/norm/_2112_/A1 (NAND2_X1)
+                  0.01    0.02    2.77 v adder/norm/_2112_/ZN (NAND2_X1)
+     2    3.41                           adder/norm/_0072_ (net)
+                  0.01    0.00    2.77 v adder/norm/_2113_/A1 (NAND2_X1)
+                  0.01    0.02    2.78 ^ adder/norm/_2113_/ZN (NAND2_X1)
+     1    1.90                           adder/norm/_0073_ (net)
+                  0.01    0.00    2.78 ^ adder/norm/_2116_/A1 (NAND2_X1)
+                  0.01    0.01    2.80 v adder/norm/_2116_/ZN (NAND2_X1)
+     1    1.97                           adder/norm/_0076_ (net)
+                  0.01    0.00    2.80 v adder/norm/_2119_/A1 (NAND2_X1)
+                  0.01    0.01    2.81 ^ adder/norm/_2119_/ZN (NAND2_X1)
+     1    1.49                           net73 (net)
+                  0.01    0.00    2.81 ^ output73/A (BUF_X1)
+                  0.00    0.02    2.83 ^ output73/Z (BUF_X1)
+     1    0.55                           result_o[30] (net)
+                  0.00    0.00    2.83 ^ result_o[30] (out)
+                                  2.83   data arrival time
+
+                          6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock network delay (propagated)
+                          0.00    6.00   clock reconvergence pessimism
+                         -0.60    5.40   output external delay
+                                  5.40   data required time
+-----------------------------------------------------------------------------
+                                  5.40   data required time
+                                 -2.83   data arrival time
+-----------------------------------------------------------------------------
+                                  2.57   slack (MET)
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+adder/norm/_1244_/ZN                  104.07  106.53   -2.46 (VIOLATED)
+
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+0.07247503846883774
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.3650
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+-2.4616267681121826
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+104.06500244140625
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.0237
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 1
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+2.8291
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+2.5709
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+90.873423
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             5.42e-05   4.27e-06   4.59e-06   6.31e-05   8.2%
+Combinational          3.41e-04   2.93e-04   7.14e-05   7.06e-04  91.8%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.96e-04   2.98e-04   7.60e-05   7.69e-04 100.0%
+                          51.4%      38.7%       9.9%
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 3323 u^2 41% utilization.
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[WARNING ANT-0011] -report_violating_nets is deprecated.
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO FLW-0007] clock clk_i period 6.000000
+[INFO FLW-0008] Clock clk_i period 3.258
+[INFO FLW-0009] Clock clk_i slack 2.571
+[INFO FLW-0011] Path endpoint count 361
+Elapsed time: 0:01.74[h:]min:sec. CPU time: user 1.62 sys 0.11 (99%). Peak memory: 206528KB.
