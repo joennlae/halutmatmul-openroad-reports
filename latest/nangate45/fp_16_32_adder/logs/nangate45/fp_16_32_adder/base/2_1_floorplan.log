@@ -19,9 +19,9 @@ number instances in verilog is 2770
 [INFO RSZ-0033] No hold violations found.
 Post synth-opt area
 Design area 2925 u^2 36% utilization.
-worst slack 99.819
+worst slack 0.419
 Post synth-opt wns
-worst slack 897.119
+worst slack 2.519
 Post synth-opt tns
 tns 0.000
 [WARNING RMP-0032] -tielo_port not specified
@@ -396,7 +396,7 @@ Optimized to 1389 instances in iteration 3 with max path depth decrease of 0, de
 [INFO RSZ-0058] Using max wire length 661um.
 [INFO RSZ-0033] No hold violations found.
 Post restructure-opt wns
-worst slack 897.119
+worst slack 2.519
 Post restructure-opt tns
 tns 0.000
 [INFO RSZ-0026] Removed 0 buffers.
@@ -422,7 +422,7 @@ wns 0.00
 ==========================================================================
 floorplan final report_worst_slack
 --------------------------------------------------------------------------
-worst slack 897.12
+worst slack 2.52
 
 ==========================================================================
 floorplan final report_clock_skew
@@ -443,11 +443,11 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                   0.00    0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock network delay (ideal)
-                        100.00  100.00 ^ input external delay
-                  0.00    0.00  100.00 ^ rst_ni (in)
+                          0.60    0.60 ^ input external delay
+                  0.00    0.00    0.60 ^ rst_ni (in)
     64  169.81                           rst_ni (net)
-                  0.00    0.00  100.00 ^ adder/_106_/RN (DFFR_X1)
-                                100.00   data arrival time
+                  0.00    0.00    0.60 ^ adder/_106_/RN (DFFR_X1)
+                                  0.60   data arrival time
 
                   0.00    0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock network delay (ideal)
@@ -457,13 +457,13 @@ Fanout     Cap    Slew   Delay    Time   Description
                                   0.18   data required time
 -----------------------------------------------------------------------------
                                   0.18   data required time
-                               -100.00   data arrival time
+                                 -0.60   data arrival time
 -----------------------------------------------------------------------------
-                                 99.82   slack (MET)
+                                  0.42   slack (MET)
 
 
-Startpoint: operand_fp16_i[14] (input port clocked by clk_i)
-Endpoint: adder/_136_ (rising edge-triggered flip-flop clocked by clk_i)
+Startpoint: operand_fp16_i[15] (input port clocked by clk_i)
+Endpoint: adder/_137_ (rising edge-triggered flip-flop clocked by clk_i)
 Path Group: clk_i
 Path Type: min
 
@@ -471,23 +471,23 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                   0.00    0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock network delay (ideal)
-                        100.00  100.00 v input external delay
-                  0.00    0.00  100.00 v operand_fp16_i[14] (in)
-     2    3.30                           operand_fp16_i[14] (net)
-                  0.00    0.00  100.00 v adder/_136_/D (DFFR_X1)
-                                100.00   data arrival time
+                          0.60    0.60 v input external delay
+                  0.00    0.00    0.60 v operand_fp16_i[15] (in)
+     1    1.36                           operand_fp16_i[15] (net)
+                  0.00    0.00    0.60 v adder/_137_/D (DFFR_X1)
+                                  0.60   data arrival time
 
                   0.00    0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock network delay (ideal)
                           0.00    0.00   clock reconvergence pessimism
-                                  0.00 ^ adder/_136_/CK (DFFR_X1)
+                                  0.00 ^ adder/_137_/CK (DFFR_X1)
                           0.00    0.00   library hold time
                                   0.00   data required time
 -----------------------------------------------------------------------------
                                   0.00   data required time
-                               -100.00   data arrival time
+                                 -0.60   data arrival time
 -----------------------------------------------------------------------------
-                                100.00   slack (MET)
+                                  0.60   slack (MET)
 
 
 
@@ -503,23 +503,23 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                   0.00    0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock network delay (ideal)
-                        100.00  100.00 ^ input external delay
-                  0.00    0.00  100.00 ^ rst_ni (in)
+                          0.60    0.60 ^ input external delay
+                  0.00    0.00    0.60 ^ rst_ni (in)
     64  169.81                           rst_ni (net)
-                  0.00    0.00  100.00 ^ adder/_113_/RN (DFFR_X2)
-                                100.00   data arrival time
+                  0.00    0.00    0.60 ^ adder/_113_/RN (DFFR_X2)
+                                  0.60   data arrival time
 
-                  0.00 1000.00 1000.00   clock clk_i (rise edge)
-                          0.00 1000.00   clock network delay (ideal)
-                          0.00 1000.00   clock reconvergence pessimism
-                               1000.00 ^ adder/_113_/CK (DFFR_X2)
-                          0.05 1000.05   library recovery time
-                               1000.05   data required time
+                  0.00    6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ adder/_113_/CK (DFFR_X2)
+                          0.05    6.05   library recovery time
+                                  6.05   data required time
 -----------------------------------------------------------------------------
-                               1000.05   data required time
-                               -100.00   data arrival time
+                                  6.05   data required time
+                                 -0.60   data arrival time
 -----------------------------------------------------------------------------
-                                900.05   slack (MET)
+                                  5.45   slack (MET)
 
 
 Startpoint: adder/_165_ (rising edge-triggered flip-flop clocked by clk_i)
@@ -807,16 +807,16 @@ Fanout     Cap    Slew   Delay    Time   Description
                   0.01    0.00    2.88 ^ result_o[30] (out)
                                   2.88   data arrival time
 
-                  0.00 1000.00 1000.00   clock clk_i (rise edge)
-                          0.00 1000.00   clock network delay (ideal)
-                          0.00 1000.00   clock reconvergence pessimism
-                       -100.00  900.00   output external delay
-                                900.00   data required time
+                  0.00    6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                         -0.60    5.40   output external delay
+                                  5.40   data required time
 -----------------------------------------------------------------------------
-                                900.00   data required time
+                                  5.40   data required time
                                  -2.88   data arrival time
 -----------------------------------------------------------------------------
-                                897.12   slack (MET)
+                                  2.52   slack (MET)
 
 
 
@@ -832,23 +832,23 @@ Fanout     Cap    Slew   Delay    Time   Description
 -----------------------------------------------------------------------------
                   0.00    0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock network delay (ideal)
-                        100.00  100.00 ^ input external delay
-                  0.00    0.00  100.00 ^ rst_ni (in)
+                          0.60    0.60 ^ input external delay
+                  0.00    0.00    0.60 ^ rst_ni (in)
     64  169.81                           rst_ni (net)
-                  0.00    0.00  100.00 ^ adder/_113_/RN (DFFR_X2)
-                                100.00   data arrival time
+                  0.00    0.00    0.60 ^ adder/_113_/RN (DFFR_X2)
+                                  0.60   data arrival time
 
-                  0.00 1000.00 1000.00   clock clk_i (rise edge)
-                          0.00 1000.00   clock network delay (ideal)
-                          0.00 1000.00   clock reconvergence pessimism
-                               1000.00 ^ adder/_113_/CK (DFFR_X2)
-                          0.05 1000.05   library recovery time
-                               1000.05   data required time
+                  0.00    6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                                  6.00 ^ adder/_113_/CK (DFFR_X2)
+                          0.05    6.05   library recovery time
+                                  6.05   data required time
 -----------------------------------------------------------------------------
-                               1000.05   data required time
-                               -100.00   data arrival time
+                                  6.05   data required time
+                                 -0.60   data arrival time
 -----------------------------------------------------------------------------
-                                900.05   slack (MET)
+                                  5.45   slack (MET)
 
 
 Startpoint: adder/_165_ (rising edge-triggered flip-flop clocked by clk_i)
@@ -1136,16 +1136,16 @@ Fanout     Cap    Slew   Delay    Time   Description
                   0.01    0.00    2.88 ^ result_o[30] (out)
                                   2.88   data arrival time
 
-                  0.00 1000.00 1000.00   clock clk_i (rise edge)
-                          0.00 1000.00   clock network delay (ideal)
-                          0.00 1000.00   clock reconvergence pessimism
-                       -100.00  900.00   output external delay
-                                900.00   data required time
+                  0.00    6.00    6.00   clock clk_i (rise edge)
+                          0.00    6.00   clock network delay (ideal)
+                          0.00    6.00   clock reconvergence pessimism
+                         -0.60    5.40   output external delay
+                                  5.40   data required time
 -----------------------------------------------------------------------------
-                                900.00   data required time
+                                  5.40   data required time
                                  -2.88   data arrival time
 -----------------------------------------------------------------------------
-                                897.12   slack (MET)
+                                  2.52   slack (MET)
 
 
 
@@ -1155,17 +1155,17 @@ floorplan final report_power
 Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
-Sequential             3.23e-07   2.14e-08   4.32e-06   4.66e-06   7.0%
-Combinational          8.29e-07   1.28e-06   5.95e-05   6.16e-05  93.0%
+Sequential             5.38e-05   3.56e-06   4.32e-06   6.17e-05  13.0%
+Combinational          1.38e-04   2.14e-04   5.95e-05   4.11e-04  87.0%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  1.15e-06   1.30e-06   6.38e-05   6.63e-05 100.0%
-                           1.7%       2.0%      96.3%
+Total                  1.92e-04   2.17e-04   6.38e-05   4.73e-04 100.0%
+                          40.6%      45.9%      13.5%
 
 ==========================================================================
 floorplan final report_design_area
 --------------------------------------------------------------------------
 Design area 2925 u^2 36% utilization.
 
-Elapsed time: 0:12.33[h:]min:sec. CPU time: user 9.94 sys 2.34 (99%). Peak memory: 146696KB.
+Elapsed time: 0:10.63[h:]min:sec. CPU time: user 8.59 sys 2.02 (99%). Peak memory: 145572KB.
