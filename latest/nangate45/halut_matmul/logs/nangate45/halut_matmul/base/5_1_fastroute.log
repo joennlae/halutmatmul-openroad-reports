@@ -16,9 +16,9 @@ Components of this program may be licensed under more restrictive licenses which
 [INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
 [INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
 [INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
-[INFO GRT-0019] Found 6664 clock nets.
+[INFO GRT-0019] Found 6677 clock nets.
 [INFO GRT-0001] Minimum degree: 2
-[INFO GRT-0002] Maximum degree: 117
+[INFO GRT-0002] Maximum degree: 120
 [INFO GRT-0003] Macros: 0
 [INFO GRT-0004] Blockages: 0
 
@@ -27,42 +27,42 @@ Components of this program may be licensed under more restrictive licenses which
 Layer     Direction    Resources     Resources    Reduction (%)
 ---------------------------------------------------------------
 metal1     Horizontal          0             0          0.00%
-metal2     Vertical       592064        111342          81.19%
-metal3     Horizontal     807360        219912          72.76%
-metal4     Vertical       376768        265668          29.49%
-metal5     Horizontal     376768        269808          28.39%
-metal6     Vertical       376768        269808          28.39%
-metal7     Horizontal     107648         49160          54.33%
-metal8     Vertical       107648         54285          49.57%
-metal9     Horizontal      53824           231          99.57%
-metal10    Vertical        53824           231          99.57%
+metal2     Vertical       597179        110200          81.55%
+metal3     Horizontal     814335        219008          73.11%
+metal4     Vertical       380023        266827          29.79%
+metal5     Horizontal     380023        270976          28.69%
+metal6     Vertical       380023        270976          28.69%
+metal7     Horizontal     108578         49163          54.72%
+metal8     Vertical       108578         54288          50.00%
+metal9     Horizontal      54289             0          100.00%
+metal10    Vertical        54289             0          100.00%
 ---------------------------------------------------------------
 
 [INFO GRT-0101] Running extra iterations to remove overflow.
-[INFO GRT-0197] Via related to pin nodes: 409158
-[INFO GRT-0198] Via related Steiner nodes: 14248
+[INFO GRT-0197] Via related to pin nodes: 412379
+[INFO GRT-0198] Via related Steiner nodes: 15094
 [INFO GRT-0199] Via filling finished.
-[INFO GRT-0111] Final number of vias: 485307
-[INFO GRT-0112] Final usage 3D: 1853771
+[INFO GRT-0111] Final number of vias: 491124
+[INFO GRT-0112] Final usage 3D: 1879915
 
 [INFO GRT-0096] Final congestion report:
 Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
 ---------------------------------------------------------------------------------------
 metal1               0             0            0.00%             0 /  0 /  0
-metal2          111342         58412           52.46%             0 /  0 /  0
-metal3          219912        112414           51.12%             0 /  0 /  0
-metal4          265668        105996           39.90%             0 /  0 /  0
-metal5          269808         82669           30.64%             0 /  0 /  0
-metal6          269808         32352           11.99%             0 /  0 /  0
-metal7           49160          5830           11.86%             0 /  0 /  0
-metal8           54285           177            0.33%             0 /  0 /  0
-metal9             231             0            0.00%             0 /  0 /  0
-metal10            231             0            0.00%             0 /  0 /  0
+metal2          110200         58388           52.98%             0 /  0 /  0
+metal3          219008        113967           52.04%             0 /  0 /  0
+metal4          266827        105200           39.43%             0 /  0 /  0
+metal5          270976         87427           32.26%             0 /  0 /  0
+metal6          270976         33518           12.37%             0 /  0 /  0
+metal7           49163          7509           15.27%             0 /  0 /  0
+metal8           54288           534            0.98%             0 /  0 /  0
+metal9               0             0            0.00%             0 /  0 /  0
+metal10              0             0            0.00%             0 /  0 /  0
 ---------------------------------------------------------------------------------------
-Total          1240445        397850           32.07%             0 /  0 /  0
+Total          1241438        406543           32.75%             0 /  0 /  0
 
-[INFO GRT-0018] Total wirelength: 1244550 um
-[INFO GRT-0014] Routed nets: 67106
+[INFO GRT-0018] Total wirelength: 1266911 um
+[INFO GRT-0014] Routed nets: 67254
 
 ==========================================================================
 global route report_tns
@@ -84,17 +84,17 @@ global route report_clock_skew
 --------------------------------------------------------------------------
 Clock clk_i
 Latency      CRPR       Skew
-encoder/gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2438_/G ^
-   0.54
-encoder/gen_encoder_units[3].encoder_unit/_357_/CK ^
-   0.14      0.00       0.40
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[1].sub_unit_i/_2565_/G ^
+   0.63
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_749_/CK ^
+   0.19      0.00       0.44
 
 
 ==========================================================================
 global route report_checks -path_delay min
 --------------------------------------------------------------------------
 Startpoint: rst_ni (input port clocked by clk_i)
-Endpoint: encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_152_
+Endpoint: encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_145_
           (removal check against rising-edge clock clk_i)
 Path Group: **async_default**
 Path Type: min
@@ -105,58 +105,61 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock network delay (propagated)
                           0.60    0.60 ^ input external delay
                   0.00    0.00    0.60 ^ rst_ni (in)
-     1   27.19                           rst_ni (net)
-                  0.00    0.00    0.60 ^ input260/A (BUF_X32)
-                  0.01    0.02    0.62 ^ input260/Z (BUF_X32)
-    88  242.60                           net260 (net)
-                  0.06    0.05    0.67 ^ max_length844/A (BUF_X32)
-                  0.01    0.03    0.70 ^ max_length844/Z (BUF_X32)
-    57  203.35                           net844 (net)
-                  0.10    0.08    0.78 ^ encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_152_/RN (DFFR_X2)
-                                  0.78   data arrival time
+     1    1.85                           rst_ni (net)
+                  0.00    0.00    0.60 ^ hold2193/A (CLKBUF_X3)
+                  0.02    0.05    0.65 ^ hold2193/Z (CLKBUF_X3)
+     1   27.15                           net3187 (net)
+                  0.02    0.00    0.65 ^ input260/A (BUF_X32)
+                  0.01    0.03    0.67 ^ input260/Z (BUF_X32)
+    29  143.91                           net260 (net)
+                  0.01    0.00    0.68 ^ wire847/A (BUF_X32)
+                  0.01    0.02    0.70 ^ wire847/Z (BUF_X32)
+    52  229.21                           net847 (net)
+                  0.11    0.09    0.79 ^ encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_145_/RN (DFFR_X2)
+                                  0.79   data arrival time
 
                           0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock source latency
                   0.00    0.00    0.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    0.05 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
-                  0.02    0.04    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
-    13  426.67                           clknet_1_0__leaf_clk_i (net)
-                  0.03    0.01    0.10 ^ clkbuf_opt_1_0_clk_i/A (BUF_X32)
-                  0.01    0.02    0.13 ^ clkbuf_opt_1_0_clk_i/Z (BUF_X32)
-     1   50.82                           clknet_opt_1_0_clk_i (net)
-                  0.02    0.02    0.15 ^ clkbuf_leaf_14_clk_i/A (BUF_X32)
-                  0.01    0.02    0.17 ^ clkbuf_leaf_14_clk_i/Z (BUF_X32)
-    10   26.20                           clknet_leaf_14_clk_i (net)
-                  0.01    0.00    0.17 ^ encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_081_/A1 (NAND2_X1)
-                  0.05    0.06    0.23 v encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_081_/ZN (NAND2_X1)
-     1   25.93                           encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_040_ (net)
-                  0.05    0.00    0.23 v clkbuf_0_encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_040_/A (BUF_X32)
-                  0.01    0.04    0.27 v clkbuf_0_encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
-     2   49.96                           clknet_0_encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_040_ (net)
-                  0.01    0.00    0.28 v clkbuf_1_0__f_encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_040_/A (BUF_X32)
-                  0.00    0.02    0.30 v clkbuf_1_0__f_encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
-     7   14.73                           clknet_1_0__leaf_encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_040_ (net)
-                  0.00    0.00    0.30 v encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_082__888/A (INV_X1)
-                  0.01    0.01    0.31 ^ encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_082__888/ZN (INV_X1)
-     1    2.51                           net1880 (net)
-                  0.01    0.00    0.31 ^ encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_152_/CK (DFFR_X2)
-                          0.00    0.31   clock reconvergence pessimism
-                          0.29    0.60   library removal time
-                                  0.60   data required time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    0.05 ^ clkbuf_2_0_0_clk_i/A (BUF_X4)
+                  0.14    0.16    0.21 ^ clkbuf_2_0_0_clk_i/Z (BUF_X4)
+     8  249.29                           clknet_2_0_0_clk_i (net)
+                  0.14    0.01    0.22 ^ clkbuf_opt_1_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.25 ^ clkbuf_opt_1_0_clk_i/Z (BUF_X32)
+     1   43.63                           clknet_opt_1_0_clk_i (net)
+                  0.02    0.01    0.26 ^ clkbuf_leaf_16_clk_i/A (BUF_X32)
+                  0.00    0.02    0.28 ^ clkbuf_leaf_16_clk_i/Z (BUF_X32)
+     3   12.72                           clknet_leaf_16_clk_i (net)
+                  0.00    0.00    0.28 ^ encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_081_/A1 (NAND2_X1)
+                  0.05    0.06    0.34 v encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_081_/ZN (NAND2_X1)
+     1   24.55                           encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_040_ (net)
+                  0.05    0.00    0.34 v clkbuf_0_encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.01    0.04    0.38 v clkbuf_0_encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     2   49.44                           clknet_0_encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_040_ (net)
+                  0.01    0.00    0.39 v clkbuf_1_0__f_encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.00    0.02    0.41 v clkbuf_1_0__f_encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     7   13.38                           clknet_1_0__leaf_encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_040_ (net)
+                  0.00    0.00    0.41 v encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_082__623/A (INV_X1)
+                  0.01    0.01    0.42 ^ encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_082__623/ZN (INV_X1)
+     1    1.72                           net1617 (net)
+                  0.01    0.00    0.42 ^ encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_145_/CK (DFFR_X2)
+                          0.00    0.42   clock reconvergence pessimism
+                          0.30    0.72   library removal time
+                                  0.72   data required time
 -----------------------------------------------------------------------------
-                                  0.60   data required time
-                                 -0.78   data arrival time
+                                  0.72   data required time
+                                 -0.79   data arrival time
 -----------------------------------------------------------------------------
-                                  0.18   slack (MET)
+                                  0.06   slack (MET)
 
 
-Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2405_
+Startpoint: encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2937_
             (negative level-sensitive latch clocked by clk_i)
-Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2372_
+Endpoint: encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2392_
           (rising clock gating-check end-point clocked by clk_i)
 Path Group: **clock_gating_default**
 Path Type: min
@@ -166,73 +169,73 @@ Fanout     Cap    Slew   Delay    Time   Description
                           3.00    3.00   clock clk_i (fall edge)
                           0.00    3.00   clock source latency
                   0.00    0.00    3.00 v clk_i (in)
-     1   62.28                           clk_i (net)
-                  0.02    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
+     1   66.47                           clk_i (net)
+                  0.03    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    3.05 v clkbuf_0_clk_i/Z (BUF_X32)
-     2   71.26                           clknet_0_clk_i (net)
-                  0.01    0.01    3.06 v clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.01    0.03    3.08 v clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  359.68                           clknet_1_1__leaf_clk_i (net)
-                  0.02    0.02    3.10 v clkbuf_leaf_4_clk_i/A (BUF_X32)
-                  0.00    0.03    3.13 v clkbuf_leaf_4_clk_i/Z (BUF_X32)
-     4   14.14                           clknet_leaf_4_clk_i (net)
-                  0.00    0.00    3.13 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.07    0.08    3.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   30.41                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_ (net)
-                  0.07    0.00    3.21 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/A (BUF_X32)
-                  0.02    0.04    3.25 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/Z (BUF_X32)
-     8  222.09                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_ (net)
-                  0.02    0.01    3.26 ^ clkbuf_3_6__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.02    3.28 ^ clkbuf_3_6__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/Z (BUF_X32)
-     9   23.17                           clknet_3_6__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_ (net)
-                  0.01    0.00    3.28 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2367__1328/A (INV_X1)
-                  0.00    0.01    3.29 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2367__1328/ZN (INV_X1)
-     1    2.96                           net2320 (net)
-                  0.00    0.00    3.29 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2405_/GN (DLL_X1)
-                  0.01    0.05    3.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2405_/Q (DLL_X1)
-     1    1.38                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/gen_cg_word_iter[6].cg_i.en_latch (net)
-                  0.01    0.00    3.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2372_/A2 (AND2_X1)
-                                  3.34   data arrival time
+     4   52.89                           clknet_0_clk_i (net)
+                  0.01    0.00    3.06 v clkbuf_2_0_0_clk_i/A (BUF_X4)
+                  0.06    0.08    3.14 v clkbuf_2_0_0_clk_i/Z (BUF_X4)
+     8  224.24                           clknet_2_0_0_clk_i (net)
+                  0.06    0.01    3.15 v clkbuf_leaf_14_clk_i/A (BUF_X32)
+                  0.01    0.04    3.20 v clkbuf_leaf_14_clk_i/Z (BUF_X32)
+    10   20.18                           clknet_leaf_14_clk_i (net)
+                  0.01    0.00    3.20 v encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.07    0.08    3.28 ^ encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   29.45                           encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_ (net)
+                  0.07    0.00    3.28 ^ clkbuf_0_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.04    3.31 ^ clkbuf_0_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/Z (BUF_X32)
+     8  221.74                           clknet_0_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_ (net)
+                  0.02    0.01    3.32 ^ clkbuf_3_6__f_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.02    3.34 ^ clkbuf_3_6__f_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/Z (BUF_X32)
+     5   13.75                           clknet_3_6__leaf_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_ (net)
+                  0.01    0.00    3.34 ^ _258_259/A (INV_X1)
+                  0.00    0.01    3.35 v _258_259/ZN (INV_X1)
+     1    2.87                           net1253 (net)
+                  0.00    0.00    3.35 v encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2937_/GN (DLL_X1)
+                  0.01    0.05    3.40 ^ encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2937_/Q (DLL_X1)
+     1    1.56                           encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/gen_cg_word_iter[21].cg_i.en_latch (net)
+                  0.01    0.00    3.40 ^ encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2392_/A2 (AND2_X1)
+                                  3.40   data arrival time
 
                           3.00    3.00   clock clk_i (fall edge)
                           0.00    3.00   clock source latency
                   0.00    0.00    3.00 v clk_i (in)
-     1   62.28                           clk_i (net)
-                  0.02    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
+     1   66.47                           clk_i (net)
+                  0.03    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    3.05 v clkbuf_0_clk_i/Z (BUF_X32)
-     2   71.26                           clknet_0_clk_i (net)
-                  0.01    0.01    3.06 v clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.01    0.03    3.08 v clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  359.68                           clknet_1_1__leaf_clk_i (net)
-                  0.02    0.02    3.10 v clkbuf_leaf_4_clk_i/A (BUF_X32)
-                  0.00    0.03    3.13 v clkbuf_leaf_4_clk_i/Z (BUF_X32)
-     4   14.14                           clknet_leaf_4_clk_i (net)
-                  0.00    0.00    3.13 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.07    0.08    3.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   30.41                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_ (net)
-                  0.07    0.00    3.21 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/A (BUF_X32)
-                  0.02    0.04    3.25 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/Z (BUF_X32)
-     8  222.09                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_ (net)
-                  0.02    0.01    3.26 ^ clkbuf_3_6__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.02    3.28 ^ clkbuf_3_6__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_/Z (BUF_X32)
-     9   23.17                           clknet_3_6__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_0830_ (net)
-                  0.01    0.00    3.28 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2367__1320/A (INV_X1)
-                  0.01    0.02    3.30 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2367__1320/ZN (INV_X1)
-     1   10.79                           net2312 (net)
-                  0.01    0.00    3.30 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_2372_/A1 (AND2_X1)
-                          0.00    3.30   clock reconvergence pessimism
-                          0.00    3.30   clock gating hold time
-                                  3.30   data required time
+     4   52.89                           clknet_0_clk_i (net)
+                  0.01    0.00    3.06 v clkbuf_2_0_0_clk_i/A (BUF_X4)
+                  0.06    0.08    3.14 v clkbuf_2_0_0_clk_i/Z (BUF_X4)
+     8  224.24                           clknet_2_0_0_clk_i (net)
+                  0.06    0.01    3.15 v clkbuf_leaf_14_clk_i/A (BUF_X32)
+                  0.01    0.04    3.20 v clkbuf_leaf_14_clk_i/Z (BUF_X32)
+    10   20.18                           clknet_leaf_14_clk_i (net)
+                  0.01    0.00    3.20 v encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.07    0.08    3.28 ^ encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   29.45                           encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_ (net)
+                  0.07    0.00    3.28 ^ clkbuf_0_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.04    3.31 ^ clkbuf_0_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/Z (BUF_X32)
+     8  221.74                           clknet_0_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_ (net)
+                  0.03    0.02    3.33 ^ clkbuf_3_7__f_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.02    3.35 ^ clkbuf_3_7__f_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_/Z (BUF_X32)
+     7   16.03                           clknet_3_7__leaf_encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_0830_ (net)
+                  0.01    0.00    3.35 ^ encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2367__211/A (INV_X1)
+                  0.00    0.01    3.36 v encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2367__211/ZN (INV_X1)
+     1    2.26                           net1205 (net)
+                  0.00    0.00    3.36 v encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2392_/A1 (AND2_X1)
+                          0.00    3.36   clock reconvergence pessimism
+                          0.00    3.36   clock gating hold time
+                                  3.36   data required time
 -----------------------------------------------------------------------------
-                                  3.30   data required time
-                                 -3.34   data arrival time
+                                  3.36   data required time
+                                 -3.40   data arrival time
 -----------------------------------------------------------------------------
                                   0.04   slack (MET)
 
 
-Startpoint: encoder/gen_encoder_units[3].encoder_unit/_354_
+Startpoint: encoder/gen_encoder_units[0].encoder_unit/_354_
             (rising edge-triggered flip-flop clocked by clk_i)
-Endpoint: encoder/gen_encoder_units[3].encoder_unit/_354_
+Endpoint: encoder/gen_encoder_units[0].encoder_unit/_354_
           (rising edge-triggered flip-flop clocked by clk_i)
 Path Group: clk_i
 Path Type: min
@@ -242,48 +245,48 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock source latency
                   0.00    0.00    0.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    0.05 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
-                  0.02    0.04    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
-    13  426.67                           clknet_1_0__leaf_clk_i (net)
-                  0.04    0.02    0.11 ^ clkbuf_leaf_19_clk_i/A (BUF_X32)
-                  0.01    0.03    0.14 ^ clkbuf_leaf_19_clk_i/Z (BUF_X32)
-     9   14.68                           clknet_leaf_19_clk_i (net)
-                  0.01    0.00    0.14 ^ encoder/gen_encoder_units[3].encoder_unit/_354_/CK (DFFS_X1)
-                  0.01    0.07    0.20 ^ encoder/gen_encoder_units[3].encoder_unit/_354_/QN (DFFS_X1)
-     1    1.80                           encoder/gen_encoder_units[3].encoder_unit/_001_ (net)
-                  0.01    0.00    0.20 ^ encoder/gen_encoder_units[3].encoder_unit/_212_/A2 (NAND2_X1)
-                  0.01    0.01    0.22 v encoder/gen_encoder_units[3].encoder_unit/_212_/ZN (NAND2_X1)
-     1    1.68                           encoder/gen_encoder_units[3].encoder_unit/_027_ (net)
-                  0.01    0.00    0.22 v encoder/gen_encoder_units[3].encoder_unit/_214_/A (OAI21_X1)
-                  0.01    0.02    0.24 ^ encoder/gen_encoder_units[3].encoder_unit/_214_/ZN (OAI21_X1)
-     1    1.83                           encoder/gen_encoder_units[3].encoder_unit/_003_ (net)
-                  0.01    0.00    0.24 ^ encoder/gen_encoder_units[3].encoder_unit/_354_/D (DFFS_X1)
-                                  0.24   data arrival time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    0.05 ^ clkbuf_2_0_0_clk_i/A (BUF_X4)
+                  0.14    0.16    0.21 ^ clkbuf_2_0_0_clk_i/Z (BUF_X4)
+     8  249.29                           clknet_2_0_0_clk_i (net)
+                  0.14    0.01    0.21 ^ clkbuf_leaf_20_clk_i/A (BUF_X32)
+                  0.01    0.03    0.24 ^ clkbuf_leaf_20_clk_i/Z (BUF_X32)
+    16   22.61                           clknet_leaf_20_clk_i (net)
+                  0.01    0.00    0.24 ^ encoder/gen_encoder_units[0].encoder_unit/_354_/CK (DFFS_X1)
+                  0.01    0.07    0.31 ^ encoder/gen_encoder_units[0].encoder_unit/_354_/QN (DFFS_X1)
+     1    1.78                           encoder/gen_encoder_units[0].encoder_unit/_001_ (net)
+                  0.01    0.00    0.31 ^ encoder/gen_encoder_units[0].encoder_unit/_212_/A2 (NAND2_X1)
+                  0.01    0.01    0.32 v encoder/gen_encoder_units[0].encoder_unit/_212_/ZN (NAND2_X1)
+     1    1.57                           encoder/gen_encoder_units[0].encoder_unit/_027_ (net)
+                  0.01    0.00    0.32 v encoder/gen_encoder_units[0].encoder_unit/_214_/A (OAI21_X1)
+                  0.01    0.02    0.34 ^ encoder/gen_encoder_units[0].encoder_unit/_214_/ZN (OAI21_X1)
+     1    1.59                           encoder/gen_encoder_units[0].encoder_unit/_003_ (net)
+                  0.01    0.00    0.34 ^ encoder/gen_encoder_units[0].encoder_unit/_354_/D (DFFS_X1)
+                                  0.34   data arrival time
 
                           0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock source latency
                   0.00    0.00    0.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    0.05 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
-                  0.02    0.04    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
-    13  426.67                           clknet_1_0__leaf_clk_i (net)
-                  0.04    0.02    0.11 ^ clkbuf_leaf_19_clk_i/A (BUF_X32)
-                  0.01    0.03    0.14 ^ clkbuf_leaf_19_clk_i/Z (BUF_X32)
-     9   14.68                           clknet_leaf_19_clk_i (net)
-                  0.01    0.00    0.14 ^ encoder/gen_encoder_units[3].encoder_unit/_354_/CK (DFFS_X1)
-                          0.00    0.14   clock reconvergence pessimism
-                          0.01    0.15   library hold time
-                                  0.15   data required time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    0.05 ^ clkbuf_2_0_0_clk_i/A (BUF_X4)
+                  0.14    0.16    0.21 ^ clkbuf_2_0_0_clk_i/Z (BUF_X4)
+     8  249.29                           clknet_2_0_0_clk_i (net)
+                  0.14    0.01    0.21 ^ clkbuf_leaf_20_clk_i/A (BUF_X32)
+                  0.01    0.03    0.24 ^ clkbuf_leaf_20_clk_i/Z (BUF_X32)
+    16   22.61                           clknet_leaf_20_clk_i (net)
+                  0.01    0.00    0.24 ^ encoder/gen_encoder_units[0].encoder_unit/_354_/CK (DFFS_X1)
+                          0.00    0.24   clock reconvergence pessimism
+                          0.01    0.25   library hold time
+                                  0.25   data required time
 -----------------------------------------------------------------------------
-                                  0.15   data required time
-                                 -0.24   data arrival time
+                                  0.25   data required time
+                                 -0.34   data arrival time
 -----------------------------------------------------------------------------
                                   0.09   slack (MET)
 
@@ -293,7 +296,7 @@ Fanout     Cap    Slew   Delay    Time   Description
 global route report_checks -path_delay max
 --------------------------------------------------------------------------
 Startpoint: rst_ni (input port clocked by clk_i)
-Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_121_
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_128_
           (recovery check against rising-edge clock clk_i')
 Path Group: **async_default**
 Path Type: max
@@ -304,46 +307,64 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock network delay (propagated)
                           0.60    0.60 ^ input external delay
                   0.00    0.00    0.60 ^ rst_ni (in)
-     1   27.19                           rst_ni (net)
-                  0.00    0.00    0.60 ^ input260/A (BUF_X32)
-                  0.01    0.02    0.62 ^ input260/Z (BUF_X32)
-    88  242.60                           net260 (net)
-                  0.06    0.05    0.67 ^ max_length844/A (BUF_X32)
-                  0.01    0.03    0.70 ^ max_length844/Z (BUF_X32)
-    57  203.35                           net844 (net)
-                  0.05    0.04    0.74 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_121_/RN (DFFR_X1)
-                                  0.74   data arrival time
+     1    1.85                           rst_ni (net)
+                  0.00    0.00    0.60 ^ hold2193/A (CLKBUF_X3)
+                  0.02    0.05    0.65 ^ hold2193/Z (CLKBUF_X3)
+     1   27.15                           net3187 (net)
+                  0.02    0.00    0.65 ^ input260/A (BUF_X32)
+                  0.01    0.03    0.67 ^ input260/Z (BUF_X32)
+    29  143.91                           net260 (net)
+                  0.01    0.00    0.68 ^ wire847/A (BUF_X32)
+                  0.01    0.02    0.70 ^ wire847/Z (BUF_X32)
+    52  229.21                           net847 (net)
+                  0.08    0.06    0.76 ^ max_length846/A (BUF_X32)
+                  0.01    0.03    0.79 ^ max_length846/Z (BUF_X32)
+    47  176.53                           net846 (net)
+                  0.04    0.03    0.82 ^ max_length845/A (BUF_X32)
+                  0.01    0.03    0.85 ^ max_length845/Z (BUF_X32)
+    45  170.05                           net845 (net)
+                  0.07    0.05    0.90 ^ wire844/A (BUF_X32)
+                  0.01    0.03    0.93 ^ wire844/Z (BUF_X32)
+   119  283.42                           net844 (net)
+                  0.09    0.07    1.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_404_/A (INV_X2)
+                  0.03    0.04    1.04 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_404_/ZN (INV_X2)
+     1   23.32                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_001_ (net)
+                  0.03    0.00    1.04 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_109_/A (INV_X16)
+                  0.02    0.03    1.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_109_/ZN (INV_X16)
+    64  138.81                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_000_ (net)
+                  0.03    0.02    1.09 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_128_/RN (DFFR_X1)
+                                  1.09   data arrival time
 
                           3.00    3.00   clock clk_i' (rise edge)
                           0.00    3.00   clock source latency
                   0.00    0.00    3.00 v clk_i (in)
-     1   62.28                           clk_i (net)
-                  0.02    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
+     1   66.47                           clk_i (net)
+                  0.03    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    3.05 v clkbuf_0_clk_i/Z (BUF_X32)
-     2   71.26                           clknet_0_clk_i (net)
-                  0.01    0.01    3.06 v clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.01    0.03    3.08 v clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  359.68                           clknet_1_1__leaf_clk_i (net)
-                  0.05    0.04    3.12 v clkbuf_leaf_11_clk_i/A (BUF_X32)
-                  0.01    0.04    3.16 v clkbuf_leaf_11_clk_i/Z (BUF_X32)
-    12   23.45                           clknet_leaf_11_clk_i (net)
-                  0.01    0.00    3.17 v net996_49/A (INV_X1)
-                  0.01    0.01    3.18 ^ net996_49/ZN (INV_X1)
-     1    1.08                           net1041 (net)
-                  0.01    0.00    3.18 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_121_/CK (DFFR_X1)
-                          0.00    3.18   clock reconvergence pessimism
-                          0.05    3.23   library recovery time
-                                  3.23   data required time
+     4   52.89                           clknet_0_clk_i (net)
+                  0.01    0.00    3.06 v clkbuf_2_2_0_clk_i/A (BUF_X4)
+                  0.05    0.07    3.13 v clkbuf_2_2_0_clk_i/Z (BUF_X4)
+     7  174.89                           clknet_2_2_0_clk_i (net)
+                  0.05    0.01    3.14 v clkbuf_leaf_10_clk_i/A (BUF_X32)
+                  0.01    0.04    3.18 v clkbuf_leaf_10_clk_i/Z (BUF_X32)
+    30   47.52                           clknet_leaf_10_clk_i (net)
+                  0.01    0.00    3.18 v net997_46/A (INV_X1)
+                  0.01    0.01    3.19 ^ net997_46/ZN (INV_X1)
+     1    1.06                           net1040 (net)
+                  0.01    0.00    3.19 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_128_/CK (DFFR_X1)
+                          0.00    3.19   clock reconvergence pessimism
+                          0.05    3.25   library recovery time
+                                  3.25   data required time
 -----------------------------------------------------------------------------
-                                  3.23   data required time
-                                 -0.74   data arrival time
+                                  3.25   data required time
+                                 -1.09   data arrival time
 -----------------------------------------------------------------------------
-                                  2.48   slack (MET)
+                                  2.15   slack (MET)
 
 
-Startpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2935_
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2945_
             (negative level-sensitive latch clocked by clk_i)
-Endpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2390_
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2400_
           (rising clock gating-check end-point clocked by clk_i)
 Path Group: **clock_gating_default**
 Path Type: max
@@ -353,73 +374,73 @@ Fanout     Cap    Slew   Delay    Time   Description
                           3.00    3.00   clock clk_i (fall edge)
                           0.00    3.00   clock source latency
                   0.00    0.00    3.00 v clk_i (in)
-     1   62.28                           clk_i (net)
-                  0.02    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
+     1   66.47                           clk_i (net)
+                  0.03    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    3.05 v clkbuf_0_clk_i/Z (BUF_X32)
-     2   71.26                           clknet_0_clk_i (net)
-                  0.01    0.01    3.06 v clkbuf_1_0__f_clk_i/A (BUF_X32)
-                  0.01    0.03    3.09 v clkbuf_1_0__f_clk_i/Z (BUF_X32)
-    13  385.96                           clknet_1_0__leaf_clk_i (net)
-                  0.03    0.02    3.11 v clkbuf_leaf_20_clk_i/A (BUF_X32)
-                  0.01    0.03    3.14 v clkbuf_leaf_20_clk_i/Z (BUF_X32)
-     6   18.18                           clknet_leaf_20_clk_i (net)
-                  0.01    0.00    3.14 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.07    0.08    3.22 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   28.72                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.07    0.00    3.22 ^ clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.03    3.26 ^ clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     8  223.09                           clknet_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.03    0.02    3.28 ^ clkbuf_3_6__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.02    3.30 ^ clkbuf_3_6__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     9   18.65                           clknet_3_6__leaf_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.01    0.00    3.31 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__593/A (INV_X1)
-                  0.00    0.01    3.31 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__593/ZN (INV_X1)
-     1    1.64                           net1585 (net)
-                  0.00    0.00    3.31 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2935_/GN (DLL_X1)
-                  0.01    0.07    3.38 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2935_/Q (DLL_X1)
-     1    2.21                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/gen_cg_word_iter[19].cg_i.en_latch (net)
-                  0.01    0.00    3.38 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2390_/A2 (AND2_X1)
-                                  3.38   data arrival time
+     4   52.89                           clknet_0_clk_i (net)
+                  0.01    0.01    3.06 v clkbuf_2_1_0_clk_i/A (BUF_X4)
+                  0.04    0.06    3.12 v clkbuf_2_1_0_clk_i/Z (BUF_X4)
+     6  151.41                           clknet_2_1_0_clk_i (net)
+                  0.04    0.02    3.13 v clkbuf_leaf_21_clk_i/A (BUF_X32)
+                  0.01    0.04    3.17 v clkbuf_leaf_21_clk_i/Z (BUF_X32)
+     3    9.29                           clknet_leaf_21_clk_i (net)
+                  0.01    0.00    3.17 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.07    0.07    3.24 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   27.87                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.07    0.00    3.25 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.02    0.04    3.29 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     8  222.81                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.02    0.01    3.30 ^ clkbuf_3_3__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.02    3.32 ^ clkbuf_3_3__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     7   15.02                           clknet_3_3__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.01    0.00    3.32 ^ _1986_1995/A (INV_X1)
+                  0.00    0.01    3.32 v _1986_1995/ZN (INV_X1)
+     1    1.25                           net2989 (net)
+                  0.00    0.00    3.32 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2945_/GN (DLL_X1)
+                  0.01    0.08    3.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2945_/Q (DLL_X1)
+     1    3.33                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/gen_cg_word_iter[29].cg_i.en_latch (net)
+                  0.01    0.00    3.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2400_/A2 (AND2_X1)
+                                  3.40   data arrival time
 
                           6.00    6.00   clock clk_i (rise edge)
                           0.00    6.00   clock source latency
                   0.00    0.00    6.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    6.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    6.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    6.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    6.05 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
-                  0.02    0.04    6.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
-    13  426.67                           clknet_1_0__leaf_clk_i (net)
-                  0.04    0.03    6.12 ^ clkbuf_leaf_20_clk_i/A (BUF_X32)
-                  0.01    0.03    6.14 ^ clkbuf_leaf_20_clk_i/Z (BUF_X32)
-     6   18.70                           clknet_leaf_20_clk_i (net)
-                  0.01    0.00    6.14 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.05    0.06    6.20 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   25.59                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.05    0.00    6.20 v clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.04    6.25 v clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     8  198.03                           clknet_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.01    0.01    6.26 v clkbuf_3_7__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.00    0.03    6.28 v clkbuf_3_7__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     9   16.86                           clknet_3_7__leaf_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.00    0.00    6.28 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__545/A (INV_X1)
-                  0.01    0.01    6.29 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__545/ZN (INV_X1)
-     1    1.63                           net1537 (net)
-                  0.01    0.00    6.29 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2390_/A1 (AND2_X1)
-                          0.00    6.29   clock reconvergence pessimism
-                          0.00    6.29   clock gating setup time
-                                  6.29   data required time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    6.05 ^ clkbuf_2_1_0_clk_i/A (BUF_X4)
+                  0.09    0.10    6.16 ^ clkbuf_2_1_0_clk_i/Z (BUF_X4)
+     6  167.17                           clknet_2_1_0_clk_i (net)
+                  0.09    0.02    6.18 ^ clkbuf_leaf_21_clk_i/A (BUF_X32)
+                  0.01    0.03    6.20 ^ clkbuf_leaf_21_clk_i/Z (BUF_X32)
+     3    9.53                           clknet_leaf_21_clk_i (net)
+                  0.01    0.00    6.20 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.05    0.06    6.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   24.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.05    0.00    6.26 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.04    6.31 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     8  197.75                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.01    0.01    6.32 v clkbuf_3_7__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.00    0.02    6.34 v clkbuf_3_7__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     7   13.92                           clknet_3_7__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.00    0.00    6.34 v _1986_2000/A (INV_X1)
+                  0.00    0.01    6.35 ^ _1986_2000/ZN (INV_X1)
+     1    1.06                           net2994 (net)
+                  0.00    0.00    6.35 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2400_/A1 (AND2_X1)
+                          0.00    6.35   clock reconvergence pessimism
+                          0.00    6.35   clock gating setup time
+                                  6.35   data required time
 -----------------------------------------------------------------------------
-                                  6.29   data required time
-                                 -3.38   data arrival time
+                                  6.35   data required time
+                                 -3.40   data arrival time
 -----------------------------------------------------------------------------
-                                  2.91   slack (MET)
+                                  2.95   slack (MET)
 
 
-Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_212_
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_206_
             (rising edge-triggered flip-flop clocked by clk_i)
-Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2866_
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2796_
           (positive level-sensitive latch clocked by clk_i)
 Path Group: clk_i
 Path Type: max
@@ -429,104 +450,104 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock source latency
                   0.00    0.00    0.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    0.05 ^ clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.02    0.03    0.08 ^ clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  397.25                           clknet_1_1__leaf_clk_i (net)
-                  0.04    0.03    0.11 ^ clkbuf_leaf_3_clk_i/A (BUF_X32)
-                  0.01    0.03    0.14 ^ clkbuf_leaf_3_clk_i/Z (BUF_X32)
-    10   36.54                           clknet_leaf_3_clk_i (net)
-                  0.01    0.00    0.14 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/A1 (NAND2_X1)
-                  0.05    0.06    0.20 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/ZN (NAND2_X1)
-     1   24.81                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
-                  0.05    0.00    0.20 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
-                  0.01    0.04    0.24 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
-     2   50.88                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
-                  0.01    0.00    0.24 v clkbuf_1_0__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
-                  0.00    0.02    0.26 v clkbuf_1_0__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
-     7   16.88                           clknet_1_0__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
-                  0.00    0.00    0.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1162/A (INV_X1)
-                  0.01    0.01    0.27 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1162/ZN (INV_X1)
-     1    1.32                           net2154 (net)
-                  0.01    0.00    0.27 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_212_/CK (DFFR_X2)
-                  0.09    0.21    0.48 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_212_/Q (DFFR_X2)
-    33   77.92                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/wdata_a_q[6] (net)
-                  0.09    0.00    0.49 ^ max_cap549/A (BUF_X16)
-                  0.01    0.04    0.52 ^ max_cap549/Z (BUF_X16)
-    62  116.61                           net549 (net)
-                  0.02    0.01    0.53 ^ max_cap548/A (BUF_X16)
-                  0.01    0.03    0.56 ^ max_cap548/Z (BUF_X16)
-    37   80.22                           net548 (net)
-                  0.01    0.01    0.57 ^ max_cap547/A (BUF_X16)
-                  0.01    0.03    0.60 ^ max_cap547/Z (BUF_X16)
-    31   87.59                           net547 (net)
-                  0.01    0.00    0.60 ^ max_cap546/A (BUF_X16)
-                  0.01    0.03    0.62 ^ max_cap546/Z (BUF_X16)
-    49   91.96                           net546 (net)
-                  0.02    0.01    0.64 ^ max_cap543/A (BUF_X16)
-                  0.01    0.03    0.66 ^ max_cap543/Z (BUF_X16)
-    61  110.91                           net543 (net)
-                  0.02    0.02    0.68 ^ max_cap542/A (BUF_X16)
-                  0.01    0.03    0.71 ^ max_cap542/Z (BUF_X16)
-    66  111.32                           net542 (net)
-                  0.03    0.03    0.73 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2866_/D (DLH_X1)
-                                  0.73   data arrival time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    0.05 ^ clkbuf_2_3_0_clk_i/A (BUF_X4)
+                  0.16    0.19    0.24 ^ clkbuf_2_3_0_clk_i/Z (BUF_X4)
+    10  300.99                           clknet_2_3_0_clk_i (net)
+                  0.17    0.01    0.25 ^ clkbuf_opt_8_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.28 ^ clkbuf_opt_8_0_clk_i/Z (BUF_X32)
+     1   43.46                           clknet_opt_8_0_clk_i (net)
+                  0.01    0.01    0.29 ^ clkbuf_leaf_4_clk_i/A (BUF_X32)
+                  0.01    0.02    0.31 ^ clkbuf_leaf_4_clk_i/Z (BUF_X32)
+     6   30.88                           clknet_leaf_4_clk_i (net)
+                  0.01    0.00    0.31 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/A1 (NAND2_X1)
+                  0.05    0.06    0.37 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/ZN (NAND2_X1)
+     1   25.22                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
+                  0.05    0.00    0.37 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
+                  0.01    0.04    0.41 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
+     2   49.45                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
+                  0.01    0.00    0.41 v clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
+                  0.00    0.02    0.43 v clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
+     9   20.06                           clknet_1_1__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
+                  0.00    0.00    0.44 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1168/A (INV_X1)
+                  0.01    0.01    0.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1168/ZN (INV_X1)
+     1    2.89                           net2162 (net)
+                  0.01    0.00    0.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_206_/CK (DFFR_X2)
+                  0.14    0.27    0.72 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_206_/Q (DFFR_X2)
+    54  131.47                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/wdata_a_q[0] (net)
+                  0.14    0.00    0.72 ^ max_length603/A (BUF_X32)
+                  0.01    0.04    0.76 ^ max_length603/Z (BUF_X32)
+    67  125.05                           net603 (net)
+                  0.02    0.01    0.77 ^ max_cap602/A (BUF_X16)
+                  0.01    0.03    0.79 ^ max_cap602/Z (BUF_X16)
+    53  100.62                           net602 (net)
+                  0.02    0.01    0.81 ^ max_cap601/A (BUF_X16)
+                  0.01    0.03    0.83 ^ max_cap601/Z (BUF_X16)
+    39   73.64                           net601 (net)
+                  0.01    0.00    0.84 ^ max_cap600/A (BUF_X16)
+                  0.01    0.02    0.86 ^ max_cap600/Z (BUF_X16)
+    40   79.22                           net600 (net)
+                  0.02    0.01    0.87 ^ max_length599/A (BUF_X16)
+                  0.01    0.03    0.90 ^ max_length599/Z (BUF_X16)
+    69  118.99                           net599 (net)
+                  0.03    0.02    0.92 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2796_/D (DLH_X1)
+                                  0.92   data arrival time
 
                           0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock source latency
                   0.00    0.00    0.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    0.05 ^ clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.02    0.03    0.08 ^ clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  397.25                           clknet_1_1__leaf_clk_i (net)
-                  0.04    0.02    0.11 ^ clkbuf_leaf_2_clk_i/A (BUF_X32)
-                  0.01    0.02    0.13 ^ clkbuf_leaf_2_clk_i/Z (BUF_X32)
-     4   14.66                           clknet_leaf_2_clk_i (net)
-                  0.01    0.00    0.13 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.05    0.06    0.19 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   26.28                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_ (net)
-                  0.05    0.00    0.20 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.05    0.24 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/Z (BUF_X32)
-     8  198.47                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_ (net)
-                  0.01    0.00    0.25 v clkbuf_3_5__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/A (BUF_X32)
-                  0.00    0.02    0.27 v clkbuf_3_5__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/Z (BUF_X32)
-     7   13.93                           clknet_3_5__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_ (net)
-                  0.00    0.00    0.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2367__1387/A (INV_X1)
-                  0.01    0.01    0.28 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2367__1387/ZN (INV_X1)
-     1    1.26                           net2379 (net)
-                  0.01    0.00    0.28 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2375_/A1 (AND2_X1)
-                  0.07    0.09    0.38 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2375_/ZN (AND2_X1)
-     1   28.41                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o (net)
-                  0.07    0.00    0.38 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/A (BUF_X32)
-                  0.01    0.03    0.41 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/Z (BUF_X32)
-     2   55.99                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o (net)
-                  0.01    0.00    0.41 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/A (BUF_X32)
-                  0.00    0.02    0.43 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/Z (BUF_X32)
-     8   11.39                           clknet_1_1__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o (net)
-                  0.00    0.00    0.43 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2866_/G (DLH_X1)
-                          0.00    0.43   clock reconvergence pessimism
-                          0.30    0.73   time borrowed from endpoint
-                                  0.73   data required time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    0.05 ^ clkbuf_2_1_0_clk_i/A (BUF_X4)
+                  0.09    0.10    0.16 ^ clkbuf_2_1_0_clk_i/Z (BUF_X4)
+     6  167.17                           clknet_2_1_0_clk_i (net)
+                  0.09    0.02    0.18 ^ clkbuf_leaf_21_clk_i/A (BUF_X32)
+                  0.01    0.03    0.20 ^ clkbuf_leaf_21_clk_i/Z (BUF_X32)
+     3    9.53                           clknet_leaf_21_clk_i (net)
+                  0.01    0.00    0.20 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.05    0.07    0.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   28.12                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_ (net)
+                  0.05    0.00    0.27 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.05    0.32 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/Z (BUF_X32)
+     8  199.35                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_ (net)
+                  0.01    0.01    0.33 v clkbuf_3_2__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/A (BUF_X32)
+                  0.00    0.02    0.35 v clkbuf_3_2__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/Z (BUF_X32)
+     7   14.62                           clknet_3_2__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_ (net)
+                  0.00    0.00    0.35 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2367__1510/A (INV_X1)
+                  0.01    0.01    0.36 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2367__1510/ZN (INV_X1)
+     1    1.26                           net2504 (net)
+                  0.01    0.00    0.36 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2370_/A1 (AND2_X1)
+                  0.06    0.09    0.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2370_/ZN (AND2_X1)
+     1   27.57                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o (net)
+                  0.06    0.00    0.45 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/A (BUF_X32)
+                  0.01    0.03    0.48 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/Z (BUF_X32)
+     2   55.31                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o (net)
+                  0.01    0.00    0.48 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/A (BUF_X32)
+                  0.00    0.02    0.50 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/Z (BUF_X32)
+     7   10.57                           clknet_1_1__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o (net)
+                  0.00    0.00    0.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2796_/G (DLH_X1)
+                          0.00    0.50   clock reconvergence pessimism
+                          0.42    0.92   time borrowed from endpoint
+                                  0.92   data required time
 -----------------------------------------------------------------------------
-                                  0.73   data required time
-                                 -0.73   data arrival time
+                                  0.92   data required time
+                                 -0.92   data arrival time
 -----------------------------------------------------------------------------
                                   0.00   slack (MET)
 
 Time Borrowing Information
 --------------------------------------------
 clk_i nominal pulse width               3.00
-clock latency difference               -0.02
+clock latency difference               -0.06
 library setup time                     -0.02
 --------------------------------------------
-max time borrow                         2.96
-actual time borrow                      0.30
+max time borrow                         2.92
+actual time borrow                      0.42
 --------------------------------------------
 
 
@@ -535,7 +556,7 @@ actual time borrow                      0.30
 global route report_checks -unconstrained
 --------------------------------------------------------------------------
 Startpoint: rst_ni (input port clocked by clk_i)
-Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_121_
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_128_
           (recovery check against rising-edge clock clk_i')
 Path Group: **async_default**
 Path Type: max
@@ -546,46 +567,64 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock network delay (propagated)
                           0.60    0.60 ^ input external delay
                   0.00    0.00    0.60 ^ rst_ni (in)
-     1   27.19                           rst_ni (net)
-                  0.00    0.00    0.60 ^ input260/A (BUF_X32)
-                  0.01    0.02    0.62 ^ input260/Z (BUF_X32)
-    88  242.60                           net260 (net)
-                  0.06    0.05    0.67 ^ max_length844/A (BUF_X32)
-                  0.01    0.03    0.70 ^ max_length844/Z (BUF_X32)
-    57  203.35                           net844 (net)
-                  0.05    0.04    0.74 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_121_/RN (DFFR_X1)
-                                  0.74   data arrival time
+     1    1.85                           rst_ni (net)
+                  0.00    0.00    0.60 ^ hold2193/A (CLKBUF_X3)
+                  0.02    0.05    0.65 ^ hold2193/Z (CLKBUF_X3)
+     1   27.15                           net3187 (net)
+                  0.02    0.00    0.65 ^ input260/A (BUF_X32)
+                  0.01    0.03    0.67 ^ input260/Z (BUF_X32)
+    29  143.91                           net260 (net)
+                  0.01    0.00    0.68 ^ wire847/A (BUF_X32)
+                  0.01    0.02    0.70 ^ wire847/Z (BUF_X32)
+    52  229.21                           net847 (net)
+                  0.08    0.06    0.76 ^ max_length846/A (BUF_X32)
+                  0.01    0.03    0.79 ^ max_length846/Z (BUF_X32)
+    47  176.53                           net846 (net)
+                  0.04    0.03    0.82 ^ max_length845/A (BUF_X32)
+                  0.01    0.03    0.85 ^ max_length845/Z (BUF_X32)
+    45  170.05                           net845 (net)
+                  0.07    0.05    0.90 ^ wire844/A (BUF_X32)
+                  0.01    0.03    0.93 ^ wire844/Z (BUF_X32)
+   119  283.42                           net844 (net)
+                  0.09    0.07    1.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_404_/A (INV_X2)
+                  0.03    0.04    1.04 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_404_/ZN (INV_X2)
+     1   23.32                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_001_ (net)
+                  0.03    0.00    1.04 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_109_/A (INV_X16)
+                  0.02    0.03    1.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_109_/ZN (INV_X16)
+    64  138.81                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_000_ (net)
+                  0.03    0.02    1.09 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_128_/RN (DFFR_X1)
+                                  1.09   data arrival time
 
                           3.00    3.00   clock clk_i' (rise edge)
                           0.00    3.00   clock source latency
                   0.00    0.00    3.00 v clk_i (in)
-     1   62.28                           clk_i (net)
-                  0.02    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
+     1   66.47                           clk_i (net)
+                  0.03    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    3.05 v clkbuf_0_clk_i/Z (BUF_X32)
-     2   71.26                           clknet_0_clk_i (net)
-                  0.01    0.01    3.06 v clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.01    0.03    3.08 v clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  359.68                           clknet_1_1__leaf_clk_i (net)
-                  0.05    0.04    3.12 v clkbuf_leaf_11_clk_i/A (BUF_X32)
-                  0.01    0.04    3.16 v clkbuf_leaf_11_clk_i/Z (BUF_X32)
-    12   23.45                           clknet_leaf_11_clk_i (net)
-                  0.01    0.00    3.17 v net996_49/A (INV_X1)
-                  0.01    0.01    3.18 ^ net996_49/ZN (INV_X1)
-     1    1.08                           net1041 (net)
-                  0.01    0.00    3.18 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_121_/CK (DFFR_X1)
-                          0.00    3.18   clock reconvergence pessimism
-                          0.05    3.23   library recovery time
-                                  3.23   data required time
+     4   52.89                           clknet_0_clk_i (net)
+                  0.01    0.00    3.06 v clkbuf_2_2_0_clk_i/A (BUF_X4)
+                  0.05    0.07    3.13 v clkbuf_2_2_0_clk_i/Z (BUF_X4)
+     7  174.89                           clknet_2_2_0_clk_i (net)
+                  0.05    0.01    3.14 v clkbuf_leaf_10_clk_i/A (BUF_X32)
+                  0.01    0.04    3.18 v clkbuf_leaf_10_clk_i/Z (BUF_X32)
+    30   47.52                           clknet_leaf_10_clk_i (net)
+                  0.01    0.00    3.18 v net997_46/A (INV_X1)
+                  0.01    0.01    3.19 ^ net997_46/ZN (INV_X1)
+     1    1.06                           net1040 (net)
+                  0.01    0.00    3.19 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/_128_/CK (DFFR_X1)
+                          0.00    3.19   clock reconvergence pessimism
+                          0.05    3.25   library recovery time
+                                  3.25   data required time
 -----------------------------------------------------------------------------
-                                  3.23   data required time
-                                 -0.74   data arrival time
+                                  3.25   data required time
+                                 -1.09   data arrival time
 -----------------------------------------------------------------------------
-                                  2.48   slack (MET)
+                                  2.15   slack (MET)
 
 
-Startpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2935_
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2945_
             (negative level-sensitive latch clocked by clk_i)
-Endpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2390_
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2400_
           (rising clock gating-check end-point clocked by clk_i)
 Path Group: **clock_gating_default**
 Path Type: max
@@ -595,73 +634,73 @@ Fanout     Cap    Slew   Delay    Time   Description
                           3.00    3.00   clock clk_i (fall edge)
                           0.00    3.00   clock source latency
                   0.00    0.00    3.00 v clk_i (in)
-     1   62.28                           clk_i (net)
-                  0.02    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
+     1   66.47                           clk_i (net)
+                  0.03    0.02    3.02 v clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    3.05 v clkbuf_0_clk_i/Z (BUF_X32)
-     2   71.26                           clknet_0_clk_i (net)
-                  0.01    0.01    3.06 v clkbuf_1_0__f_clk_i/A (BUF_X32)
-                  0.01    0.03    3.09 v clkbuf_1_0__f_clk_i/Z (BUF_X32)
-    13  385.96                           clknet_1_0__leaf_clk_i (net)
-                  0.03    0.02    3.11 v clkbuf_leaf_20_clk_i/A (BUF_X32)
-                  0.01    0.03    3.14 v clkbuf_leaf_20_clk_i/Z (BUF_X32)
-     6   18.18                           clknet_leaf_20_clk_i (net)
-                  0.01    0.00    3.14 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.07    0.08    3.22 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   28.72                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.07    0.00    3.22 ^ clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.03    3.26 ^ clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     8  223.09                           clknet_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.03    0.02    3.28 ^ clkbuf_3_6__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.02    3.30 ^ clkbuf_3_6__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     9   18.65                           clknet_3_6__leaf_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.01    0.00    3.31 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__593/A (INV_X1)
-                  0.00    0.01    3.31 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__593/ZN (INV_X1)
-     1    1.64                           net1585 (net)
-                  0.00    0.00    3.31 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2935_/GN (DLL_X1)
-                  0.01    0.07    3.38 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2935_/Q (DLL_X1)
-     1    2.21                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/gen_cg_word_iter[19].cg_i.en_latch (net)
-                  0.01    0.00    3.38 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2390_/A2 (AND2_X1)
-                                  3.38   data arrival time
+     4   52.89                           clknet_0_clk_i (net)
+                  0.01    0.01    3.06 v clkbuf_2_1_0_clk_i/A (BUF_X4)
+                  0.04    0.06    3.12 v clkbuf_2_1_0_clk_i/Z (BUF_X4)
+     6  151.41                           clknet_2_1_0_clk_i (net)
+                  0.04    0.02    3.13 v clkbuf_leaf_21_clk_i/A (BUF_X32)
+                  0.01    0.04    3.17 v clkbuf_leaf_21_clk_i/Z (BUF_X32)
+     3    9.29                           clknet_leaf_21_clk_i (net)
+                  0.01    0.00    3.17 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.07    0.07    3.24 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   27.87                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.07    0.00    3.25 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.02    0.04    3.29 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     8  222.81                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.02    0.01    3.30 ^ clkbuf_3_3__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.02    3.32 ^ clkbuf_3_3__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     7   15.02                           clknet_3_3__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.01    0.00    3.32 ^ _1986_1995/A (INV_X1)
+                  0.00    0.01    3.32 v _1986_1995/ZN (INV_X1)
+     1    1.25                           net2989 (net)
+                  0.00    0.00    3.32 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2945_/GN (DLL_X1)
+                  0.01    0.08    3.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2945_/Q (DLL_X1)
+     1    3.33                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/gen_cg_word_iter[29].cg_i.en_latch (net)
+                  0.01    0.00    3.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2400_/A2 (AND2_X1)
+                                  3.40   data arrival time
 
                           6.00    6.00   clock clk_i (rise edge)
                           0.00    6.00   clock source latency
                   0.00    0.00    6.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    6.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    6.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    6.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    6.05 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
-                  0.02    0.04    6.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
-    13  426.67                           clknet_1_0__leaf_clk_i (net)
-                  0.04    0.03    6.12 ^ clkbuf_leaf_20_clk_i/A (BUF_X32)
-                  0.01    0.03    6.14 ^ clkbuf_leaf_20_clk_i/Z (BUF_X32)
-     6   18.70                           clknet_leaf_20_clk_i (net)
-                  0.01    0.00    6.14 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.05    0.06    6.20 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   25.59                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.05    0.00    6.20 v clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.04    6.25 v clkbuf_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     8  198.03                           clknet_0_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.01    0.01    6.26 v clkbuf_3_7__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/A (BUF_X32)
-                  0.00    0.03    6.28 v clkbuf_3_7__f_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_/Z (BUF_X32)
-     9   16.86                           clknet_3_7__leaf_encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_0830_ (net)
-                  0.00    0.00    6.28 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__545/A (INV_X1)
-                  0.01    0.01    6.29 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2367__545/ZN (INV_X1)
-     1    1.63                           net1537 (net)
-                  0.01    0.00    6.29 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_2390_/A1 (AND2_X1)
-                          0.00    6.29   clock reconvergence pessimism
-                          0.00    6.29   clock gating setup time
-                                  6.29   data required time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    6.05 ^ clkbuf_2_1_0_clk_i/A (BUF_X4)
+                  0.09    0.10    6.16 ^ clkbuf_2_1_0_clk_i/Z (BUF_X4)
+     6  167.17                           clknet_2_1_0_clk_i (net)
+                  0.09    0.02    6.18 ^ clkbuf_leaf_21_clk_i/A (BUF_X32)
+                  0.01    0.03    6.20 ^ clkbuf_leaf_21_clk_i/Z (BUF_X32)
+     3    9.53                           clknet_leaf_21_clk_i (net)
+                  0.01    0.00    6.20 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.05    0.06    6.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   24.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.05    0.00    6.26 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.04    6.31 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     8  197.75                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.01    0.01    6.32 v clkbuf_3_7__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/A (BUF_X32)
+                  0.00    0.02    6.34 v clkbuf_3_7__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_/Z (BUF_X32)
+     7   13.92                           clknet_3_7__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_0830_ (net)
+                  0.00    0.00    6.34 v _1986_2000/A (INV_X1)
+                  0.00    0.01    6.35 ^ _1986_2000/ZN (INV_X1)
+     1    1.06                           net2994 (net)
+                  0.00    0.00    6.35 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_2400_/A1 (AND2_X1)
+                          0.00    6.35   clock reconvergence pessimism
+                          0.00    6.35   clock gating setup time
+                                  6.35   data required time
 -----------------------------------------------------------------------------
-                                  6.29   data required time
-                                 -3.38   data arrival time
+                                  6.35   data required time
+                                 -3.40   data arrival time
 -----------------------------------------------------------------------------
-                                  2.91   slack (MET)
+                                  2.95   slack (MET)
 
 
-Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_212_
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_206_
             (rising edge-triggered flip-flop clocked by clk_i)
-Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2866_
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2796_
           (positive level-sensitive latch clocked by clk_i)
 Path Group: clk_i
 Path Type: max
@@ -671,104 +710,104 @@ Fanout     Cap    Slew   Delay    Time   Description
                           0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock source latency
                   0.00    0.00    0.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    0.05 ^ clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.02    0.03    0.08 ^ clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  397.25                           clknet_1_1__leaf_clk_i (net)
-                  0.04    0.03    0.11 ^ clkbuf_leaf_3_clk_i/A (BUF_X32)
-                  0.01    0.03    0.14 ^ clkbuf_leaf_3_clk_i/Z (BUF_X32)
-    10   36.54                           clknet_leaf_3_clk_i (net)
-                  0.01    0.00    0.14 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/A1 (NAND2_X1)
-                  0.05    0.06    0.20 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/ZN (NAND2_X1)
-     1   24.81                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
-                  0.05    0.00    0.20 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
-                  0.01    0.04    0.24 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
-     2   50.88                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
-                  0.01    0.00    0.24 v clkbuf_1_0__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
-                  0.00    0.02    0.26 v clkbuf_1_0__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
-     7   16.88                           clknet_1_0__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
-                  0.00    0.00    0.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1162/A (INV_X1)
-                  0.01    0.01    0.27 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1162/ZN (INV_X1)
-     1    1.32                           net2154 (net)
-                  0.01    0.00    0.27 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_212_/CK (DFFR_X2)
-                  0.09    0.21    0.48 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_212_/Q (DFFR_X2)
-    33   77.92                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/wdata_a_q[6] (net)
-                  0.09    0.00    0.49 ^ max_cap549/A (BUF_X16)
-                  0.01    0.04    0.52 ^ max_cap549/Z (BUF_X16)
-    62  116.61                           net549 (net)
-                  0.02    0.01    0.53 ^ max_cap548/A (BUF_X16)
-                  0.01    0.03    0.56 ^ max_cap548/Z (BUF_X16)
-    37   80.22                           net548 (net)
-                  0.01    0.01    0.57 ^ max_cap547/A (BUF_X16)
-                  0.01    0.03    0.60 ^ max_cap547/Z (BUF_X16)
-    31   87.59                           net547 (net)
-                  0.01    0.00    0.60 ^ max_cap546/A (BUF_X16)
-                  0.01    0.03    0.62 ^ max_cap546/Z (BUF_X16)
-    49   91.96                           net546 (net)
-                  0.02    0.01    0.64 ^ max_cap543/A (BUF_X16)
-                  0.01    0.03    0.66 ^ max_cap543/Z (BUF_X16)
-    61  110.91                           net543 (net)
-                  0.02    0.02    0.68 ^ max_cap542/A (BUF_X16)
-                  0.01    0.03    0.71 ^ max_cap542/Z (BUF_X16)
-    66  111.32                           net542 (net)
-                  0.03    0.03    0.73 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2866_/D (DLH_X1)
-                                  0.73   data arrival time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    0.05 ^ clkbuf_2_3_0_clk_i/A (BUF_X4)
+                  0.16    0.19    0.24 ^ clkbuf_2_3_0_clk_i/Z (BUF_X4)
+    10  300.99                           clknet_2_3_0_clk_i (net)
+                  0.17    0.01    0.25 ^ clkbuf_opt_8_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.28 ^ clkbuf_opt_8_0_clk_i/Z (BUF_X32)
+     1   43.46                           clknet_opt_8_0_clk_i (net)
+                  0.01    0.01    0.29 ^ clkbuf_leaf_4_clk_i/A (BUF_X32)
+                  0.01    0.02    0.31 ^ clkbuf_leaf_4_clk_i/Z (BUF_X32)
+     6   30.88                           clknet_leaf_4_clk_i (net)
+                  0.01    0.00    0.31 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/A1 (NAND2_X1)
+                  0.05    0.06    0.37 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_122_/ZN (NAND2_X1)
+     1   25.22                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
+                  0.05    0.00    0.37 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
+                  0.01    0.04    0.41 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
+     2   49.45                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
+                  0.01    0.00    0.41 v clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/A (BUF_X32)
+                  0.00    0.02    0.43 v clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_/Z (BUF_X32)
+     9   20.06                           clknet_1_1__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_022_ (net)
+                  0.00    0.00    0.44 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1168/A (INV_X1)
+                  0.01    0.01    0.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_123__1168/ZN (INV_X1)
+     1    2.89                           net2162 (net)
+                  0.01    0.00    0.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_206_/CK (DFFR_X2)
+                  0.14    0.27    0.72 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_206_/Q (DFFR_X2)
+    54  131.47                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/wdata_a_q[0] (net)
+                  0.14    0.00    0.72 ^ max_length603/A (BUF_X32)
+                  0.01    0.04    0.76 ^ max_length603/Z (BUF_X32)
+    67  125.05                           net603 (net)
+                  0.02    0.01    0.77 ^ max_cap602/A (BUF_X16)
+                  0.01    0.03    0.79 ^ max_cap602/Z (BUF_X16)
+    53  100.62                           net602 (net)
+                  0.02    0.01    0.81 ^ max_cap601/A (BUF_X16)
+                  0.01    0.03    0.83 ^ max_cap601/Z (BUF_X16)
+    39   73.64                           net601 (net)
+                  0.01    0.00    0.84 ^ max_cap600/A (BUF_X16)
+                  0.01    0.02    0.86 ^ max_cap600/Z (BUF_X16)
+    40   79.22                           net600 (net)
+                  0.02    0.01    0.87 ^ max_length599/A (BUF_X16)
+                  0.01    0.03    0.90 ^ max_length599/Z (BUF_X16)
+    69  118.99                           net599 (net)
+                  0.03    0.02    0.92 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2796_/D (DLH_X1)
+                                  0.92   data arrival time
 
                           0.00    0.00   clock clk_i (rise edge)
                           0.00    0.00   clock source latency
                   0.00    0.00    0.00 ^ clk_i (in)
-     1   65.41                           clk_i (net)
-                  0.02    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
+     1   69.60                           clk_i (net)
+                  0.03    0.02    0.02 ^ clkbuf_0_clk_i/A (BUF_X32)
                   0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
-     2   77.52                           clknet_0_clk_i (net)
-                  0.01    0.01    0.05 ^ clkbuf_1_1__f_clk_i/A (BUF_X32)
-                  0.02    0.03    0.08 ^ clkbuf_1_1__f_clk_i/Z (BUF_X32)
-    12  397.25                           clknet_1_1__leaf_clk_i (net)
-                  0.04    0.02    0.11 ^ clkbuf_leaf_2_clk_i/A (BUF_X32)
-                  0.01    0.02    0.13 ^ clkbuf_leaf_2_clk_i/Z (BUF_X32)
-     4   14.66                           clknet_leaf_2_clk_i (net)
-                  0.01    0.00    0.13 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2366_/A1 (NAND2_X1)
-                  0.05    0.06    0.19 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2366_/ZN (NAND2_X1)
-     1   26.28                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_ (net)
-                  0.05    0.00    0.20 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/A (BUF_X32)
-                  0.01    0.05    0.24 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/Z (BUF_X32)
-     8  198.47                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_ (net)
-                  0.01    0.00    0.25 v clkbuf_3_5__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/A (BUF_X32)
-                  0.00    0.02    0.27 v clkbuf_3_5__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_/Z (BUF_X32)
-     7   13.93                           clknet_3_5__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_0830_ (net)
-                  0.00    0.00    0.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2367__1387/A (INV_X1)
-                  0.01    0.01    0.28 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2367__1387/ZN (INV_X1)
-     1    1.26                           net2379 (net)
-                  0.01    0.00    0.28 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2375_/A1 (AND2_X1)
-                  0.07    0.09    0.38 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2375_/ZN (AND2_X1)
-     1   28.41                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o (net)
-                  0.07    0.00    0.38 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/A (BUF_X32)
-                  0.01    0.03    0.41 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/Z (BUF_X32)
-     2   55.99                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o (net)
-                  0.01    0.00    0.41 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/A (BUF_X32)
-                  0.00    0.02    0.43 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o/Z (BUF_X32)
-     8   11.39                           clknet_1_1__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[3].cg_i.clk_o (net)
-                  0.00    0.00    0.43 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2866_/G (DLH_X1)
-                          0.00    0.43   clock reconvergence pessimism
-                          0.30    0.73   time borrowed from endpoint
-                                  0.73   data required time
+     4   54.49                           clknet_0_clk_i (net)
+                  0.01    0.01    0.05 ^ clkbuf_2_1_0_clk_i/A (BUF_X4)
+                  0.09    0.10    0.16 ^ clkbuf_2_1_0_clk_i/Z (BUF_X4)
+     6  167.17                           clknet_2_1_0_clk_i (net)
+                  0.09    0.02    0.18 ^ clkbuf_leaf_21_clk_i/A (BUF_X32)
+                  0.01    0.03    0.20 ^ clkbuf_leaf_21_clk_i/Z (BUF_X32)
+     3    9.53                           clknet_leaf_21_clk_i (net)
+                  0.01    0.00    0.20 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2366_/A1 (NAND2_X1)
+                  0.05    0.07    0.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2366_/ZN (NAND2_X1)
+     1   28.12                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_ (net)
+                  0.05    0.00    0.27 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/A (BUF_X32)
+                  0.01    0.05    0.32 v clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/Z (BUF_X32)
+     8  199.35                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_ (net)
+                  0.01    0.01    0.33 v clkbuf_3_2__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/A (BUF_X32)
+                  0.00    0.02    0.35 v clkbuf_3_2__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_/Z (BUF_X32)
+     7   14.62                           clknet_3_2__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_0830_ (net)
+                  0.00    0.00    0.35 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2367__1510/A (INV_X1)
+                  0.01    0.01    0.36 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2367__1510/ZN (INV_X1)
+     1    1.26                           net2504 (net)
+                  0.01    0.00    0.36 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2370_/A1 (AND2_X1)
+                  0.06    0.09    0.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2370_/ZN (AND2_X1)
+     1   27.57                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o (net)
+                  0.06    0.00    0.45 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/A (BUF_X32)
+                  0.01    0.03    0.48 ^ clkbuf_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/Z (BUF_X32)
+     2   55.31                           clknet_0_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o (net)
+                  0.01    0.00    0.48 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/A (BUF_X32)
+                  0.00    0.02    0.50 ^ clkbuf_1_1__f_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o/Z (BUF_X32)
+     7   10.57                           clknet_1_1__leaf_gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/gen_cg_word_iter[7].cg_i.clk_o (net)
+                  0.00    0.00    0.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_2796_/G (DLH_X1)
+                          0.00    0.50   clock reconvergence pessimism
+                          0.42    0.92   time borrowed from endpoint
+                                  0.92   data required time
 -----------------------------------------------------------------------------
-                                  0.73   data required time
-                                 -0.73   data arrival time
+                                  0.92   data required time
+                                 -0.92   data arrival time
 -----------------------------------------------------------------------------
                                   0.00   slack (MET)
 
 Time Borrowing Information
 --------------------------------------------
 clk_i nominal pulse width               3.00
-clock latency difference               -0.02
+clock latency difference               -0.06
 library setup time                     -0.02
 --------------------------------------------
-max time borrow                         2.96
-actual time borrow                      0.30
+max time borrow                         2.92
+actual time borrow                      0.42
 --------------------------------------------
 
 
@@ -780,34 +819,27 @@ max capacitance
 
 Pin                                    Limit     Cap   Slack
 ------------------------------------------------------------
-encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_148_/Q  120.85  141.43  -20.58 (VIOLATED)
-encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_154_/Q  120.85  134.23  -13.38 (VIOLATED)
-encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_152_/Q  120.85  129.99   -9.14 (VIOLATED)
-encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_147_/Q  120.85  129.78   -8.93 (VIOLATED)
-gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_209_/Q  120.85  129.21   -8.36 (VIOLATED)
-encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_159_/Q  120.85  127.99   -7.14 (VIOLATED)
-gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_221_/Q  120.85  125.00   -4.15 (VIOLATED)
-gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_214_/Q  120.85  124.74   -3.89 (VIOLATED)
-encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_150_/Q  120.85  124.20   -3.35 (VIOLATED)
-encoder/gen_encoder_units[2].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_1277_/ZN  106.81  108.79   -1.98 (VIOLATED)
-gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[11].sub_unit_i/_1277_/ZN  106.81  108.73   -1.92 (VIOLATED)
-encoder/gen_encoder_units[1].encoder_unit/threshold_memory/_152_/Q  120.85  122.43   -1.58 (VIOLATED)
-encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_146_/Q  120.85  122.43   -1.58 (VIOLATED)
-encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_155_/Q  120.85  122.34   -1.49 (VIOLATED)
-encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_157_/Q  120.85  121.78   -0.93 (VIOLATED)
-encoder/_270_/Q                       120.85  121.66   -0.81 (VIOLATED)
-encoder/gen_encoder_units[1].encoder_unit/_383_/Q  120.85  121.62   -0.77 (VIOLATED)
-encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_154_/Q  120.85  121.38   -0.53 (VIOLATED)
-gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[6].sub_unit_i/_1277_/ZN  106.81  107.25   -0.43 (VIOLATED)
-gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[14].sub_unit_i/_1321_/ZN  106.81  107.14   -0.33 (VIOLATED)
-encoder/gen_encoder_units[1].encoder_unit/threshold_memory/_159_/Q  120.85  121.02   -0.17 (VIOLATED)
-encoder/gen_encoder_units[1].encoder_unit/threshold_memory/_155_/Q  120.85  120.87   -0.02 (VIOLATED)
+clkbuf_2_3_0_clk_i/Z                  242.31  300.99  -58.68 (VIOLATED)
+encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_151_/Q  120.85  135.39  -14.54 (VIOLATED)
+encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_157_/Q  120.85  133.00  -12.15 (VIOLATED)
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_206_/Q  120.85  131.47  -10.62 (VIOLATED)
+encoder/gen_encoder_units[3].encoder_unit/threshold_memory/_149_/Q  120.85  131.22  -10.37 (VIOLATED)
+encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_148_/Q  120.85  131.04  -10.19 (VIOLATED)
+encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_153_/Q  120.85  128.28   -7.43 (VIOLATED)
+clkbuf_2_0_0_clk_i/Z                  242.31  249.29   -6.98 (VIOLATED)
+encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_149_/Q  120.85  125.87   -5.02 (VIOLATED)
+encoder/gen_encoder_units[0].encoder_unit/threshold_memory/_154_/Q  120.85  123.69   -2.84 (VIOLATED)
+encoder/gen_encoder_units[1].encoder_unit/threshold_memory/_158_/Q  120.85  122.62   -1.77 (VIOLATED)
+encoder/_270_/Q                       120.85  122.57   -1.72 (VIOLATED)
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[7].sub_unit_i/_1277_/ZN  106.81  107.84   -1.03 (VIOLATED)
+encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_146_/Q  120.85  121.16   -0.31 (VIOLATED)
+encoder/gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_1321_/ZN  106.81  106.85   -0.04 (VIOLATED)
 
 
 ==========================================================================
 global route max_slew_check_slack
 --------------------------------------------------------------------------
-0.04376208037137985
+0.03369612991809845
 
 ==========================================================================
 global route max_slew_check_limit
@@ -817,7 +849,7 @@ global route max_slew_check_limit
 ==========================================================================
 global route max_slew_check_slack_limit
 --------------------------------------------------------------------------
-0.2204
+0.1697
 
 ==========================================================================
 global route max_fanout_check_slack
@@ -832,17 +864,17 @@ global route max_fanout_check_limit
 ==========================================================================
 global route max_capacitance_check_slack
 --------------------------------------------------------------------------
--20.577045440673828
+-58.67873001098633
 
 ==========================================================================
 global route max_capacitance_check_limit
 --------------------------------------------------------------------------
-120.8499984741211
+242.30999755859375
 
 ==========================================================================
 global route max_capacitance_check_slack_limit
 --------------------------------------------------------------------------
--0.1703
+-0.2422
 
 ==========================================================================
 global route max_slew_violation_count
@@ -857,7 +889,7 @@ max fanout violation count 0
 ==========================================================================
 global route max_cap_violation_count
 --------------------------------------------------------------------------
-max cap violation count 22
+max cap violation count 15
 
 ==========================================================================
 global route setup_violation_count
@@ -872,7 +904,7 @@ hold violation count 1
 ==========================================================================
 global route critical path delay
 --------------------------------------------------------------------------
-0.7331
+0.9226
 
 ==========================================================================
 global route critical path slack
@@ -890,18 +922,18 @@ global route report_power
 Group                  Internal  Switching    Leakage      Total
                           Power      Power      Power      Power (Watts)
 ----------------------------------------------------------------
-Sequential             1.03e-02   6.95e-04   5.60e-04   1.16e-02   9.3%
-Combinational          7.96e-02   2.97e-02   3.45e-03   1.13e-01  90.7%
+Sequential             1.03e-02   6.99e-04   5.62e-04   1.16e-02   9.3%
+Combinational          7.97e-02   2.94e-02   3.45e-03   1.13e-01  90.7%
 Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
 ----------------------------------------------------------------
-Total                  8.99e-02   3.03e-02   4.01e-03   1.24e-01 100.0%
-                          72.4%      24.4%       3.2%
+Total                  9.00e-02   3.01e-02   4.01e-03   1.24e-01 100.0%
+                          72.5%      24.2%       3.2%
 
 ==========================================================================
 global route report_design_area
 --------------------------------------------------------------------------
-Design area 138203 u^2 59% utilization.
+Design area 138481 u^2 59% utilization.
 
 
 ==========================================================================
@@ -914,5 +946,5 @@ check_antennas
 [INFO FLW-0007] clock clk_i period 6.000000
 [INFO FLW-0008] Clock clk_i period 5.700
 [INFO FLW-0009] Clock clk_i slack 0.000
-[INFO FLW-0011] Path endpoint count 19659
-Elapsed time: 0:49.72[h:]min:sec. CPU time: user 49.18 sys 0.52 (99%). Peak memory: 880736KB.
+[INFO FLW-0011] Path endpoint count 19722
+Elapsed time: 1:01.81[h:]min:sec. CPU time: user 61.01 sys 0.77 (99%). Peak memory: 886084KB.
