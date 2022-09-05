@@ -1,0 +1,953 @@
+OpenROAD b57893514040c5aa453ab5c104f35d1173a8add9 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns -24135.67
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns -3138.22
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack -3138.22
+
+==========================================================================
+resizer pre report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+Latency      CRPR       Skew
+gen_encoder_units[2].encoder_unit/threshold_memory/_10371_/CLK ^
+ 165.50
+gen_encoder_units[2].encoder_unit/_532_/CLK ^
+   0.00      0.00     165.50
+
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/threshold_memory/_09458_
+          (removal check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        160.00  160.00 ^ input external delay
+                  0.00    0.00  160.00 ^ rst_ni (in)
+     9   27.18                           rst_ni (net)
+                 13.57    4.28  164.28 ^ gen_encoder_units[3].encoder_unit/threshold_memory/_09404_/A (INVx1_ASAP7_75t_R)
+                 81.37   40.99  205.27 v gen_encoder_units[3].encoder_unit/threshold_memory/_09404_/Y (INVx1_ASAP7_75t_R)
+    16   15.33                           gen_encoder_units[3].encoder_unit/threshold_memory/_00016_ (net)
+                 81.37    0.07  205.33 v gen_encoder_units[3].encoder_unit/threshold_memory/_09458_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                205.33   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ gen_encoder_units[3].encoder_unit/threshold_memory/_09458_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         54.23   54.23   library removal time
+                                 54.23   data required time
+-----------------------------------------------------------------------------
+                                 54.23   data required time
+                               -205.33   data arrival time
+-----------------------------------------------------------------------------
+                                151.10   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09472_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09247_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                  0.00    0.00  800.00 v gen_encoder_units[0].encoder_unit/threshold_memory/_09472_/CLK (DLLx1_ASAP7_75t_R)
+                  7.55   18.18  818.18 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09472_/Q (DLLx1_ASAP7_75t_R)
+     1    0.58                           gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.en_latch (net)
+                  7.55    0.00  818.19 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09247_/B (AND2x2_ASAP7_75t_R)
+                                818.19   data arrival time
+
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                          0.00  800.00   clock reconvergence pessimism
+                                800.00 v gen_encoder_units[0].encoder_unit/threshold_memory/_09247_/A (AND2x2_ASAP7_75t_R)
+                          0.00  800.00   clock gating hold time
+                                800.00   data required time
+-----------------------------------------------------------------------------
+                                800.00   data required time
+                               -818.19   data arrival time
+-----------------------------------------------------------------------------
+                                 18.19   slack (MET)
+
+
+Startpoint: gen_encoder_units[2].encoder_unit/_543_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[2].encoder_unit/_543_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_encoder_units[2].encoder_unit/_543_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                 22.06   41.96   41.96 ^ gen_encoder_units[2].encoder_unit/_543_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     2    1.92                           gen_encoder_units[2].encoder_unit/_001_ (net)
+                 22.06    0.04   42.00 ^ gen_encoder_units[2].encoder_unit/_503_/B (NAND2x1_ASAP7_75t_R)
+                 10.16    8.85   50.84 v gen_encoder_units[2].encoder_unit/_503_/Y (NAND2x1_ASAP7_75t_R)
+     1    0.67                           gen_encoder_units[2].encoder_unit/_029_ (net)
+                 10.16    0.01   50.85 v gen_encoder_units[2].encoder_unit/_543_/D (ASYNC_DFFHx1_ASAP7_75t_R)
+                                 50.85   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ gen_encoder_units[2].encoder_unit/_543_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                          4.41    4.41   library hold time
+                                  4.41   data required time
+-----------------------------------------------------------------------------
+                                  4.41   data required time
+                                -50.85   data arrival time
+-----------------------------------------------------------------------------
+                                 46.44   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_532_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        160.00  160.00 ^ input external delay
+                  0.00    0.00  160.00 ^ rst_ni (in)
+     9   27.18                           rst_ni (net)
+                 87.84   27.71  187.71 ^ gen_encoder_units[3].encoder_unit/_496_/A (INVx1_ASAP7_75t_R)
+                109.49   70.18  257.89 v gen_encoder_units[3].encoder_unit/_496_/Y (INVx1_ASAP7_75t_R)
+    18   18.51                           gen_encoder_units[3].encoder_unit/_018_ (net)
+                109.83    3.50  261.38 v gen_encoder_units[3].encoder_unit/_532_/SET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                261.38   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[3].encoder_unit/_532_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                        -23.12 1576.88   library recovery time
+                               1576.88   data required time
+-----------------------------------------------------------------------------
+                               1576.88   data required time
+                               -261.38   data arrival time
+-----------------------------------------------------------------------------
+                               1315.50   slack (MET)
+
+
+Startpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_10050_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_09297_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                  0.00    0.00  800.00 v gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/CLK (DLLx1_ASAP7_75t_R)
+                186.43   94.33  894.33 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/Q (DLLx1_ASAP7_75t_R)
+    33   29.50                           gen_encoder_units[2].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i.cg_we_global.en_latch (net)
+                186.86    5.17  899.50 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/B (AND3x1_ASAP7_75t_R)
+                                899.50   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1600.00   clock gating setup time
+                               1600.00   data required time
+-----------------------------------------------------------------------------
+                               1600.00   data required time
+                               -899.50   data arrival time
+-----------------------------------------------------------------------------
+                                700.50   slack (MET)
+
+
+Startpoint: gen_encoder_units[1].encoder_unit/_515_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/_521_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_encoder_units[1].encoder_unit/_515_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                 30.84   46.49   46.49 v gen_encoder_units[1].encoder_unit/_515_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     4    3.70                           gen_encoder_units[1].encoder_unit/_016_ (net)
+                 30.84    0.05   46.54 v gen_encoder_units[1].encoder_unit/_255_/A (INVx1_ASAP7_75t_R)
+               2048.55  810.25  856.79 ^ gen_encoder_units[1].encoder_unit/_255_/Y (INVx1_ASAP7_75t_R)
+   193  322.25                           gen_encoder_units[1].encoder_unit/c_addr_int[0] (net)
+               2058.38   81.73  938.52 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_04617_/A (INVx3_ASAP7_75t_R)
+               2364.44 1230.45 2168.97 v gen_encoder_units[1].encoder_unit/threshold_memory/_04617_/Y (INVx3_ASAP7_75t_R)
+   197  315.98                           gen_encoder_units[1].encoder_unit/threshold_memory/_00062_ (net)
+               2410.37  186.50 2355.48 v gen_encoder_units[1].encoder_unit/threshold_memory/_04638_/A (NOR3x2_ASAP7_75t_R)
+               1353.96 1097.03 3452.51 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_04638_/Y (NOR3x2_ASAP7_75t_R)
+    78  144.51                           gen_encoder_units[1].encoder_unit/threshold_memory/_00083_ (net)
+               1364.68   71.19 3523.71 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_04772_/B (NAND2x1_ASAP7_75t_R)
+               1107.71  795.09 4318.80 v gen_encoder_units[1].encoder_unit/threshold_memory/_04772_/Y (NAND2x1_ASAP7_75t_R)
+    50   84.09                           gen_encoder_units[1].encoder_unit/threshold_memory/_00217_ (net)
+               1107.73    2.76 4321.55 v gen_encoder_units[1].encoder_unit/threshold_memory/_07591_/B1 (OAI22x1_ASAP7_75t_R)
+                128.23   96.60 4418.15 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07591_/Y (OAI22x1_ASAP7_75t_R)
+     1    1.24                           gen_encoder_units[1].encoder_unit/threshold_memory/_03026_ (net)
+                128.23    0.04 4418.19 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07595_/A (NOR2x1_ASAP7_75t_R)
+                 40.20   36.39 4454.59 v gen_encoder_units[1].encoder_unit/threshold_memory/_07595_/Y (NOR2x1_ASAP7_75t_R)
+     1    2.33                           gen_encoder_units[1].encoder_unit/threshold_memory/_03030_ (net)
+                 40.21    0.41 4454.99 v gen_encoder_units[1].encoder_unit/threshold_memory/_07596_/B (NAND2x1_ASAP7_75t_R)
+                 22.54   20.41 4475.41 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07596_/Y (NAND2x1_ASAP7_75t_R)
+     1    1.64                           gen_encoder_units[1].encoder_unit/threshold_memory/_03031_ (net)
+                 22.54    0.14 4475.55 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07597_/B (NOR2x1_ASAP7_75t_R)
+                 19.90   16.38 4491.93 v gen_encoder_units[1].encoder_unit/threshold_memory/_07597_/Y (NOR2x1_ASAP7_75t_R)
+     1    2.46                           gen_encoder_units[1].encoder_unit/threshold_memory/_03032_ (net)
+                 19.93    0.42 4492.35 v gen_encoder_units[1].encoder_unit/threshold_memory/_07630_/A1 (AOI21x1_ASAP7_75t_R)
+                 22.66   15.47 4507.82 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07630_/Y (AOI21x1_ASAP7_75t_R)
+     1    2.73                           gen_encoder_units[1].encoder_unit/threshold_memory/_03065_ (net)
+                 22.71    0.58 4508.41 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07631_/B (NOR2x1_ASAP7_75t_R)
+                 29.12   20.85 4529.26 v gen_encoder_units[1].encoder_unit/threshold_memory/_07631_/Y (NOR2x1_ASAP7_75t_R)
+     1    4.19                           gen_encoder_units[1].encoder_unit/threshold_memory/_03066_ (net)
+                 29.38    1.53 4530.79 v gen_encoder_units[1].encoder_unit/threshold_memory/_07761_/A (NAND2x1_ASAP7_75t_R)
+                 54.93   34.98 4565.77 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07761_/Y (NAND2x1_ASAP7_75t_R)
+     4    6.62                           gen_encoder_units[1].encoder_unit/fp_compare.operand_b_i[5] (net)
+                 55.18    2.11 4567.88 ^ gen_encoder_units[1].encoder_unit/_415_/A (INVx1_ASAP7_75t_R)
+                 15.88   12.20 4580.08 v gen_encoder_units[1].encoder_unit/_415_/Y (INVx1_ASAP7_75t_R)
+     1    1.07                           gen_encoder_units[1].encoder_unit/_187_ (net)
+                 15.88    0.00 4580.09 v gen_encoder_units[1].encoder_unit/_416_/B (XOR2x2_ASAP7_75t_R)
+                  8.94   30.27 4610.36 ^ gen_encoder_units[1].encoder_unit/_416_/Y (XOR2x2_ASAP7_75t_R)
+     1    1.06                           gen_encoder_units[1].encoder_unit/_188_ (net)
+                  8.94    0.00 4610.36 ^ gen_encoder_units[1].encoder_unit/_419_/A (NOR2x1_ASAP7_75t_R)
+                 12.18   10.57 4620.93 v gen_encoder_units[1].encoder_unit/_419_/Y (NOR2x1_ASAP7_75t_R)
+     1    1.36                           gen_encoder_units[1].encoder_unit/_191_ (net)
+                 12.18    0.03 4620.96 v gen_encoder_units[1].encoder_unit/_420_/C (NAND3x1_ASAP7_75t_R)
+                 19.22   16.24 4637.20 ^ gen_encoder_units[1].encoder_unit/_420_/Y (NAND3x1_ASAP7_75t_R)
+     1    1.21                           gen_encoder_units[1].encoder_unit/_192_ (net)
+                 19.22    0.03 4637.22 ^ gen_encoder_units[1].encoder_unit/_421_/B (NOR2x1_ASAP7_75t_R)
+                 11.51   11.44 4648.66 v gen_encoder_units[1].encoder_unit/_421_/Y (NOR2x1_ASAP7_75t_R)
+     1    1.13                           gen_encoder_units[1].encoder_unit/_193_ (net)
+                 11.51    0.01 4648.67 v gen_encoder_units[1].encoder_unit/_432_/A2 (OAI21x1_ASAP7_75t_R)
+                 42.14   21.81 4670.48 ^ gen_encoder_units[1].encoder_unit/_432_/Y (OAI21x1_ASAP7_75t_R)
+     1    6.01                           gen_encoder_units[1].encoder_unit/_204_ (net)
+                 42.98    3.23 4673.71 ^ gen_encoder_units[1].encoder_unit/_444_/A2 (AOI21x1_ASAP7_75t_R)
+                 14.69   11.66 4685.38 v gen_encoder_units[1].encoder_unit/_444_/Y (AOI21x1_ASAP7_75t_R)
+     1    1.18                           gen_encoder_units[1].encoder_unit/_216_ (net)
+                 14.69    0.02 4685.40 v gen_encoder_units[1].encoder_unit/_458_/A2 (OAI21x1_ASAP7_75t_R)
+                 49.95   24.72 4710.11 ^ gen_encoder_units[1].encoder_unit/_458_/Y (OAI21x1_ASAP7_75t_R)
+     2    7.01                           gen_encoder_units[1].encoder_unit/_230_ (net)
+                 50.74    3.45 4713.56 ^ gen_encoder_units[1].encoder_unit/_459_/B (NOR2x2_ASAP7_75t_R)
+                 15.37   12.09 4725.65 v gen_encoder_units[1].encoder_unit/_459_/Y (NOR2x2_ASAP7_75t_R)
+     1    0.64                           gen_encoder_units[1].encoder_unit/k_addr_n[0] (net)
+                 15.37    0.00 4725.65 v gen_encoder_units[1].encoder_unit/_521_/D (ASYNC_DFFHx1_ASAP7_75t_R)
+                               4725.65   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[1].encoder_unit/_521_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                        -12.57 1587.43   library setup time
+                               1587.43   data required time
+-----------------------------------------------------------------------------
+                               1587.43   data required time
+                               -4725.65   data arrival time
+-----------------------------------------------------------------------------
+                               -3138.22   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_532_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        160.00  160.00 ^ input external delay
+                  0.00    0.00  160.00 ^ rst_ni (in)
+     9   27.18                           rst_ni (net)
+                 87.84   27.71  187.71 ^ gen_encoder_units[3].encoder_unit/_496_/A (INVx1_ASAP7_75t_R)
+                109.49   70.18  257.89 v gen_encoder_units[3].encoder_unit/_496_/Y (INVx1_ASAP7_75t_R)
+    18   18.51                           gen_encoder_units[3].encoder_unit/_018_ (net)
+                109.83    3.50  261.38 v gen_encoder_units[3].encoder_unit/_532_/SET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                261.38   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[3].encoder_unit/_532_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                        -23.12 1576.88   library recovery time
+                               1576.88   data required time
+-----------------------------------------------------------------------------
+                               1576.88   data required time
+                               -261.38   data arrival time
+-----------------------------------------------------------------------------
+                               1315.50   slack (MET)
+
+
+Startpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_10050_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_09297_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                  0.00    0.00  800.00 v gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/CLK (DLLx1_ASAP7_75t_R)
+                186.43   94.33  894.33 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/Q (DLLx1_ASAP7_75t_R)
+    33   29.50                           gen_encoder_units[2].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i.cg_we_global.en_latch (net)
+                186.86    5.17  899.50 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/B (AND3x1_ASAP7_75t_R)
+                                899.50   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1600.00   clock gating setup time
+                               1600.00   data required time
+-----------------------------------------------------------------------------
+                               1600.00   data required time
+                               -899.50   data arrival time
+-----------------------------------------------------------------------------
+                                700.50   slack (MET)
+
+
+Startpoint: gen_encoder_units[1].encoder_unit/_515_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/_521_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_encoder_units[1].encoder_unit/_515_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                 30.84   46.49   46.49 v gen_encoder_units[1].encoder_unit/_515_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     4    3.70                           gen_encoder_units[1].encoder_unit/_016_ (net)
+                 30.84    0.05   46.54 v gen_encoder_units[1].encoder_unit/_255_/A (INVx1_ASAP7_75t_R)
+               2048.55  810.25  856.79 ^ gen_encoder_units[1].encoder_unit/_255_/Y (INVx1_ASAP7_75t_R)
+   193  322.25                           gen_encoder_units[1].encoder_unit/c_addr_int[0] (net)
+               2058.38   81.73  938.52 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_04617_/A (INVx3_ASAP7_75t_R)
+               2364.44 1230.45 2168.97 v gen_encoder_units[1].encoder_unit/threshold_memory/_04617_/Y (INVx3_ASAP7_75t_R)
+   197  315.98                           gen_encoder_units[1].encoder_unit/threshold_memory/_00062_ (net)
+               2410.37  186.50 2355.48 v gen_encoder_units[1].encoder_unit/threshold_memory/_04638_/A (NOR3x2_ASAP7_75t_R)
+               1353.96 1097.03 3452.51 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_04638_/Y (NOR3x2_ASAP7_75t_R)
+    78  144.51                           gen_encoder_units[1].encoder_unit/threshold_memory/_00083_ (net)
+               1364.68   71.19 3523.71 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_04772_/B (NAND2x1_ASAP7_75t_R)
+               1107.71  795.09 4318.80 v gen_encoder_units[1].encoder_unit/threshold_memory/_04772_/Y (NAND2x1_ASAP7_75t_R)
+    50   84.09                           gen_encoder_units[1].encoder_unit/threshold_memory/_00217_ (net)
+               1107.73    2.76 4321.55 v gen_encoder_units[1].encoder_unit/threshold_memory/_07591_/B1 (OAI22x1_ASAP7_75t_R)
+                128.23   96.60 4418.15 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07591_/Y (OAI22x1_ASAP7_75t_R)
+     1    1.24                           gen_encoder_units[1].encoder_unit/threshold_memory/_03026_ (net)
+                128.23    0.04 4418.19 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07595_/A (NOR2x1_ASAP7_75t_R)
+                 40.20   36.39 4454.59 v gen_encoder_units[1].encoder_unit/threshold_memory/_07595_/Y (NOR2x1_ASAP7_75t_R)
+     1    2.33                           gen_encoder_units[1].encoder_unit/threshold_memory/_03030_ (net)
+                 40.21    0.41 4454.99 v gen_encoder_units[1].encoder_unit/threshold_memory/_07596_/B (NAND2x1_ASAP7_75t_R)
+                 22.54   20.41 4475.41 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07596_/Y (NAND2x1_ASAP7_75t_R)
+     1    1.64                           gen_encoder_units[1].encoder_unit/threshold_memory/_03031_ (net)
+                 22.54    0.14 4475.55 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07597_/B (NOR2x1_ASAP7_75t_R)
+                 19.90   16.38 4491.93 v gen_encoder_units[1].encoder_unit/threshold_memory/_07597_/Y (NOR2x1_ASAP7_75t_R)
+     1    2.46                           gen_encoder_units[1].encoder_unit/threshold_memory/_03032_ (net)
+                 19.93    0.42 4492.35 v gen_encoder_units[1].encoder_unit/threshold_memory/_07630_/A1 (AOI21x1_ASAP7_75t_R)
+                 22.66   15.47 4507.82 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07630_/Y (AOI21x1_ASAP7_75t_R)
+     1    2.73                           gen_encoder_units[1].encoder_unit/threshold_memory/_03065_ (net)
+                 22.71    0.58 4508.41 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07631_/B (NOR2x1_ASAP7_75t_R)
+                 29.12   20.85 4529.26 v gen_encoder_units[1].encoder_unit/threshold_memory/_07631_/Y (NOR2x1_ASAP7_75t_R)
+     1    4.19                           gen_encoder_units[1].encoder_unit/threshold_memory/_03066_ (net)
+                 29.38    1.53 4530.79 v gen_encoder_units[1].encoder_unit/threshold_memory/_07761_/A (NAND2x1_ASAP7_75t_R)
+                 54.93   34.98 4565.77 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_07761_/Y (NAND2x1_ASAP7_75t_R)
+     4    6.62                           gen_encoder_units[1].encoder_unit/fp_compare.operand_b_i[5] (net)
+                 55.18    2.11 4567.88 ^ gen_encoder_units[1].encoder_unit/_415_/A (INVx1_ASAP7_75t_R)
+                 15.88   12.20 4580.08 v gen_encoder_units[1].encoder_unit/_415_/Y (INVx1_ASAP7_75t_R)
+     1    1.07                           gen_encoder_units[1].encoder_unit/_187_ (net)
+                 15.88    0.00 4580.09 v gen_encoder_units[1].encoder_unit/_416_/B (XOR2x2_ASAP7_75t_R)
+                  8.94   30.27 4610.36 ^ gen_encoder_units[1].encoder_unit/_416_/Y (XOR2x2_ASAP7_75t_R)
+     1    1.06                           gen_encoder_units[1].encoder_unit/_188_ (net)
+                  8.94    0.00 4610.36 ^ gen_encoder_units[1].encoder_unit/_419_/A (NOR2x1_ASAP7_75t_R)
+                 12.18   10.57 4620.93 v gen_encoder_units[1].encoder_unit/_419_/Y (NOR2x1_ASAP7_75t_R)
+     1    1.36                           gen_encoder_units[1].encoder_unit/_191_ (net)
+                 12.18    0.03 4620.96 v gen_encoder_units[1].encoder_unit/_420_/C (NAND3x1_ASAP7_75t_R)
+                 19.22   16.24 4637.20 ^ gen_encoder_units[1].encoder_unit/_420_/Y (NAND3x1_ASAP7_75t_R)
+     1    1.21                           gen_encoder_units[1].encoder_unit/_192_ (net)
+                 19.22    0.03 4637.22 ^ gen_encoder_units[1].encoder_unit/_421_/B (NOR2x1_ASAP7_75t_R)
+                 11.51   11.44 4648.66 v gen_encoder_units[1].encoder_unit/_421_/Y (NOR2x1_ASAP7_75t_R)
+     1    1.13                           gen_encoder_units[1].encoder_unit/_193_ (net)
+                 11.51    0.01 4648.67 v gen_encoder_units[1].encoder_unit/_432_/A2 (OAI21x1_ASAP7_75t_R)
+                 42.14   21.81 4670.48 ^ gen_encoder_units[1].encoder_unit/_432_/Y (OAI21x1_ASAP7_75t_R)
+     1    6.01                           gen_encoder_units[1].encoder_unit/_204_ (net)
+                 42.98    3.23 4673.71 ^ gen_encoder_units[1].encoder_unit/_444_/A2 (AOI21x1_ASAP7_75t_R)
+                 14.69   11.66 4685.38 v gen_encoder_units[1].encoder_unit/_444_/Y (AOI21x1_ASAP7_75t_R)
+     1    1.18                           gen_encoder_units[1].encoder_unit/_216_ (net)
+                 14.69    0.02 4685.40 v gen_encoder_units[1].encoder_unit/_458_/A2 (OAI21x1_ASAP7_75t_R)
+                 49.95   24.72 4710.11 ^ gen_encoder_units[1].encoder_unit/_458_/Y (OAI21x1_ASAP7_75t_R)
+     2    7.01                           gen_encoder_units[1].encoder_unit/_230_ (net)
+                 50.74    3.45 4713.56 ^ gen_encoder_units[1].encoder_unit/_459_/B (NOR2x2_ASAP7_75t_R)
+                 15.37   12.09 4725.65 v gen_encoder_units[1].encoder_unit/_459_/Y (NOR2x2_ASAP7_75t_R)
+     1    0.64                           gen_encoder_units[1].encoder_unit/k_addr_n[0] (net)
+                 15.37    0.00 4725.65 v gen_encoder_units[1].encoder_unit/_521_/D (ASYNC_DFFHx1_ASAP7_75t_R)
+                               4725.65   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[1].encoder_unit/_521_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                        -12.57 1587.43   library setup time
+                               1587.43   data required time
+-----------------------------------------------------------------------------
+                               1587.43   data required time
+                               -4725.65   data arrival time
+-----------------------------------------------------------------------------
+                               -3138.22   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.40e-03   1.50e-04   8.27e-07   4.55e-03  54.7%
+Combinational          1.10e-03   2.67e-03   1.86e-06   3.77e-03  45.3%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.50e-03   2.82e-03   2.68e-06   8.32e-03 100.0%
+                          66.1%      33.9%       0.0%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 3780 u^2 39% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+29476
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+88585
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 354 input buffers.
+[INFO RSZ-0028] Inserted 10 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 162um.
+[INFO RSZ-0034] Found 167 slew violations.
+[INFO RSZ-0036] Found 57 capacitance violations.
+[INFO RSZ-0038] Inserted 347 buffers in 167 nets.
+[INFO RSZ-0039] Resized 1351 instances.
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 155 tie TIELOx1_ASAP7_75t_R instances.
+Repair tie hi fanout...
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.00
+
+==========================================================================
+resizer report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+Latency      CRPR       Skew
+gen_encoder_units[2].encoder_unit/threshold_memory/_10371_/CLK ^
+ 111.08
+gen_encoder_units[2].encoder_unit/_532_/CLK ^
+   0.00      0.00     111.08
+
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/threshold_memory/_09458_
+          (removal check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        160.00  160.00 ^ input external delay
+                  0.00    0.00  160.00 ^ rst_ni (in)
+     1    2.86                           rst_ni (net)
+                  0.30    0.09  160.09 ^ input258/A (BUFx16f_ASAP7_75t_R)
+                 11.92   13.92  174.01 ^ input258/Y (BUFx16f_ASAP7_75t_R)
+     9   76.18                           net258 (net)
+                 47.52   11.71  185.72 ^ gen_encoder_units[3].encoder_unit/threshold_memory/_09404_/A (CKINVDCx8_ASAP7_75t_R)
+                 21.20   15.83  201.56 v gen_encoder_units[3].encoder_unit/threshold_memory/_09404_/Y (CKINVDCx8_ASAP7_75t_R)
+    16   15.33                           gen_encoder_units[3].encoder_unit/threshold_memory/_00016_ (net)
+                 21.20    0.07  201.62 v gen_encoder_units[3].encoder_unit/threshold_memory/_09458_/RESET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                201.62   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ gen_encoder_units[3].encoder_unit/threshold_memory/_09458_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                         30.72   30.72   library removal time
+                                 30.72   data required time
+-----------------------------------------------------------------------------
+                                 30.72   data required time
+                               -201.62   data arrival time
+-----------------------------------------------------------------------------
+                                170.90   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09472_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09247_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                  0.00    0.00  800.00 v gen_encoder_units[0].encoder_unit/threshold_memory/_09472_/CLK (DLLx1_ASAP7_75t_R)
+                  7.55   18.18  818.18 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09472_/Q (DLLx1_ASAP7_75t_R)
+     1    0.58                           gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.en_latch (net)
+                  7.55    0.00  818.19 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09247_/B (AND2x2_ASAP7_75t_R)
+                                818.19   data arrival time
+
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                          0.00  800.00   clock reconvergence pessimism
+                                800.00 v gen_encoder_units[0].encoder_unit/threshold_memory/_09247_/A (AND2x2_ASAP7_75t_R)
+                          0.00  800.00   clock gating hold time
+                                800.00   data required time
+-----------------------------------------------------------------------------
+                                800.00   data required time
+                               -818.19   data arrival time
+-----------------------------------------------------------------------------
+                                 18.19   slack (MET)
+
+
+Startpoint: gen_encoder_units[2].encoder_unit/_543_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[2].encoder_unit/_543_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_encoder_units[2].encoder_unit/_543_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                 22.06   41.96   41.96 ^ gen_encoder_units[2].encoder_unit/_543_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     2    1.92                           gen_encoder_units[2].encoder_unit/_001_ (net)
+                 22.06    0.04   42.00 ^ gen_encoder_units[2].encoder_unit/_503_/B (NAND2x1_ASAP7_75t_R)
+                  8.75    8.85   50.84 v gen_encoder_units[2].encoder_unit/_503_/Y (NAND2x1_ASAP7_75t_R)
+     1    0.67                           gen_encoder_units[2].encoder_unit/_029_ (net)
+                  8.75    0.01   50.85 v gen_encoder_units[2].encoder_unit/_543_/D (ASYNC_DFFHx1_ASAP7_75t_R)
+                                 50.85   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ gen_encoder_units[2].encoder_unit/_543_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                          4.69    4.69   library hold time
+                                  4.69   data required time
+-----------------------------------------------------------------------------
+                                  4.69   data required time
+                                -50.85   data arrival time
+-----------------------------------------------------------------------------
+                                 46.16   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_532_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        160.00  160.00 ^ input external delay
+                  0.00    0.00  160.00 ^ rst_ni (in)
+     1    2.86                           rst_ni (net)
+                  0.30    0.09  160.09 ^ input258/A (BUFx16f_ASAP7_75t_R)
+                 11.92   13.92  174.01 ^ input258/Y (BUFx16f_ASAP7_75t_R)
+     9   76.18                           net258 (net)
+                277.02   87.61  261.62 ^ gen_encoder_units[3].encoder_unit/_496_/A (CKINVDCx10_ASAP7_75t_R)
+                 50.78   26.89  288.51 v gen_encoder_units[3].encoder_unit/_496_/Y (CKINVDCx10_ASAP7_75t_R)
+    18   18.51                           gen_encoder_units[3].encoder_unit/_018_ (net)
+                 51.58    3.47  291.99 v gen_encoder_units[3].encoder_unit/_532_/SET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                291.99   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[3].encoder_unit/_532_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                        -14.23 1585.77   library recovery time
+                               1585.77   data required time
+-----------------------------------------------------------------------------
+                               1585.77   data required time
+                               -291.99   data arrival time
+-----------------------------------------------------------------------------
+                               1293.78   slack (MET)
+
+
+Startpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_10050_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_09297_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                  0.00    0.00  800.00 v gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/CLK (DLLx3_ASAP7_75t_R)
+                 58.65   57.84  857.84 v gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/Q (DLLx3_ASAP7_75t_R)
+    33   29.16                           gen_encoder_units[2].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i.cg_we_global.en_latch (net)
+                 60.09    5.03  862.87 v gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/B (AND3x1_ASAP7_75t_R)
+                                862.87   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1600.00   clock gating setup time
+                               1600.00   data required time
+-----------------------------------------------------------------------------
+                               1600.00   data required time
+                               -862.87   data arrival time
+-----------------------------------------------------------------------------
+                                737.13   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09457_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_10516_
+          (positive level-sensitive latch clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09457_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                 83.88   75.71   75.71 v gen_encoder_units[0].encoder_unit/threshold_memory/_09457_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     2   14.49                           gen_encoder_units[0].encoder_unit/threshold_memory/_00014_ (net)
+                 83.88    0.27   75.98 v gen_encoder_units[0].encoder_unit/threshold_memory/_09419_/A (CKINVDCx20_ASAP7_75t_R)
+                 54.53   22.98   98.97 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09419_/Y (CKINVDCx20_ASAP7_75t_R)
+   128  119.82                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i.wdata_a_i[1] (net)
+                276.28   86.93  185.89 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_10516_/D (DHLx1_ASAP7_75t_R)
+                                185.89   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_10516_/CLK (DHLx1_ASAP7_75t_R)
+                        185.89  185.89   time borrowed from endpoint
+                                185.89   data required time
+-----------------------------------------------------------------------------
+                                185.89   data required time
+                               -185.89   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk_i pulse width                     800.00
+library setup time                    -23.62
+--------------------------------------------
+max time borrow                       776.38
+actual time borrow                    185.89
+--------------------------------------------
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_532_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        160.00  160.00 ^ input external delay
+                  0.00    0.00  160.00 ^ rst_ni (in)
+     1    2.86                           rst_ni (net)
+                  0.30    0.09  160.09 ^ input258/A (BUFx16f_ASAP7_75t_R)
+                 11.92   13.92  174.01 ^ input258/Y (BUFx16f_ASAP7_75t_R)
+     9   76.18                           net258 (net)
+                277.02   87.61  261.62 ^ gen_encoder_units[3].encoder_unit/_496_/A (CKINVDCx10_ASAP7_75t_R)
+                 50.78   26.89  288.51 v gen_encoder_units[3].encoder_unit/_496_/Y (CKINVDCx10_ASAP7_75t_R)
+    18   18.51                           gen_encoder_units[3].encoder_unit/_018_ (net)
+                 51.58    3.47  291.99 v gen_encoder_units[3].encoder_unit/_532_/SET (ASYNC_DFFHx1_ASAP7_75t_R)
+                                291.99   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[3].encoder_unit/_532_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                        -14.23 1585.77   library recovery time
+                               1585.77   data required time
+-----------------------------------------------------------------------------
+                               1585.77   data required time
+                               -291.99   data arrival time
+-----------------------------------------------------------------------------
+                               1293.78   slack (MET)
+
+
+Startpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_10050_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[2].encoder_unit/threshold_memory/_09297_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  800.00  800.00   clock clk_i (fall edge)
+                          0.00  800.00   clock network delay (ideal)
+                  0.00    0.00  800.00 v gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/CLK (DLLx3_ASAP7_75t_R)
+                 58.65   57.84  857.84 v gen_encoder_units[2].encoder_unit/threshold_memory/_10050_/Q (DLLx3_ASAP7_75t_R)
+    33   29.16                           gen_encoder_units[2].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i.cg_we_global.en_latch (net)
+                 60.09    5.03  862.87 v gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/B (AND3x1_ASAP7_75t_R)
+                                862.87   data arrival time
+
+                  0.00 1600.00 1600.00   clock clk_i (rise edge)
+                          0.00 1600.00   clock network delay (ideal)
+                          0.00 1600.00   clock reconvergence pessimism
+                               1600.00 ^ gen_encoder_units[2].encoder_unit/threshold_memory/_09297_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1600.00   clock gating setup time
+                               1600.00   data required time
+-----------------------------------------------------------------------------
+                               1600.00   data required time
+                               -862.87   data arrival time
+-----------------------------------------------------------------------------
+                                737.13   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09457_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_10516_
+          (positive level-sensitive latch clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09457_/CLK (ASYNC_DFFHx1_ASAP7_75t_R)
+                 83.88   75.71   75.71 v gen_encoder_units[0].encoder_unit/threshold_memory/_09457_/QN (ASYNC_DFFHx1_ASAP7_75t_R)
+     2   14.49                           gen_encoder_units[0].encoder_unit/threshold_memory/_00014_ (net)
+                 83.88    0.27   75.98 v gen_encoder_units[0].encoder_unit/threshold_memory/_09419_/A (CKINVDCx20_ASAP7_75t_R)
+                 54.53   22.98   98.97 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09419_/Y (CKINVDCx20_ASAP7_75t_R)
+   128  119.82                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i.wdata_a_i[1] (net)
+                276.28   86.93  185.89 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_10516_/D (DHLx1_ASAP7_75t_R)
+                                185.89   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_10516_/CLK (DHLx1_ASAP7_75t_R)
+                        185.89  185.89   time borrowed from endpoint
+                                185.89   data required time
+-----------------------------------------------------------------------------
+                                185.89   data required time
+                               -185.89   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk_i pulse width                     800.00
+library setup time                    -23.62
+--------------------------------------------
+max time borrow                       776.38
+actual time borrow                    185.89
+--------------------------------------------
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+18.38027000427246
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.0574
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+3.5660221576690674
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+46.08000183105469
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.0774
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+185.8942
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+0.000000
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             4.27e-03   1.78e-04   8.27e-07   4.44e-03  54.2%
+Combinational          9.35e-04   2.82e-03   2.32e-06   3.75e-03  45.8%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  5.20e-03   2.99e-03   3.15e-06   8.20e-03 100.0%
+                          63.4%      36.5%       0.0%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 4051 u^2 42% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+30333
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+90153
+
+Elapsed time: 0:30.01[h:]min:sec. CPU time: user 29.82 sys 0.19 (99%). Peak memory: 345120KB.
