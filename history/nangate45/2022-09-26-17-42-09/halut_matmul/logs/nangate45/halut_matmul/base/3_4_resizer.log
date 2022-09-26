@@ -1,0 +1,1574 @@
+OpenROAD b7631451350809842e4fb0c635c3f3ed7f6b270f 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+==========================================================================
+resizer pre report_tns
+--------------------------------------------------------------------------
+tns -6247.72
+
+==========================================================================
+resizer pre report_wns
+--------------------------------------------------------------------------
+wns -11.37
+
+==========================================================================
+resizer pre report_worst_slack
+--------------------------------------------------------------------------
+worst slack -11.37
+
+==========================================================================
+resizer pre report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+Latency      CRPR       Skew
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[9].sub_unit_i/_2413_/G ^
+   0.46
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_531_/CK ^
+   0.00      0.00       0.46
+
+
+==========================================================================
+resizer pre report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/_130_
+          (removal check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+   546 1296.93                           rst_ni (net)
+                  0.93    0.76    1.06 ^ gen_decoderX_units[0].decoder/_130_/RN (DFFR_X1)
+                                  1.06   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ gen_decoderX_units[0].decoder/_130_/CK (DFFR_X1)
+                          1.34    1.34   library removal time
+                                  1.34   data required time
+-----------------------------------------------------------------------------
+                                  1.34   data required time
+                                 -1.06   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.28   slack (VIOLATED)
+
+
+Startpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2409_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2376_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                  0.00    0.00    1.50 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2409_/GN (DLL_X1)
+                  0.01    0.04    1.54 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2409_/Q (DLL_X1)
+     1    0.98                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/gen_cg_word_iter[1].cg_i.en_latch (net)
+                  0.01    0.00    1.54 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2376_/A2 (AND2_X1)
+                                  1.54   data arrival time
+
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                          0.00    1.50   clock reconvergence pessimism
+                                  1.50 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2376_/A1 (AND2_X1)
+                          0.00    1.50   clock gating hold time
+                                  1.50   data required time
+-----------------------------------------------------------------------------
+                                  1.50   data required time
+                                 -1.54   data arrival time
+-----------------------------------------------------------------------------
+                                  0.04   slack (MET)
+
+
+Startpoint: encoder/gen_encoder_units[1].encoder_unit/_516_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: encoder/gen_encoder_units[1].encoder_unit/_517_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ encoder/gen_encoder_units[1].encoder_unit/_516_/CK (DFFR_X1)
+                  0.01    0.07    0.07 ^ encoder/gen_encoder_units[1].encoder_unit/_516_/QN (DFFR_X1)
+     2    2.66                           encoder/gen_encoder_units[1].encoder_unit/_001_ (net)
+                  0.01    0.00    0.07 ^ encoder/gen_encoder_units[1].encoder_unit/_388_/A2 (OR2_X1)
+                  0.01    0.03    0.09 ^ encoder/gen_encoder_units[1].encoder_unit/_388_/ZN (OR2_X1)
+     1    1.77                           encoder/gen_encoder_units[1].encoder_unit/_123_ (net)
+                  0.01    0.00    0.09 ^ encoder/gen_encoder_units[1].encoder_unit/_389_/A (INV_X1)
+                  0.00    0.01    0.10 v encoder/gen_encoder_units[1].encoder_unit/_389_/ZN (INV_X1)
+     1    1.11                           encoder/gen_encoder_units[1].encoder_unit/k_addr_n[2] (net)
+                  0.00    0.00    0.10 v encoder/gen_encoder_units[1].encoder_unit/_517_/D (DFFR_X1)
+                                  0.10   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ encoder/gen_encoder_units[1].encoder_unit/_517_/CK (DFFR_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.10   data arrival time
+-----------------------------------------------------------------------------
+                                  0.10   slack (MET)
+
+
+
+==========================================================================
+resizer pre report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/_130_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+   546 1296.93                           rst_ni (net)
+                  0.93    0.76    1.06 ^ gen_decoderX_units[0].decoder/_130_/RN (DFFR_X1)
+                                  1.06   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/_130_/CK (DFFR_X1)
+                         -0.16    2.84   library recovery time
+                                  2.84   data required time
+-----------------------------------------------------------------------------
+                                  2.84   data required time
+                                 -1.06   data arrival time
+-----------------------------------------------------------------------------
+                                  1.78   slack (MET)
+
+
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                  0.00    0.00    1.50 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/GN (DLL_X1)
+                  0.01    0.07    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/Q (DLL_X1)
+     1    3.53                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[9].cg_i.en_latch (net)
+                  0.01    0.00    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A2 (AND2_X1)
+                                  1.57   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A1 (AND2_X1)
+                          0.00    3.00   clock gating setup time
+                                  3.00   data required time
+-----------------------------------------------------------------------------
+                                  3.00   data required time
+                                 -1.57   data arrival time
+-----------------------------------------------------------------------------
+                                  1.43   slack (MET)
+
+
+Startpoint: encoder/_279_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_544_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ encoder/_279_/CK (DFFR_X1)
+                  7.96    7.22    7.22 ^ encoder/_279_/Q (DFFR_X1)
+  1874 3950.37                           c_addr_enc_o[0] (net)
+                  8.82    2.90   10.12 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_1298_/A2 (NOR2_X2)
+                  2.81    3.43   13.55 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_1298_/ZN (NOR2_X2)
+    64  127.01                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0939_ (net)
+                  2.81    0.01   13.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2196_/A1 (NAND3_X1)
+                  0.43    0.39   13.95 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2196_/ZN (NAND3_X1)
+     1    1.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0663_ (net)
+                  0.43    0.00   13.95 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2197_/A2 (NAND2_X1)
+                  0.05    0.01   13.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2197_/ZN (NAND2_X1)
+     1    1.73                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0664_ (net)
+                  0.05    0.00   13.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2198_/A2 (NOR2_X1)
+                  0.03    0.05   14.01 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2198_/ZN (NOR2_X1)
+     1    3.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0665_ (net)
+                  0.03    0.00   14.01 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2206_/A1 (NAND2_X1)
+                  0.01    0.02   14.03 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2206_/ZN (NAND2_X1)
+     1    1.79                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0673_ (net)
+                  0.01    0.00   14.03 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2207_/A2 (NOR2_X1)
+                  0.03    0.04   14.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2207_/ZN (NOR2_X1)
+     1    4.84                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0674_ (net)
+                  0.03    0.00   14.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2239_/A1 (NAND3_X1)
+                  0.02    0.03   14.10 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2239_/ZN (NAND3_X1)
+     1    2.64                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read_outputs_subunits[125] (net)
+                  0.02    0.00   14.10 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1071_/A2 (NAND2_X1)
+                  0.01    0.02   14.12 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1071_/ZN (NAND2_X1)
+     1    2.20                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0482_ (net)
+                  0.01    0.00   14.12 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1072_/A2 (NAND2_X1)
+                  0.01    0.02   14.14 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1072_/ZN (NAND2_X1)
+     1    3.66                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0483_ (net)
+                  0.01    0.00   14.14 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1076_/A1 (NOR2_X1)
+                  0.06    0.07   14.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1076_/ZN (NOR2_X1)
+     1   10.75                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0487_ (net)
+                  0.06    0.00   14.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1077_/A2 (AND2_X1)
+                  0.01    0.04   14.26 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1077_/ZN (AND2_X1)
+     1    2.18                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0488_ (net)
+                  0.01    0.00   14.26 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1097_/A1 (NAND2_X1)
+                  0.01    0.02   14.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1097_/ZN (NAND2_X1)
+     1    3.25                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/rdata_o[13] (net)
+                  0.01    0.00   14.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_379_/A2 (NAND2_X1)
+                  0.06    0.03   14.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_379_/ZN (NAND2_X1)
+     1    4.23                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_096_ (net)
+                  0.06    0.00   14.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_380_/A (INV_X1)
+                  0.02    0.02   14.32 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_380_/ZN (INV_X1)
+     1    5.57                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/rdata_o_n[13] (net)
+                  0.02    0.00   14.32 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_544_/D (DFFR_X1)
+                                 14.32   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_544_/CK (DFFR_X1)
+                         -0.04    2.96   library setup time
+                                  2.96   data required time
+-----------------------------------------------------------------------------
+                                  2.96   data required time
+                                -14.32   data arrival time
+-----------------------------------------------------------------------------
+                                -11.37   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/_130_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+   546 1296.93                           rst_ni (net)
+                  0.93    0.76    1.06 ^ gen_decoderX_units[0].decoder/_130_/RN (DFFR_X1)
+                                  1.06   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/_130_/CK (DFFR_X1)
+                         -0.16    2.84   library recovery time
+                                  2.84   data required time
+-----------------------------------------------------------------------------
+                                  2.84   data required time
+                                 -1.06   data arrival time
+-----------------------------------------------------------------------------
+                                  1.78   slack (MET)
+
+
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                  0.00    0.00    1.50 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/GN (DLL_X1)
+                  0.01    0.07    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/Q (DLL_X1)
+     1    3.53                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[9].cg_i.en_latch (net)
+                  0.01    0.00    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A2 (AND2_X1)
+                                  1.57   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A1 (AND2_X1)
+                          0.00    3.00   clock gating setup time
+                                  3.00   data required time
+-----------------------------------------------------------------------------
+                                  3.00   data required time
+                                 -1.57   data arrival time
+-----------------------------------------------------------------------------
+                                  1.43   slack (MET)
+
+
+Startpoint: encoder/_279_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_544_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ encoder/_279_/CK (DFFR_X1)
+                  7.96    7.22    7.22 ^ encoder/_279_/Q (DFFR_X1)
+  1874 3950.37                           c_addr_enc_o[0] (net)
+                  8.82    2.90   10.12 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_1298_/A2 (NOR2_X2)
+                  2.81    3.43   13.55 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_1298_/ZN (NOR2_X2)
+    64  127.01                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0939_ (net)
+                  2.81    0.01   13.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2196_/A1 (NAND3_X1)
+                  0.43    0.39   13.95 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2196_/ZN (NAND3_X1)
+     1    1.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0663_ (net)
+                  0.43    0.00   13.95 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2197_/A2 (NAND2_X1)
+                  0.05    0.01   13.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2197_/ZN (NAND2_X1)
+     1    1.73                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0664_ (net)
+                  0.05    0.00   13.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2198_/A2 (NOR2_X1)
+                  0.03    0.05   14.01 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2198_/ZN (NOR2_X1)
+     1    3.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0665_ (net)
+                  0.03    0.00   14.01 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2206_/A1 (NAND2_X1)
+                  0.01    0.02   14.03 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2206_/ZN (NAND2_X1)
+     1    1.79                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0673_ (net)
+                  0.01    0.00   14.03 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2207_/A2 (NOR2_X1)
+                  0.03    0.04   14.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2207_/ZN (NOR2_X1)
+     1    4.84                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_0674_ (net)
+                  0.03    0.00   14.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2239_/A1 (NAND3_X1)
+                  0.02    0.03   14.10 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[8].sub_unit_i/_2239_/ZN (NAND3_X1)
+     1    2.64                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read_outputs_subunits[125] (net)
+                  0.02    0.00   14.10 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1071_/A2 (NAND2_X1)
+                  0.01    0.02   14.12 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1071_/ZN (NAND2_X1)
+     1    2.20                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0482_ (net)
+                  0.01    0.00   14.12 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1072_/A2 (NAND2_X1)
+                  0.01    0.02   14.14 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1072_/ZN (NAND2_X1)
+     1    3.66                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0483_ (net)
+                  0.01    0.00   14.14 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1076_/A1 (NOR2_X1)
+                  0.06    0.07   14.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1076_/ZN (NOR2_X1)
+     1   10.75                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0487_ (net)
+                  0.06    0.00   14.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1077_/A2 (AND2_X1)
+                  0.01    0.04   14.26 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1077_/ZN (AND2_X1)
+     1    2.18                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_0488_ (net)
+                  0.01    0.00   14.26 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1097_/A1 (NAND2_X1)
+                  0.01    0.02   14.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/read/_1097_/ZN (NAND2_X1)
+     1    3.25                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/rdata_o[13] (net)
+                  0.01    0.00   14.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_379_/A2 (NAND2_X1)
+                  0.06    0.03   14.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_379_/ZN (NAND2_X1)
+     1    4.23                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_096_ (net)
+                  0.06    0.00   14.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_380_/A (INV_X1)
+                  0.02    0.02   14.32 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_380_/ZN (INV_X1)
+     1    5.57                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/rdata_o_n[13] (net)
+                  0.02    0.00   14.32 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_544_/D (DFFR_X1)
+                                 14.32   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_544_/CK (DFFR_X1)
+                         -0.04    2.96   library setup time
+                                  2.96   data required time
+-----------------------------------------------------------------------------
+                                  2.96   data required time
+                                -14.32   data arrival time
+-----------------------------------------------------------------------------
+                                -11.37   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer pre report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.25e-02   1.99e-03   5.70e-04   2.51e-02  53.7%
+Combinational          5.35e-03   1.54e-02   8.99e-04   2.17e-02  46.3%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.79e-02   1.74e-02   1.47e-03   4.67e-02 100.0%
+                          59.6%      37.2%       3.1%
+
+==========================================================================
+resizer pre report_design_area
+--------------------------------------------------------------------------
+Design area 90545 u^2 38% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+61784
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+195436
+
+Perform port buffering...
+[INFO RSZ-0027] Inserted 382 input buffers.
+[INFO RSZ-0028] Inserted 34 output buffers.
+Perform buffer insertion...
+[INFO RSZ-0058] Using max wire length 661um.
+[INFO RSZ-0034] Found 6865 slew violations.
+[INFO RSZ-0036] Found 168 capacitance violations.
+[INFO RSZ-0037] Found 1 long wires.
+[INFO RSZ-0038] Inserted 430 buffers in 6889 nets.
+[INFO RSZ-0039] Resized 2129 instances.
+Repair tie lo fanout...
+[INFO RSZ-0042] Inserted 173 tie LOGIC0_X1 instances.
+Repair tie hi fanout...
+
+==========================================================================
+report_floating_nets
+--------------------------------------------------------------------------
+
+==========================================================================
+resizer report_tns
+--------------------------------------------------------------------------
+tns -2.34
+
+==========================================================================
+resizer report_wns
+--------------------------------------------------------------------------
+wns -0.22
+
+==========================================================================
+resizer report_worst_slack
+--------------------------------------------------------------------------
+worst slack -0.22
+
+==========================================================================
+resizer report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+Latency      CRPR       Skew
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[9].sub_unit_i/_2413_/G ^
+   0.46
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_531_/CK ^
+   0.00      0.00       0.46
+
+
+==========================================================================
+resizer report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: encoder/gen_encoder_units[2].encoder_unit/_506_
+          (removal check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+     1   26.88                           rst_ni (net)
+                  0.00    0.00    0.30 ^ input260/A (BUF_X32)
+                  0.01    0.02    0.32 ^ input260/Z (BUF_X32)
+    90  248.88                           net260 (net)
+                  0.20    0.17    0.48 ^ encoder/gen_encoder_units[2].encoder_unit/_506_/RN (DFFR_X1)
+                                  0.48   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ encoder/gen_encoder_units[2].encoder_unit/_506_/CK (DFFR_X1)
+                          0.44    0.44   library removal time
+                                  0.44   data required time
+-----------------------------------------------------------------------------
+                                  0.44   data required time
+                                 -0.48   data arrival time
+-----------------------------------------------------------------------------
+                                  0.05   slack (MET)
+
+
+Startpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2409_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2376_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                  0.00    0.00    1.50 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2409_/GN (DLL_X1)
+                  0.01    0.04    1.54 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2409_/Q (DLL_X1)
+     1    0.98                           encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/gen_cg_word_iter[1].cg_i.en_latch (net)
+                  0.01    0.00    1.54 ^ encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2376_/A2 (AND2_X1)
+                                  1.54   data arrival time
+
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                          0.00    1.50   clock reconvergence pessimism
+                                  1.50 v encoder/gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2376_/A1 (AND2_X1)
+                          0.00    1.50   clock gating hold time
+                                  1.50   data required time
+-----------------------------------------------------------------------------
+                                  1.50   data required time
+                                 -1.54   data arrival time
+-----------------------------------------------------------------------------
+                                  0.04   slack (MET)
+
+
+Startpoint: encoder/gen_encoder_units[1].encoder_unit/_516_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: encoder/gen_encoder_units[1].encoder_unit/_517_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ encoder/gen_encoder_units[1].encoder_unit/_516_/CK (DFFR_X1)
+                  0.01    0.07    0.07 ^ encoder/gen_encoder_units[1].encoder_unit/_516_/QN (DFFR_X1)
+     2    2.66                           encoder/gen_encoder_units[1].encoder_unit/_001_ (net)
+                  0.01    0.00    0.07 ^ encoder/gen_encoder_units[1].encoder_unit/_388_/A2 (OR2_X1)
+                  0.01    0.03    0.09 ^ encoder/gen_encoder_units[1].encoder_unit/_388_/ZN (OR2_X1)
+     1    1.77                           encoder/gen_encoder_units[1].encoder_unit/_123_ (net)
+                  0.01    0.00    0.09 ^ encoder/gen_encoder_units[1].encoder_unit/_389_/A (INV_X1)
+                  0.00    0.01    0.10 v encoder/gen_encoder_units[1].encoder_unit/_389_/ZN (INV_X1)
+     1    1.11                           encoder/gen_encoder_units[1].encoder_unit/k_addr_n[2] (net)
+                  0.00    0.00    0.10 v encoder/gen_encoder_units[1].encoder_unit/_517_/D (DFFR_X1)
+                                  0.10   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ encoder/gen_encoder_units[1].encoder_unit/_517_/CK (DFFR_X1)
+                          0.00    0.00   library hold time
+                                  0.00   data required time
+-----------------------------------------------------------------------------
+                                  0.00   data required time
+                                 -0.10   data arrival time
+-----------------------------------------------------------------------------
+                                  0.10   slack (MET)
+
+
+
+==========================================================================
+resizer report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/_130_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+     1   26.88                           rst_ni (net)
+                  0.00    0.00    0.30 ^ input260/A (BUF_X32)
+                  0.01    0.02    0.32 ^ input260/Z (BUF_X32)
+    90  248.88                           net260 (net)
+                  0.01    0.01    0.33 ^ max_length846/A (BUF_X32)
+                  0.01    0.02    0.35 ^ max_length846/Z (BUF_X32)
+   103  316.37                           net846 (net)
+                  0.16    0.13    0.48 ^ wire843/A (BUF_X32)
+                  0.01    0.03    0.51 ^ wire843/Z (BUF_X32)
+    62  226.15                           net843 (net)
+                  0.08    0.06    0.57 ^ wire842/A (BUF_X32)
+                  0.01    0.03    0.60 ^ wire842/Z (BUF_X32)
+   120  278.95                           net842 (net)
+                  0.18    0.15    0.75 ^ gen_decoderX_units[0].decoder/_130_/RN (DFFR_X1)
+                                  0.75   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/_130_/CK (DFFR_X1)
+                          0.02    3.02   library recovery time
+                                  3.02   data required time
+-----------------------------------------------------------------------------
+                                  3.02   data required time
+                                 -0.75   data arrival time
+-----------------------------------------------------------------------------
+                                  2.27   slack (MET)
+
+
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                  0.00    0.00    1.50 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/GN (DLL_X1)
+                  0.01    0.07    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/Q (DLL_X1)
+     1    3.53                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[9].cg_i.en_latch (net)
+                  0.01    0.00    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A2 (AND2_X1)
+                                  1.57   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A1 (AND2_X1)
+                          0.00    3.00   clock gating setup time
+                                  3.00   data required time
+-----------------------------------------------------------------------------
+                                  3.00   data required time
+                                 -1.57   data arrival time
+-----------------------------------------------------------------------------
+                                  1.43   slack (MET)
+
+
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_537_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_528_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_537_/CK (DFFR_X1)
+                  0.01    0.09    0.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_537_/Q (DFFR_X1)
+     3    7.84                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/rdata_o_q[6] (net)
+                  0.01    0.00    0.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_174_/A2 (NOR2_X2)
+                  0.03    0.04    0.14 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_174_/ZN (NOR2_X2)
+     2    8.91                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_107_ (net)
+                  0.03    0.00    0.14 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_175_/A2 (NAND2_X1)
+                  0.02    0.03    0.17 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_175_/ZN (NAND2_X1)
+     2    6.34                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_108_ (net)
+                  0.02    0.00    0.17 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_193_/A2 (NOR2_X2)
+                  0.03    0.05    0.22 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_193_/ZN (NOR2_X2)
+     3   11.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_126_ (net)
+                  0.03    0.00    0.22 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_196_/A1 (NAND2_X4)
+                  0.02    0.03    0.25 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_196_/ZN (NAND2_X4)
+    13   29.88                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_129_ (net)
+                  0.02    0.00    0.25 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_199_/A2 (NAND2_X4)
+                  0.02    0.04    0.29 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_199_/ZN (NAND2_X4)
+    14   27.91                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_132_ (net)
+                  0.02    0.00    0.29 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_233_/A1 (NAND2_X2)
+                  0.01    0.02    0.31 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_233_/ZN (NAND2_X2)
+     4    9.53                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_006_ (net)
+                  0.01    0.00    0.31 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_326_/B1 (AOI21_X1)
+                  0.02    0.03    0.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_326_/ZN (AOI21_X1)
+     1    1.89                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_089_ (net)
+                  0.02    0.00    0.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_327_/A (OAI21_X1)
+                  0.01    0.02    0.36 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_327_/ZN (OAI21_X1)
+     1    1.58                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_090_ (net)
+                  0.01    0.00    0.36 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_328_/A1 (NAND2_X1)
+                  0.02    0.03    0.39 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_328_/ZN (NAND2_X1)
+     3    6.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/operand_fp16_fp32[25] (net)
+                  0.02    0.00    0.39 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1294_/A (INV_X1)
+                  0.01    0.01    0.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1294_/ZN (INV_X1)
+     2    4.56                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0407_ (net)
+                  0.01    0.00    0.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1295_/A1 (NAND2_X1)
+                  0.02    0.02    0.43 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1295_/ZN (NAND2_X1)
+     3    6.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0408_ (net)
+                  0.02    0.00    0.43 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1296_/A2 (NAND2_X1)
+                  0.01    0.02    0.45 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1296_/ZN (NAND2_X1)
+     3    5.01                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0409_ (net)
+                  0.01    0.00    0.45 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1297_/A2 (NOR2_X1)
+                  0.04    0.06    0.51 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1297_/ZN (NOR2_X1)
+     3    7.51                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0410_ (net)
+                  0.04    0.00    0.51 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1314_/A2 (NAND2_X1)
+                  0.02    0.02    0.54 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1314_/ZN (NAND2_X1)
+     2    3.49                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0427_ (net)
+                  0.02    0.00    0.54 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1318_/A1 (NAND2_X1)
+                  0.02    0.03    0.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1318_/ZN (NAND2_X1)
+     3    6.15                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0431_ (net)
+                  0.02    0.00    0.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1319_/A1 (NAND2_X1)
+                  0.01    0.02    0.58 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1319_/ZN (NAND2_X1)
+     1    2.94                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0432_ (net)
+                  0.01    0.00    0.58 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1325_/A1 (NAND2_X2)
+                  0.02    0.02    0.61 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1325_/ZN (NAND2_X2)
+     2    9.39                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0438_ (net)
+                  0.02    0.00    0.61 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1326_/A1 (NAND2_X4)
+                  0.09    0.11    0.72 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1326_/ZN (NAND2_X4)
+    94  207.03                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0439_ (net)
+                  0.09    0.00    0.72 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1348_/A (INV_X8)
+                  0.04    0.07    0.78 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1348_/ZN (INV_X8)
+    32   74.64                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0456_ (net)
+                  0.04    0.00    0.79 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1428_/A1 (NAND2_X1)
+                  0.02    0.03    0.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1428_/ZN (NAND2_X1)
+     1    5.92                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0532_ (net)
+                  0.02    0.00    0.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1431_/A1 (NAND2_X4)
+                  0.03    0.04    0.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1431_/ZN (NAND2_X4)
+    23   49.27                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0535_ (net)
+                  0.03    0.00    0.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1696_/A2 (NAND2_X1)
+                  0.02    0.03    0.90 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1696_/ZN (NAND2_X1)
+     4    7.84                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0800_ (net)
+                  0.02    0.00    0.90 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1710_/A1 (NAND3_X1)
+                  0.02    0.03    0.92 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1710_/ZN (NAND3_X1)
+     2    3.66                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0814_ (net)
+                  0.02    0.00    0.92 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1711_/A1 (NAND2_X1)
+                  0.01    0.01    0.94 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1711_/ZN (NAND2_X1)
+     1    1.76                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0815_ (net)
+                  0.01    0.00    0.94 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1715_/A1 (NAND2_X1)
+                  0.02    0.03    0.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1715_/ZN (NAND2_X1)
+     1    6.69                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0819_ (net)
+                  0.02    0.00    0.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1716_/A2 (NAND2_X4)
+                  0.02    0.04    1.00 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1716_/ZN (NAND2_X4)
+    28   47.35                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0820_ (net)
+                  0.02    0.00    1.00 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1719_/A1 (NAND2_X1)
+                  0.02    0.03    1.03 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1719_/ZN (NAND2_X1)
+     2    3.36                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0823_ (net)
+                  0.02    0.00    1.03 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1721_/A1 (NAND2_X1)
+                  0.01    0.02    1.05 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1721_/ZN (NAND2_X1)
+     2    3.38                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0825_ (net)
+                  0.01    0.00    1.05 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1722_/A2 (NAND2_X1)
+                  0.02    0.03    1.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1722_/ZN (NAND2_X1)
+     3    5.31                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0826_ (net)
+                  0.02    0.00    1.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1728_/A1 (NAND2_X1)
+                  0.01    0.02    1.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1728_/ZN (NAND2_X1)
+     1    1.88                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0832_ (net)
+                  0.01    0.00    1.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1733_/A1 (NAND2_X1)
+                  0.01    0.01    1.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1733_/ZN (NAND2_X1)
+     1    1.85                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0837_ (net)
+                  0.01    0.00    1.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1743_/A1 (NAND2_X1)
+                  0.01    0.01    1.12 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1743_/ZN (NAND2_X1)
+     1    2.05                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0847_ (net)
+                  0.01    0.00    1.12 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1744_/A (INV_X1)
+                  0.01    0.01    1.13 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1744_/ZN (INV_X1)
+     1    2.17                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0848_ (net)
+                  0.01    0.00    1.13 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1771_/A1 (NAND2_X1)
+                  0.01    0.01    1.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1771_/ZN (NAND2_X1)
+     1    1.60                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0875_ (net)
+                  0.01    0.00    1.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1787_/A1 (NOR2_X1)
+                  0.02    0.02    1.17 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1787_/ZN (NOR2_X1)
+     1    1.83                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0891_ (net)
+                  0.02    0.00    1.17 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1825_/A1 (NAND3_X1)
+                  0.01    0.02    1.19 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1825_/ZN (NAND3_X1)
+     1    1.96                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0929_ (net)
+                  0.01    0.00    1.19 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1865_/B1 (OAI21_X1)
+                  0.04    0.05    1.24 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1865_/ZN (OAI21_X1)
+     1    6.50                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0969_ (net)
+                  0.04    0.00    1.24 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1885_/B1 (OAI21_X4)
+                  0.02    0.03    1.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1885_/ZN (OAI21_X4)
+     5   14.85                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/mant_prenorm_d[20] (net)
+                  0.02    0.00    1.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1886_/A1 (NAND2_X1)
+                  0.02    0.04    1.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1886_/ZN (NAND2_X1)
+     5    8.57                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0989_ (net)
+                  0.02    0.00    1.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1983_/A1 (NAND4_X1)
+                  0.02    0.03    1.33 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1983_/ZN (NAND4_X1)
+     1    1.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1086_ (net)
+                  0.02    0.00    1.33 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1985_/A1 (NAND2_X1)
+                  0.02    0.03    1.37 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1985_/ZN (NAND2_X1)
+     3    8.12                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1088_ (net)
+                  0.02    0.00    1.37 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2062_/A1 (NAND2_X1)
+                  0.01    0.02    1.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2062_/ZN (NAND2_X1)
+     1    3.06                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0036_ (net)
+                  0.01    0.00    1.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2068_/A1 (NAND2_X2)
+                  0.02    0.02    1.41 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2068_/ZN (NAND2_X2)
+     4   10.31                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0042_ (net)
+                  0.02    0.00    1.41 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2157_/A1 (NAND2_X1)
+                  0.01    0.02    1.43 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2157_/ZN (NAND2_X1)
+     1    3.24                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0140_ (net)
+                  0.01    0.00    1.43 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2178_/A1 (NAND2_X2)
+                  0.02    0.03    1.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2178_/ZN (NAND2_X2)
+     4   12.08                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0163_ (net)
+                  0.02    0.00    1.46 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2275_/A1 (NAND2_X1)
+                  0.01    0.02    1.47 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2275_/ZN (NAND2_X1)
+     1    1.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0249_ (net)
+                  0.01    0.00    1.47 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2276_/A1 (NAND2_X1)
+                  0.02    0.03    1.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2276_/ZN (NAND2_X1)
+     3    8.00                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0251_ (net)
+                  0.02    0.00    1.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2281_/A1 (NAND2_X1)
+                  0.01    0.02    1.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2281_/ZN (NAND2_X1)
+     1    1.69                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0254_ (net)
+                  0.01    0.00    1.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2283_/A1 (NAND2_X1)
+                  0.02    0.03    1.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2283_/ZN (NAND2_X1)
+     2    5.94                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0256_ (net)
+                  0.02    0.00    1.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2286_/A1 (NAND2_X1)
+                  0.01    0.02    1.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2286_/ZN (NAND2_X1)
+     2    3.28                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0259_ (net)
+                  0.01    0.00    1.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2290_/A1 (NAND3_X1)
+                  0.02    0.02    1.58 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2290_/ZN (NAND3_X1)
+     1    3.67                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0263_ (net)
+                  0.02    0.00    1.58 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2291_/A2 (NAND2_X2)
+                  0.01    0.02    1.61 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2291_/ZN (NAND2_X2)
+     5    8.99                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/mant_prenorm_d[43] (net)
+                  0.01    0.00    1.61 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_177_/A2 (NOR2_X1)
+                  0.02    0.04    1.65 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_177_/ZN (NOR2_X1)
+     2    3.73                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_133_ (net)
+                  0.02    0.00    1.65 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_178_/A2 (NAND2_X1)
+                  0.02    0.03    1.68 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_178_/ZN (NAND2_X1)
+     2    7.50                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_134_ (net)
+                  0.02    0.00    1.68 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_179_/A (INV_X4)
+                  0.01    0.01    1.69 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_179_/ZN (INV_X4)
+     1    3.16                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_135_ (net)
+                  0.01    0.00    1.69 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_187_/A1 (NAND2_X2)
+                  0.01    0.02    1.71 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_187_/ZN (NAND2_X2)
+     5    9.77                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_143_ (net)
+                  0.01    0.00    1.71 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_200_/A1 (NOR2_X2)
+                  0.04    0.05    1.76 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_200_/ZN (NOR2_X2)
+     5   12.50                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_008_ (net)
+                  0.04    0.00    1.76 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_207_/A1 (NAND2_X1)
+                  0.02    0.03    1.78 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_207_/ZN (NAND2_X1)
+     2    4.82                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_015_ (net)
+                  0.02    0.00    1.78 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_292_/A (INV_X2)
+                  0.01    0.02    1.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_292_/ZN (INV_X2)
+     3    7.12                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/Mant_leadingOne_D[4] (net)
+                  0.01    0.00    1.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_295_/A1 (NAND2_X1)
+                  0.01    0.01    1.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_295_/ZN (NAND2_X1)
+     1    1.63                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_099_ (net)
+                  0.01    0.00    1.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_296_/A3 (NAND3_X1)
+                  0.02    0.03    1.85 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_296_/ZN (NAND3_X1)
+     2    4.41                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/Mant_leadingOne_D[2] (net)
+                  0.02    0.00    1.85 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1125_/A (INV_X1)
+                  0.01    0.01    1.86 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1125_/ZN (INV_X1)
+     2    3.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0134_ (net)
+                  0.01    0.00    1.86 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1126_/A1 (NAND2_X1)
+                  0.02    0.03    1.88 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1126_/ZN (NAND2_X1)
+     3    6.29                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0145_ (net)
+                  0.02    0.00    1.88 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1127_/A2 (NAND2_X1)
+                  0.02    0.03    1.91 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1127_/ZN (NAND2_X1)
+     3    7.32                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0156_ (net)
+                  0.02    0.00    1.91 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1128_/A2 (NOR2_X1)
+                  0.02    0.03    1.94 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1128_/ZN (NOR2_X1)
+     1    1.79                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0167_ (net)
+                  0.02    0.00    1.94 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1129_/A2 (NAND2_X1)
+                  0.01    0.02    1.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1129_/ZN (NAND2_X1)
+     1    1.85                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0178_ (net)
+                  0.01    0.00    1.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1133_/A1 (NAND2_X1)
+                  0.01    0.01    1.98 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1133_/ZN (NAND2_X1)
+     1    1.87                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0213_ (net)
+                  0.01    0.00    1.98 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1153_/A1 (NAND2_X1)
+                  0.01    0.01    1.99 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1153_/ZN (NAND2_X1)
+     1    1.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0249_ (net)
+                  0.01    0.00    1.99 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1157_/A1 (NAND2_X1)
+                  0.01    0.01    2.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1157_/ZN (NAND2_X1)
+     1    1.88                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0253_ (net)
+                  0.01    0.00    2.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1164_/A1 (NAND2_X1)
+                  0.01    0.02    2.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1164_/ZN (NAND2_X1)
+     1    3.06                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0260_ (net)
+                  0.01    0.00    2.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1165_/A1 (NAND2_X2)
+                  0.01    0.02    2.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1165_/ZN (NAND2_X2)
+     2    9.70                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0261_ (net)
+                  0.01    0.00    2.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1168_/A1 (NAND2_X2)
+                  0.01    0.02    2.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1168_/ZN (NAND2_X2)
+     3    9.28                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0264_ (net)
+                  0.01    0.00    2.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1170_/A1 (NAND2_X4)
+                  0.02    0.03    2.09 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1170_/ZN (NAND2_X4)
+     9   23.06                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0266_ (net)
+                  0.02    0.00    2.09 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1173_/A1 (NAND2_X1)
+                  0.01    0.02    2.11 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1173_/ZN (NAND2_X1)
+     1    5.81                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0269_ (net)
+                  0.01    0.00    2.11 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1175_/A1 (NAND2_X4)
+                  0.08    0.09    2.20 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1175_/ZN (NAND2_X4)
+    55  144.97                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0271_ (net)
+                  0.08    0.01    2.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1179_/A2 (NAND3_X4)
+                  0.03    0.05    2.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1179_/ZN (NAND3_X4)
+     4   18.55                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0275_ (net)
+                  0.03    0.00    2.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1202_/A1 (NAND4_X4)
+                  0.07    0.09    2.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1202_/ZN (NAND4_X4)
+    45  109.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0298_ (net)
+                  0.07    0.00    2.35 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1203_/A2 (NAND2_X4)
+                  0.02    0.04    2.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1203_/ZN (NAND2_X4)
+     6   34.02                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0299_ (net)
+                  0.02    0.00    2.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1204_/A (INV_X16)
+                  0.02    0.03    2.42 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1204_/ZN (INV_X16)
+    49  125.20                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0300_ (net)
+                  0.02    0.00    2.42 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1529_/A1 (NAND2_X1)
+                  0.02    0.02    2.44 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1529_/ZN (NAND2_X1)
+     1    2.99                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0625_ (net)
+                  0.02    0.00    2.44 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1530_/A (INV_X2)
+                  0.01    0.02    2.47 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1530_/ZN (INV_X2)
+     4    8.77                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0626_ (net)
+                  0.01    0.00    2.47 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1555_/A1 (NAND2_X1)
+                  0.01    0.01    2.48 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1555_/ZN (NAND2_X1)
+     1    1.59                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0651_ (net)
+                  0.01    0.00    2.48 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1556_/A2 (NAND2_X1)
+                  0.02    0.03    2.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1556_/ZN (NAND2_X1)
+     3    5.36                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0652_ (net)
+                  0.02    0.00    2.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1557_/A1 (NAND2_X1)
+                  0.02    0.02    2.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1557_/ZN (NAND2_X1)
+     1    1.69                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0653_ (net)
+                  0.02    0.00    2.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1558_/A1 (NAND2_X1)
+                  0.01    0.02    2.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1558_/ZN (NAND2_X1)
+     1    1.89                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0654_ (net)
+                  0.01    0.00    2.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1559_/A2 (NAND2_X1)
+                  0.01    0.02    2.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1559_/ZN (NAND2_X1)
+     2    4.46                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0655_ (net)
+                  0.01    0.00    2.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1806_/A1 (NAND2_X1)
+                  0.01    0.02    2.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1806_/ZN (NAND2_X1)
+     1    1.71                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0902_ (net)
+                  0.01    0.00    2.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1808_/A1 (NAND2_X1)
+                  0.01    0.01    2.59 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1808_/ZN (NAND2_X1)
+     1    2.20                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0904_ (net)
+                  0.01    0.00    2.59 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1812_/A1 (NOR2_X1)
+                  0.04    0.05    2.64 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1812_/ZN (NOR2_X1)
+     2    6.73                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0908_ (net)
+                  0.04    0.00    2.64 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1813_/A2 (NAND2_X2)
+                  0.02    0.03    2.66 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1813_/ZN (NAND2_X2)
+     2    9.70                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0909_ (net)
+                  0.02    0.00    2.66 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1814_/A (INV_X4)
+                  0.01    0.01    2.68 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1814_/ZN (INV_X4)
+     2    4.75                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0910_ (net)
+                  0.01    0.00    2.68 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1829_/A1 (NAND2_X2)
+                  0.01    0.02    2.70 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1829_/ZN (NAND2_X2)
+     3    9.07                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0925_ (net)
+                  0.01    0.00    2.70 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1860_/A1 (NOR2_X2)
+                  0.03    0.04    2.74 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1860_/ZN (NOR2_X2)
+     5   11.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0956_ (net)
+                  0.03    0.00    2.74 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1932_/A1 (NAND2_X2)
+                  0.02    0.03    2.77 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1932_/ZN (NAND2_X2)
+     3   10.76                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1028_ (net)
+                  0.02    0.00    2.77 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1933_/A2 (NOR2_X4)
+                  0.03    0.04    2.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1933_/ZN (NOR2_X4)
+     7   17.13                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1029_ (net)
+                  0.03    0.00    2.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2015_/A1 (NAND2_X1)
+                  0.01    0.02    2.84 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2015_/ZN (NAND2_X1)
+     2    3.24                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0002_ (net)
+                  0.01    0.00    2.84 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2017_/A1 (NAND2_X1)
+                  0.01    0.02    2.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2017_/ZN (NAND2_X1)
+     2    3.52                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0004_ (net)
+                  0.01    0.00    2.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2018_/A1 (NAND2_X1)
+                  0.01    0.01    2.87 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2018_/ZN (NAND2_X1)
+     1    1.68                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0005_ (net)
+                  0.01    0.00    2.87 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2019_/A1 (NAND2_X1)
+                  0.02    0.02    2.89 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2019_/ZN (NAND2_X1)
+     2    4.86                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0006_ (net)
+                  0.02    0.00    2.89 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2022_/A1 (NAND3_X2)
+                  0.02    0.03    2.92 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2022_/ZN (NAND3_X2)
+     3    7.31                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0009_ (net)
+                  0.02    0.00    2.92 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2024_/B1 (OAI21_X2)
+                  0.03    0.04    2.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2024_/ZN (OAI21_X2)
+     3    7.87                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0011_ (net)
+                  0.03    0.00    2.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2033_/A1 (NAND2_X1)
+                  0.01    0.02    2.98 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2033_/ZN (NAND2_X1)
+     1    1.75                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0019_ (net)
+                  0.01    0.00    2.98 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2037_/A1 (NAND2_X1)
+                  0.02    0.03    3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2037_/ZN (NAND2_X1)
+     3    6.04                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0023_ (net)
+                  0.02    0.00    3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2048_/A1 (NAND2_X1)
+                  0.01    0.02    3.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2048_/ZN (NAND2_X1)
+     1    1.77                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0033_ (net)
+                  0.01    0.00    3.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2050_/A1 (NAND2_X1)
+                  0.01    0.02    3.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2050_/ZN (NAND2_X1)
+     2    4.17                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0035_ (net)
+                  0.01    0.00    3.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2058_/A1 (NAND2_X1)
+                  0.01    0.02    3.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2058_/ZN (NAND2_X1)
+     2    3.35                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0043_ (net)
+                  0.01    0.00    3.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2059_/A1 (NAND2_X1)
+                  0.01    0.02    3.07 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2059_/ZN (NAND2_X1)
+     1    1.86                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0044_ (net)
+                  0.01    0.00    3.07 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2062_/A1 (NAND2_X1)
+                  0.01    0.01    3.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2062_/ZN (NAND2_X1)
+     1    1.90                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0047_ (net)
+                  0.01    0.00    3.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2064_/A1 (NAND2_X1)
+                  0.02    0.03    3.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2064_/ZN (NAND2_X1)
+     2    6.58                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/result_int_d[30] (net)
+                  0.02    0.00    3.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_493_/A3 (NAND4_X2)
+                  0.04    0.04    3.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_493_/ZN (NAND4_X2)
+     1    7.14                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_176_ (net)
+                  0.04    0.00    3.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_494_/A2 (NAND2_X1)
+                  0.01    0.03    3.18 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_494_/ZN (NAND2_X1)
+     1    1.25                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_030_ (net)
+                  0.01    0.00    3.18 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_528_/D (DFFR_X1)
+                                  3.18   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_528_/CK (DFFR_X1)
+                         -0.03    2.97   library setup time
+                                  2.97   data required time
+-----------------------------------------------------------------------------
+                                  2.97   data required time
+                                 -3.18   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.22   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/_130_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+     1   26.88                           rst_ni (net)
+                  0.00    0.00    0.30 ^ input260/A (BUF_X32)
+                  0.01    0.02    0.32 ^ input260/Z (BUF_X32)
+    90  248.88                           net260 (net)
+                  0.01    0.01    0.33 ^ max_length846/A (BUF_X32)
+                  0.01    0.02    0.35 ^ max_length846/Z (BUF_X32)
+   103  316.37                           net846 (net)
+                  0.16    0.13    0.48 ^ wire843/A (BUF_X32)
+                  0.01    0.03    0.51 ^ wire843/Z (BUF_X32)
+    62  226.15                           net843 (net)
+                  0.08    0.06    0.57 ^ wire842/A (BUF_X32)
+                  0.01    0.03    0.60 ^ wire842/Z (BUF_X32)
+   120  278.95                           net842 (net)
+                  0.18    0.15    0.75 ^ gen_decoderX_units[0].decoder/_130_/RN (DFFR_X1)
+                                  0.75   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/_130_/CK (DFFR_X1)
+                          0.02    3.02   library recovery time
+                                  3.02   data required time
+-----------------------------------------------------------------------------
+                                  3.02   data required time
+                                 -0.75   data arrival time
+-----------------------------------------------------------------------------
+                                  2.27   slack (MET)
+
+
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock network delay (ideal)
+                  0.00    0.00    1.50 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/GN (DLL_X1)
+                  0.01    0.07    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2925_/Q (DLL_X1)
+     1    3.53                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/gen_cg_word_iter[9].cg_i.en_latch (net)
+                  0.01    0.00    1.57 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A2 (AND2_X1)
+                                  1.57   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/gen_sub_units_scm[12].sub_unit_i/_2379_/A1 (AND2_X1)
+                          0.00    3.00   clock gating setup time
+                                  3.00   data required time
+-----------------------------------------------------------------------------
+                                  3.00   data required time
+                                 -1.57   data arrival time
+-----------------------------------------------------------------------------
+                                  1.43   slack (MET)
+
+
+Startpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_537_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_528_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_537_/CK (DFFR_X1)
+                  0.01    0.09    0.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_537_/Q (DFFR_X1)
+     3    7.84                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/rdata_o_q[6] (net)
+                  0.01    0.00    0.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_174_/A2 (NOR2_X2)
+                  0.03    0.04    0.14 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_174_/ZN (NOR2_X2)
+     2    8.91                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_107_ (net)
+                  0.03    0.00    0.14 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_175_/A2 (NAND2_X1)
+                  0.02    0.03    0.17 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_175_/ZN (NAND2_X1)
+     2    6.34                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_108_ (net)
+                  0.02    0.00    0.17 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_193_/A2 (NOR2_X2)
+                  0.03    0.05    0.22 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_193_/ZN (NOR2_X2)
+     3   11.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_126_ (net)
+                  0.03    0.00    0.22 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_196_/A1 (NAND2_X4)
+                  0.02    0.03    0.25 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_196_/ZN (NAND2_X4)
+    13   29.88                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_129_ (net)
+                  0.02    0.00    0.25 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_199_/A2 (NAND2_X4)
+                  0.02    0.04    0.29 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_199_/ZN (NAND2_X4)
+    14   27.91                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_132_ (net)
+                  0.02    0.00    0.29 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_233_/A1 (NAND2_X2)
+                  0.01    0.02    0.31 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_233_/ZN (NAND2_X2)
+     4    9.53                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_006_ (net)
+                  0.01    0.00    0.31 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_326_/B1 (AOI21_X1)
+                  0.02    0.03    0.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_326_/ZN (AOI21_X1)
+     1    1.89                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_089_ (net)
+                  0.02    0.00    0.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_327_/A (OAI21_X1)
+                  0.01    0.02    0.36 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_327_/ZN (OAI21_X1)
+     1    1.58                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_090_ (net)
+                  0.01    0.00    0.36 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_328_/A1 (NAND2_X1)
+                  0.02    0.03    0.39 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/converter/_328_/ZN (NAND2_X1)
+     3    6.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/operand_fp16_fp32[25] (net)
+                  0.02    0.00    0.39 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1294_/A (INV_X1)
+                  0.01    0.01    0.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1294_/ZN (INV_X1)
+     2    4.56                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0407_ (net)
+                  0.01    0.00    0.40 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1295_/A1 (NAND2_X1)
+                  0.02    0.02    0.43 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1295_/ZN (NAND2_X1)
+     3    6.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0408_ (net)
+                  0.02    0.00    0.43 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1296_/A2 (NAND2_X1)
+                  0.01    0.02    0.45 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1296_/ZN (NAND2_X1)
+     3    5.01                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0409_ (net)
+                  0.01    0.00    0.45 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1297_/A2 (NOR2_X1)
+                  0.04    0.06    0.51 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1297_/ZN (NOR2_X1)
+     3    7.51                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0410_ (net)
+                  0.04    0.00    0.51 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1314_/A2 (NAND2_X1)
+                  0.02    0.02    0.54 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1314_/ZN (NAND2_X1)
+     2    3.49                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0427_ (net)
+                  0.02    0.00    0.54 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1318_/A1 (NAND2_X1)
+                  0.02    0.03    0.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1318_/ZN (NAND2_X1)
+     3    6.15                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0431_ (net)
+                  0.02    0.00    0.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1319_/A1 (NAND2_X1)
+                  0.01    0.02    0.58 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1319_/ZN (NAND2_X1)
+     1    2.94                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0432_ (net)
+                  0.01    0.00    0.58 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1325_/A1 (NAND2_X2)
+                  0.02    0.02    0.61 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1325_/ZN (NAND2_X2)
+     2    9.39                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0438_ (net)
+                  0.02    0.00    0.61 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1326_/A1 (NAND2_X4)
+                  0.09    0.11    0.72 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1326_/ZN (NAND2_X4)
+    94  207.03                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0439_ (net)
+                  0.09    0.00    0.72 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1348_/A (INV_X8)
+                  0.04    0.07    0.78 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1348_/ZN (INV_X8)
+    32   74.64                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0456_ (net)
+                  0.04    0.00    0.79 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1428_/A1 (NAND2_X1)
+                  0.02    0.03    0.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1428_/ZN (NAND2_X1)
+     1    5.92                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0532_ (net)
+                  0.02    0.00    0.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1431_/A1 (NAND2_X4)
+                  0.03    0.04    0.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1431_/ZN (NAND2_X4)
+    23   49.27                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0535_ (net)
+                  0.03    0.00    0.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1696_/A2 (NAND2_X1)
+                  0.02    0.03    0.90 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1696_/ZN (NAND2_X1)
+     4    7.84                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0800_ (net)
+                  0.02    0.00    0.90 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1710_/A1 (NAND3_X1)
+                  0.02    0.03    0.92 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1710_/ZN (NAND3_X1)
+     2    3.66                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0814_ (net)
+                  0.02    0.00    0.92 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1711_/A1 (NAND2_X1)
+                  0.01    0.01    0.94 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1711_/ZN (NAND2_X1)
+     1    1.76                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0815_ (net)
+                  0.01    0.00    0.94 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1715_/A1 (NAND2_X1)
+                  0.02    0.03    0.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1715_/ZN (NAND2_X1)
+     1    6.69                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0819_ (net)
+                  0.02    0.00    0.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1716_/A2 (NAND2_X4)
+                  0.02    0.04    1.00 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1716_/ZN (NAND2_X4)
+    28   47.35                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0820_ (net)
+                  0.02    0.00    1.00 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1719_/A1 (NAND2_X1)
+                  0.02    0.03    1.03 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1719_/ZN (NAND2_X1)
+     2    3.36                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0823_ (net)
+                  0.02    0.00    1.03 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1721_/A1 (NAND2_X1)
+                  0.01    0.02    1.05 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1721_/ZN (NAND2_X1)
+     2    3.38                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0825_ (net)
+                  0.01    0.00    1.05 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1722_/A2 (NAND2_X1)
+                  0.02    0.03    1.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1722_/ZN (NAND2_X1)
+     3    5.31                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0826_ (net)
+                  0.02    0.00    1.08 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1728_/A1 (NAND2_X1)
+                  0.01    0.02    1.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1728_/ZN (NAND2_X1)
+     1    1.88                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0832_ (net)
+                  0.01    0.00    1.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1733_/A1 (NAND2_X1)
+                  0.01    0.01    1.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1733_/ZN (NAND2_X1)
+     1    1.85                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0837_ (net)
+                  0.01    0.00    1.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1743_/A1 (NAND2_X1)
+                  0.01    0.01    1.12 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1743_/ZN (NAND2_X1)
+     1    2.05                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0847_ (net)
+                  0.01    0.00    1.12 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1744_/A (INV_X1)
+                  0.01    0.01    1.13 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1744_/ZN (INV_X1)
+     1    2.17                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0848_ (net)
+                  0.01    0.00    1.13 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1771_/A1 (NAND2_X1)
+                  0.01    0.01    1.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1771_/ZN (NAND2_X1)
+     1    1.60                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0875_ (net)
+                  0.01    0.00    1.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1787_/A1 (NOR2_X1)
+                  0.02    0.02    1.17 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1787_/ZN (NOR2_X1)
+     1    1.83                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0891_ (net)
+                  0.02    0.00    1.17 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1825_/A1 (NAND3_X1)
+                  0.01    0.02    1.19 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1825_/ZN (NAND3_X1)
+     1    1.96                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0929_ (net)
+                  0.01    0.00    1.19 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1865_/B1 (OAI21_X1)
+                  0.04    0.05    1.24 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1865_/ZN (OAI21_X1)
+     1    6.50                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0969_ (net)
+                  0.04    0.00    1.24 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1885_/B1 (OAI21_X4)
+                  0.02    0.03    1.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1885_/ZN (OAI21_X4)
+     5   14.85                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/mant_prenorm_d[20] (net)
+                  0.02    0.00    1.27 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1886_/A1 (NAND2_X1)
+                  0.02    0.04    1.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1886_/ZN (NAND2_X1)
+     5    8.57                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0989_ (net)
+                  0.02    0.00    1.30 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1983_/A1 (NAND4_X1)
+                  0.02    0.03    1.33 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1983_/ZN (NAND4_X1)
+     1    1.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1086_ (net)
+                  0.02    0.00    1.33 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1985_/A1 (NAND2_X1)
+                  0.02    0.03    1.37 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1985_/ZN (NAND2_X1)
+     3    8.12                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_1088_ (net)
+                  0.02    0.00    1.37 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2062_/A1 (NAND2_X1)
+                  0.01    0.02    1.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2062_/ZN (NAND2_X1)
+     1    3.06                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0036_ (net)
+                  0.01    0.00    1.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2068_/A1 (NAND2_X2)
+                  0.02    0.02    1.41 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2068_/ZN (NAND2_X2)
+     4   10.31                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0042_ (net)
+                  0.02    0.00    1.41 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2157_/A1 (NAND2_X1)
+                  0.01    0.02    1.43 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2157_/ZN (NAND2_X1)
+     1    3.24                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0140_ (net)
+                  0.01    0.00    1.43 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2178_/A1 (NAND2_X2)
+                  0.02    0.03    1.45 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2178_/ZN (NAND2_X2)
+     4   12.08                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0163_ (net)
+                  0.02    0.00    1.46 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2275_/A1 (NAND2_X1)
+                  0.01    0.02    1.47 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2275_/ZN (NAND2_X1)
+     1    1.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0249_ (net)
+                  0.01    0.00    1.47 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2276_/A1 (NAND2_X1)
+                  0.02    0.03    1.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2276_/ZN (NAND2_X1)
+     3    8.00                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0251_ (net)
+                  0.02    0.00    1.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2281_/A1 (NAND2_X1)
+                  0.01    0.02    1.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2281_/ZN (NAND2_X1)
+     1    1.69                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0254_ (net)
+                  0.01    0.00    1.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2283_/A1 (NAND2_X1)
+                  0.02    0.03    1.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2283_/ZN (NAND2_X1)
+     2    5.94                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0256_ (net)
+                  0.02    0.00    1.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2286_/A1 (NAND2_X1)
+                  0.01    0.02    1.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2286_/ZN (NAND2_X1)
+     2    3.28                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0259_ (net)
+                  0.01    0.00    1.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2290_/A1 (NAND3_X1)
+                  0.02    0.02    1.58 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2290_/ZN (NAND3_X1)
+     1    3.67                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_0263_ (net)
+                  0.02    0.00    1.58 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2291_/A2 (NAND2_X2)
+                  0.01    0.02    1.61 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/adder/_2291_/ZN (NAND2_X2)
+     5    8.99                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/mant_prenorm_d[43] (net)
+                  0.01    0.00    1.61 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_177_/A2 (NOR2_X1)
+                  0.02    0.04    1.65 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_177_/ZN (NOR2_X1)
+     2    3.73                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_133_ (net)
+                  0.02    0.00    1.65 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_178_/A2 (NAND2_X1)
+                  0.02    0.03    1.68 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_178_/ZN (NAND2_X1)
+     2    7.50                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_134_ (net)
+                  0.02    0.00    1.68 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_179_/A (INV_X4)
+                  0.01    0.01    1.69 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_179_/ZN (INV_X4)
+     1    3.16                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_135_ (net)
+                  0.01    0.00    1.69 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_187_/A1 (NAND2_X2)
+                  0.01    0.02    1.71 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_187_/ZN (NAND2_X2)
+     5    9.77                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_143_ (net)
+                  0.01    0.00    1.71 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_200_/A1 (NOR2_X2)
+                  0.04    0.05    1.76 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_200_/ZN (NOR2_X2)
+     5   12.50                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_008_ (net)
+                  0.04    0.00    1.76 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_207_/A1 (NAND2_X1)
+                  0.02    0.03    1.78 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_207_/ZN (NAND2_X1)
+     2    4.82                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_015_ (net)
+                  0.02    0.00    1.78 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_292_/A (INV_X2)
+                  0.01    0.02    1.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_292_/ZN (INV_X2)
+     3    7.12                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/Mant_leadingOne_D[4] (net)
+                  0.01    0.00    1.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_295_/A1 (NAND2_X1)
+                  0.01    0.01    1.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_295_/ZN (NAND2_X1)
+     1    1.63                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_099_ (net)
+                  0.01    0.00    1.82 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_296_/A3 (NAND3_X1)
+                  0.02    0.03    1.85 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/LOD/_296_/ZN (NAND3_X1)
+     2    4.41                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/Mant_leadingOne_D[2] (net)
+                  0.02    0.00    1.85 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1125_/A (INV_X1)
+                  0.01    0.01    1.86 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1125_/ZN (INV_X1)
+     2    3.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0134_ (net)
+                  0.01    0.00    1.86 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1126_/A1 (NAND2_X1)
+                  0.02    0.03    1.88 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1126_/ZN (NAND2_X1)
+     3    6.29                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0145_ (net)
+                  0.02    0.00    1.88 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1127_/A2 (NAND2_X1)
+                  0.02    0.03    1.91 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1127_/ZN (NAND2_X1)
+     3    7.32                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0156_ (net)
+                  0.02    0.00    1.91 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1128_/A2 (NOR2_X1)
+                  0.02    0.03    1.94 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1128_/ZN (NOR2_X1)
+     1    1.79                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0167_ (net)
+                  0.02    0.00    1.94 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1129_/A2 (NAND2_X1)
+                  0.01    0.02    1.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1129_/ZN (NAND2_X1)
+     1    1.85                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0178_ (net)
+                  0.01    0.00    1.96 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1133_/A1 (NAND2_X1)
+                  0.01    0.01    1.98 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1133_/ZN (NAND2_X1)
+     1    1.87                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0213_ (net)
+                  0.01    0.00    1.98 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1153_/A1 (NAND2_X1)
+                  0.01    0.01    1.99 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1153_/ZN (NAND2_X1)
+     1    1.72                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0249_ (net)
+                  0.01    0.00    1.99 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1157_/A1 (NAND2_X1)
+                  0.01    0.01    2.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1157_/ZN (NAND2_X1)
+     1    1.88                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0253_ (net)
+                  0.01    0.00    2.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1164_/A1 (NAND2_X1)
+                  0.01    0.02    2.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1164_/ZN (NAND2_X1)
+     1    3.06                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0260_ (net)
+                  0.01    0.00    2.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1165_/A1 (NAND2_X2)
+                  0.01    0.02    2.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1165_/ZN (NAND2_X2)
+     2    9.70                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0261_ (net)
+                  0.01    0.00    2.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1168_/A1 (NAND2_X2)
+                  0.01    0.02    2.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1168_/ZN (NAND2_X2)
+     3    9.28                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0264_ (net)
+                  0.01    0.00    2.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1170_/A1 (NAND2_X4)
+                  0.02    0.03    2.09 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1170_/ZN (NAND2_X4)
+     9   23.06                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0266_ (net)
+                  0.02    0.00    2.09 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1173_/A1 (NAND2_X1)
+                  0.01    0.02    2.11 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1173_/ZN (NAND2_X1)
+     1    5.81                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0269_ (net)
+                  0.01    0.00    2.11 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1175_/A1 (NAND2_X4)
+                  0.08    0.09    2.20 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1175_/ZN (NAND2_X4)
+    55  144.97                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0271_ (net)
+                  0.08    0.01    2.21 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1179_/A2 (NAND3_X4)
+                  0.03    0.05    2.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1179_/ZN (NAND3_X4)
+     4   18.55                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0275_ (net)
+                  0.03    0.00    2.26 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1202_/A1 (NAND4_X4)
+                  0.07    0.09    2.34 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1202_/ZN (NAND4_X4)
+    45  109.74                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0298_ (net)
+                  0.07    0.00    2.35 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1203_/A2 (NAND2_X4)
+                  0.02    0.04    2.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1203_/ZN (NAND2_X4)
+     6   34.02                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0299_ (net)
+                  0.02    0.00    2.39 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1204_/A (INV_X16)
+                  0.02    0.03    2.42 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1204_/ZN (INV_X16)
+    49  125.20                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0300_ (net)
+                  0.02    0.00    2.42 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1529_/A1 (NAND2_X1)
+                  0.02    0.02    2.44 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1529_/ZN (NAND2_X1)
+     1    2.99                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0625_ (net)
+                  0.02    0.00    2.44 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1530_/A (INV_X2)
+                  0.01    0.02    2.47 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1530_/ZN (INV_X2)
+     4    8.77                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0626_ (net)
+                  0.01    0.00    2.47 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1555_/A1 (NAND2_X1)
+                  0.01    0.01    2.48 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1555_/ZN (NAND2_X1)
+     1    1.59                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0651_ (net)
+                  0.01    0.00    2.48 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1556_/A2 (NAND2_X1)
+                  0.02    0.03    2.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1556_/ZN (NAND2_X1)
+     3    5.36                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0652_ (net)
+                  0.02    0.00    2.50 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1557_/A1 (NAND2_X1)
+                  0.02    0.02    2.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1557_/ZN (NAND2_X1)
+     1    1.69                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0653_ (net)
+                  0.02    0.00    2.52 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1558_/A1 (NAND2_X1)
+                  0.01    0.02    2.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1558_/ZN (NAND2_X1)
+     1    1.89                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0654_ (net)
+                  0.01    0.00    2.54 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1559_/A2 (NAND2_X1)
+                  0.01    0.02    2.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1559_/ZN (NAND2_X1)
+     2    4.46                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0655_ (net)
+                  0.01    0.00    2.56 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1806_/A1 (NAND2_X1)
+                  0.01    0.02    2.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1806_/ZN (NAND2_X1)
+     1    1.71                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0902_ (net)
+                  0.01    0.00    2.57 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1808_/A1 (NAND2_X1)
+                  0.01    0.01    2.59 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1808_/ZN (NAND2_X1)
+     1    2.20                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0904_ (net)
+                  0.01    0.00    2.59 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1812_/A1 (NOR2_X1)
+                  0.04    0.05    2.64 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1812_/ZN (NOR2_X1)
+     2    6.73                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0908_ (net)
+                  0.04    0.00    2.64 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1813_/A2 (NAND2_X2)
+                  0.02    0.03    2.66 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1813_/ZN (NAND2_X2)
+     2    9.70                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0909_ (net)
+                  0.02    0.00    2.66 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1814_/A (INV_X4)
+                  0.01    0.01    2.68 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1814_/ZN (INV_X4)
+     2    4.75                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0910_ (net)
+                  0.01    0.00    2.68 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1829_/A1 (NAND2_X2)
+                  0.01    0.02    2.70 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1829_/ZN (NAND2_X2)
+     3    9.07                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0925_ (net)
+                  0.01    0.00    2.70 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1860_/A1 (NOR2_X2)
+                  0.03    0.04    2.74 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1860_/ZN (NOR2_X2)
+     5   11.09                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0956_ (net)
+                  0.03    0.00    2.74 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1932_/A1 (NAND2_X2)
+                  0.02    0.03    2.77 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1932_/ZN (NAND2_X2)
+     3   10.76                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1028_ (net)
+                  0.02    0.00    2.77 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1933_/A2 (NOR2_X4)
+                  0.03    0.04    2.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1933_/ZN (NOR2_X4)
+     7   17.13                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_1029_ (net)
+                  0.03    0.00    2.81 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2015_/A1 (NAND2_X1)
+                  0.01    0.02    2.84 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2015_/ZN (NAND2_X1)
+     2    3.24                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0002_ (net)
+                  0.01    0.00    2.84 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2017_/A1 (NAND2_X1)
+                  0.01    0.02    2.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2017_/ZN (NAND2_X1)
+     2    3.52                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0004_ (net)
+                  0.01    0.00    2.86 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2018_/A1 (NAND2_X1)
+                  0.01    0.01    2.87 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2018_/ZN (NAND2_X1)
+     1    1.68                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0005_ (net)
+                  0.01    0.00    2.87 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2019_/A1 (NAND2_X1)
+                  0.02    0.02    2.89 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2019_/ZN (NAND2_X1)
+     2    4.86                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0006_ (net)
+                  0.02    0.00    2.89 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2022_/A1 (NAND3_X2)
+                  0.02    0.03    2.92 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2022_/ZN (NAND3_X2)
+     3    7.31                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0009_ (net)
+                  0.02    0.00    2.92 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2024_/B1 (OAI21_X2)
+                  0.03    0.04    2.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2024_/ZN (OAI21_X2)
+     3    7.87                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0011_ (net)
+                  0.03    0.00    2.96 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2033_/A1 (NAND2_X1)
+                  0.01    0.02    2.98 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2033_/ZN (NAND2_X1)
+     1    1.75                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0019_ (net)
+                  0.01    0.00    2.98 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2037_/A1 (NAND2_X1)
+                  0.02    0.03    3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2037_/ZN (NAND2_X1)
+     3    6.04                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0023_ (net)
+                  0.02    0.00    3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2048_/A1 (NAND2_X1)
+                  0.01    0.02    3.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2048_/ZN (NAND2_X1)
+     1    1.77                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0033_ (net)
+                  0.01    0.00    3.02 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2050_/A1 (NAND2_X1)
+                  0.01    0.02    3.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2050_/ZN (NAND2_X1)
+     2    4.17                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0035_ (net)
+                  0.01    0.00    3.04 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2058_/A1 (NAND2_X1)
+                  0.01    0.02    3.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2058_/ZN (NAND2_X1)
+     2    3.35                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0043_ (net)
+                  0.01    0.00    3.06 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2059_/A1 (NAND2_X1)
+                  0.01    0.02    3.07 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2059_/ZN (NAND2_X1)
+     1    1.86                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0044_ (net)
+                  0.01    0.00    3.07 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2062_/A1 (NAND2_X1)
+                  0.01    0.01    3.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2062_/ZN (NAND2_X1)
+     1    1.90                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_0047_ (net)
+                  0.01    0.00    3.09 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2064_/A1 (NAND2_X1)
+                  0.02    0.03    3.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/fp_adder/adder/norm/_2064_/ZN (NAND2_X1)
+     2    6.58                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/result_int_d[30] (net)
+                  0.02    0.00    3.11 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_493_/A3 (NAND4_X2)
+                  0.04    0.04    3.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_493_/ZN (NAND4_X2)
+     1    7.14                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_176_ (net)
+                  0.04    0.00    3.15 v gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_494_/A2 (NAND2_X1)
+                  0.01    0.03    3.18 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_494_/ZN (NAND2_X1)
+     1    1.25                           gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_030_ (net)
+                  0.01    0.00    3.18 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_528_/D (DFFR_X1)
+                                  3.18   data arrival time
+
+                  0.00    3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock network delay (ideal)
+                          0.00    3.00   clock reconvergence pessimism
+                                  3.00 ^ gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/_528_/CK (DFFR_X1)
+                         -0.03    2.97   library setup time
+                                  2.97   data required time
+-----------------------------------------------------------------------------
+                                  2.97   data required time
+                                 -3.18   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.22   slack (VIOLATED)
+
+
+
+==========================================================================
+resizer report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+encoder/gen_encoder_units[1].encoder_unit/threshold_memory/_148_/Q  120.85  128.74   -7.89 (VIOLATED)
+gen_decoderX_units[0].decoder/gen_decoders[0].sub_unit_decoder/lut/_212_/Q  120.85  126.99   -6.14 (VIOLATED)
+encoder/gen_encoder_units[1].encoder_unit/threshold_memory/_147_/Q  120.85  125.49   -4.64 (VIOLATED)
+encoder/gen_encoder_units[2].encoder_unit/threshold_memory/_148_/Q  120.85  123.88   -3.03 (VIOLATED)
+encoder/gen_encoder_units[1].encoder_unit/threshold_memory/_153_/Q  120.85  122.51   -1.66 (VIOLATED)
+
+
+==========================================================================
+resizer max_slew_check_slack
+--------------------------------------------------------------------------
+0.0615285187959671
+
+==========================================================================
+resizer max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+resizer max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.3099
+
+==========================================================================
+resizer max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+resizer max_capacitance_check_slack
+--------------------------------------------------------------------------
+-7.894197940826416
+
+==========================================================================
+resizer max_capacitance_check_limit
+--------------------------------------------------------------------------
+120.8499984741211
+
+==========================================================================
+resizer max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.0653
+
+==========================================================================
+resizer max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+resizer max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+resizer max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 5
+
+==========================================================================
+resizer setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+resizer hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+resizer critical path delay
+--------------------------------------------------------------------------
+3.1806
+
+==========================================================================
+resizer critical path slack
+--------------------------------------------------------------------------
+-0.2153
+
+==========================================================================
+resizer slack div critical path delay
+--------------------------------------------------------------------------
+-6.769163
+
+==========================================================================
+resizer report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             2.12e-02   1.12e-03   5.74e-04   2.29e-02  51.2%
+Combinational          4.67e-03   1.61e-02   1.07e-03   2.18e-02  48.8%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.58e-02   1.72e-02   1.65e-03   4.47e-02 100.0%
+                          57.8%      38.5%       3.7%
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 93920 u^2 40% utilization.
+
+
+==========================================================================
+instance_count
+--------------------------------------------------------------------------
+62797
+
+==========================================================================
+pin_count
+--------------------------------------------------------------------------
+197295
+
+Elapsed time: 0:46.50[h:]min:sec. CPU time: user 46.17 sys 0.31 (99%). Peak memory: 410000KB.
