@@ -1,0 +1,937 @@
+OpenROAD b7631451350809842e4fb0c635c3f3ed7f6b270f 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+Placement Analysis
+---------------------------------
+total displacement       8782.5 u
+average displacement        0.3 u
+max displacement            5.9 u
+original HPWL           83363.7 u
+legalized HPWL          92262.6 u
+delta HPWL                   11 %
+
+Detailed placement improvement.
+Importing netlist into detailed improver.
+[INFO DPO-0100] Creating network with 31812 cells, 71 terminals, 30314 edges and 97258 pins.
+[INFO DPO-0109] Network stats: inst 31883, edges 30314, pins 97258
+[INFO DPO-0110] Number of regions is 1
+[INFO DPO-0401] Setting random seed to 1.
+[INFO DPO-0402] Setting maximum displacement 5 1 to 1350 270 units.
+[INFO DPO-0320] Collected 1607 fixed cells (excluded terminal_NI).
+[INFO DPO-0318] Collected 30276 single height cells.
+[INFO DPO-0321] Collected 0 wide cells.
+[INFO DPO-0322] Image (2052, 2160) - (105570, 105570)
+[INFO DPO-0310] Assigned 30276 cells into segments.  Movement in X-direction is 0.000000, movement in Y-direction is 0.000000.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+[INFO DPO-0303] Running algorithm for independent set matching.
+[INFO DPO-0300] Set matching objective is wirelength.
+[INFO DPO-0301] Pass   1 of matching; objective is 9.230890e+07.
+[INFO DPO-0302] End of matching; objective is 9.224451e+07, improvement is 0.07 percent.
+[INFO DPO-0303] Running algorithm for global swaps.
+[INFO DPO-0306] Pass   1 of global swaps; hpwl is 9.082620e+07.
+[INFO DPO-0306] Pass   2 of global swaps; hpwl is 9.064123e+07.
+[INFO DPO-0307] End of global swaps; objective is 9.064123e+07, improvement is 1.74 percent.
+[INFO DPO-0303] Running algorithm for vertical swaps.
+[INFO DPO-0308] Pass   1 of vertical swaps; hpwl is 9.025924e+07.
+[INFO DPO-0309] End of vertical swaps; objective is 9.025924e+07, improvement is 0.42 percent.
+[INFO DPO-0303] Running algorithm for reordering.
+[INFO DPO-0304] Pass   1 of reordering; objective is 9.011224e+07.
+[INFO DPO-0305] End of reordering; objective is 9.011224e+07, improvement is 0.16 percent.
+[INFO DPO-0303] Running algorithm for random improvement.
+[INFO DPO-0324] Random improver is using displacement generator.
+[INFO DPO-0325] Random improver is using hpwl objective.
+[INFO DPO-0326] Random improver cost string is (a).
+[INFO DPO-0332] End of pass, Generator displacement called 605520 times.
+[INFO DPO-0335] Generator displacement, Cumulative attempts 605520, swaps 81674, moves 160750 since last reset.
+[INFO DPO-0333] End of pass, Objective hpwl, Initial cost 8.986428e+07, Scratch cost 8.897514e+07, Incremental cost 8.897514e+07, Mismatch? N
+[INFO DPO-0338] End of pass, Total cost is 8.897514e+07.
+[INFO DPO-0327] Pass   1 of random improver; improvement in cost is 0.99 percent.
+[INFO DPO-0328] End of random improver; improvement is 0.989429 percent.
+[INFO DPO-0380] Cell flipping.
+[INFO DPO-0382] Changed 15159 cell orientations for row compatibility.
+[INFO DPO-0383] Performed 4768 cell flips.
+[INFO DPO-0384] End of flipping; objective is 8.862161e+07, improvement is 0.67 percent.
+[INFO DPO-0313] Found 0 cells in wrong regions.
+[INFO DPO-0315] Found 0 row alignment problems.
+[INFO DPO-0314] Found 0 site alignment problems.
+[INFO DPO-0311] Found 0 overlaps between adjacent cells.
+[INFO DPO-0312] Found 0 edge spacing violations and 0 padding violations.
+Detailed Improvement Results
+------------------------------------------
+Original HPWL            92262.6 u
+Final HPWL               88311.7 u
+Delta HPWL                  -4.3 %
+
+[INFO DPL-0020] Mirrored 4465 instances
+[INFO DPL-0021] HPWL before           88311.7 u
+[INFO DPL-0022] HPWL after            88233.4 u
+[INFO DPL-0023] HPWL delta               -0.1 %
+[INFO FLW-0012] Placement violations .
+
+==========================================================================
+detailed place report_tns
+--------------------------------------------------------------------------
+tns -47930.03
+
+==========================================================================
+detailed place report_wns
+--------------------------------------------------------------------------
+wns -890.52
+
+==========================================================================
+detailed place report_worst_slack
+--------------------------------------------------------------------------
+worst slack -890.52
+
+==========================================================================
+detailed place report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+Latency      CRPR       Skew
+lut/_43670_/CLK ^
+ 143.56
+_511_/CLK ^
+   0.00      0.00     143.56
+
+
+==========================================================================
+detailed place report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: _560_ (removal check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        150.00  150.00 ^ input external delay
+                  0.00    0.00  150.00 ^ rst_ni (in)
+     1    2.63                           rst_ni (net)
+                  0.28    0.09  150.09 ^ input11/A (BUFx24_ASAP7_75t_R)
+                 79.28   29.89  179.98 ^ input11/Y (BUFx24_ASAP7_75t_R)
+   102  129.03                           net11 (net)
+                 99.80   19.94  199.92 ^ _560_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                199.92   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _560_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                         16.10   16.10   library removal time
+                                 16.10   data required time
+-----------------------------------------------------------------------------
+                                 16.10   data required time
+                               -199.92   data arrival time
+-----------------------------------------------------------------------------
+                                183.82   slack (MET)
+
+
+Startpoint: lut/_46475_ (negative level-sensitive latch clocked by clk_i)
+Endpoint: lut/_38194_ (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock network delay (ideal)
+                  0.00    0.00  750.00 v lut/_46475_/CLK (DLLx1_ASAP7_75t_R)
+                 10.64   25.73  775.73 ^ lut/_46475_/Q (DLLx1_ASAP7_75t_R)
+     1    0.57                           lut/cg_we_global.en_latch (net)
+                 10.64    0.00  775.73 ^ lut/_38194_/B (AND2x2_ASAP7_75t_R)
+                                775.73   data arrival time
+
+                  0.00  750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock network delay (ideal)
+                          0.00  750.00   clock reconvergence pessimism
+                                750.00 v lut/_38194_/A (AND2x2_ASAP7_75t_R)
+                          0.00  750.00   clock gating hold time
+                                750.00   data required time
+-----------------------------------------------------------------------------
+                                750.00   data required time
+                               -775.73   data arrival time
+-----------------------------------------------------------------------------
+                                 25.73   slack (MET)
+
+
+Startpoint: _559_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: _559_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _559_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                 31.37   57.86   57.86 ^ _559_/QN (DFFASRHQNx1_ASAP7_75t_R)
+     2    1.97                           _081_ (net)
+                 31.37    0.04   57.90 ^ _478_/A1 (OAI21x1_ASAP7_75t_R)
+                 10.50   11.45   69.34 v _478_/Y (OAI21x1_ASAP7_75t_R)
+     1    0.61                           _118_ (net)
+                 10.50    0.01   69.35 v _559_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                 69.35   data arrival time
+
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00   clock reconvergence pessimism
+                                  0.00 ^ _559_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          8.95    8.95   library hold time
+                                  8.95   data required time
+-----------------------------------------------------------------------------
+                                  8.95   data required time
+                                -69.35   data arrival time
+-----------------------------------------------------------------------------
+                                 60.40   slack (MET)
+
+
+
+==========================================================================
+detailed place report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: _514_ (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        150.00  150.00 ^ input external delay
+                  0.00    0.00  150.00 ^ rst_ni (in)
+     1    2.63                           rst_ni (net)
+                  0.28    0.09  150.09 ^ input11/A (BUFx24_ASAP7_75t_R)
+                 79.28   29.89  179.98 ^ input11/Y (BUFx24_ASAP7_75t_R)
+   102  129.03                           net11 (net)
+                152.23   44.78  224.76 ^ _514_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                224.76   data arrival time
+
+                  0.00 1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock network delay (ideal)
+                          0.00 1500.00   clock reconvergence pessimism
+                               1500.00 ^ _514_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -18.76 1481.24   library recovery time
+                               1481.24   data required time
+-----------------------------------------------------------------------------
+                               1481.24   data required time
+                               -224.76   data arrival time
+-----------------------------------------------------------------------------
+                               1256.48   slack (MET)
+
+
+Startpoint: lut/_43221_ (negative level-sensitive latch clocked by clk_i)
+Endpoint: lut/_37995_ (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock network delay (ideal)
+                  0.00    0.00  750.00 v lut/_43221_/CLK (DLLx3_ASAP7_75t_R)
+                 72.88   76.58  826.58 v lut/_43221_/Q (DLLx3_ASAP7_75t_R)
+    33   25.25                           lut/gen_sub_units_scm[10].sub_unit_i.cg_we_global.en_latch (net)
+                 77.68    9.98  836.56 v lut/_37995_/B (AND3x1_ASAP7_75t_R)
+                                836.56   data arrival time
+
+                  0.00 1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock network delay (ideal)
+                          0.00 1500.00   clock reconvergence pessimism
+                               1500.00 ^ lut/_37995_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1500.00   clock gating setup time
+                               1500.00   data required time
+-----------------------------------------------------------------------------
+                               1500.00   data required time
+                               -836.56   data arrival time
+-----------------------------------------------------------------------------
+                                663.44   slack (MET)
+
+
+Startpoint: _518_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: _509_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _518_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                 30.80   58.74   58.74 v _518_/QN (DFFASRHQNx1_ASAP7_75t_R)
+     1    1.81                           _041_ (net)
+                 30.80    0.01   58.76 v _327_/A (INVx3_ASAP7_75t_R)
+                 23.88   19.78   78.54 ^ _327_/Y (INVx3_ASAP7_75t_R)
+     4    5.51                           rdata_o_q[7] (net)
+                 23.89    0.25   78.78 ^ fp_adder/_144_/A (NOR2x2_ASAP7_75t_R)
+                 25.68   21.58  100.37 v fp_adder/_144_/Y (NOR2x2_ASAP7_75t_R)
+     4    5.24                           fp_adder/_084_ (net)
+                 25.69    0.18  100.55 v fp_adder/_161_/B (AND2x2_ASAP7_75t_R)
+                 19.96   31.76  132.31 v fp_adder/_161_/Y (AND2x2_ASAP7_75t_R)
+     3    4.25                           fp_adder/_100_ (net)
+                 19.97    0.14  132.45 v fp_adder/_162_/A2 (AOI21x1_ASAP7_75t_R)
+                103.38   53.70  186.15 ^ fp_adder/_162_/Y (AOI21x1_ASAP7_75t_R)
+     9   10.91                           fp_adder/_101_ (net)
+                103.38    0.12  186.27 ^ fp_adder/_170_/A1 (AOI21x1_ASAP7_75t_R)
+                 58.67   48.03  234.31 v fp_adder/_170_/Y (AOI21x1_ASAP7_75t_R)
+     5    5.50                           fp_adder/_109_ (net)
+                 58.67    0.11  234.42 v fp_adder/_184_/B (AND2x2_ASAP7_75t_R)
+                 14.38   37.06  271.48 v fp_adder/_184_/Y (AND2x2_ASAP7_75t_R)
+     2    2.31                           fp_adder/_122_ (net)
+                 14.38    0.05  271.53 v fp_adder/_188_/B (XNOR2x1_ASAP7_75t_R)
+                 11.49   20.58  292.11 v fp_adder/_188_/Y (XNOR2x1_ASAP7_75t_R)
+     1    0.68                           fp_adder/_125_ (net)
+                 11.49    0.02  292.12 v fp_adder/_189_/A1 (AO21x2_ASAP7_75t_R)
+                 32.36   37.99  330.11 v fp_adder/_189_/Y (AO21x2_ASAP7_75t_R)
+     6    7.40                           fp_adder/converter.exp_fp32_converted[3] (net)
+                 32.40    0.69  330.80 v fp_adder/adder/_1112_/A (XOR2x2_ASAP7_75t_R)
+                 21.90   41.07  371.87 v fp_adder/adder/_1112_/Y (XOR2x2_ASAP7_75t_R)
+     3    4.20                           fp_adder/adder/_0222_ (net)
+                 21.90    0.13  372.00 v fp_adder/adder/_1113_/B (NOR2x1_ASAP7_75t_R)
+                 26.02   19.48  391.47 ^ fp_adder/adder/_1113_/Y (NOR2x1_ASAP7_75t_R)
+     2    2.22                           fp_adder/adder/_0223_ (net)
+                 26.02    0.05  391.52 ^ fp_adder/adder/_1120_/A2 (AOI21x1_ASAP7_75t_R)
+                 28.18   20.28  411.80 v fp_adder/adder/_1120_/Y (AOI21x1_ASAP7_75t_R)
+     3    3.37                           fp_adder/adder/_0230_ (net)
+                 28.18    0.18  411.98 v fp_adder/adder/_1134_/A2 (OAI21x1_ASAP7_75t_R)
+                197.21   96.20  508.18 ^ fp_adder/adder/_1134_/Y (OAI21x1_ASAP7_75t_R)
+    19   21.34                           fp_adder/adder/_0244_ (net)
+                197.21    0.22  508.40 ^ fp_adder/adder/_1174_/C (NOR3x1_ASAP7_75t_R)
+                 55.08   55.82  564.22 v fp_adder/adder/_1174_/Y (NOR3x1_ASAP7_75t_R)
+     2    1.85                           fp_adder/adder/_0276_ (net)
+                 55.08    0.03  564.25 v fp_adder/adder/_1175_/A (INVx1_ASAP7_75t_R)
+                 24.33   21.50  585.75 ^ fp_adder/adder/_1175_/Y (INVx1_ASAP7_75t_R)
+     1    1.19                           fp_adder/adder/_0277_ (net)
+                 24.33    0.02  585.77 ^ fp_adder/adder/_1208_/A1 (AOI21x1_ASAP7_75t_R)
+                 34.57   24.26  610.03 v fp_adder/adder/_1208_/Y (AOI21x1_ASAP7_75t_R)
+     2    4.31                           fp_adder/adder/_0310_ (net)
+                 34.65    0.93  610.96 v fp_adder/adder/_1216_/A (NOR2x2_ASAP7_75t_R)
+                 99.59   54.09  665.05 ^ fp_adder/adder/_1216_/Y (NOR2x2_ASAP7_75t_R)
+    20   20.62                           fp_adder/adder/_0318_ (net)
+                 99.59    0.02  665.07 ^ fp_adder/adder/_1254_/A (AND5x1_ASAP7_75t_R)
+                 24.80   56.82  721.89 ^ fp_adder/adder/_1254_/Y (AND5x1_ASAP7_75t_R)
+     1    1.48                           fp_adder/adder/_0356_ (net)
+                 24.80    0.07  721.96 ^ fp_adder/adder/_1255_/A (INVx2_ASAP7_75t_R)
+                 15.50   14.08  736.04 v fp_adder/adder/_1255_/Y (INVx2_ASAP7_75t_R)
+     3    2.93                           fp_adder/adder/_0357_ (net)
+                 15.50    0.02  736.07 v fp_adder/adder/_1388_/A1 (OAI21x1_ASAP7_75t_R)
+                190.23   88.97  825.03 ^ fp_adder/adder/_1388_/Y (OAI21x1_ASAP7_75t_R)
+    13   20.45                           fp_adder/adder/_0489_ (net)
+                190.41    3.38  828.41 ^ load_slew87/A (BUFx16f_ASAP7_75t_R)
+                 28.43   54.66  883.07 ^ load_slew87/Y (BUFx16f_ASAP7_75t_R)
+    13   25.53                           net87 (net)
+                 31.17    4.59  887.66 ^ fp_adder/adder/_1583_/A (CKINVDCx16_ASAP7_75t_R)
+                 20.75   15.94  903.60 v fp_adder/adder/_1583_/Y (CKINVDCx16_ASAP7_75t_R)
+    20   24.44                           fp_adder/adder/_0684_ (net)
+                 22.74    3.36  906.96 v fp_adder/adder/_1712_/B (XOR2x2_ASAP7_75t_R)
+                 18.81   42.22  949.18 ^ fp_adder/adder/_1712_/Y (XOR2x2_ASAP7_75t_R)
+     3    2.85                           fp_adder/adder/_0813_ (net)
+                 18.81    0.09  949.27 ^ fp_adder/adder/_1717_/A (OR2x2_ASAP7_75t_R)
+                  8.68   21.53  970.80 ^ fp_adder/adder/_1717_/Y (OR2x2_ASAP7_75t_R)
+     1    0.62                           fp_adder/adder/_0818_ (net)
+                  8.68    0.01  970.81 ^ fp_adder/adder/_1718_/B (AND2x2_ASAP7_75t_R)
+                 14.80   22.31  993.12 ^ fp_adder/adder/_1718_/Y (AND2x2_ASAP7_75t_R)
+     2    2.13                           fp_adder/adder/_0819_ (net)
+                 14.80    0.03  993.15 ^ fp_adder/adder/_1719_/B (NAND2x1_ASAP7_75t_R)
+                 16.08   12.81 1005.97 v fp_adder/adder/_1719_/Y (NAND2x1_ASAP7_75t_R)
+     2    1.83                           fp_adder/adder/_0820_ (net)
+                 16.08    0.00 1005.97 v fp_adder/adder/_1720_/A (INVx1_ASAP7_75t_R)
+                 23.92   17.16 1023.13 ^ fp_adder/adder/_1720_/Y (INVx1_ASAP7_75t_R)
+     2    2.26                           fp_adder/adder/_0821_ (net)
+                 23.92    0.01 1023.14 ^ fp_adder/adder/_1721_/C (NAND3x1_ASAP7_75t_R)
+                 14.65   13.84 1036.98 v fp_adder/adder/_1721_/Y (NAND3x1_ASAP7_75t_R)
+     1    1.18                           fp_adder/adder/_0822_ (net)
+                 14.65    0.02 1037.00 v fp_adder/adder/_2062_/A1 (OAI21x1_ASAP7_75t_R)
+                 61.54   33.01 1070.01 ^ fp_adder/adder/_2062_/Y (OAI21x1_ASAP7_75t_R)
+     5    5.85                           fp_adder/adder/_0078_ (net)
+                 61.60    1.08 1071.08 ^ fp_adder/adder/_2142_/A1 (AOI21x1_ASAP7_75t_R)
+                 34.85   29.60 1100.68 v fp_adder/adder/_2142_/Y (AOI21x1_ASAP7_75t_R)
+     3    3.01                           fp_adder/adder/_0166_ (net)
+                 34.86    0.23 1100.92 v fp_adder/adder/_2146_/A2 (OAI21x1_ASAP7_75t_R)
+                 27.83   22.58 1123.50 ^ fp_adder/adder/_2146_/Y (OAI21x1_ASAP7_75t_R)
+     2    1.96                           fp_adder/adder/_0170_ (net)
+                 27.83    0.01 1123.51 ^ fp_adder/adder/_2147_/B (NAND2x1_ASAP7_75t_R)
+                 14.36   12.73 1136.24 v fp_adder/adder/_2147_/Y (NAND2x1_ASAP7_75t_R)
+     1    1.04                           fp_adder/adder/_0171_ (net)
+                 14.36    0.01 1136.25 v fp_adder/adder/_2148_/A2 (AOI21x1_ASAP7_75t_R)
+                 67.06   36.11 1172.36 ^ fp_adder/adder/_2148_/Y (AOI21x1_ASAP7_75t_R)
+     5    6.79                           fp_adder/adder/adder.Mant_prenorm_D[47] (net)
+                 67.06    0.41 1172.77 ^ fp_adder/adder/norm/_1177_/B (NOR2x2_ASAP7_75t_R)
+                 25.88   24.47 1197.24 v fp_adder/adder/norm/_1177_/Y (NOR2x2_ASAP7_75t_R)
+     3    3.02                           fp_adder/adder/norm/_0043_ (net)
+                 25.88    0.03 1197.28 v fp_adder/adder/norm/_1179_/A (NAND2x2_ASAP7_75t_R)
+                 30.80   24.84 1222.11 ^ fp_adder/adder/norm/_1179_/Y (NAND2x2_ASAP7_75t_R)
+     4    4.88                           fp_adder/adder/norm/_0065_ (net)
+                 30.80    0.14 1222.25 ^ fp_adder/adder/norm/_1183_/A (NOR2x2_ASAP7_75t_R)
+                 33.29   27.16 1249.41 v fp_adder/adder/norm/_1183_/Y (NOR2x2_ASAP7_75t_R)
+     5    7.15                           fp_adder/adder/norm/_0109_ (net)
+                 33.29    0.16 1249.57 v fp_adder/adder/norm/_1191_/A (NAND2x2_ASAP7_75t_R)
+                 46.22   34.27 1283.84 ^ fp_adder/adder/norm/_1191_/Y (NAND2x2_ASAP7_75t_R)
+     6    8.16                           fp_adder/adder/norm/_0189_ (net)
+                 46.23    0.31 1284.15 ^ fp_adder/adder/norm/_1207_/A (NOR2x2_ASAP7_75t_R)
+                 49.71   39.01 1323.15 v fp_adder/adder/norm/_1207_/Y (NOR2x2_ASAP7_75t_R)
+     9   11.14                           fp_adder/adder/norm/_0289_ (net)
+                 49.72    0.38 1323.53 v fp_adder/adder/norm/_1339_/A2 (AOI21x1_ASAP7_75t_R)
+                 66.07   43.95 1367.49 ^ fp_adder/adder/norm/_1339_/Y (AOI21x1_ASAP7_75t_R)
+     5    6.37                           fp_adder/adder/norm/_0421_ (net)
+                 66.07    0.26 1367.74 ^ fp_adder/adder/norm/_1343_/A (INVx2_ASAP7_75t_R)
+                 20.61   17.58 1385.32 v fp_adder/adder/norm/_1343_/Y (INVx2_ASAP7_75t_R)
+     2    2.05                           fp_adder/adder/norm/_0425_ (net)
+                 20.61    0.01 1385.34 v fp_adder/adder/norm/_1344_/B (NAND2x1_ASAP7_75t_R)
+                 29.83   20.29 1405.63 ^ fp_adder/adder/norm/_1344_/Y (NAND2x1_ASAP7_75t_R)
+     2    2.26                           fp_adder/adder/norm/_0426_ (net)
+                 29.83    0.04 1405.68 ^ fp_adder/adder/norm/_1345_/A (INVx1_ASAP7_75t_R)
+                 22.08   18.72 1424.40 v fp_adder/adder/norm/_1345_/Y (INVx1_ASAP7_75t_R)
+     2    2.22                           fp_adder/adder/norm/_0427_ (net)
+                 22.08    0.09 1424.48 v fp_adder/adder/norm/_1348_/A2 (OAI21x1_ASAP7_75t_R)
+                 25.20   19.18 1443.66 ^ fp_adder/adder/norm/_1348_/Y (OAI21x1_ASAP7_75t_R)
+     2    1.83                           fp_adder/adder/norm/_0430_ (net)
+                 25.20    0.02 1443.68 ^ fp_adder/adder/norm/_1349_/B (AOI21x1_ASAP7_75t_R)
+                 16.04   12.94 1456.63 v fp_adder/adder/norm/_1349_/Y (AOI21x1_ASAP7_75t_R)
+     1    1.05                           fp_adder/adder/norm/_0431_ (net)
+                 16.04    0.02 1456.64 v fp_adder/adder/norm/_1353_/A2 (OAI21x1_ASAP7_75t_R)
+                 18.35   14.97 1471.61 ^ fp_adder/adder/norm/_1353_/Y (OAI21x1_ASAP7_75t_R)
+     1    1.16                           fp_adder/adder/norm/_0435_ (net)
+                 18.35    0.04 1471.65 ^ fp_adder/adder/norm/_1360_/A2 (AOI21x1_ASAP7_75t_R)
+                102.05   52.04 1523.69 v fp_adder/adder/norm/_1360_/Y (AOI21x1_ASAP7_75t_R)
+    14   15.16                           fp_adder/adder/norm/_0442_ (net)
+                102.06    0.40 1524.09 v fp_adder/adder/norm/_1397_/B (NAND2x1_ASAP7_75t_R)
+                 43.79   39.04 1563.13 ^ fp_adder/adder/norm/_1397_/Y (NAND2x1_ASAP7_75t_R)
+     1    2.11                           fp_adder/adder/norm/_0479_ (net)
+                 43.79    0.03 1563.16 ^ fp_adder/adder/norm/_1398_/B (NAND2x2_ASAP7_75t_R)
+                146.96   72.81 1635.97 v fp_adder/adder/norm/_1398_/Y (NAND2x2_ASAP7_75t_R)
+    29   41.92                           fp_adder/adder/norm/_0480_ (net)
+                147.36    4.54 1640.50 v fp_adder/adder/norm/_1402_/A (NAND2x2_ASAP7_75t_R)
+                 55.72   52.17 1692.68 ^ fp_adder/adder/norm/_1402_/Y (NAND2x2_ASAP7_75t_R)
+     5    4.41                           fp_adder/adder/norm/_0484_ (net)
+                 55.72    0.06 1692.74 ^ fp_adder/adder/norm/_1406_/A2 (OAI21x1_ASAP7_75t_R)
+                 33.45   26.09 1718.83 v fp_adder/adder/norm/_1406_/Y (OAI21x1_ASAP7_75t_R)
+     3    3.40                           fp_adder/adder/norm/_0488_ (net)
+                 33.45    0.03 1718.86 v fp_adder/adder/norm/_1409_/A2 (OAI21x1_ASAP7_75t_R)
+                 20.38   18.09 1736.96 ^ fp_adder/adder/norm/_1409_/Y (OAI21x1_ASAP7_75t_R)
+     1    1.04                           fp_adder/adder/norm/_0491_ (net)
+                 20.38    0.01 1736.97 ^ fp_adder/adder/norm/_1422_/A2 (AOI21x1_ASAP7_75t_R)
+                 75.12   39.92 1776.89 v fp_adder/adder/norm/_1422_/Y (AOI21x1_ASAP7_75t_R)
+     7   10.89                           fp_adder/adder/norm/_0504_ (net)
+                 75.13    0.41 1777.30 v max_cap80/A (BUFx12f_ASAP7_75t_R)
+                 23.24   39.89 1817.19 v max_cap80/Y (BUFx12f_ASAP7_75t_R)
+     9   21.85                           net80 (net)
+                 24.00    2.30 1819.49 v max_cap79/A (BUFx12f_ASAP7_75t_R)
+                 17.01   26.58 1846.08 v max_cap79/Y (BUFx12f_ASAP7_75t_R)
+     8   17.11                           net79 (net)
+                 17.38    1.36 1847.44 v max_cap78/A (BUFx16f_ASAP7_75t_R)
+                 20.21   26.48 1873.92 v max_cap78/Y (BUFx16f_ASAP7_75t_R)
+     9   22.24                           net78 (net)
+                 23.30    4.12 1878.03 v max_cap77/A (BUFx12f_ASAP7_75t_R)
+                 19.72   28.25 1906.29 v max_cap77/Y (BUFx12f_ASAP7_75t_R)
+     9   21.79                           net77 (net)
+                 19.74    0.33 1906.62 v max_cap76/A (BUFx16f_ASAP7_75t_R)
+                 18.36   29.10 1935.72 v max_cap76/Y (BUFx16f_ASAP7_75t_R)
+    12   23.00                           net76 (net)
+                 18.37    0.17 1935.90 v fp_adder/adder/norm/_1566_/A (NAND3x1_ASAP7_75t_R)
+                 39.50   20.06 1955.95 ^ fp_adder/adder/norm/_1566_/Y (NAND3x1_ASAP7_75t_R)
+     2    2.08                           fp_adder/adder/norm/_0648_ (net)
+                 39.50    0.04 1956.00 ^ fp_adder/adder/norm/_1567_/A2 (AOI21x1_ASAP7_75t_R)
+                 25.90   20.97 1976.97 v fp_adder/adder/norm/_1567_/Y (AOI21x1_ASAP7_75t_R)
+     3    2.67                           fp_adder/adder/norm/_0649_ (net)
+                 25.91    0.08 1977.05 v fp_adder/adder/norm/_2059_/A2 (OAI21x1_ASAP7_75t_R)
+                 31.72   22.65 1999.69 ^ fp_adder/adder/norm/_2059_/Y (OAI21x1_ASAP7_75t_R)
+     2    2.49                           fp_adder/adder/norm/_1148_ (net)
+                 31.72    0.26 1999.95 ^ fp_adder/adder/norm/_2060_/B (AND3x1_ASAP7_75t_R)
+                 21.98   33.53 2033.48 ^ fp_adder/adder/norm/_2060_/Y (AND3x1_ASAP7_75t_R)
+     1    1.70                           fp_adder/adder/norm/_1149_ (net)
+                 21.98    0.17 2033.66 ^ fp_adder/adder/norm/_2061_/B (NOR2x1_ASAP7_75t_R)
+                 22.09   18.12 2051.77 v fp_adder/adder/norm/_2061_/Y (NOR2x1_ASAP7_75t_R)
+     1    2.24                           fp_adder/adder/norm/_1150_ (net)
+                 22.09    0.15 2051.93 v fp_adder/adder/norm/_2068_/A (NAND2x2_ASAP7_75t_R)
+                 30.60   23.74 2075.67 ^ fp_adder/adder/norm/_2068_/Y (NAND2x2_ASAP7_75t_R)
+     3    5.03                           fp_adder/adder/norm/_1158_ (net)
+                 30.60    0.16 2075.83 ^ fp_adder/adder/norm/_2069_/C (NOR3x2_ASAP7_75t_R)
+                 35.94   30.01 2105.85 v fp_adder/adder/norm/_2069_/Y (NOR3x2_ASAP7_75t_R)
+     5    6.71                           fp_adder/adder/norm/_1159_ (net)
+                 35.94    0.13 2105.98 v fp_adder/adder/norm/_2084_/B (NAND3x2_ASAP7_75t_R)
+                 46.13   35.54 2141.51 ^ fp_adder/adder/norm/_2084_/Y (NAND3x2_ASAP7_75t_R)
+     5    7.20                           fp_adder/adder/norm/_0011_ (net)
+                 46.13    0.15 2141.67 ^ fp_adder/adder/norm/_2202_/A (NOR2x2_ASAP7_75t_R)
+                 42.66   34.61 2176.28 v fp_adder/adder/norm/_2202_/Y (NOR2x2_ASAP7_75t_R)
+     7    8.82                           fp_adder/adder/norm/_0140_ (net)
+                 42.73    0.97 2177.25 v fp_adder/adder/norm/_2205_/A (NAND3x2_ASAP7_75t_R)
+                 26.11   24.71 2201.96 ^ fp_adder/adder/norm/_2205_/Y (NAND3x2_ASAP7_75t_R)
+     2    2.81                           fp_adder/adder/norm/_0143_ (net)
+                 26.11    0.14 2202.10 ^ fp_adder/adder/norm/_2211_/A2 (OAI21x1_ASAP7_75t_R)
+                 30.45   21.49 2223.59 v fp_adder/adder/norm/_2211_/Y (OAI21x1_ASAP7_75t_R)
+     3    3.74                           fp_adder/adder/norm/_0148_ (net)
+                 30.46    0.31 2223.90 v fp_adder/adder/norm/_2221_/A2 (AOI21x1_ASAP7_75t_R)
+                 38.02   27.26 2251.16 ^ fp_adder/adder/norm/_2221_/Y (AOI21x1_ASAP7_75t_R)
+     3    3.35                           fp_adder/adder/norm/_0157_ (net)
+                 38.02    0.14 2251.30 ^ fp_adder/adder/norm/_2231_/A2 (OAI21x1_ASAP7_75t_R)
+                 25.55   20.86 2272.16 v fp_adder/adder/norm/_2231_/Y (OAI21x1_ASAP7_75t_R)
+     2    2.68                           fp_adder/adder/norm/_0166_ (net)
+                 25.55    0.06 2272.22 v fp_adder/adder/norm/_2236_/A2 (AOI21x1_ASAP7_75t_R)
+                 22.77   18.94 2291.16 ^ fp_adder/adder/norm/_2236_/Y (AOI21x1_ASAP7_75t_R)
+     1    1.59                           fp_adder/adder/norm/_0171_ (net)
+                 22.77    0.02 2291.18 ^ fp_adder/adder/norm/_2239_/A (XOR2x1_ASAP7_75t_R)
+                 21.40   25.96 2317.14 ^ fp_adder/adder/norm/_2239_/Y (XOR2x1_ASAP7_75t_R)
+     2    1.48                           result_int_d[30] (net)
+                 21.40    0.01 2317.15 ^ _470_/B (AND2x2_ASAP7_75t_R)
+                 11.19   23.51 2340.66 ^ _470_/Y (AND2x2_ASAP7_75t_R)
+     1    1.07                           _209_ (net)
+                 11.19    0.01 2340.68 ^ _471_/A (NAND2x1_ASAP7_75t_R)
+                 39.84   10.80 2351.48 v _471_/Y (NAND2x1_ASAP7_75t_R)
+     1    1.31                           _210_ (net)
+                 39.84    0.01 2351.49 v _472_/B (OAI21x1_ASAP7_75t_R)
+                 27.37   12.82 2364.32 ^ _472_/Y (OAI21x1_ASAP7_75t_R)
+     1    0.60                           _116_ (net)
+                 27.37    0.00 2364.32 ^ _509_/D (DFFASRHQNx1_ASAP7_75t_R)
+                               2364.32   data arrival time
+
+                  0.00 1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock network delay (ideal)
+                          0.00 1500.00   clock reconvergence pessimism
+                               1500.00 ^ _509_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -26.20 1473.80   library setup time
+                               1473.80   data required time
+-----------------------------------------------------------------------------
+                               1473.80   data required time
+                               -2364.32   data arrival time
+-----------------------------------------------------------------------------
+                               -890.52   slack (VIOLATED)
+
+
+
+==========================================================================
+detailed place report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: _514_ (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                        150.00  150.00 ^ input external delay
+                  0.00    0.00  150.00 ^ rst_ni (in)
+     1    2.63                           rst_ni (net)
+                  0.28    0.09  150.09 ^ input11/A (BUFx24_ASAP7_75t_R)
+                 79.28   29.89  179.98 ^ input11/Y (BUFx24_ASAP7_75t_R)
+   102  129.03                           net11 (net)
+                152.23   44.78  224.76 ^ _514_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                224.76   data arrival time
+
+                  0.00 1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock network delay (ideal)
+                          0.00 1500.00   clock reconvergence pessimism
+                               1500.00 ^ _514_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -18.76 1481.24   library recovery time
+                               1481.24   data required time
+-----------------------------------------------------------------------------
+                               1481.24   data required time
+                               -224.76   data arrival time
+-----------------------------------------------------------------------------
+                               1256.48   slack (MET)
+
+
+Startpoint: lut/_43221_ (negative level-sensitive latch clocked by clk_i)
+Endpoint: lut/_37995_ (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00  750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock network delay (ideal)
+                  0.00    0.00  750.00 v lut/_43221_/CLK (DLLx3_ASAP7_75t_R)
+                 72.88   76.58  826.58 v lut/_43221_/Q (DLLx3_ASAP7_75t_R)
+    33   25.25                           lut/gen_sub_units_scm[10].sub_unit_i.cg_we_global.en_latch (net)
+                 77.68    9.98  836.56 v lut/_37995_/B (AND3x1_ASAP7_75t_R)
+                                836.56   data arrival time
+
+                  0.00 1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock network delay (ideal)
+                          0.00 1500.00   clock reconvergence pessimism
+                               1500.00 ^ lut/_37995_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1500.00   clock gating setup time
+                               1500.00   data required time
+-----------------------------------------------------------------------------
+                               1500.00   data required time
+                               -836.56   data arrival time
+-----------------------------------------------------------------------------
+                                663.44   slack (MET)
+
+
+Startpoint: _518_ (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: _509_ (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                  0.00    0.00    0.00 ^ _518_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                 30.80   58.74   58.74 v _518_/QN (DFFASRHQNx1_ASAP7_75t_R)
+     1    1.81                           _041_ (net)
+                 30.80    0.01   58.76 v _327_/A (INVx3_ASAP7_75t_R)
+                 23.88   19.78   78.54 ^ _327_/Y (INVx3_ASAP7_75t_R)
+     4    5.51                           rdata_o_q[7] (net)
+                 23.89    0.25   78.78 ^ fp_adder/_144_/A (NOR2x2_ASAP7_75t_R)
+                 25.68   21.58  100.37 v fp_adder/_144_/Y (NOR2x2_ASAP7_75t_R)
+     4    5.24                           fp_adder/_084_ (net)
+                 25.69    0.18  100.55 v fp_adder/_161_/B (AND2x2_ASAP7_75t_R)
+                 19.96   31.76  132.31 v fp_adder/_161_/Y (AND2x2_ASAP7_75t_R)
+     3    4.25                           fp_adder/_100_ (net)
+                 19.97    0.14  132.45 v fp_adder/_162_/A2 (AOI21x1_ASAP7_75t_R)
+                103.38   53.70  186.15 ^ fp_adder/_162_/Y (AOI21x1_ASAP7_75t_R)
+     9   10.91                           fp_adder/_101_ (net)
+                103.38    0.12  186.27 ^ fp_adder/_170_/A1 (AOI21x1_ASAP7_75t_R)
+                 58.67   48.03  234.31 v fp_adder/_170_/Y (AOI21x1_ASAP7_75t_R)
+     5    5.50                           fp_adder/_109_ (net)
+                 58.67    0.11  234.42 v fp_adder/_184_/B (AND2x2_ASAP7_75t_R)
+                 14.38   37.06  271.48 v fp_adder/_184_/Y (AND2x2_ASAP7_75t_R)
+     2    2.31                           fp_adder/_122_ (net)
+                 14.38    0.05  271.53 v fp_adder/_188_/B (XNOR2x1_ASAP7_75t_R)
+                 11.49   20.58  292.11 v fp_adder/_188_/Y (XNOR2x1_ASAP7_75t_R)
+     1    0.68                           fp_adder/_125_ (net)
+                 11.49    0.02  292.12 v fp_adder/_189_/A1 (AO21x2_ASAP7_75t_R)
+                 32.36   37.99  330.11 v fp_adder/_189_/Y (AO21x2_ASAP7_75t_R)
+     6    7.40                           fp_adder/converter.exp_fp32_converted[3] (net)
+                 32.40    0.69  330.80 v fp_adder/adder/_1112_/A (XOR2x2_ASAP7_75t_R)
+                 21.90   41.07  371.87 v fp_adder/adder/_1112_/Y (XOR2x2_ASAP7_75t_R)
+     3    4.20                           fp_adder/adder/_0222_ (net)
+                 21.90    0.13  372.00 v fp_adder/adder/_1113_/B (NOR2x1_ASAP7_75t_R)
+                 26.02   19.48  391.47 ^ fp_adder/adder/_1113_/Y (NOR2x1_ASAP7_75t_R)
+     2    2.22                           fp_adder/adder/_0223_ (net)
+                 26.02    0.05  391.52 ^ fp_adder/adder/_1120_/A2 (AOI21x1_ASAP7_75t_R)
+                 28.18   20.28  411.80 v fp_adder/adder/_1120_/Y (AOI21x1_ASAP7_75t_R)
+     3    3.37                           fp_adder/adder/_0230_ (net)
+                 28.18    0.18  411.98 v fp_adder/adder/_1134_/A2 (OAI21x1_ASAP7_75t_R)
+                197.21   96.20  508.18 ^ fp_adder/adder/_1134_/Y (OAI21x1_ASAP7_75t_R)
+    19   21.34                           fp_adder/adder/_0244_ (net)
+                197.21    0.22  508.40 ^ fp_adder/adder/_1174_/C (NOR3x1_ASAP7_75t_R)
+                 55.08   55.82  564.22 v fp_adder/adder/_1174_/Y (NOR3x1_ASAP7_75t_R)
+     2    1.85                           fp_adder/adder/_0276_ (net)
+                 55.08    0.03  564.25 v fp_adder/adder/_1175_/A (INVx1_ASAP7_75t_R)
+                 24.33   21.50  585.75 ^ fp_adder/adder/_1175_/Y (INVx1_ASAP7_75t_R)
+     1    1.19                           fp_adder/adder/_0277_ (net)
+                 24.33    0.02  585.77 ^ fp_adder/adder/_1208_/A1 (AOI21x1_ASAP7_75t_R)
+                 34.57   24.26  610.03 v fp_adder/adder/_1208_/Y (AOI21x1_ASAP7_75t_R)
+     2    4.31                           fp_adder/adder/_0310_ (net)
+                 34.65    0.93  610.96 v fp_adder/adder/_1216_/A (NOR2x2_ASAP7_75t_R)
+                 99.59   54.09  665.05 ^ fp_adder/adder/_1216_/Y (NOR2x2_ASAP7_75t_R)
+    20   20.62                           fp_adder/adder/_0318_ (net)
+                 99.59    0.02  665.07 ^ fp_adder/adder/_1254_/A (AND5x1_ASAP7_75t_R)
+                 24.80   56.82  721.89 ^ fp_adder/adder/_1254_/Y (AND5x1_ASAP7_75t_R)
+     1    1.48                           fp_adder/adder/_0356_ (net)
+                 24.80    0.07  721.96 ^ fp_adder/adder/_1255_/A (INVx2_ASAP7_75t_R)
+                 15.50   14.08  736.04 v fp_adder/adder/_1255_/Y (INVx2_ASAP7_75t_R)
+     3    2.93                           fp_adder/adder/_0357_ (net)
+                 15.50    0.02  736.07 v fp_adder/adder/_1388_/A1 (OAI21x1_ASAP7_75t_R)
+                190.23   88.97  825.03 ^ fp_adder/adder/_1388_/Y (OAI21x1_ASAP7_75t_R)
+    13   20.45                           fp_adder/adder/_0489_ (net)
+                190.41    3.38  828.41 ^ load_slew87/A (BUFx16f_ASAP7_75t_R)
+                 28.43   54.66  883.07 ^ load_slew87/Y (BUFx16f_ASAP7_75t_R)
+    13   25.53                           net87 (net)
+                 31.17    4.59  887.66 ^ fp_adder/adder/_1583_/A (CKINVDCx16_ASAP7_75t_R)
+                 20.75   15.94  903.60 v fp_adder/adder/_1583_/Y (CKINVDCx16_ASAP7_75t_R)
+    20   24.44                           fp_adder/adder/_0684_ (net)
+                 22.74    3.36  906.96 v fp_adder/adder/_1712_/B (XOR2x2_ASAP7_75t_R)
+                 18.81   42.22  949.18 ^ fp_adder/adder/_1712_/Y (XOR2x2_ASAP7_75t_R)
+     3    2.85                           fp_adder/adder/_0813_ (net)
+                 18.81    0.09  949.27 ^ fp_adder/adder/_1717_/A (OR2x2_ASAP7_75t_R)
+                  8.68   21.53  970.80 ^ fp_adder/adder/_1717_/Y (OR2x2_ASAP7_75t_R)
+     1    0.62                           fp_adder/adder/_0818_ (net)
+                  8.68    0.01  970.81 ^ fp_adder/adder/_1718_/B (AND2x2_ASAP7_75t_R)
+                 14.80   22.31  993.12 ^ fp_adder/adder/_1718_/Y (AND2x2_ASAP7_75t_R)
+     2    2.13                           fp_adder/adder/_0819_ (net)
+                 14.80    0.03  993.15 ^ fp_adder/adder/_1719_/B (NAND2x1_ASAP7_75t_R)
+                 16.08   12.81 1005.97 v fp_adder/adder/_1719_/Y (NAND2x1_ASAP7_75t_R)
+     2    1.83                           fp_adder/adder/_0820_ (net)
+                 16.08    0.00 1005.97 v fp_adder/adder/_1720_/A (INVx1_ASAP7_75t_R)
+                 23.92   17.16 1023.13 ^ fp_adder/adder/_1720_/Y (INVx1_ASAP7_75t_R)
+     2    2.26                           fp_adder/adder/_0821_ (net)
+                 23.92    0.01 1023.14 ^ fp_adder/adder/_1721_/C (NAND3x1_ASAP7_75t_R)
+                 14.65   13.84 1036.98 v fp_adder/adder/_1721_/Y (NAND3x1_ASAP7_75t_R)
+     1    1.18                           fp_adder/adder/_0822_ (net)
+                 14.65    0.02 1037.00 v fp_adder/adder/_2062_/A1 (OAI21x1_ASAP7_75t_R)
+                 61.54   33.01 1070.01 ^ fp_adder/adder/_2062_/Y (OAI21x1_ASAP7_75t_R)
+     5    5.85                           fp_adder/adder/_0078_ (net)
+                 61.60    1.08 1071.08 ^ fp_adder/adder/_2142_/A1 (AOI21x1_ASAP7_75t_R)
+                 34.85   29.60 1100.68 v fp_adder/adder/_2142_/Y (AOI21x1_ASAP7_75t_R)
+     3    3.01                           fp_adder/adder/_0166_ (net)
+                 34.86    0.23 1100.92 v fp_adder/adder/_2146_/A2 (OAI21x1_ASAP7_75t_R)
+                 27.83   22.58 1123.50 ^ fp_adder/adder/_2146_/Y (OAI21x1_ASAP7_75t_R)
+     2    1.96                           fp_adder/adder/_0170_ (net)
+                 27.83    0.01 1123.51 ^ fp_adder/adder/_2147_/B (NAND2x1_ASAP7_75t_R)
+                 14.36   12.73 1136.24 v fp_adder/adder/_2147_/Y (NAND2x1_ASAP7_75t_R)
+     1    1.04                           fp_adder/adder/_0171_ (net)
+                 14.36    0.01 1136.25 v fp_adder/adder/_2148_/A2 (AOI21x1_ASAP7_75t_R)
+                 67.06   36.11 1172.36 ^ fp_adder/adder/_2148_/Y (AOI21x1_ASAP7_75t_R)
+     5    6.79                           fp_adder/adder/adder.Mant_prenorm_D[47] (net)
+                 67.06    0.41 1172.77 ^ fp_adder/adder/norm/_1177_/B (NOR2x2_ASAP7_75t_R)
+                 25.88   24.47 1197.24 v fp_adder/adder/norm/_1177_/Y (NOR2x2_ASAP7_75t_R)
+     3    3.02                           fp_adder/adder/norm/_0043_ (net)
+                 25.88    0.03 1197.28 v fp_adder/adder/norm/_1179_/A (NAND2x2_ASAP7_75t_R)
+                 30.80   24.84 1222.11 ^ fp_adder/adder/norm/_1179_/Y (NAND2x2_ASAP7_75t_R)
+     4    4.88                           fp_adder/adder/norm/_0065_ (net)
+                 30.80    0.14 1222.25 ^ fp_adder/adder/norm/_1183_/A (NOR2x2_ASAP7_75t_R)
+                 33.29   27.16 1249.41 v fp_adder/adder/norm/_1183_/Y (NOR2x2_ASAP7_75t_R)
+     5    7.15                           fp_adder/adder/norm/_0109_ (net)
+                 33.29    0.16 1249.57 v fp_adder/adder/norm/_1191_/A (NAND2x2_ASAP7_75t_R)
+                 46.22   34.27 1283.84 ^ fp_adder/adder/norm/_1191_/Y (NAND2x2_ASAP7_75t_R)
+     6    8.16                           fp_adder/adder/norm/_0189_ (net)
+                 46.23    0.31 1284.15 ^ fp_adder/adder/norm/_1207_/A (NOR2x2_ASAP7_75t_R)
+                 49.71   39.01 1323.15 v fp_adder/adder/norm/_1207_/Y (NOR2x2_ASAP7_75t_R)
+     9   11.14                           fp_adder/adder/norm/_0289_ (net)
+                 49.72    0.38 1323.53 v fp_adder/adder/norm/_1339_/A2 (AOI21x1_ASAP7_75t_R)
+                 66.07   43.95 1367.49 ^ fp_adder/adder/norm/_1339_/Y (AOI21x1_ASAP7_75t_R)
+     5    6.37                           fp_adder/adder/norm/_0421_ (net)
+                 66.07    0.26 1367.74 ^ fp_adder/adder/norm/_1343_/A (INVx2_ASAP7_75t_R)
+                 20.61   17.58 1385.32 v fp_adder/adder/norm/_1343_/Y (INVx2_ASAP7_75t_R)
+     2    2.05                           fp_adder/adder/norm/_0425_ (net)
+                 20.61    0.01 1385.34 v fp_adder/adder/norm/_1344_/B (NAND2x1_ASAP7_75t_R)
+                 29.83   20.29 1405.63 ^ fp_adder/adder/norm/_1344_/Y (NAND2x1_ASAP7_75t_R)
+     2    2.26                           fp_adder/adder/norm/_0426_ (net)
+                 29.83    0.04 1405.68 ^ fp_adder/adder/norm/_1345_/A (INVx1_ASAP7_75t_R)
+                 22.08   18.72 1424.40 v fp_adder/adder/norm/_1345_/Y (INVx1_ASAP7_75t_R)
+     2    2.22                           fp_adder/adder/norm/_0427_ (net)
+                 22.08    0.09 1424.48 v fp_adder/adder/norm/_1348_/A2 (OAI21x1_ASAP7_75t_R)
+                 25.20   19.18 1443.66 ^ fp_adder/adder/norm/_1348_/Y (OAI21x1_ASAP7_75t_R)
+     2    1.83                           fp_adder/adder/norm/_0430_ (net)
+                 25.20    0.02 1443.68 ^ fp_adder/adder/norm/_1349_/B (AOI21x1_ASAP7_75t_R)
+                 16.04   12.94 1456.63 v fp_adder/adder/norm/_1349_/Y (AOI21x1_ASAP7_75t_R)
+     1    1.05                           fp_adder/adder/norm/_0431_ (net)
+                 16.04    0.02 1456.64 v fp_adder/adder/norm/_1353_/A2 (OAI21x1_ASAP7_75t_R)
+                 18.35   14.97 1471.61 ^ fp_adder/adder/norm/_1353_/Y (OAI21x1_ASAP7_75t_R)
+     1    1.16                           fp_adder/adder/norm/_0435_ (net)
+                 18.35    0.04 1471.65 ^ fp_adder/adder/norm/_1360_/A2 (AOI21x1_ASAP7_75t_R)
+                102.05   52.04 1523.69 v fp_adder/adder/norm/_1360_/Y (AOI21x1_ASAP7_75t_R)
+    14   15.16                           fp_adder/adder/norm/_0442_ (net)
+                102.06    0.40 1524.09 v fp_adder/adder/norm/_1397_/B (NAND2x1_ASAP7_75t_R)
+                 43.79   39.04 1563.13 ^ fp_adder/adder/norm/_1397_/Y (NAND2x1_ASAP7_75t_R)
+     1    2.11                           fp_adder/adder/norm/_0479_ (net)
+                 43.79    0.03 1563.16 ^ fp_adder/adder/norm/_1398_/B (NAND2x2_ASAP7_75t_R)
+                146.96   72.81 1635.97 v fp_adder/adder/norm/_1398_/Y (NAND2x2_ASAP7_75t_R)
+    29   41.92                           fp_adder/adder/norm/_0480_ (net)
+                147.36    4.54 1640.50 v fp_adder/adder/norm/_1402_/A (NAND2x2_ASAP7_75t_R)
+                 55.72   52.17 1692.68 ^ fp_adder/adder/norm/_1402_/Y (NAND2x2_ASAP7_75t_R)
+     5    4.41                           fp_adder/adder/norm/_0484_ (net)
+                 55.72    0.06 1692.74 ^ fp_adder/adder/norm/_1406_/A2 (OAI21x1_ASAP7_75t_R)
+                 33.45   26.09 1718.83 v fp_adder/adder/norm/_1406_/Y (OAI21x1_ASAP7_75t_R)
+     3    3.40                           fp_adder/adder/norm/_0488_ (net)
+                 33.45    0.03 1718.86 v fp_adder/adder/norm/_1409_/A2 (OAI21x1_ASAP7_75t_R)
+                 20.38   18.09 1736.96 ^ fp_adder/adder/norm/_1409_/Y (OAI21x1_ASAP7_75t_R)
+     1    1.04                           fp_adder/adder/norm/_0491_ (net)
+                 20.38    0.01 1736.97 ^ fp_adder/adder/norm/_1422_/A2 (AOI21x1_ASAP7_75t_R)
+                 75.12   39.92 1776.89 v fp_adder/adder/norm/_1422_/Y (AOI21x1_ASAP7_75t_R)
+     7   10.89                           fp_adder/adder/norm/_0504_ (net)
+                 75.13    0.41 1777.30 v max_cap80/A (BUFx12f_ASAP7_75t_R)
+                 23.24   39.89 1817.19 v max_cap80/Y (BUFx12f_ASAP7_75t_R)
+     9   21.85                           net80 (net)
+                 24.00    2.30 1819.49 v max_cap79/A (BUFx12f_ASAP7_75t_R)
+                 17.01   26.58 1846.08 v max_cap79/Y (BUFx12f_ASAP7_75t_R)
+     8   17.11                           net79 (net)
+                 17.38    1.36 1847.44 v max_cap78/A (BUFx16f_ASAP7_75t_R)
+                 20.21   26.48 1873.92 v max_cap78/Y (BUFx16f_ASAP7_75t_R)
+     9   22.24                           net78 (net)
+                 23.30    4.12 1878.03 v max_cap77/A (BUFx12f_ASAP7_75t_R)
+                 19.72   28.25 1906.29 v max_cap77/Y (BUFx12f_ASAP7_75t_R)
+     9   21.79                           net77 (net)
+                 19.74    0.33 1906.62 v max_cap76/A (BUFx16f_ASAP7_75t_R)
+                 18.36   29.10 1935.72 v max_cap76/Y (BUFx16f_ASAP7_75t_R)
+    12   23.00                           net76 (net)
+                 18.37    0.17 1935.90 v fp_adder/adder/norm/_1566_/A (NAND3x1_ASAP7_75t_R)
+                 39.50   20.06 1955.95 ^ fp_adder/adder/norm/_1566_/Y (NAND3x1_ASAP7_75t_R)
+     2    2.08                           fp_adder/adder/norm/_0648_ (net)
+                 39.50    0.04 1956.00 ^ fp_adder/adder/norm/_1567_/A2 (AOI21x1_ASAP7_75t_R)
+                 25.90   20.97 1976.97 v fp_adder/adder/norm/_1567_/Y (AOI21x1_ASAP7_75t_R)
+     3    2.67                           fp_adder/adder/norm/_0649_ (net)
+                 25.91    0.08 1977.05 v fp_adder/adder/norm/_2059_/A2 (OAI21x1_ASAP7_75t_R)
+                 31.72   22.65 1999.69 ^ fp_adder/adder/norm/_2059_/Y (OAI21x1_ASAP7_75t_R)
+     2    2.49                           fp_adder/adder/norm/_1148_ (net)
+                 31.72    0.26 1999.95 ^ fp_adder/adder/norm/_2060_/B (AND3x1_ASAP7_75t_R)
+                 21.98   33.53 2033.48 ^ fp_adder/adder/norm/_2060_/Y (AND3x1_ASAP7_75t_R)
+     1    1.70                           fp_adder/adder/norm/_1149_ (net)
+                 21.98    0.17 2033.66 ^ fp_adder/adder/norm/_2061_/B (NOR2x1_ASAP7_75t_R)
+                 22.09   18.12 2051.77 v fp_adder/adder/norm/_2061_/Y (NOR2x1_ASAP7_75t_R)
+     1    2.24                           fp_adder/adder/norm/_1150_ (net)
+                 22.09    0.15 2051.93 v fp_adder/adder/norm/_2068_/A (NAND2x2_ASAP7_75t_R)
+                 30.60   23.74 2075.67 ^ fp_adder/adder/norm/_2068_/Y (NAND2x2_ASAP7_75t_R)
+     3    5.03                           fp_adder/adder/norm/_1158_ (net)
+                 30.60    0.16 2075.83 ^ fp_adder/adder/norm/_2069_/C (NOR3x2_ASAP7_75t_R)
+                 35.94   30.01 2105.85 v fp_adder/adder/norm/_2069_/Y (NOR3x2_ASAP7_75t_R)
+     5    6.71                           fp_adder/adder/norm/_1159_ (net)
+                 35.94    0.13 2105.98 v fp_adder/adder/norm/_2084_/B (NAND3x2_ASAP7_75t_R)
+                 46.13   35.54 2141.51 ^ fp_adder/adder/norm/_2084_/Y (NAND3x2_ASAP7_75t_R)
+     5    7.20                           fp_adder/adder/norm/_0011_ (net)
+                 46.13    0.15 2141.67 ^ fp_adder/adder/norm/_2202_/A (NOR2x2_ASAP7_75t_R)
+                 42.66   34.61 2176.28 v fp_adder/adder/norm/_2202_/Y (NOR2x2_ASAP7_75t_R)
+     7    8.82                           fp_adder/adder/norm/_0140_ (net)
+                 42.73    0.97 2177.25 v fp_adder/adder/norm/_2205_/A (NAND3x2_ASAP7_75t_R)
+                 26.11   24.71 2201.96 ^ fp_adder/adder/norm/_2205_/Y (NAND3x2_ASAP7_75t_R)
+     2    2.81                           fp_adder/adder/norm/_0143_ (net)
+                 26.11    0.14 2202.10 ^ fp_adder/adder/norm/_2211_/A2 (OAI21x1_ASAP7_75t_R)
+                 30.45   21.49 2223.59 v fp_adder/adder/norm/_2211_/Y (OAI21x1_ASAP7_75t_R)
+     3    3.74                           fp_adder/adder/norm/_0148_ (net)
+                 30.46    0.31 2223.90 v fp_adder/adder/norm/_2221_/A2 (AOI21x1_ASAP7_75t_R)
+                 38.02   27.26 2251.16 ^ fp_adder/adder/norm/_2221_/Y (AOI21x1_ASAP7_75t_R)
+     3    3.35                           fp_adder/adder/norm/_0157_ (net)
+                 38.02    0.14 2251.30 ^ fp_adder/adder/norm/_2231_/A2 (OAI21x1_ASAP7_75t_R)
+                 25.55   20.86 2272.16 v fp_adder/adder/norm/_2231_/Y (OAI21x1_ASAP7_75t_R)
+     2    2.68                           fp_adder/adder/norm/_0166_ (net)
+                 25.55    0.06 2272.22 v fp_adder/adder/norm/_2236_/A2 (AOI21x1_ASAP7_75t_R)
+                 22.77   18.94 2291.16 ^ fp_adder/adder/norm/_2236_/Y (AOI21x1_ASAP7_75t_R)
+     1    1.59                           fp_adder/adder/norm/_0171_ (net)
+                 22.77    0.02 2291.18 ^ fp_adder/adder/norm/_2239_/A (XOR2x1_ASAP7_75t_R)
+                 21.40   25.96 2317.14 ^ fp_adder/adder/norm/_2239_/Y (XOR2x1_ASAP7_75t_R)
+     2    1.48                           result_int_d[30] (net)
+                 21.40    0.01 2317.15 ^ _470_/B (AND2x2_ASAP7_75t_R)
+                 11.19   23.51 2340.66 ^ _470_/Y (AND2x2_ASAP7_75t_R)
+     1    1.07                           _209_ (net)
+                 11.19    0.01 2340.68 ^ _471_/A (NAND2x1_ASAP7_75t_R)
+                 39.84   10.80 2351.48 v _471_/Y (NAND2x1_ASAP7_75t_R)
+     1    1.31                           _210_ (net)
+                 39.84    0.01 2351.49 v _472_/B (OAI21x1_ASAP7_75t_R)
+                 27.37   12.82 2364.32 ^ _472_/Y (OAI21x1_ASAP7_75t_R)
+     1    0.60                           _116_ (net)
+                 27.37    0.00 2364.32 ^ _509_/D (DFFASRHQNx1_ASAP7_75t_R)
+                               2364.32   data arrival time
+
+                  0.00 1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock network delay (ideal)
+                          0.00 1500.00   clock reconvergence pessimism
+                               1500.00 ^ _509_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                        -26.20 1473.80   library setup time
+                               1473.80   data required time
+-----------------------------------------------------------------------------
+                               1473.80   data required time
+                               -2364.32   data arrival time
+-----------------------------------------------------------------------------
+                               -890.52   slack (VIOLATED)
+
+
+
+==========================================================================
+detailed place report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+lut/_37231_/B                         320.00  337.31  -17.31 (VIOLATED)
+lut/_37269_/B                         320.00  336.13  -16.13 (VIOLATED)
+lut/_37078_/B                         320.00  331.99  -11.99 (VIOLATED)
+lut/_37115_/B                         320.00  328.35   -8.35 (VIOLATED)
+lut/_37238_/B                         320.00  324.86   -4.86 (VIOLATED)
+lut/_37276_/B                         320.00  323.54   -3.54 (VIOLATED)
+lut/_37040_/B                         320.00  322.79   -2.79 (VIOLATED)
+lut/_37085_/B                         320.00  320.50   -0.50 (VIOLATED)
+
+
+==========================================================================
+detailed place max_slew_check_slack
+--------------------------------------------------------------------------
+-17.30540657043457
+
+==========================================================================
+detailed place max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+detailed place max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.0541
+
+==========================================================================
+detailed place max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+detailed place max_capacitance_check_slack
+--------------------------------------------------------------------------
+7.876230716705322
+
+==========================================================================
+detailed place max_capacitance_check_limit
+--------------------------------------------------------------------------
+23.040000915527344
+
+==========================================================================
+detailed place max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.3419
+
+==========================================================================
+detailed place max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 8
+
+==========================================================================
+detailed place max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+detailed place max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+detailed place setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+detailed place hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+detailed place critical path delay
+--------------------------------------------------------------------------
+2364.3213
+
+==========================================================================
+detailed place critical path slack
+--------------------------------------------------------------------------
+-890.5201
+
+==========================================================================
+detailed place slack div critical path delay
+--------------------------------------------------------------------------
+-37.664936
+
+==========================================================================
+detailed place report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.50e-03   1.56e-04   1.27e-06   3.66e-03  42.6%
+Combinational          1.47e-03   3.46e-03   3.13e-06   4.93e-03  57.4%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.97e-03   3.62e-03   4.40e-06   8.59e-03 100.0%
+                          57.8%      42.1%       0.1%
+
+==========================================================================
+detailed place report_design_area
+--------------------------------------------------------------------------
+Design area 4557 u^2 43% utilization.
+
+Elapsed time: 0:18.96[h:]min:sec. CPU time: user 18.79 sys 0.16 (99%). Peak memory: 359968KB.
