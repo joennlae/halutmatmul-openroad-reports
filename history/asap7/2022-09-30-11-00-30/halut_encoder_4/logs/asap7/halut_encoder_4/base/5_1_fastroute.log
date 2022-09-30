@@ -1,0 +1,1176 @@
+OpenROAD b7631451350809842e4fb0c635c3f3ed7f6b270f 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO GRT-0020] Min routing layer: M2
+[INFO GRT-0021] Max routing layer: M7
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer M1      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M2      Track-Pitch = 0.2700  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M3      Track-Pitch = 0.0360  line-2-Via Pitch: 0.0360
+[INFO GRT-0088] Layer M4      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M5      Track-Pitch = 0.0480  line-2-Via Pitch: 0.0480
+[INFO GRT-0088] Layer M6      Track-Pitch = 0.0640  line-2-Via Pitch: 0.1040
+[INFO GRT-0088] Layer M7      Track-Pitch = 0.0640  line-2-Via Pitch: 0.1040
+[INFO GRT-0019] Found 2196 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 129
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 28614
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+M1         Vertical            0             0          0.00%
+M2         Horizontal      80000         39601          50.50%
+M3         Vertical       600000        396860          33.86%
+M4         Horizontal     440000        279197          36.55%
+M5         Vertical       440000        274022          37.72%
+M6         Horizontal     200000        149436          25.28%
+M7         Vertical       200000        159996          20.00%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 179974
+[INFO GRT-0198] Via related Steiner nodes: 8932
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 216910
+[INFO GRT-0112] Final usage 3D: 935099
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+M1                   0             0            0.00%             0 /  0 /  0
+M2               39601         25355           64.03%             0 /  0 /  0
+M3              396860        127601           32.15%             0 /  0 /  0
+M4              279197        108826           38.98%             0 /  0 /  0
+M5              274022         14183            5.18%             0 /  0 /  0
+M6              149436          8404            5.62%             0 /  0 /  0
+M7              159996             0            0.00%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total          1299112        284369           21.89%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 205599 um
+[INFO GRT-0014] Routed nets: 33149
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.00
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+Latency      CRPR       Skew
+gen_encoder_units[3].encoder_unit/threshold_memory/_11160_/CLK ^
+ 425.35
+gen_encoder_units[3].encoder_unit/_764_/CLK ^
+ 184.27      0.00     241.07
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/threshold_memory/_09722_
+          (removal check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                        150.00  150.00 ^ input external delay
+                  0.00    0.00  150.00 ^ rst_ni (in)
+     1    1.66                           rst_ni (net)
+                  0.60    0.19  150.19 ^ hold51/A (BUFx4_ASAP7_75t_R)
+                  9.41   19.71  169.90 ^ hold51/Y (BUFx4_ASAP7_75t_R)
+     1    0.85                           net1300 (net)
+                  9.41    0.06  169.96 ^ hold49/A (BUFx4_ASAP7_75t_R)
+                 14.36   25.41  195.37 ^ hold49/Y (BUFx4_ASAP7_75t_R)
+     1    3.13                           net1298 (net)
+                 14.42    0.49  195.86 ^ input258/A (BUFx24_ASAP7_75t_R)
+                  9.80   24.14  220.00 ^ input258/Y (BUFx24_ASAP7_75t_R)
+     2    4.11                           net258 (net)
+                  9.81    0.29  220.29 ^ hold50/A (BUFx4_ASAP7_75t_R)
+                137.05   73.77  294.06 ^ hold50/Y (BUFx4_ASAP7_75t_R)
+    43   54.15                           net1299 (net)
+                137.09    1.38  295.44 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_09722_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                295.44   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05    6.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06   56.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.86    3.72   59.83 ^ clkbuf_2_1__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 54.85   59.91  119.74 ^ clkbuf_2_1__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     9   20.34                           clknet_2_1__leaf_clk_i (net)
+                 55.10    2.11  121.85 ^ clkbuf_leaf_7_clk_i/A (BUFx4_ASAP7_75t_R)
+                 58.57   59.87  181.72 ^ clkbuf_leaf_7_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   22.14                           clknet_leaf_7_clk_i (net)
+                 58.65    1.28  182.99 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_09510_/A (AND2x2_ASAP7_75t_R)
+                 12.60   29.40  212.39 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_09510_/Y (AND2x2_ASAP7_75t_R)
+     1    1.39                           gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 12.61    0.20  212.59 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 11.96   25.31  237.90 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     2    2.16                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 11.97    0.16  238.06 ^ clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 19.59   29.10  267.17 ^ clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     8    5.36                           clknet_1_1__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 19.76    1.01  268.18 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_09722_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          0.00  268.18   clock reconvergence pessimism
+                         18.65  286.82   library removal time
+                                286.82   data required time
+-----------------------------------------------------------------------------
+                                286.82   data required time
+                               -295.44   data arrival time
+-----------------------------------------------------------------------------
+                                  8.62   slack (MET)
+
+
+Startpoint: gen_encoder_units[1].encoder_unit/threshold_memory/_09734_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/threshold_memory/_09510_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                        750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock source latency
+                  0.00    0.00  750.00 v clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05  756.05 v clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.18   49.92  805.97 v clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 52.05    3.71  809.67 v clkbuf_2_1__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 45.84   58.93  868.60 v clkbuf_2_1__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     9   20.34                           clknet_2_1__leaf_clk_i (net)
+                 46.14    2.10  870.70 v clkbuf_leaf_7_clk_i/A (BUFx4_ASAP7_75t_R)
+                 48.58   58.74  929.44 v clkbuf_leaf_7_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   22.09                           clknet_leaf_7_clk_i (net)
+                 48.69    1.31  930.75 v gen_encoder_units[1].encoder_unit/threshold_memory/_09734_/CLK (DLLx1_ASAP7_75t_R)
+                 13.31   41.99  972.74 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_09734_/Q (DLLx1_ASAP7_75t_R)
+     1    0.85                           gen_encoder_units[1].encoder_unit/threshold_memory/cg_we_global.en_latch (net)
+                 13.31    0.08  972.82 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_09510_/B (AND2x2_ASAP7_75t_R)
+                                972.82   data arrival time
+
+                        750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock source latency
+                  0.00    0.00  750.00 v clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05  756.05 v clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.18   49.92  805.97 v clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 52.05    3.71  809.67 v clkbuf_2_1__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 45.84   58.93  868.60 v clkbuf_2_1__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     9   20.34                           clknet_2_1__leaf_clk_i (net)
+                 46.14    2.10  870.70 v clkbuf_leaf_7_clk_i/A (BUFx4_ASAP7_75t_R)
+                 48.58   58.74  929.44 v clkbuf_leaf_7_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   22.09                           clknet_leaf_7_clk_i (net)
+                 48.68    1.27  930.71 v gen_encoder_units[1].encoder_unit/threshold_memory/_09510_/A (AND2x2_ASAP7_75t_R)
+                          0.00  930.71   clock reconvergence pessimism
+                          0.00  930.71   clock gating hold time
+                                930.71   data required time
+-----------------------------------------------------------------------------
+                                930.71   data required time
+                               -972.82   data arrival time
+-----------------------------------------------------------------------------
+                                 42.11   slack (MET)
+
+
+Startpoint: a_input_i[32] (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_804_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                        150.00  150.00 v input external delay
+                  0.00    0.00  150.00 v a_input_i[32] (in)
+     1    0.98                           a_input_i[32] (net)
+                  0.16    0.05  150.05 v hold585/A (BUFx4_ASAP7_75t_R)
+                  9.72   21.99  172.04 v hold585/Y (BUFx4_ASAP7_75t_R)
+     1    0.81                           net1834 (net)
+                  9.72    0.08  172.11 v input182/A (BUFx2_ASAP7_75t_R)
+                 11.31   20.88  192.99 v input182/Y (BUFx2_ASAP7_75t_R)
+     1    1.87                           net182 (net)
+                 11.34    0.33  193.32 v hold586/A (BUFx4_ASAP7_75t_R)
+                 11.80   27.42  220.74 v hold586/Y (BUFx4_ASAP7_75t_R)
+     1    2.18                           net1835 (net)
+                 11.86    0.42  221.16 v gen_encoder_units[3].encoder_unit/_804_/D (DFFASRHQNx1_ASAP7_75t_R)
+                                221.16   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05    6.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06   56.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.75    3.45   59.56 ^ clkbuf_2_3__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.73   58.52  118.09 ^ clkbuf_2_3__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     7   18.99                           clknet_2_3__leaf_clk_i (net)
+                 52.02    2.20  120.29 ^ clkbuf_leaf_16_clk_i/A (BUFx4_ASAP7_75t_R)
+                 67.55   62.75  183.04 ^ clkbuf_leaf_16_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   26.09                           clknet_leaf_16_clk_i (net)
+                 67.83    2.50  185.54 ^ gen_encoder_units[3].encoder_unit/_804_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          0.00  185.54   clock reconvergence pessimism
+                         25.60  211.14   library hold time
+                                211.14   data required time
+-----------------------------------------------------------------------------
+                                211.14   data required time
+                               -221.16   data arrival time
+-----------------------------------------------------------------------------
+                                 10.02   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_812_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                        150.00  150.00 ^ input external delay
+                  0.00    0.00  150.00 ^ rst_ni (in)
+     1    1.66                           rst_ni (net)
+                  0.60    0.19  150.19 ^ hold51/A (BUFx4_ASAP7_75t_R)
+                  9.41   19.71  169.90 ^ hold51/Y (BUFx4_ASAP7_75t_R)
+     1    0.85                           net1300 (net)
+                  9.41    0.06  169.96 ^ hold49/A (BUFx4_ASAP7_75t_R)
+                 14.36   25.41  195.37 ^ hold49/Y (BUFx4_ASAP7_75t_R)
+     1    3.13                           net1298 (net)
+                 14.42    0.49  195.86 ^ input258/A (BUFx24_ASAP7_75t_R)
+                  9.80   24.14  220.00 ^ input258/Y (BUFx24_ASAP7_75t_R)
+     2    4.11                           net258 (net)
+                  9.82    0.49  220.49 ^ load_slew837/A (BUFx24_ASAP7_75t_R)
+                 49.64   29.56  250.05 ^ load_slew837/Y (BUFx24_ASAP7_75t_R)
+    62   78.98                           net837 (net)
+                108.37   31.73  281.77 ^ load_slew836/A (BUFx24_ASAP7_75t_R)
+                 35.08   51.94  333.71 ^ load_slew836/Y (BUFx24_ASAP7_75t_R)
+    40   54.14                           net836 (net)
+                 76.45   20.82  354.54 ^ load_slew835/A (BUFx24_ASAP7_75t_R)
+                 25.88   46.44  400.97 ^ load_slew835/Y (BUFx24_ASAP7_75t_R)
+    47   66.05                           net835 (net)
+                 63.29   15.46  416.44 ^ load_slew834/A (BUFx24_ASAP7_75t_R)
+                 34.30   41.04  457.48 ^ load_slew834/Y (BUFx24_ASAP7_75t_R)
+    68   87.51                           net834 (net)
+                224.35   70.18  527.66 ^ gen_encoder_units[3].encoder_unit/_812_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                527.66   data arrival time
+
+                       1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock source latency
+                  0.00    0.00 1500.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05 1506.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06 1556.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.75    3.45 1559.56 ^ clkbuf_2_3__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.73   58.52 1618.09 ^ clkbuf_2_3__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     7   18.99                           clknet_2_3__leaf_clk_i (net)
+                 52.02    2.20 1620.29 ^ clkbuf_leaf_16_clk_i/A (BUFx4_ASAP7_75t_R)
+                 67.55   62.75 1683.04 ^ clkbuf_leaf_16_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   26.09                           clknet_leaf_16_clk_i (net)
+                 67.61    1.21 1684.25 ^ gen_encoder_units[3].encoder_unit/_812_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          0.00 1684.25   clock reconvergence pessimism
+                         -7.54 1676.71   library recovery time
+                               1676.71   data required time
+-----------------------------------------------------------------------------
+                               1676.71   data required time
+                               -527.66   data arrival time
+-----------------------------------------------------------------------------
+                               1149.05   slack (MET)
+
+
+Startpoint: gen_encoder_units[3].encoder_unit/threshold_memory/_10850_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/threshold_memory/_09621_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                        750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock source latency
+                  0.00    0.00  750.00 v clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05  756.05 v clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.18   49.92  805.97 v clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 51.92    3.44  809.41 v clkbuf_2_3__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 43.35   57.73  867.14 v clkbuf_2_3__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     7   18.99                           clknet_2_3__leaf_clk_i (net)
+                 43.59    1.87  869.01 v clkbuf_leaf_11_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.10   60.89  929.90 v clkbuf_leaf_11_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   28.53                           clknet_leaf_11_clk_i (net)
+                 64.65    6.83  936.73 v gen_encoder_units[3].encoder_unit/threshold_memory/_09590_/A (AND2x2_ASAP7_75t_R)
+                 11.85   37.80  974.54 v gen_encoder_units[3].encoder_unit/threshold_memory/_09590_/Y (AND2x2_ASAP7_75t_R)
+     1    1.29                           gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o (net)
+                 11.86    0.17  974.71 v clkbuf_0_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 13.43   28.79 1003.50 v clkbuf_0_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     4    3.11                           clknet_0_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o (net)
+                 13.44    0.24 1003.73 v clkbuf_2_1__f_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 18.11   32.64 1036.37 v clkbuf_2_1__f_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     9    5.78                           clknet_2_1__leaf_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o (net)
+                 18.13    0.39 1036.76 v gen_encoder_units[3].encoder_unit/threshold_memory/_10850_/CLK (DLLx2_ASAP7_75t_R)
+                 17.34   53.64 1090.40 v gen_encoder_units[3].encoder_unit/threshold_memory/_10850_/Q (DLLx2_ASAP7_75t_R)
+     1    2.41                           gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[6].cg_i.en_latch (net)
+                 17.41    0.62 1091.02 v gen_encoder_units[3].encoder_unit/threshold_memory/_09621_/C (AND3x1_ASAP7_75t_R)
+                               1091.02   data arrival time
+
+                       1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock source latency
+                  0.00    0.00 1500.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05 1506.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06 1556.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.75    3.45 1559.56 ^ clkbuf_2_3__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.73   58.52 1618.09 ^ clkbuf_2_3__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     7   18.99                           clknet_2_3__leaf_clk_i (net)
+                 51.81    1.23 1619.32 ^ clkbuf_leaf_17_clk_i/A (BUFx4_ASAP7_75t_R)
+                 66.64   61.93 1681.25 ^ clkbuf_leaf_17_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   25.56                           clknet_leaf_17_clk_i (net)
+                 66.78    1.76 1683.02 ^ gen_encoder_units[3].encoder_unit/threshold_memory/_09621_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1683.02   clock reconvergence pessimism
+                          0.00 1683.02   clock gating setup time
+                               1683.02   data required time
+-----------------------------------------------------------------------------
+                               1683.02   data required time
+                               -1091.02   data arrival time
+-----------------------------------------------------------------------------
+                                592.00   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09722_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_11342_
+          (positive level-sensitive latch clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05    6.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06   56.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.81    3.60   59.72 ^ clkbuf_2_2__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 53.10   58.64  118.36 ^ clkbuf_2_2__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     8   19.40                           clknet_2_2__leaf_clk_i (net)
+                 53.49    2.59  120.95 ^ clkbuf_leaf_21_clk_i/A (BUFx4_ASAP7_75t_R)
+                 76.36   65.21  186.16 ^ clkbuf_leaf_21_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   29.30                           clknet_leaf_21_clk_i (net)
+                 79.32    8.10  194.25 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09510_/A (AND2x2_ASAP7_75t_R)
+                 34.86   42.73  236.98 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09510_/Y (AND2x2_ASAP7_75t_R)
+     1    6.19                           gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 35.38    2.34  239.32 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 16.94   35.62  274.94 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     2    4.16                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 16.99    0.51  275.46 ^ clkbuf_1_0__f_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 27.64   32.69  308.15 ^ clkbuf_1_0__f_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     7    8.19                           clknet_1_0__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 30.34    4.55  312.70 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09722_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                111.13  116.66  429.36 v gen_encoder_units[0].encoder_unit/threshold_memory/_09722_/QN (DFFASRHQNx1_ASAP7_75t_R)
+     2   13.62                           gen_encoder_units[0].encoder_unit/threshold_memory/_00011_ (net)
+                111.17    1.21  430.57 v gen_encoder_units[0].encoder_unit/threshold_memory/_09678_/A (CKINVDCx20_ASAP7_75t_R)
+                 61.37   33.70  464.27 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09678_/Y (CKINVDCx20_ASAP7_75t_R)
+   128  110.77                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i.wdata_a_i[4] (net)
+                359.26  112.76  577.03 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_11342_/D (DHLx1_ASAP7_75t_R)
+                                577.03   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05    6.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06   56.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.81    3.60   59.72 ^ clkbuf_2_2__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 53.10   58.64  118.36 ^ clkbuf_2_2__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     8   19.40                           clknet_2_2__leaf_clk_i (net)
+                 53.41    2.31  120.67 ^ clkbuf_leaf_20_clk_i/A (BUFx4_ASAP7_75t_R)
+                 61.55   60.29  180.97 ^ clkbuf_leaf_20_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   23.40                           clknet_leaf_20_clk_i (net)
+                 61.81    2.32  183.29 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09628_/A (AND3x1_ASAP7_75t_R)
+                 20.11   38.89  222.17 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09628_/Y (AND3x1_ASAP7_75t_R)
+     1    1.57                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o (net)
+                 20.12    0.25  222.43 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/A (BUFx4_ASAP7_75t_R)
+                 10.90   27.36  249.78 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/Y (BUFx4_ASAP7_75t_R)
+     2    1.65                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o (net)
+                 10.91    0.15  249.93 ^ clkbuf_1_1__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/A (BUFx4_ASAP7_75t_R)
+                 18.82   28.82  278.75 ^ clkbuf_1_1__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/Y (BUFx4_ASAP7_75t_R)
+     8    5.20                           clknet_1_1__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o (net)
+                 18.85    0.37  279.12 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_11342_/CLK (DHLx1_ASAP7_75t_R)
+                          0.00  279.12   clock reconvergence pessimism
+                        297.91  577.03   time borrowed from endpoint
+                                577.03   data required time
+-----------------------------------------------------------------------------
+                                577.03   data required time
+                               -577.03   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk_i nominal pulse width             750.00
+clock latency difference              -10.07
+library setup time                    -32.66
+--------------------------------------------
+max time borrow                       707.27
+actual time borrow                    297.91
+--------------------------------------------
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_812_
+          (recovery check against rising-edge clock clk_i)
+Path Group: **async_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                        150.00  150.00 ^ input external delay
+                  0.00    0.00  150.00 ^ rst_ni (in)
+     1    1.66                           rst_ni (net)
+                  0.60    0.19  150.19 ^ hold51/A (BUFx4_ASAP7_75t_R)
+                  9.41   19.71  169.90 ^ hold51/Y (BUFx4_ASAP7_75t_R)
+     1    0.85                           net1300 (net)
+                  9.41    0.06  169.96 ^ hold49/A (BUFx4_ASAP7_75t_R)
+                 14.36   25.41  195.37 ^ hold49/Y (BUFx4_ASAP7_75t_R)
+     1    3.13                           net1298 (net)
+                 14.42    0.49  195.86 ^ input258/A (BUFx24_ASAP7_75t_R)
+                  9.80   24.14  220.00 ^ input258/Y (BUFx24_ASAP7_75t_R)
+     2    4.11                           net258 (net)
+                  9.82    0.49  220.49 ^ load_slew837/A (BUFx24_ASAP7_75t_R)
+                 49.64   29.56  250.05 ^ load_slew837/Y (BUFx24_ASAP7_75t_R)
+    62   78.98                           net837 (net)
+                108.37   31.73  281.77 ^ load_slew836/A (BUFx24_ASAP7_75t_R)
+                 35.08   51.94  333.71 ^ load_slew836/Y (BUFx24_ASAP7_75t_R)
+    40   54.14                           net836 (net)
+                 76.45   20.82  354.54 ^ load_slew835/A (BUFx24_ASAP7_75t_R)
+                 25.88   46.44  400.97 ^ load_slew835/Y (BUFx24_ASAP7_75t_R)
+    47   66.05                           net835 (net)
+                 63.29   15.46  416.44 ^ load_slew834/A (BUFx24_ASAP7_75t_R)
+                 34.30   41.04  457.48 ^ load_slew834/Y (BUFx24_ASAP7_75t_R)
+    68   87.51                           net834 (net)
+                224.35   70.18  527.66 ^ gen_encoder_units[3].encoder_unit/_812_/SETN (DFFASRHQNx1_ASAP7_75t_R)
+                                527.66   data arrival time
+
+                       1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock source latency
+                  0.00    0.00 1500.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05 1506.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06 1556.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.75    3.45 1559.56 ^ clkbuf_2_3__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.73   58.52 1618.09 ^ clkbuf_2_3__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     7   18.99                           clknet_2_3__leaf_clk_i (net)
+                 52.02    2.20 1620.29 ^ clkbuf_leaf_16_clk_i/A (BUFx4_ASAP7_75t_R)
+                 67.55   62.75 1683.04 ^ clkbuf_leaf_16_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   26.09                           clknet_leaf_16_clk_i (net)
+                 67.61    1.21 1684.25 ^ gen_encoder_units[3].encoder_unit/_812_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                          0.00 1684.25   clock reconvergence pessimism
+                         -7.54 1676.71   library recovery time
+                               1676.71   data required time
+-----------------------------------------------------------------------------
+                               1676.71   data required time
+                               -527.66   data arrival time
+-----------------------------------------------------------------------------
+                               1149.05   slack (MET)
+
+
+Startpoint: gen_encoder_units[3].encoder_unit/threshold_memory/_10850_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/threshold_memory/_09621_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: **clock_gating_default**
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                        750.00  750.00   clock clk_i (fall edge)
+                          0.00  750.00   clock source latency
+                  0.00    0.00  750.00 v clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05  756.05 v clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.18   49.92  805.97 v clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 51.92    3.44  809.41 v clkbuf_2_3__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 43.35   57.73  867.14 v clkbuf_2_3__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     7   18.99                           clknet_2_3__leaf_clk_i (net)
+                 43.59    1.87  869.01 v clkbuf_leaf_11_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.10   60.89  929.90 v clkbuf_leaf_11_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   28.53                           clknet_leaf_11_clk_i (net)
+                 64.65    6.83  936.73 v gen_encoder_units[3].encoder_unit/threshold_memory/_09590_/A (AND2x2_ASAP7_75t_R)
+                 11.85   37.80  974.54 v gen_encoder_units[3].encoder_unit/threshold_memory/_09590_/Y (AND2x2_ASAP7_75t_R)
+     1    1.29                           gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o (net)
+                 11.86    0.17  974.71 v clkbuf_0_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 13.43   28.79 1003.50 v clkbuf_0_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     4    3.11                           clknet_0_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o (net)
+                 13.44    0.24 1003.73 v clkbuf_2_1__f_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 18.11   32.64 1036.37 v clkbuf_2_1__f_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     9    5.78                           clknet_2_1__leaf_gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.cg_we_global.clk_o (net)
+                 18.13    0.39 1036.76 v gen_encoder_units[3].encoder_unit/threshold_memory/_10850_/CLK (DLLx2_ASAP7_75t_R)
+                 17.34   53.64 1090.40 v gen_encoder_units[3].encoder_unit/threshold_memory/_10850_/Q (DLLx2_ASAP7_75t_R)
+     1    2.41                           gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[6].cg_i.en_latch (net)
+                 17.41    0.62 1091.02 v gen_encoder_units[3].encoder_unit/threshold_memory/_09621_/C (AND3x1_ASAP7_75t_R)
+                               1091.02   data arrival time
+
+                       1500.00 1500.00   clock clk_i (rise edge)
+                          0.00 1500.00   clock source latency
+                  0.00    0.00 1500.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05 1506.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06 1556.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.75    3.45 1559.56 ^ clkbuf_2_3__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 51.73   58.52 1618.09 ^ clkbuf_2_3__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     7   18.99                           clknet_2_3__leaf_clk_i (net)
+                 51.81    1.23 1619.32 ^ clkbuf_leaf_17_clk_i/A (BUFx4_ASAP7_75t_R)
+                 66.64   61.93 1681.25 ^ clkbuf_leaf_17_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   25.56                           clknet_leaf_17_clk_i (net)
+                 66.78    1.76 1683.02 ^ gen_encoder_units[3].encoder_unit/threshold_memory/_09621_/A (AND3x1_ASAP7_75t_R)
+                          0.00 1683.02   clock reconvergence pessimism
+                          0.00 1683.02   clock gating setup time
+                               1683.02   data required time
+-----------------------------------------------------------------------------
+                               1683.02   data required time
+                               -1091.02   data arrival time
+-----------------------------------------------------------------------------
+                                592.00   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_09722_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/_11342_
+          (positive level-sensitive latch clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05    6.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06   56.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.81    3.60   59.72 ^ clkbuf_2_2__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 53.10   58.64  118.36 ^ clkbuf_2_2__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     8   19.40                           clknet_2_2__leaf_clk_i (net)
+                 53.49    2.59  120.95 ^ clkbuf_leaf_21_clk_i/A (BUFx4_ASAP7_75t_R)
+                 76.36   65.21  186.16 ^ clkbuf_leaf_21_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   29.30                           clknet_leaf_21_clk_i (net)
+                 79.32    8.10  194.25 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09510_/A (AND2x2_ASAP7_75t_R)
+                 34.86   42.73  236.98 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09510_/Y (AND2x2_ASAP7_75t_R)
+     1    6.19                           gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 35.38    2.34  239.32 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 16.94   35.62  274.94 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     2    4.16                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 16.99    0.51  275.46 ^ clkbuf_1_0__f_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/A (BUFx4_ASAP7_75t_R)
+                 27.64   32.69  308.15 ^ clkbuf_1_0__f_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o/Y (BUFx4_ASAP7_75t_R)
+     7    8.19                           clknet_1_0__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/cg_we_global.clk_o (net)
+                 30.34    4.55  312.70 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09722_/CLK (DFFASRHQNx1_ASAP7_75t_R)
+                111.13  116.66  429.36 v gen_encoder_units[0].encoder_unit/threshold_memory/_09722_/QN (DFFASRHQNx1_ASAP7_75t_R)
+     2   13.62                           gen_encoder_units[0].encoder_unit/threshold_memory/_00011_ (net)
+                111.17    1.21  430.57 v gen_encoder_units[0].encoder_unit/threshold_memory/_09678_/A (CKINVDCx20_ASAP7_75t_R)
+                 61.37   33.70  464.27 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09678_/Y (CKINVDCx20_ASAP7_75t_R)
+   128  110.77                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i.wdata_a_i[4] (net)
+                359.26  112.76  577.03 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_11342_/D (DHLx1_ASAP7_75t_R)
+                                577.03   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   11.27                           clk_i (net)
+                 19.18    6.05    6.05 ^ clkbuf_0_clk_i/A (BUFx4_ASAP7_75t_R)
+                 62.15   50.06   56.11 ^ clkbuf_0_clk_i/Y (BUFx4_ASAP7_75t_R)
+     4   23.71                           clknet_0_clk_i (net)
+                 62.81    3.60   59.72 ^ clkbuf_2_2__f_clk_i/A (BUFx4_ASAP7_75t_R)
+                 53.10   58.64  118.36 ^ clkbuf_2_2__f_clk_i/Y (BUFx4_ASAP7_75t_R)
+     8   19.40                           clknet_2_2__leaf_clk_i (net)
+                 53.41    2.31  120.67 ^ clkbuf_leaf_20_clk_i/A (BUFx4_ASAP7_75t_R)
+                 61.55   60.29  180.97 ^ clkbuf_leaf_20_clk_i/Y (BUFx4_ASAP7_75t_R)
+    30   23.40                           clknet_leaf_20_clk_i (net)
+                 61.81    2.32  183.29 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09628_/A (AND3x1_ASAP7_75t_R)
+                 20.11   38.89  222.17 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_09628_/Y (AND3x1_ASAP7_75t_R)
+     1    1.57                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o (net)
+                 20.12    0.25  222.43 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/A (BUFx4_ASAP7_75t_R)
+                 10.90   27.36  249.78 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/Y (BUFx4_ASAP7_75t_R)
+     2    1.65                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o (net)
+                 10.91    0.15  249.93 ^ clkbuf_1_1__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/A (BUFx4_ASAP7_75t_R)
+                 18.82   28.82  278.75 ^ clkbuf_1_1__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o/Y (BUFx4_ASAP7_75t_R)
+     8    5.20                           clknet_1_1__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i.gen_cg_word_iter[0].cg_i.clk_o (net)
+                 18.85    0.37  279.12 ^ gen_encoder_units[0].encoder_unit/threshold_memory/_11342_/CLK (DHLx1_ASAP7_75t_R)
+                          0.00  279.12   clock reconvergence pessimism
+                        297.91  577.03   time borrowed from endpoint
+                                577.03   data required time
+-----------------------------------------------------------------------------
+                                577.03   data required time
+                               -577.03   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk_i nominal pulse width             750.00
+clock latency difference              -10.07
+library setup time                    -32.66
+--------------------------------------------
+max time borrow                       707.27
+actual time borrow                    297.91
+--------------------------------------------
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+gen_encoder_units[0].encoder_unit/threshold_memory/_05152_/C  320.00  497.82 -177.82 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05342_/C  320.00  497.70 -177.70 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07190_/C  320.00  497.38 -177.38 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08794_/C  320.00  497.30 -177.30 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07760_/C  320.00  496.21 -176.21 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06919_/C  320.00  495.61 -175.61 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06718_/C  320.00  495.14 -175.14 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08919_/C  320.00  494.99 -174.99 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05753_/C  320.00  494.79 -174.78 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08274_/C  320.00  494.51 -174.51 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07049_/C  320.00  494.20 -174.20 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08019_/C  320.00  494.12 -174.12 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07240_/C  320.00  493.54 -173.54 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05983_/C  320.00  493.23 -173.23 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06756_/C  320.00  492.64 -172.64 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07892_/C  320.00  488.94 -168.94 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_04988_/C  320.00  488.87 -168.87 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08408_/C  320.00  488.37 -168.37 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07889_/C  320.00  488.30 -168.30 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08042_/C  320.00  487.33 -167.33 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08957_/C  320.00  486.63 -166.63 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09190_/C  320.00  486.58 -166.58 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09193_/C  320.00  485.60 -165.60 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07083_/C  320.00  484.46 -164.46 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05798_/C  320.00  483.88 -163.88 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06019_/C  320.00  482.14 -162.14 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06594_/C  320.00  476.83 -156.83 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05438_/C  320.00  475.61 -155.61 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09110_/C  320.00  474.45 -154.45 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08817_/C  320.00  474.40 -154.40 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07783_/C  320.00  474.37 -154.37 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08205_/C  320.00  474.06 -154.06 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06109_/C  320.00  473.69 -153.69 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07278_/C  320.00  472.82 -152.82 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06965_/C  320.00  471.51 -151.51 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06190_/C  320.00  471.40 -151.40 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08312_/C  320.00  471.25 -151.25 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06188_/C  320.00  470.90 -150.90 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08538_/C  320.00  470.72 -150.72 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06527_/C  320.00  470.23 -150.23 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07568_/C  320.00  469.82 -149.82 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05621_/C  320.00  466.04 -146.04 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05619_/C  320.00  464.09 -144.09 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05412_/A  320.00  464.07 -144.07 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05493_/A  320.00  463.64 -143.64 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05208_/C  320.00  461.49 -141.49 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08251_/C  320.00  454.01 -134.01 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06161_/C  320.00  452.85 -132.85 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06188_/C  320.00  450.75 -130.75 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06190_/C  320.00  450.70 -130.70 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05208_/C  320.00  450.05 -130.05 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05621_/C  320.00  450.02 -130.02 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08538_/C  320.00  449.92 -129.92 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05619_/C  320.00  449.85 -129.85 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06527_/C  320.00  449.20 -129.20 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07568_/C  320.00  448.92 -128.92 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09156_/C  320.00  447.81 -127.81 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07278_/C  320.00  445.30 -125.30 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08205_/C  320.00  445.27 -125.27 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06109_/C  320.00  445.16 -125.16 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_09110_/C  320.00  445.08 -125.08 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07783_/C  320.00  444.62 -124.62 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08817_/C  320.00  444.04 -124.04 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06965_/C  320.00  443.01 -123.01 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08312_/C  320.00  441.68 -121.68 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06314_/C  320.00  438.61 -118.61 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08658_/C  320.00  438.11 -118.11 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07624_/C  320.00  433.89 -113.89 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08642_/C  320.00  430.67 -110.67 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07309_/C  320.00  430.50 -110.50 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08343_/C  320.00  430.34 -110.34 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06051_/C  320.00  430.18 -110.18 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08610_/C  320.00  430.11 -110.11 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08156_/C  320.00  429.60 -109.60 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07122_/C  320.00  429.22 -109.22 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07366_/C  320.00  428.32 -108.32 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09061_/C  320.00  427.56 -107.56 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05753_/C  320.00  426.01 -106.01 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06485_/C  320.00  425.83 -105.83 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07827_/C  320.00  423.43 -103.43 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06857_/C  320.00  423.30 -103.30 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08861_/C  320.00  423.08 -103.08 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07824_/C  320.00  422.94 -102.94 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08858_/C  320.00  422.86 -102.86 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06854_/C  320.00  422.84 -102.84 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07526_/C  320.00  422.69 -102.69 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05686_/C  320.00  422.40 -102.40 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08919_/C  320.00  422.19 -102.19 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05681_/C  320.00  422.06 -102.06 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05274_/C  320.00  421.58 -101.58 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05276_/C  320.00  420.78 -100.78 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08019_/C  320.00  419.37  -99.37 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05983_/C  320.00  419.35  -99.35 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07049_/C  320.00  419.14  -99.14 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06718_/C  320.00  418.13  -98.13 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05137_/C  320.00  415.45  -95.45 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07518_/C  320.00  415.14  -95.14 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_04915_/C  320.00  410.65  -90.65 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_05043_/C  320.00  409.57  -89.57 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08042_/C  320.00  402.75  -82.75 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06019_/C  320.00  401.15  -81.15 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08156_/C  320.00  399.63  -79.63 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06485_/C  320.00  399.59  -79.59 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07526_/C  320.00  399.55  -79.55 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07122_/C  320.00  399.52  -79.52 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09061_/C  320.00  399.49  -79.49 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08610_/C  320.00  398.53  -78.53 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05274_/C  320.00  396.44  -76.44 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05276_/C  320.00  395.43  -75.43 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06857_/C  320.00  394.56  -74.56 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06854_/C  320.00  394.46  -74.46 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07827_/C  320.00  394.41  -74.41 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07824_/C  320.00  394.27  -74.27 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05686_/C  320.00  394.19  -74.19 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08861_/C  320.00  394.12  -74.12 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08858_/C  320.00  394.09  -74.09 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05681_/C  320.00  393.56  -73.56 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05137_/C  320.00  392.88  -72.88 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06476_/C  320.00  390.42  -70.42 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07518_/C  320.00  388.73  -68.73 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07083_/C  320.00  386.14  -66.14 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07153_/C  320.00  384.78  -64.78 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08187_/C  320.00  379.92  -59.92 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_09193_/C  320.00  379.84  -59.84 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09099_/C  320.00  378.67  -58.67 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_09190_/C  320.00  378.54  -58.54 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06247_/C  320.00  378.10  -58.10 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11566_/D  320.00  378.04  -58.04 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11758_/D  320.00  378.03  -58.03 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11710_/D  320.00  377.70  -57.70 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11902_/D  320.00  377.52  -57.52 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11630_/D  320.00  377.43  -57.43 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11582_/D  320.00  377.40  -57.40 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11502_/D  320.00  376.99  -56.99 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11646_/D  320.00  376.98  -56.98 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11486_/D  320.00  376.82  -56.82 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11790_/D  320.00  376.08  -56.08 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11806_/D  320.00  375.02  -55.02 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08642_/C  320.00  374.10  -54.10 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11518_/D  320.00  374.03  -54.03 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11854_/D  320.00  374.03  -54.03 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11726_/D  320.00  374.02  -54.02 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11534_/D  320.00  373.34  -53.34 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08957_/C  320.00  369.19  -49.19 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06247_/C  320.00  369.11  -49.11 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11230_/D  320.00  368.69  -48.69 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11054_/D  320.00  368.67  -48.67 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10942_/D  320.00  368.63  -48.63 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11118_/D  320.00  368.62  -48.62 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11294_/D  320.00  368.60  -48.60 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10894_/D  320.00  368.38  -48.38 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11134_/D  320.00  367.91  -47.91 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10926_/D  320.00  367.65  -47.65 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_10989_/D  320.00  367.17  -47.17 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11326_/D  320.00  367.04  -47.04 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11150_/D  320.00  366.95  -46.95 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11278_/D  320.00  366.76  -46.76 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11005_/D  320.00  366.55  -46.55 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11085_/D  320.00  366.54  -46.54 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11213_/D  320.00  366.52  -46.52 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11117_/D  320.00  366.52  -46.52 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11021_/D  320.00  366.26  -46.26 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11149_/D  320.00  366.12  -46.12 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11070_/D  320.00  366.06  -46.06 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11053_/D  320.00  366.02  -46.02 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_10973_/D  320.00  365.68  -45.68 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11357_/D  320.00  365.68  -45.68 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10974_/D  320.00  365.03  -45.03 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11182_/D  320.00  364.46  -44.46 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05043_/C  320.00  364.05  -44.05 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11310_/D  320.00  363.59  -43.59 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10910_/D  320.00  363.35  -43.35 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_10861_/D  320.00  363.06  -43.06 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11181_/D  320.00  361.82  -41.82 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05798_/C  320.00  360.61  -40.61 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07728_/C  320.00  360.04  -40.04 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08132_/C  320.00  359.90  -39.90 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_09288_/C  320.00  359.77  -39.77 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05571_/C  320.00  359.75  -39.75 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10864_/D  320.00  359.43  -39.43 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11072_/D  320.00  359.41  -39.41 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11165_/D  320.00  359.35  -39.35 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06396_/C  320.00  359.32  -39.32 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11360_/D  320.00  359.32  -39.32 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11120_/D  320.00  359.32  -39.32 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11104_/D  320.00  359.30  -39.30 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11296_/D  320.00  359.29  -39.29 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11342_/D  320.00  359.26  -39.26 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06690_/C  320.00  358.77  -38.77 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10928_/D  320.00  358.60  -38.60 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11136_/D  320.00  358.57  -38.57 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07441_/C  320.00  358.37  -38.37 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11166_/D  320.00  358.07  -38.07 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11358_/D  320.00  358.03  -38.03 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_06476_/C  320.00  358.02  -38.02 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11214_/D  320.00  358.00  -38.00 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10862_/D  320.00  357.52  -37.52 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05412_/A  320.00  357.46  -37.46 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11022_/D  320.00  357.43  -37.43 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11261_/D  320.00  357.26  -37.26 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10878_/D  320.00  357.06  -37.06 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11248_/D  320.00  356.93  -36.93 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11232_/D  320.00  356.85  -36.85 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11280_/D  320.00  356.84  -36.84 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11006_/D  320.00  356.79  -36.79 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11152_/D  320.00  356.75  -36.75 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06594_/C  320.00  356.68  -36.68 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05438_/C  320.00  356.58  -36.58 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08408_/C  320.00  356.28  -36.28 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11102_/D  320.00  354.94  -34.94 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11008_/D  320.00  354.92  -34.92 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10990_/D  320.00  354.91  -34.91 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07309_/C  320.00  354.55  -34.55 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06756_/C  320.00  354.40  -34.40 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10944_/D  320.00  354.21  -34.21 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10880_/D  320.00  353.87  -33.87 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11246_/D  320.00  353.75  -33.75 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10958_/D  320.00  353.74  -33.74 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10912_/D  320.00  352.50  -32.50 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11229_/D  320.00  352.32  -32.32 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11069_/D  320.00  351.81  -31.81 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11262_/D  320.00  350.95  -30.95 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08343_/C  320.00  350.79  -30.79 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06051_/C  320.00  350.76  -30.76 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11056_/D  320.00  350.25  -30.25 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11168_/D  320.00  350.23  -30.23 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11198_/D  320.00  349.71  -29.71 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11309_/D  320.00  349.17  -29.17 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11216_/D  320.00  348.94  -28.94 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11184_/D  320.00  348.16  -28.16 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10976_/D  320.00  348.15  -28.15 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11024_/D  320.00  348.10  -28.10 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11312_/D  320.00  347.68  -27.68 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10992_/D  320.00  347.31  -27.31 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11328_/D  320.00  346.49  -26.49 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11264_/D  320.00  346.40  -26.40 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10896_/D  320.00  346.34  -26.34 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10960_/D  320.00  346.33  -26.33 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11086_/D  320.00  346.32  -26.32 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_11038_/D  320.00  346.30  -26.30 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_10909_/D  320.00  345.48  -25.48 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_10925_/D  320.00  345.47  -25.47 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_10893_/D  320.00  345.33  -25.33 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_10941_/D  320.00  345.33  -25.33 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11344_/D  320.00  345.25  -25.25 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06790_/C  320.00  343.84  -23.84 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11325_/D  320.00  341.85  -21.85 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11101_/D  320.00  341.83  -21.83 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10092_/D  320.00  340.50  -20.50 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09852_/D  320.00  340.10  -20.10 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10028_/D  320.00  340.07  -20.07 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_07153_/C  320.00  340.07  -20.07 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09804_/D  320.00  340.01  -20.01 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10188_/D  320.00  340.01  -20.01 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10204_/D  320.00  339.98  -19.98 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09980_/D  320.00  339.93  -19.93 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10140_/D  320.00  339.90  -19.90 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10076_/D  320.00  339.87  -19.87 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10236_/D  320.00  339.81  -19.81 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09820_/D  320.00  339.78  -19.78 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10044_/D  320.00  339.52  -19.52 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09964_/D  320.00  339.44  -19.44 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09836_/D  320.00  339.12  -19.12 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10220_/D  320.00  338.33  -18.33 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09884_/D  320.00  337.18  -17.18 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11040_/D  320.00  336.49  -16.49 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_06787_/C  320.00  335.92  -15.92 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05571_/C  320.00  335.41  -15.41 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09288_/C  320.00  335.17  -15.17 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11088_/D  320.00  335.13  -15.13 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05836_/C  320.00  334.98  -14.98 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05832_/C  320.00  334.89  -14.89 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_11341_/D  320.00  334.83  -14.83 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08990_/C  320.00  334.41  -14.41 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08987_/C  320.00  333.89  -13.89 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06787_/C  320.00  333.60  -13.60 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_11200_/D  320.00  332.82  -12.82 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10264_/D  320.00  332.63  -12.63 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10072_/D  320.00  332.60  -12.60 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10120_/D  320.00  332.52  -12.52 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09992_/D  320.00  332.27  -12.27 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09944_/D  320.00  332.26  -12.26 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09928_/D  320.00  332.20  -12.20 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09768_/D  320.00  331.99  -11.99 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10008_/D  320.00  331.17  -11.17 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09784_/D  320.00  331.07  -11.07 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09912_/D  320.00  331.04  -11.04 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09896_/D  320.00  330.95  -10.95 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10168_/D  320.00  330.89  -10.89 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10104_/D  320.00  330.85  -10.85 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05836_/C  320.00  330.40  -10.40 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06790_/C  320.00  330.11  -10.11 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09864_/D  320.00  329.96   -9.96 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10152_/D  320.00  329.35   -9.35 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08538_/C  320.00  328.22   -8.22 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07568_/C  320.00  328.15   -8.15 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06527_/C  320.00  327.93   -7.93 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09790_/D  320.00  327.83   -7.83 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09822_/D  320.00  327.82   -7.82 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10222_/D  320.00  327.69   -7.69 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09774_/D  320.00  327.65   -7.65 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09918_/D  320.00  327.62   -7.62 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07783_/C  320.00  327.27   -7.27 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10062_/D  320.00  327.22   -7.22 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10030_/D  320.00  327.15   -7.15 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10270_/D  320.00  327.14   -7.14 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10206_/D  320.00  327.11   -7.11 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10190_/D  320.00  327.10   -7.10 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10142_/D  320.00  327.08   -7.08 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10158_/D  320.00  327.08   -7.08 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09806_/D  320.00  327.05   -7.05 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09902_/D  320.00  326.93   -6.93 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_08187_/C  320.00  326.73   -6.73 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08817_/C  320.00  326.70   -6.70 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06965_/C  320.00  326.49   -6.49 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_05832_/C  320.00  326.19   -6.19 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07278_/C  320.00  325.82   -5.82 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08312_/C  320.00  325.77   -5.77 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09110_/C  320.00  325.57   -5.57 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06109_/C  320.00  325.42   -5.42 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_04768_/C  320.00  325.07   -5.07 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11769_/D  320.00  324.96   -4.96 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11785_/D  320.00  324.94   -4.94 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11513_/D  320.00  324.81   -4.81 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11625_/D  320.00  324.78   -4.78 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11609_/D  320.00  324.76   -4.76 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11689_/D  320.00  324.63   -4.63 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09854_/D  320.00  324.59   -4.59 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11705_/D  320.00  324.57   -4.57 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11737_/D  320.00  324.49   -4.49 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08205_/C  320.00  324.21   -4.21 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10248_/D  320.00  324.21   -4.21 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11881_/D  320.00  324.17   -4.17 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11865_/D  320.00  324.15   -4.15 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11801_/D  320.00  324.11   -4.11 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11849_/D  320.00  324.10   -4.10 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11497_/D  320.00  324.04   -4.04 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11417_/D  320.00  324.03   -4.03 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11913_/D  320.00  323.92   -3.92 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09982_/D  320.00  323.40   -3.40 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09800_/D  320.00  323.39   -3.39 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05152_/C  320.00  323.37   -3.37 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06919_/C  320.00  323.18   -3.18 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_04988_/C  320.00  323.13   -3.13 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11833_/D  320.00  323.12   -3.12 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10667_/D  320.00  323.08   -3.08 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07892_/C  320.00  323.06   -3.06 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10200_/D  320.00  323.03   -3.03 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_07760_/C  320.00  323.02   -3.02 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10603_/D  320.00  323.00   -3.00 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10587_/D  320.00  322.98   -2.98 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10507_/D  320.00  322.92   -2.92 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_08794_/C  320.00  322.76   -2.76 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_07889_/C  320.00  322.76   -2.76 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10763_/D  320.00  322.70   -2.70 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10024_/D  320.00  322.60   -2.60 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_05342_/C  320.00  322.51   -2.51 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10395_/D  320.00  322.47   -2.47 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09886_/D  320.00  322.31   -2.31 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10094_/D  320.00  322.31   -2.31 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09960_/D  320.00  322.18   -2.18 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_08987_/C  320.00  322.04   -2.04 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_10046_/D  320.00  322.03   -2.03 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10731_/D  320.00  321.81   -1.81 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10315_/D  320.00  321.80   -1.80 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09156_/C  320.00  321.73   -1.73 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_09838_/D  320.00  321.73   -1.73 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_06161_/C  320.00  321.48   -1.48 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_10252_/D  320.00  321.38   -1.38 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09848_/D  320.00  321.36   -1.36 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_09976_/D  320.00  321.35   -1.35 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10699_/D  320.00  321.23   -1.23 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10811_/D  320.00  321.22   -1.22 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10747_/D  320.00  321.13   -1.13 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10779_/D  320.00  321.09   -1.09 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11272_/D  320.00  320.77   -0.77 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11320_/D  320.00  320.72   -0.72 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11160_/D  320.00  320.72   -0.72 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10683_/D  320.00  320.60   -0.60 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10427_/D  320.00  320.59   -0.59 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10523_/D  320.00  320.56   -0.56 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11080_/D  320.00  320.54   -0.54 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10411_/D  320.00  320.51   -0.51 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11144_/D  320.00  320.34   -0.34 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11529_/D  320.00  320.28   -0.28 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11481_/D  320.00  320.26   -0.26 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_11336_/D  320.00  320.14   -0.14 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10936_/D  320.00  320.13   -0.13 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_10968_/D  320.00  320.08   -0.08 (VIOLATED)
+
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+-177.8194580078125
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+320.0
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+-0.5557
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+9.584415435791016
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+23.040000915527344
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.4160
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 389
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+577.0310
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+0.000000
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.82e-03   2.78e-04   1.32e-06   4.10e-03  34.2%
+Combinational          2.98e-03   4.90e-03   3.49e-06   7.89e-03  65.8%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  6.80e-03   5.18e-03   4.81e-06   1.20e-02 100.0%
+                          56.7%      43.2%       0.0%
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 4845 u^2 45% utilization.
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO FLW-0007] clock clk_i period 1500.000000
+[INFO FLW-0008] Clock clk_i period 1425.000
+[INFO FLW-0009] Clock clk_i slack 0.000
+[INFO FLW-0011] Path endpoint count 10593
+Elapsed time: 0:27.91[h:]min:sec. CPU time: user 27.45 sys 0.46 (99%). Peak memory: 954572KB.
