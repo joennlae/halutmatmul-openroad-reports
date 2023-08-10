@@ -1,0 +1,867 @@
+OpenROAD 353633e018e57e35041db2841116ba382830b97b 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal10
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal7  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal8  Track-Pitch = 0.8000  line-2-Via Pitch: 0.8000
+[INFO GRT-0088] Layer metal9  Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0088] Layer metal10 Track-Pitch = 1.6000  line-2-Via Pitch: 1.6000
+[INFO GRT-0019] Found 3341 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 265
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical       310464         58451          81.17%
+metal3     Horizontal     423360        115165          72.80%
+metal4     Vertical       197568        136153          31.09%
+metal5     Horizontal     197568        141282          28.49%
+metal6     Vertical       197568        141282          28.49%
+metal7     Horizontal      56448         26310          53.39%
+metal8     Vertical        56448         28557          49.41%
+metal9     Horizontal      28224         28056          0.60%
+metal10    Vertical        28224         28056          0.60%
+---------------------------------------------------------------
+
+[INFO GRT-0101] Running extra iterations to remove overflow.
+[INFO GRT-0197] Via related to pin nodes: 220600
+[INFO GRT-0198] Via related Steiner nodes: 6794
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 262589
+[INFO GRT-0112] Final usage 3D: 999963
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2           58451         29375           50.26%             0 /  0 /  0
+metal3          115165         57336           49.79%             0 /  0 /  0
+metal4          136153         51821           38.06%             0 /  0 /  0
+metal5          141282         45408           32.14%             0 /  0 /  0
+metal6          141282         20275           14.35%             0 /  0 /  0
+metal7           26310          4007           15.23%             0 /  0 /  0
+metal8           28557          1072            3.75%             0 /  0 /  0
+metal9           28056          2483            8.85%             0 /  0 /  0
+metal10          28056           419            1.49%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total           703312        212196           30.17%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 658360 um
+[INFO GRT-0014] Routed nets: 33418
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack 0.00
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock clk_i
+Latency      CRPR       Skew
+gen_encoder_units[2].encoder_unit/threshold_memory/gen_sub_units_scm[2].sub_unit_i/_2518_/G ^
+   0.54
+gen_encoder_units[2].encoder_unit/_454_/CK ^
+   0.13      0.00       0.41
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/_505_
+          (removal check against rising-edge clock clk_i)
+Path Group: asynchronous
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+     1    1.23                           rst_ni (net)
+                  0.00    0.00    0.30 ^ hold1101/A (CLKBUF_X1)
+                  0.06    0.09    0.39 ^ hold1101/Z (CLKBUF_X1)
+     1   27.27                           net1679 (net)
+                  0.06    0.00    0.39 ^ input258/A (BUF_X32)
+                  0.02    0.04    0.43 ^ input258/Z (BUF_X32)
+   264  651.27                           net258 (net)
+                  0.22    0.18    0.61 ^ gen_encoder_units[0].encoder_unit/_505_/RN (DFFR_X1)
+                                  0.61   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    0.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    0.06 ^ clkbuf_1_1__f_clk_i/A (BUF_X32)
+                  0.01    0.03    0.09 ^ clkbuf_1_1__f_clk_i/Z (BUF_X32)
+    11  363.64                           clknet_1_1__leaf_clk_i (net)
+                  0.06    0.04    0.13 ^ clkbuf_leaf_18_clk_i/A (BUF_X32)
+                  0.01    0.03    0.16 ^ clkbuf_leaf_18_clk_i/Z (BUF_X32)
+    30   40.15                           clknet_leaf_18_clk_i (net)
+                  0.01    0.00    0.16 ^ gen_encoder_units[0].encoder_unit/_505_/CK (DFFR_X1)
+                          0.00    0.16   clock reconvergence pessimism
+                          0.46    0.62   library removal time
+                                  0.62   data required time
+-----------------------------------------------------------------------------
+                                  0.62   data required time
+                                 -0.61   data arrival time
+-----------------------------------------------------------------------------
+                                 -0.01   slack (VIOLATED)
+
+
+Startpoint: gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2957_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2411_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: gated clock
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock source latency
+                  0.00    0.00    1.50 v clk_i (in)
+     1   44.59                           clk_i (net)
+                  0.03    0.02    1.52 v clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    1.56 v clkbuf_0_clk_i/Z (BUF_X32)
+     2   61.58                           clknet_0_clk_i (net)
+                  0.01    0.01    1.56 v clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    1.59 v clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  407.05                           clknet_1_0__leaf_clk_i (net)
+                  0.04    0.03    1.62 v clkbuf_leaf_8_clk_i/A (BUF_X32)
+                  0.01    0.04    1.66 v clkbuf_leaf_8_clk_i/Z (BUF_X32)
+    12   23.74                           clknet_leaf_8_clk_i (net)
+                  0.01    0.00    1.66 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.07    0.08    1.74 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   30.02                           gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_ (net)
+                  0.07    0.00    1.74 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/A (BUF_X32)
+                  0.02    0.04    1.78 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/Z (BUF_X32)
+     8  220.97                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_ (net)
+                  0.02    0.00    1.78 ^ clkbuf_3_6__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.02    1.80 ^ clkbuf_3_6__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/Z (BUF_X32)
+     6   16.18                           clknet_3_6__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_ (net)
+                  0.01    0.00    1.81 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2399__391/A (INV_X1)
+                  0.00    0.01    1.81 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2399__391/ZN (INV_X1)
+     1    2.50                           net969 (net)
+                  0.00    0.00    1.81 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2957_/GN (DLL_X1)
+                  0.01    0.05    1.86 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2957_/Q (DLL_X1)
+     1    1.47                           gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/gen_cg_word_iter[9].cg_i.en_latch (net)
+                  0.01    0.00    1.86 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2411_/A2 (AND2_X1)
+                                  1.86   data arrival time
+
+                          1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock source latency
+                  0.00    0.00    1.50 v clk_i (in)
+     1   44.59                           clk_i (net)
+                  0.03    0.02    1.52 v clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    1.56 v clkbuf_0_clk_i/Z (BUF_X32)
+     2   61.58                           clknet_0_clk_i (net)
+                  0.01    0.01    1.56 v clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    1.59 v clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  407.05                           clknet_1_0__leaf_clk_i (net)
+                  0.04    0.03    1.62 v clkbuf_leaf_8_clk_i/A (BUF_X32)
+                  0.01    0.04    1.66 v clkbuf_leaf_8_clk_i/Z (BUF_X32)
+    12   23.74                           clknet_leaf_8_clk_i (net)
+                  0.01    0.00    1.66 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.07    0.08    1.74 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   30.02                           gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_ (net)
+                  0.07    0.00    1.74 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/A (BUF_X32)
+                  0.02    0.04    1.78 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/Z (BUF_X32)
+     8  220.97                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_ (net)
+                  0.02    0.01    1.79 ^ clkbuf_3_7__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.02    1.82 ^ clkbuf_3_7__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_/Z (BUF_X32)
+     9   21.15                           clknet_3_7__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_0846_ (net)
+                  0.01    0.00    1.82 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2399__363/A (INV_X1)
+                  0.00    0.01    1.82 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2399__363/ZN (INV_X1)
+     1    2.61                           net941 (net)
+                  0.00    0.00    1.82 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[1].sub_unit_i/_2411_/A1 (AND2_X1)
+                          0.00    1.82   clock reconvergence pessimism
+                          0.00    1.82   clock gating hold time
+                                  1.82   data required time
+-----------------------------------------------------------------------------
+                                  1.82   data required time
+                                 -1.86   data arrival time
+-----------------------------------------------------------------------------
+                                  0.04   slack (MET)
+
+
+Startpoint: wdata_i[35] (input port clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/threshold_memory/_148_
+          (rising edge-triggered flip-flop clocked by clk_i)
+Path Group: clk_i
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ wdata_i[35] (in)
+     1    2.19                           wdata_i[35] (net)
+                  0.00    0.00    0.30 ^ input315/A (BUF_X1)
+                  0.01    0.02    0.32 ^ input315/Z (BUF_X1)
+     1    2.20                           net315 (net)
+                  0.01    0.00    0.32 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_107_/A2 (NAND2_X1)
+                  0.01    0.01    0.33 v gen_encoder_units[1].encoder_unit/threshold_memory/_107_/ZN (NAND2_X1)
+     1    1.57                           gen_encoder_units[1].encoder_unit/threshold_memory/_057_ (net)
+                  0.01    0.00    0.33 v gen_encoder_units[1].encoder_unit/threshold_memory/_108_/A2 (NAND2_X1)
+                  0.01    0.01    0.35 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_108_/ZN (NAND2_X1)
+     1    1.21                           gen_encoder_units[1].encoder_unit/threshold_memory/_003_ (net)
+                  0.01    0.00    0.35 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_148_/D (DFFR_X2)
+                                  0.35   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    0.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    0.06 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  450.89                           clknet_1_0__leaf_clk_i (net)
+                  0.07    0.05    0.14 ^ clkbuf_leaf_5_clk_i/A (BUF_X32)
+                  0.01    0.03    0.17 ^ clkbuf_leaf_5_clk_i/Z (BUF_X32)
+    30   40.34                           clknet_leaf_5_clk_i (net)
+                  0.01    0.00    0.17 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_082_/A1 (NAND2_X1)
+                  0.05    0.06    0.23 v gen_encoder_units[1].encoder_unit/threshold_memory/_082_/ZN (NAND2_X1)
+     1   26.23                           gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.05    0.00    0.24 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.01    0.04    0.28 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     2   48.96                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.01    0.00    0.28 v clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.00    0.02    0.30 v clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     9   17.55                           clknet_1_1__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.00    0.00    0.30 v gen_encoder_units[1].encoder_unit/threshold_memory/_083__285/A (INV_X1)
+                  0.00    0.01    0.31 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_083__285/ZN (INV_X1)
+     1    1.11                           net863 (net)
+                  0.00    0.00    0.31 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_148_/CK (DFFR_X2)
+                          0.00    0.31   clock reconvergence pessimism
+                          0.01    0.32   library hold time
+                                  0.32   data required time
+-----------------------------------------------------------------------------
+                                  0.32   data required time
+                                 -0.35   data arrival time
+-----------------------------------------------------------------------------
+                                  0.03   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_514_
+          (recovery check against rising-edge clock clk_i)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+     1    1.23                           rst_ni (net)
+                  0.00    0.00    0.30 ^ hold1101/A (CLKBUF_X1)
+                  0.06    0.09    0.39 ^ hold1101/Z (CLKBUF_X1)
+     1   27.27                           net1679 (net)
+                  0.06    0.00    0.39 ^ input258/A (BUF_X32)
+                  0.02    0.04    0.43 ^ input258/Z (BUF_X32)
+   264  651.27                           net258 (net)
+                  0.12    0.09    0.52 ^ hold1102/A (BUF_X32)
+                  0.01    0.04    0.55 ^ hold1102/Z (BUF_X32)
+   144  413.52                           net1680 (net)
+                  0.16    0.13    0.69 ^ gen_encoder_units[3].encoder_unit/_514_/RN (DFFR_X1)
+                                  0.69   data arrival time
+
+                          3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock source latency
+                  0.00    0.00    3.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    3.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    3.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    3.06 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    3.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  450.89                           clknet_1_0__leaf_clk_i (net)
+                  0.07    0.06    3.15 ^ clkbuf_leaf_1_clk_i/A (BUF_X32)
+                  0.01    0.03    3.17 ^ clkbuf_leaf_1_clk_i/Z (BUF_X32)
+     9   12.53                           clknet_leaf_1_clk_i (net)
+                  0.01    0.00    3.17 ^ gen_encoder_units[3].encoder_unit/_514_/CK (DFFR_X1)
+                          0.00    3.17   clock reconvergence pessimism
+                          0.03    3.20   library recovery time
+                                  3.20   data required time
+-----------------------------------------------------------------------------
+                                  3.20   data required time
+                                 -0.69   data arrival time
+-----------------------------------------------------------------------------
+                                  2.51   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2969_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2424_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: gated clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock source latency
+                  0.00    0.00    1.50 v clk_i (in)
+     1   44.59                           clk_i (net)
+                  0.03    0.02    1.52 v clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    1.56 v clkbuf_0_clk_i/Z (BUF_X32)
+     2   61.58                           clknet_0_clk_i (net)
+                  0.01    0.01    1.56 v clkbuf_1_1__f_clk_i/A (BUF_X32)
+                  0.01    0.03    1.59 v clkbuf_1_1__f_clk_i/Z (BUF_X32)
+    11  329.20                           clknet_1_1__leaf_clk_i (net)
+                  0.03    0.02    1.62 v clkbuf_leaf_19_clk_i/A (BUF_X32)
+                  0.01    0.03    1.65 v clkbuf_leaf_19_clk_i/Z (BUF_X32)
+     4   10.40                           clknet_leaf_19_clk_i (net)
+                  0.01    0.00    1.65 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.07    0.08    1.73 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   29.61                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.07    0.00    1.73 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.02    0.04    1.77 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     8  218.59                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.02    0.01    1.78 ^ clkbuf_3_4__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.02    1.80 ^ clkbuf_3_4__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     5   18.26                           clknet_3_4__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.01    0.00    1.80 ^ net644_67/A (INV_X1)
+                  0.01    0.01    1.82 v net644_67/ZN (INV_X1)
+     1    6.78                           net645 (net)
+                  0.01    0.00    1.82 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2969_/GN (DLL_X1)
+                  0.01    0.07    1.89 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2969_/Q (DLL_X1)
+     1    1.43                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[21].cg_i.en_latch (net)
+                  0.01    0.00    1.89 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2424_/A2 (AND2_X1)
+                                  1.89   data arrival time
+
+                          3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock source latency
+                  0.00    0.00    3.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    3.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    3.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    3.06 ^ clkbuf_1_1__f_clk_i/A (BUF_X32)
+                  0.01    0.03    3.09 ^ clkbuf_1_1__f_clk_i/Z (BUF_X32)
+    11  363.64                           clknet_1_1__leaf_clk_i (net)
+                  0.04    0.03    3.12 ^ clkbuf_leaf_19_clk_i/A (BUF_X32)
+                  0.01    0.02    3.14 ^ clkbuf_leaf_19_clk_i/Z (BUF_X32)
+     4   10.73                           clknet_leaf_19_clk_i (net)
+                  0.01    0.00    3.14 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.05    0.06    3.20 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   26.48                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.05    0.00    3.21 v clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.05    3.25 v clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     8  193.54                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.01    0.01    3.26 v clkbuf_3_5__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.00    0.02    3.28 v clkbuf_3_5__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     7   15.44                           clknet_3_5__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.00    0.00    3.28 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__19/A (INV_X1)
+                  0.01    0.01    3.30 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__19/ZN (INV_X1)
+     1    2.99                           net597 (net)
+                  0.01    0.00    3.30 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2424_/A1 (AND2_X1)
+                          0.00    3.30   clock reconvergence pessimism
+                          0.00    3.30   clock gating setup time
+                                  3.30   data required time
+-----------------------------------------------------------------------------
+                                  3.30   data required time
+                                 -1.89   data arrival time
+-----------------------------------------------------------------------------
+                                  1.41   slack (MET)
+
+
+Startpoint: gen_encoder_units[1].encoder_unit/threshold_memory/_152_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2721_
+          (positive level-sensitive latch clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    0.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    0.06 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  450.89                           clknet_1_0__leaf_clk_i (net)
+                  0.07    0.05    0.14 ^ clkbuf_leaf_5_clk_i/A (BUF_X32)
+                  0.01    0.03    0.17 ^ clkbuf_leaf_5_clk_i/Z (BUF_X32)
+    30   40.34                           clknet_leaf_5_clk_i (net)
+                  0.01    0.00    0.17 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_082_/A1 (NAND2_X1)
+                  0.05    0.06    0.23 v gen_encoder_units[1].encoder_unit/threshold_memory/_082_/ZN (NAND2_X1)
+     1   26.23                           gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.05    0.00    0.24 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.01    0.04    0.28 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     2   48.96                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.01    0.00    0.28 v clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.00    0.02    0.30 v clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     9   17.55                           clknet_1_1__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.00    0.00    0.30 v gen_encoder_units[1].encoder_unit/threshold_memory/_083__281/A (INV_X1)
+                  0.01    0.01    0.31 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_083__281/ZN (INV_X1)
+     1    1.35                           net859 (net)
+                  0.01    0.00    0.31 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_152_/CK (DFFR_X2)
+                  0.15    0.27    0.58 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_152_/Q (DFFR_X2)
+    76  135.11                           gen_encoder_units[1].encoder_unit/threshold_memory/wdata_a_q[7] (net)
+                  0.15    0.01    0.59 ^ max_cap450/A (BUF_X16)
+                  0.02    0.04    0.63 ^ max_cap450/Z (BUF_X16)
+    54   85.67                           net450 (net)
+                  0.03    0.02    0.64 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2721_/D (DLH_X1)
+                                  0.64   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    0.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    0.06 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  450.89                           clknet_1_0__leaf_clk_i (net)
+                  0.04    0.02    0.11 ^ clkbuf_leaf_4_clk_i/A (BUF_X32)
+                  0.01    0.03    0.14 ^ clkbuf_leaf_4_clk_i/Z (BUF_X32)
+     6   20.77                           clknet_leaf_4_clk_i (net)
+                  0.01    0.00    0.14 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.05    0.06    0.20 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   26.14                           gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.05    0.00    0.20 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.05    0.25 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     8  196.20                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.01    0.01    0.25 v clkbuf_3_4__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.00    0.03    0.28 v clkbuf_3_4__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+    10   20.42                           clknet_3_4__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.00    0.00    0.28 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__304/A (INV_X1)
+                  0.01    0.01    0.29 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__304/ZN (INV_X1)
+     1    1.78                           net882 (net)
+                  0.01    0.00    0.29 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2416_/A1 (AND2_X1)
+                  0.06    0.09    0.38 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2416_/ZN (AND2_X1)
+     1   27.99                           gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o (net)
+                  0.06    0.00    0.39 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/A (BUF_X32)
+                  0.01    0.03    0.42 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/Z (BUF_X32)
+     2   55.42                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o (net)
+                  0.01    0.00    0.42 ^ clkbuf_1_0__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/A (BUF_X32)
+                  0.00    0.02    0.44 ^ clkbuf_1_0__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/Z (BUF_X32)
+     9   12.12                           clknet_1_0__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o (net)
+                  0.00    0.00    0.44 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2721_/G (DLH_X1)
+                          0.00    0.44   clock reconvergence pessimism
+                          0.21    0.64   time borrowed from endpoint
+                                  0.64   data required time
+-----------------------------------------------------------------------------
+                                  0.64   data required time
+                                 -0.64   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk_i nominal pulse width               1.50
+clock latency difference               -0.02
+library setup time                     -0.02
+--------------------------------------------
+max time borrow                         1.46
+actual time borrow                      0.21
+--------------------------------------------
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: rst_ni (input port clocked by clk_i)
+Endpoint: gen_encoder_units[3].encoder_unit/_514_
+          (recovery check against rising-edge clock clk_i)
+Path Group: asynchronous
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock network delay (propagated)
+                          0.30    0.30 ^ input external delay
+                  0.00    0.00    0.30 ^ rst_ni (in)
+     1    1.23                           rst_ni (net)
+                  0.00    0.00    0.30 ^ hold1101/A (CLKBUF_X1)
+                  0.06    0.09    0.39 ^ hold1101/Z (CLKBUF_X1)
+     1   27.27                           net1679 (net)
+                  0.06    0.00    0.39 ^ input258/A (BUF_X32)
+                  0.02    0.04    0.43 ^ input258/Z (BUF_X32)
+   264  651.27                           net258 (net)
+                  0.12    0.09    0.52 ^ hold1102/A (BUF_X32)
+                  0.01    0.04    0.55 ^ hold1102/Z (BUF_X32)
+   144  413.52                           net1680 (net)
+                  0.16    0.13    0.69 ^ gen_encoder_units[3].encoder_unit/_514_/RN (DFFR_X1)
+                                  0.69   data arrival time
+
+                          3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock source latency
+                  0.00    0.00    3.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    3.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    3.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    3.06 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    3.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  450.89                           clknet_1_0__leaf_clk_i (net)
+                  0.07    0.06    3.15 ^ clkbuf_leaf_1_clk_i/A (BUF_X32)
+                  0.01    0.03    3.17 ^ clkbuf_leaf_1_clk_i/Z (BUF_X32)
+     9   12.53                           clknet_leaf_1_clk_i (net)
+                  0.01    0.00    3.17 ^ gen_encoder_units[3].encoder_unit/_514_/CK (DFFR_X1)
+                          0.00    3.17   clock reconvergence pessimism
+                          0.03    3.20   library recovery time
+                                  3.20   data required time
+-----------------------------------------------------------------------------
+                                  3.20   data required time
+                                 -0.69   data arrival time
+-----------------------------------------------------------------------------
+                                  2.51   slack (MET)
+
+
+Startpoint: gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2969_
+            (negative level-sensitive latch clocked by clk_i)
+Endpoint: gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2424_
+          (rising clock gating-check end-point clocked by clk_i)
+Path Group: gated clock
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          1.50    1.50   clock clk_i (fall edge)
+                          0.00    1.50   clock source latency
+                  0.00    0.00    1.50 v clk_i (in)
+     1   44.59                           clk_i (net)
+                  0.03    0.02    1.52 v clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    1.56 v clkbuf_0_clk_i/Z (BUF_X32)
+     2   61.58                           clknet_0_clk_i (net)
+                  0.01    0.01    1.56 v clkbuf_1_1__f_clk_i/A (BUF_X32)
+                  0.01    0.03    1.59 v clkbuf_1_1__f_clk_i/Z (BUF_X32)
+    11  329.20                           clknet_1_1__leaf_clk_i (net)
+                  0.03    0.02    1.62 v clkbuf_leaf_19_clk_i/A (BUF_X32)
+                  0.01    0.03    1.65 v clkbuf_leaf_19_clk_i/Z (BUF_X32)
+     4   10.40                           clknet_leaf_19_clk_i (net)
+                  0.01    0.00    1.65 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.07    0.08    1.73 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   29.61                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.07    0.00    1.73 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.02    0.04    1.77 ^ clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     8  218.59                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.02    0.01    1.78 ^ clkbuf_3_4__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.02    1.80 ^ clkbuf_3_4__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     5   18.26                           clknet_3_4__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.01    0.00    1.80 ^ net644_67/A (INV_X1)
+                  0.01    0.01    1.82 v net644_67/ZN (INV_X1)
+     1    6.78                           net645 (net)
+                  0.01    0.00    1.82 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2969_/GN (DLL_X1)
+                  0.01    0.07    1.89 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2969_/Q (DLL_X1)
+     1    1.43                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[21].cg_i.en_latch (net)
+                  0.01    0.00    1.89 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2424_/A2 (AND2_X1)
+                                  1.89   data arrival time
+
+                          3.00    3.00   clock clk_i (rise edge)
+                          0.00    3.00   clock source latency
+                  0.00    0.00    3.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    3.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    3.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    3.06 ^ clkbuf_1_1__f_clk_i/A (BUF_X32)
+                  0.01    0.03    3.09 ^ clkbuf_1_1__f_clk_i/Z (BUF_X32)
+    11  363.64                           clknet_1_1__leaf_clk_i (net)
+                  0.04    0.03    3.12 ^ clkbuf_leaf_19_clk_i/A (BUF_X32)
+                  0.01    0.02    3.14 ^ clkbuf_leaf_19_clk_i/Z (BUF_X32)
+     4   10.73                           clknet_leaf_19_clk_i (net)
+                  0.01    0.00    3.14 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.05    0.06    3.20 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   26.48                           gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.05    0.00    3.21 v clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.05    3.25 v clkbuf_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     8  193.54                           clknet_0_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.01    0.01    3.26 v clkbuf_3_5__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.00    0.02    3.28 v clkbuf_3_5__f_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     7   15.44                           clknet_3_5__leaf_gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.00    0.00    3.28 v gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__19/A (INV_X1)
+                  0.01    0.01    3.30 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__19/ZN (INV_X1)
+     1    2.99                           net597 (net)
+                  0.01    0.00    3.30 ^ gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2424_/A1 (AND2_X1)
+                          0.00    3.30   clock reconvergence pessimism
+                          0.00    3.30   clock gating setup time
+                                  3.30   data required time
+-----------------------------------------------------------------------------
+                                  3.30   data required time
+                                 -1.89   data arrival time
+-----------------------------------------------------------------------------
+                                  1.41   slack (MET)
+
+
+Startpoint: gen_encoder_units[1].encoder_unit/threshold_memory/_152_
+            (rising edge-triggered flip-flop clocked by clk_i)
+Endpoint: gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2721_
+          (positive level-sensitive latch clocked by clk_i)
+Path Group: clk_i
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    0.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    0.06 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  450.89                           clknet_1_0__leaf_clk_i (net)
+                  0.07    0.05    0.14 ^ clkbuf_leaf_5_clk_i/A (BUF_X32)
+                  0.01    0.03    0.17 ^ clkbuf_leaf_5_clk_i/Z (BUF_X32)
+    30   40.34                           clknet_leaf_5_clk_i (net)
+                  0.01    0.00    0.17 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_082_/A1 (NAND2_X1)
+                  0.05    0.06    0.23 v gen_encoder_units[1].encoder_unit/threshold_memory/_082_/ZN (NAND2_X1)
+     1   26.23                           gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.05    0.00    0.24 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.01    0.04    0.28 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     2   48.96                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.01    0.00    0.28 v clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/A (BUF_X32)
+                  0.00    0.02    0.30 v clkbuf_1_1__f_gen_encoder_units[1].encoder_unit/threshold_memory/_040_/Z (BUF_X32)
+     9   17.55                           clknet_1_1__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/_040_ (net)
+                  0.00    0.00    0.30 v gen_encoder_units[1].encoder_unit/threshold_memory/_083__281/A (INV_X1)
+                  0.01    0.01    0.31 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_083__281/ZN (INV_X1)
+     1    1.35                           net859 (net)
+                  0.01    0.00    0.31 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_152_/CK (DFFR_X2)
+                  0.15    0.27    0.58 ^ gen_encoder_units[1].encoder_unit/threshold_memory/_152_/Q (DFFR_X2)
+    76  135.11                           gen_encoder_units[1].encoder_unit/threshold_memory/wdata_a_q[7] (net)
+                  0.15    0.01    0.59 ^ max_cap450/A (BUF_X16)
+                  0.02    0.04    0.63 ^ max_cap450/Z (BUF_X16)
+    54   85.67                           net450 (net)
+                  0.03    0.02    0.64 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2721_/D (DLH_X1)
+                                  0.64   data arrival time
+
+                          0.00    0.00   clock clk_i (rise edge)
+                          0.00    0.00   clock source latency
+                  0.00    0.00    0.00 ^ clk_i (in)
+     1   47.72                           clk_i (net)
+                  0.03    0.03    0.03 ^ clkbuf_0_clk_i/A (BUF_X32)
+                  0.01    0.03    0.05 ^ clkbuf_0_clk_i/Z (BUF_X32)
+     2   67.84                           clknet_0_clk_i (net)
+                  0.01    0.01    0.06 ^ clkbuf_1_0__f_clk_i/A (BUF_X32)
+                  0.01    0.03    0.09 ^ clkbuf_1_0__f_clk_i/Z (BUF_X32)
+    14  450.89                           clknet_1_0__leaf_clk_i (net)
+                  0.04    0.02    0.11 ^ clkbuf_leaf_4_clk_i/A (BUF_X32)
+                  0.01    0.03    0.14 ^ clkbuf_leaf_4_clk_i/Z (BUF_X32)
+     6   20.77                           clknet_leaf_4_clk_i (net)
+                  0.01    0.00    0.14 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/A1 (NAND2_X1)
+                  0.05    0.06    0.20 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2398_/ZN (NAND2_X1)
+     1   26.14                           gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.05    0.00    0.20 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.01    0.05    0.25 v clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+     8  196.20                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.01    0.01    0.25 v clkbuf_3_4__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/A (BUF_X32)
+                  0.00    0.03    0.28 v clkbuf_3_4__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_/Z (BUF_X32)
+    10   20.42                           clknet_3_4__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_0846_ (net)
+                  0.00    0.00    0.28 v gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__304/A (INV_X1)
+                  0.01    0.01    0.29 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2399__304/ZN (INV_X1)
+     1    1.78                           net882 (net)
+                  0.01    0.00    0.29 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2416_/A1 (AND2_X1)
+                  0.06    0.09    0.38 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2416_/ZN (AND2_X1)
+     1   27.99                           gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o (net)
+                  0.06    0.00    0.39 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/A (BUF_X32)
+                  0.01    0.03    0.42 ^ clkbuf_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/Z (BUF_X32)
+     2   55.42                           clknet_0_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o (net)
+                  0.01    0.00    0.42 ^ clkbuf_1_0__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/A (BUF_X32)
+                  0.00    0.02    0.44 ^ clkbuf_1_0__f_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o/Z (BUF_X32)
+     9   12.12                           clknet_1_0__leaf_gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/gen_cg_word_iter[14].cg_i.clk_o (net)
+                  0.00    0.00    0.44 ^ gen_encoder_units[1].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_2721_/G (DLH_X1)
+                          0.00    0.44   clock reconvergence pessimism
+                          0.21    0.64   time borrowed from endpoint
+                                  0.64   data required time
+-----------------------------------------------------------------------------
+                                  0.64   data required time
+                                 -0.64   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+Time Borrowing Information
+--------------------------------------------
+clk_i nominal pulse width               1.50
+clock latency difference               -0.02
+library setup time                     -0.02
+--------------------------------------------
+max time borrow                         1.46
+actual time borrow                      0.21
+--------------------------------------------
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+gen_encoder_units[1].encoder_unit/threshold_memory/_152_/Q  120.85  135.11  -14.26 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/_153_/Q  120.85  134.94  -14.09 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_159_/Q  120.85  133.06  -12.21 (VIOLATED)
+gen_encoder_units[2].encoder_unit/threshold_memory/_146_/Q  120.85  132.03  -11.18 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_154_/Q  120.85  129.99   -9.14 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_151_/Q  120.85  129.93   -9.08 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_160_/Q  120.85  129.36   -8.51 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_156_/Q  120.85  126.78   -5.93 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/gen_sub_units_scm[3].sub_unit_i/_1264_/ZN  106.81  110.68   -3.87 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_149_/Q  120.85  123.43   -2.58 (VIOLATED)
+gen_encoder_units[0].encoder_unit/threshold_memory/gen_sub_units_scm[0].sub_unit_i/_1264_/ZN  106.81  109.39   -2.58 (VIOLATED)
+gen_encoder_units[3].encoder_unit/threshold_memory/_150_/Q  120.85  123.41   -2.56 (VIOLATED)
+gen_encoder_units[1].encoder_unit/threshold_memory/_154_/Q  120.85  121.79   -0.94 (VIOLATED)
+gen_encoder_units[1].encoder_unit/_389_/ZN   52.03   52.36   -0.33 (VIOLATED)
+
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+0.05028250068426132
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.2533
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+-14.26429271697998
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+120.8499984741211
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+-0.1180
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 14
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 1
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 1
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+0.6445
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+0.000000
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             3.50e-03   8.57e-04   3.96e-04   4.76e-03  21.5%
+Combinational          9.67e-03   6.02e-03   1.71e-03   1.74e-02  78.5%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.32e-02   6.87e-03   2.11e-03   2.22e-02 100.0%
+                          59.5%      31.0%       9.5%
+
+==========================================================================
+global route report_design_area
+--------------------------------------------------------------------------
+Design area 70322 u^2 58% utilization.
+
+
+==========================================================================
+check_antennas
+--------------------------------------------------------------------------
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO ANT-0002] Found 0 net violations.
+[INFO ANT-0001] Found 0 pin violations.
+[INFO FLW-0007] clock clk_i period 3.000000
+[INFO FLW-0008] Clock clk_i period 2.850
+[INFO FLW-0009] Clock clk_i slack 0.000
+[INFO FLW-0011] Path endpoint count 10477
+Elapsed time: 0:25.19[h:]min:sec. CPU time: user 24.74 sys 0.42 (99%). Peak memory: 595996KB.
