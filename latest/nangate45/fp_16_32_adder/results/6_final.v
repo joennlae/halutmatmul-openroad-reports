@@ -1,4 +1,4 @@
-module fp_16_32_adder (operand_fp16_i,
+module fp_16_32_adder__6142509188972423790 (operand_fp16_i,
     operand_fp32_i,
     result_o);
  input [15:0] operand_fp16_i;
